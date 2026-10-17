@@ -16,6 +16,18 @@ AI Harness 的代码仓库。
 
 详见 [`packages/ai-harness/README.md`](packages/ai-harness/README.md)。
 
+## 分发方式
+
+本仓库是包的唯一事实来源，版本以 tag 标记（当前 `v1.3.0`）。安装：
+
+```powershell
+npm i -g .\packages\ai-harness          # 从本地检出
+# 或先打包再拷到目标机器：
+cd packages\ai-harness; npm pack; npm i -g .\hujiale2609-ai-harness-1.3.0.tgz
+```
+
+发布到 npm 属可选动作，需维护者登录后执行（见 `packages/ai-harness/README.md`）。
+
 ## 版本与发布
 
 ```bash

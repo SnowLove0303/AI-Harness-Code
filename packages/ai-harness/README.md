@@ -28,10 +28,13 @@ pnpm pack                 # 产出 .tgz（也可在包目录内 npm pack）
 pnpm release              # 发布到 npm（需先 npm login）
 ```
 
-## 发布前提
+## 分发方式
 
-- `npm login`：凭据由维护者本人提供，仓库与脚本不保存凭据。
-- 作用域 `@hujiale2609` 的发布权限。
+本仓库是唯一事实来源；`1.3.0` 随仓库发布，标记为 tag `v1.3.0`。
+
+- **从本地检出安装（当前可用）**：在仓库根执行 `npm i -g .\packages\ai-harness`；或先 `cd packages\ai-harness; npm pack`，把产出的 `.tgz` 拷到目标机器执行 `npm i -g <tgz>`。
+- **从远端克隆安装**：`git clone https://github.com/SnowLove0303/AI-Harness-Code.git`，再按上一条安装。
+- **发布到 npm（可选，尚未执行）**：需要维护者完成 `npm login`（本机当前 `npm whoami` → `ENEEDAUTH`）并具备作用域 `@hujiale2609` 的发布权限，随后 `pnpm release`；发布后才可使用 `npm i -g @hujiale2609/ai-harness` 一句话安装。
 
 ## 变更记录
 
