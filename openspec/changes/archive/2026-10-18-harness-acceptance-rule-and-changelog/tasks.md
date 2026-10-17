@@ -32,4 +32,4 @@
 ## 5. 收尾
 
 - [x] 5.1 维护 README 记录本次变更与版本策略；验证：README 含变更记录章节并指向 `CHANGELOG.md`
-- [ ] 5.2 归档本 change 并同步主规格；验证：`openspec archive harness-acceptance-rule-and-changelog -y` 成功且 `openspec validate` 通过
+- [x] 5.2 归档本 change 并同步主规格；验证：`openspec archive harness-acceptance-rule-and-changelog -y` 成功且 `openspec validate` 通过
