@@ -33,6 +33,12 @@ pnpm release              # 发布到 npm（需先 npm login）
 - `npm login`：凭据由维护者本人提供，仓库与脚本不保存凭据。
 - 作用域 `@hujiale2609` 的发布权限。
 
+## 变更记录
+
+面向使用者的变更以 Changesets 记录，版本条目写入 [`CHANGELOG.md`](CHANGELOG.md) 并随包分发。已知版本：
+
+- `1.3.0` — `templates/default/AGENTS.md` 内置通用执行纪律（规格落点先行、工程不变量、变更可追溯与原子化、人工验收归口）；内容位于占位符之外，作者填写占位符后仍然保留。
+- `1.2.2` — 本仓库的复制基线。
 ## 两条容易踩的机制
 
 1. **`init` 只增不改**：`dist/core/initialize.js` 在目标文件已存在时直接 `skipped`。模板改动**只对将来新初始化的根生效**；已有根（例如 `~/.dsh`）需手工同步，或给 CLI 增加 `update` 命令（需上游源码）。
