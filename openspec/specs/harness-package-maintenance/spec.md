@@ -1,7 +1,7 @@
 # harness-package-maintenance Specification
 
 ## Purpose
-TBD - created by archiving change harness-acceptance-rule-and-changelog. Update Purpose after archive.
+定义 ai-harness 包维护仓库的约束：受管文档模板内置通用执行纪律（含人工验收归口）、以 Changesets 维护并随包分发变更记录，以及补丁层维护的边界与可验证性。
 
 ## Requirements
 
@@ -14,7 +14,7 @@ ai-harness 的受管文档模板（`templates/default/AGENTS.md`）SHALL 在四�
 3. `Completion Criteria` 章节 SHALL 含一条「人工验收闭环」准出标准：以人工确认结论作为该项准出依据。
 4. `Ask for Human Judgment When` 章节 SHALL 含一条覆盖 UI 视觉、交互与验收取向的介入触发条件。
 
-该规则文本 SHALL 位于模板的 `<!-- harness:placeholder -->` 块之外（以保证作者填写占位符时不致删除），SHALL 以正向行动化表述书写（定义允许的标准动作与确定性状态流转），文件编码 SHALL 为 UTF-8。
+该规则文本 SHALL 位于模板的占位符块之外，并以正向行动化表述书写。
 
 #### Scenario: 新初始化的根开箱具备人工验收纪律
 - **WHEN** 在任意目录执行 `ai-harness init`
