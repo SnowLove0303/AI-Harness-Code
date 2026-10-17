@@ -27,9 +27,9 @@
 - [x] 4.1 新建 `.changeset/harness-acceptance-rule.md`（`@hujiale2609/ai-harness: minor`）并写明对使用者的影响；验证：Changesets v3.0.3 成功应用该记录
 - [x] 4.2 应用版本：`pnpm install` → `pnpm version-packages`；验证：包版本 `1.2.2 → 1.3.0`，`packages/ai-harness/CHANGELOG.md` 生成且含 `1.3.0` 条目，`.changeset/*.md` 已被消费
 - [x] 4.3 打包并断言 `CHANGELOG.md` 随包分发；验证：`hujiale2609-ai-harness-1.3.0.tgz` 共 **84 个文件 = 官方 82 + CHANGELOG.md + README.md**，缺失 0，模板新纪律已包含在内
-- [ ] 4.4 提交并推送：提交信息与 change 名称对应，仅含本次相关改动；验证：`git push` 成功且工作区干净
+- [x] 4.4 提交并推送：提交信息与 change 名称对应，仅含本次相关改动；验证：`git push` 成功且工作区干净
 
 ## 5. 收尾
 
-- [ ] 5.1 维护 README 记录本次变更与版本策略；验证：README 含变更记录章节并指向 `CHANGELOG.md`
+- [x] 5.1 维护 README 记录本次变更与版本策略；验证：README 含变更记录章节并指向 `CHANGELOG.md`
 - [ ] 5.2 归档本 change 并同步主规格；验证：`openspec archive harness-acceptance-rule-and-changelog -y` 成功且 `openspec validate` 通过
