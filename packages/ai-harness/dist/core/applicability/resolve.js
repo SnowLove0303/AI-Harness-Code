@@ -1,0 +1,3 @@
+export function resolveApplicability(schema, report) { const configured = schema.applicability ?? "required"; if (typeof configured === "string")
+    return { document: schema.path, state: configured === "conditional" ? "not_applicable" : configured, reasons: [] }; const policy = configured; const matched = (policy.when_any ?? []).filter((capability) => report.capabilities.includes(capability)); return { document: schema.path, state: matched.length ? policy.present : policy.absent, reasons: matched.flatMap((capability) => report.reasons[capability] ?? []) }; }
+//# sourceMappingURL=resolve.js.map

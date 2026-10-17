@@ -1,0 +1,19 @@
+import { readFile, readdir } from "node:fs/promises";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { parse } from "yaml";
+export async function loadSchemas(directory = resolve(process.cwd(), "schemas")) {
+    const names = (await readdir(directory)).filter((name) => /\.ya?ml$/i.test(name)).sort();
+    return Promise.all(names.map(async (name) => parse(await readFile(join(directory, name), "utf8"))));
+}
+export async function loadBundledSchemas() {
+    const moduleDirectory = dirname(fileURLToPath(import.meta.url));
+    for (const directory of [resolve(process.cwd(), "schemas"), resolve(moduleDirectory, "../../../schemas")]) {
+        try {
+            return await loadSchemas(directory);
+        }
+        catch { /* try next location */ }
+    }
+    throw new Error("Unable to locate bundled document schemas.");
+}
+//# sourceMappingURL=loader.js.map

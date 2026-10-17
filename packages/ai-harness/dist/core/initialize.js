@@ -1,0 +1,48 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join, relative, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { exists } from "./paths.js";
+import { detectCapabilities } from "./applicability/detect.js";
+import { resolveApplicability } from "./applicability/resolve.js";
+import { loadBundledSchemas } from "./schema/loader.js";
+const templateRoot = resolve(fileURLToPath(new URL("../../templates/default", import.meta.url)));
+const bundledSkillRoot = resolve(fileURLToPath(new URL("../../.agents/skills", import.meta.url)));
+const directoryTemplates = [
+    ".agents/skills/manage-docs/SKILL.md",
+];
+const alwaysInstalledSkills = directoryTemplates;
+async function templateFor(path) {
+    if (path.startsWith(".agents/skills/"))
+        return readFile(join(bundledSkillRoot, path.slice(".agents/skills/".length)), "utf8");
+    return readFile(join(templateRoot, path), "utf8");
+}
+async function addTemplate(root, path, results) {
+    const target = join(root, path);
+    if (await exists(target)) {
+        results.push({ path, status: "skipped" });
+        return;
+    }
+    await mkdir(dirname(target), { recursive: true });
+    await writeFile(target, await templateFor(path), "utf8");
+    results.push({ path, status: "created" });
+}
+export async function initializeHarness(target = process.cwd()) {
+    const root = resolve(target);
+    await mkdir(root, { recursive: true });
+    const results = [];
+    const [schemas, capabilities] = await Promise.all([loadBundledSchemas(), detectCapabilities(root)]);
+    const applicableDocuments = schemas.filter((schema) => ["required", "recommended"].includes(resolveApplicability(schema, capabilities).state)).map((schema) => schema.path);
+    const backendApplicable = applicableDocuments.includes("docs/BACKEND.md");
+    const skills = backendApplicable ? directoryTemplates : alwaysInstalledSkills;
+    for (const path of [...applicableDocuments, ...skills])
+        await addTemplate(root, path, results);
+    const emptyDirectories = ["docs/product-specs", "docs/references", "docs/generated"];
+    for (const path of emptyDirectories) {
+        const target = join(root, path);
+        const present = await exists(target);
+        await mkdir(target, { recursive: true });
+        results.push({ path, status: present ? "existing" : "created" });
+    }
+    return { root, files: results.map((entry) => ({ ...entry, path: relative(root, join(root, entry.path)) || entry.path })) };
+}
+//# sourceMappingURL=initialize.js.map

@@ -1,0 +1,5 @@
+node_modules/
+*.tgz
+package.json.orig
+.DS_Store
+Thumbs.db
