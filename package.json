@@ -11,7 +11,8 @@
   "scripts": {
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "guard:neutrality": "node scripts/check-packaged-docs-neutrality.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

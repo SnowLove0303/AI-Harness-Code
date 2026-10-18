@@ -1,55 +1,61 @@
-# @hujiale2609/ai-harness — 维护说明（补丁层）
+# @hujiale2609/ai-harness
 
-本目录是 npm 包 `@hujiale2609/ai-harness` 在 [AI-Harness-Code](../../) 仓库中的维护位置。
+仓库级 AI 开发规范基座：把项目该有的四份工程文档变成**可校验的契约**，让它们随仓库一起演进。
 
-## 为什么是"补丁层"
+## 它解决什么问题
 
-上游 TypeScript 源码尚未接入本仓库，而 npm 上发布的是**编译产物**：
+AI 编码工具每次进入仓库都要重新"猜"这个项目怎么协作：用什么技术栈、哪些约束不能破、验收以什么为准。本包把这些沉淀为四份受管文档，并为每份定义**严格的结构契约**——章节必须齐全、顺序固定、不得残留占位符——于是"文档是否可用"从主观判断变成一条命令的客观结论。
 
-- `dist/*.js` 为编译结果；18 个 `*.js.map` **均未内嵌 `sourcesContent`**，无法由产物还原源码。
-- 但承载规则的资产全是**纯文本**：`templates/`、`schemas/`、`.agents/`。改它们**不需要重新编译**。
+## 四份受管文档
 
-| 内容 | 角色 | 能否修改 |
-|:--|:--|:--|
-| `templates/` | `init` 逐字复制到目标根的四份受管文档模板 | ✅ 直接改 |
-| `schemas/` | `ai-harness validate` 的四份 Schema 契约 | ✅ 直接改 |
-| `.agents/` | 随包分发的技能（`manage-docs`） | ✅ 直接改 |
-| `dist/` | **vendored 编译产物**，原样保留 | ❌ 不改 |
+| 文档 | 记录什么 |
+|:--|:--|
+| `AGENTS.md` | 项目概述与技术基线、工程不变量、任务路由与事实来源、高频指令、准出标准、人工介入条件 |
+| `ARCHITECTURE.md` | 系统拓扑与职责边界、仓库边界、单向依赖流向、跨端契约、共享数据架构、架构决策与演进 |
+| `docs/FRONTEND.md` | 前端技术栈基线、源码分层与所有权、样式所有权分工、状态分类与取数、路由与数据生命周期、交互反馈 |
+| `docs/BACKEND.md` | 运行时基线、分包与分层边界、配置与安全操作、持久化与隔离、并发与可靠性、后端不变量 |
 
-**边界**：本目录可发布"模板 / Schema / 技能"层面的变更，尚不能修改 CLI 行为。要改 CLI，须先把上游源码接入本仓库。
+条件性文档按仓库实际能力判定是否适用；不适用的文档不会生成。
 
-## 命令（在仓库根执行）
+## 命令
 
 ```bash
-pnpm install
-pnpm changeset            # 记录一条面向使用者的变更
-pnpm version-packages     # 递增版本并写入 CHANGELOG.md
-pnpm pack                 # 产出 .tgz（也可在包目录内 npm pack）
-pnpm release              # 发布到 npm（需先 npm login）
+ai-harness init                     # 在当前仓库铺开适用的受管文档与随包技能
+ai-harness status                   # 受管文档就绪度总览（默认输出 JSON）
+ai-harness validate [file] --json   # 按 Schema 校验单份或全部受管文档
+ai-harness inspect --json           # 采集仓库事实（能力探测等）
+ai-harness context <domain>         # 输出对应领域的上下文
 ```
 
-## 分发方式
+`init` 只增不改：目标文件已存在即跳过，因此可以安全地重复执行。
 
-本仓库是唯一事实来源；`1.3.0` 随仓库发布，标记为 tag `v1.3.0`。
+## 校验模型
 
-- **从本地检出安装（当前可用）**：在仓库根执行 `npm i -g .\packages\ai-harness`；或先 `cd packages\ai-harness; npm pack`，把产出的 `.tgz` 拷到目标机器执行 `npm i -g <tgz>`。
-- **从远端克隆安装**：`git clone https://github.com/SnowLove0303/AI-Harness-Code.git`，再按上一条安装。
-- **发布到 npm（可选，尚未执行）**：需要维护者完成 `npm login`（本机当前 `npm whoami` → `ENEEDAUTH`）并具备作用域 `@hujiale2609` 的发布权限，随后 `pnpm release`；发布后才可使用 `npm i -g @hujiale2609/ai-harness` 一句话安装。
+- 每份文档的章节集合、层级与顺序由 `schemas/*.yaml` 约束；可扩展 `required_subsections`、`required_patterns`、`forbidden_patterns`、`conditional_subsections`、`references` 等规则。
+- 章节必须含实质内容；空章节与 `TODO` 视为不合格。
+- 初始化占位符 `<!-- harness:placeholder -->` 必须被替换，否则校验不通过。
 
-## 变更记录
+## `AGENTS.md` 模板内置的通用纪律
 
-面向使用者的变更以 Changesets 记录，版本条目写入 [`CHANGELOG.md`](CHANGELOG.md) 并随包分发。已知版本：
+`init` 生成的 `AGENTS.md` 在四个章节里自带一组与具体项目无关的通用纪律：
 
-- `1.3.0` — `templates/default/AGENTS.md` 内置通用执行纪律（规格落点先行、工程不变量、变更可追溯与原子化、人工验收归口）；内容位于占位符之外，作者填写占位符后仍然保留。
-- `1.2.2` — 本仓库的复制基线。
-## 两条容易踩的机制
+- **Operating Invariants**：规格落点先行、只读任务同样受规格约束、规格高于代码、差分作用域验证、最小因果集与保留现状、根因闭环与真实契约验证、符号事实锚定、变更可追溯与原子化、人工验收归口。
+- **Task Routing**：功能验收与 UI 界面调整，以人工判定结论为权威来源。
+- **Completion Criteria**：人工验收闭环——人工结论到达前，该项保持未勾选。
+- **Ask for Human Judgment When**：涉及 UI 界面调整或功能验收的最终判定。
 
-1. **`init` 只增不改**：`dist/core/initialize.js` 在目标文件已存在时直接 `skipped`。模板改动**只对将来新初始化的根生效**；已有根（例如 `~/.dsh`）需手工同步，或给 CLI 增加 `update` 命令（需上游源码）。
-2. **编码**：模板与技能文件含中文，均为 **UTF-8**。编辑必须保持 UTF-8，否则中文字面量会被破坏。
+这些条目写在模板占位符**之外**，因此作者填写自己的项目内容后依然保留；需要调整时直接编辑生成后的文档即可。
 
-## 溯源
+## 安装
 
-`templates/`、`schemas/`、`.agents/`、`dist/` 逐字节复制自已发布的 `@hujiale2609/ai-harness@1.2.2`，迁移后经 SHA256 全等校验（81/81）。
+```bash
+npm i -g @hujiale2609/ai-harness     # 从 npm 安装已发布版本
+npm i -g <本目录>                     # 从源码目录安装
+npm pack && npm i -g ./<产出的 tgz>   # 或先打包再安装
+```
 
-- 查看发布物：`npm view @hujiale2609/ai-harness@1.2.2 --json`
-- 取回官方产物：`npm pack @hujiale2609/ai-harness@1.2.2`
+## 兼容性
+
+本包只依赖 `AGENTS.md` 这一通用约定与自身的命令行工具。任何读取 `AGENTS.md` 的 agent 工具都可以直接采用生成的文档；包内内容不依赖特定宿主工具或其私有配置。
+
+维护者视角的说明（维护模型、版本与分发方式）记录在仓库根文档中。
