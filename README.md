@@ -6,6 +6,9 @@ AI Harness 的代码仓库。
 
 | 路径 | 说明 |
 |:--|:--|
+| `GLOBAL-RULES.md` | Antigravity 跨线程最高法定全局规则（含五层防御金字塔/双环驱动/防线下沉自迭代） |
+| `skills/pstack-openspec/` | Pstack + AI-Harness + OpenSpec 工业级 Vibe Coding 闭环且可自迭代执行技能与剧本库 |
+| `skills/xmind-cloud-mcp/` | 官方 Xmind 云端 MCP 深度协同指南与通用持久化客户端脚本 |
 | `packages/ai-harness/` | npm 包 `@hujiale2609/ai-harness`（补丁层维护形态） |
 | `openspec/` | 本仓库的规格根（capabilities 与 changes） |
 | `.changeset/` | Changesets 配置与待发布变更记录 |
