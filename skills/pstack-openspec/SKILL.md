@@ -1,12 +1,12 @@
 ---
 name: pstack-openspec
-description: "Lauren Tan (@poteto) 的 Pstack 体系与 AI-Harness、OpenSpec 深度咬合的工业级 Vibe Coding 闭环且可自迭代执行方法论。融合了五层信任与防御金字塔（L1架构承重墙/L2静态分析ESLint/L3契约立法/L4自验证Feature Map/L5双清单门禁与人机审阅）、双环驱动引擎（Inner Loop任务微循环/Outer Loop代码库园丁与长程演进）、五步实战闭环SOP及踩坑自动下沉自迭代机制（Self-Iterating Defense Escalation）。触发词：pstack/poteto/poteto-mode/unslop/interrogate/how/why/pstack-openspec/双清单/工业级闭环/自迭代"
+description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack 体系与 AI-Harness、OpenSpec 深度咬合的工业级 Vibe Coding 闭环且可自迭代执行方法论。融合了五层信任与防御金字塔（L1架构承重墙/L2静态分析ESLint/L3契约立法/L4自验证Feature Map/L5双清单门禁与人机审阅）、双环驱动引擎（Inner Loop任务微循环/Outer Loop代码库园丁与长程演进）、五步实战闭环SOP及踩坑自动下沉自迭代机制（Self-Iterating Defense Escalation）。触发词：orbitstack/orbit-stack/pstack/poteto/poteto-mode/unslop/interrogate/how/why/pstack-openspec/双清单/工业级闭环/自迭代"
 ---
 
-# Pstack & AI-Harness & OpenSpec 工业级闭环且可自迭代执行方法论
+# OrbitStack 轨道工程体系 (Pstack & AI-Harness & OpenSpec 工业级自迭代方法论)
 
 > **核心哲学**：**Throughput Comes From Trust (吞吐量源于信任体系，而非盲目堆砌 Agent)**。
-> 本技能将 **Lauren Tan（@poteto）的 Pstack 严密工程准则**、**Hujiale 的 AI-Harness（工程底座与承重墙）**、**OpenSpec（增量立法与规格生命周期）** 以及 **VS Code 原生两栏 Diff 触觉检阅** 深度咬合，构成跨项目、跨任务、具备**自我进化（Self-Iterating）**能力的工业级 Vibe Coding 闭环研发方法论。
+> **OrbitStack（轨道工程体系）** 将 **Lauren Tan（@poteto）的 Pstack 严密工程准则**、**Hujiale 的 AI-Harness（工程底座与承重墙）**、**OpenSpec（增量立法与规格生命周期）** 以及 **VS Code 原生两栏 Diff 触觉检阅** 深度咬合，构成跨项目、跨任务、具备**自我进化（Self-Iterating）**能力的工业级 Vibe Coding 闭环研发方法论。如同现代航天器进入精确预定轨道，多 Agent 在受控轨道上高通量运行而绝不相撞。
 
 ---
 

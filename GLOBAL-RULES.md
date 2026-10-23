@@ -25,9 +25,9 @@
 
 ---
 
-## 二、Pstack + AI-Harness + OpenSpec 工业级闭环且可自迭代执行体系 (全任务强制执行)
+## 二、OrbitStack 轨道工程体系 (Pstack + AI-Harness + OpenSpec 工业级闭环且可自迭代体系)
 
-每个线程、每次任务，必须无条件遵循由 **Lauren Tan（@poteto）Pstack 严密工程准则**、**AI-Harness（工程承重墙）**、**OpenSpec（增量生命周期）** 构成的**五层防御金字塔**、**双环驱动**与**防线下沉自迭代闭环**：
+每个线程、每次任务，必须无条件遵循以 **OrbitStack（轨道工程体系）** 为法定核心的工业级自迭代研发方法论。本体系由 **Lauren Tan（@poteto）Pstack 严密工程准则**、**AI-Harness（工程承重墙）** 与 **OpenSpec（增量生命周期）** 深度咬合，构成**五层防御金字塔**、**双环驱动**与**防线下沉自迭代闭环**：
 
 ### 1. 核心防御：Lauren Tan 五层信任金字塔 (从强到弱)
 - **Layer 1（架构与类型承重墙）**：状态机显式建模（非法状态在类型层不可表达）、源码级防篡改封印（`@ANTIGRAVITY_INVARIANT_LOCK`）、专属领域引擎唯一路由公理（严禁私写脚本直改受控产出物）；
