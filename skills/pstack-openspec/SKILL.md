@@ -85,10 +85,14 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 读取 `AGENTS.md`、`ARCHITECTURE.md`，执行 `npx ai-harness status` 确认健康度；
    - 识别代码内源码级封印：`// @ANTIGRAVITY_INVARIANT_LOCK`（绝对只读豁免）；
    - 识别专属引擎唯一路由公理：严禁绕开官方流水线直接修改底层业务生成物；
-2. **拒绝模糊对话，匹配固定剧本**：
+2. **需求理解与对抗反问门禁 (/clarify & /interrogate)**：
+   - **借鉴 github/spec-kit 与 pstack**：在动工前主动挖掘边界遗漏、非法状态拒绝策略与既有契约冲突；
+   - 遇到模糊输入或二选一技术选型，必须通过 `ask_question` 或结构化反问向用户澄清，严禁脑补假设；
+   - 必须梳理出：核心流转路径、非法状态拒绝机制、向下兼容承诺与端到端真实测试指标；
+3. **拒绝模糊对话，匹配固定剧本**：
    - 依据用户意图从 23 个 Playbooks（新功能/Bug排错/重构/性能等）中锁定剧本，显式列出待办步骤；
    - 严禁静默跳步（No Silent Skips）：若某步无需执行，必须显式注明 `skip: <客观原因>`；
-3. **复杂场景只读探查 (OpenSpec Explore)**：
+4. **复杂场景只读探查 (OpenSpec Explore)**：
    - 纯只读探索调用链路，运行 `/how` 与 `/why` 理清上下文，绘制 Mermaid 拓扑；
    - 铁律：**只输出分析报告与计划，严禁在此阶段修改任何业务代码**。
 
@@ -110,15 +114,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 承诺严守最小因果集 (Leave-as-is)，绝不发散重构周边代码。
    ```
 
-### Step 3: 单步施工与触觉检阅 (Apply & VS Code Diff)
+### Step 3: 单步施工与触觉检阅 (Apply & VS Code Diff & Subagent Handoff)
 1. **单任务单步推进**：严格按 `tasks.md` 单任务执行，严禁跨步越界；
-2. **科学排错与 TDD 驱动**：
+2. **Subagent 任务交接契约 (Task Handoff Capsule)**：
+   - 若调度子 Agent 执行任务，严禁口头大白话分发，必须组装标准【任务胶囊】（目标 + 允许修改文件圈 + 承重墙封印约束 + 退出码0验收命令）；
+   - 主 Agent 恪守**零信任原则**：接收子 Agent 汇报后，必须在主会话亲自复测退出码 0，核对 `git diff` 越界范围；
+3. **科学排错与 TDD 驱动**：
    - 修 Bug 必须先在真实终端复现报错，验证证伪立刻全量回滚；
    - 新增逻辑先写测试见证红灯，再写最小因果实现转为绿灯；
-3. **出厂代码去噪 (/unslop)**：
+4. **出厂代码去噪 (/unslop)**：
    - 剔除 AI 废话口水注释、过度防御包装、重复组件与 `any` 逃避；
-4. **触觉检阅**：源码变更必须调用 `vscode-review` 中的 `review_diff_in_vscode`，拉起原生两栏 Diff 供用户把控；
-5. **带证据的真实退出码**：任务打勾 `- [x]` 必须以测试命令终端真实退出码 `0` 与绿灯日志为充要依据，杜绝虚假打勾。
+5. **触觉检阅**：源码变更必须调用 `vscode-review` 中的 `review_diff_in_vscode`，拉起原生两栏 Diff 供用户把控；
+6. **带证据的真实退出码**：任务打勾 `- [x]` 必须以测试命令终端真实退出码 `0` 与绿灯日志为充要依据，杜绝虚假打勾。
 
 ### Step 4: 触觉审计与高频存档 (Audit & Commit)
 1. **高频原子存档**：跑通一个可验证的小节点，立即执行一次 `git commit`。一旦后续发生逻辑漂移，一键 `git reset` 回退，杜绝大爆炸式改动；
@@ -152,3 +159,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 8. **问题与解法沉淀 (CHANGELOG 闭环)**：每次任务必须沉淀根因与解法。
 9. **专用领域工具链与专属引擎唯一路由公理**：严禁绕开官方流水线直接修改底层产物。
 10. **防线下沉自迭代公理**：禁止同一个错误重复依靠人眼盯防两次，必须机械化下沉固化到金字塔低层。
+11. **Subagent 任务胶囊与零信任验收公理**：向子 Agent 派发任务必须封装着标准上下文与退出码约束，主 Agent 必须在主环境亲自复测验收。
+
+---
+
+## 📚 五、 配套参考指南索引
+
+- 需求澄清与对抗反审协议：[`references/requirements-clarification-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/requirements-clarification-protocol.md)
+- Subagent 任务交接与隔离契约：[`references/subagent-handoff-contract.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/subagent-handoff-contract.md)
+- 防线下沉自迭代协议：[`references/defense-escalation-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/defense-escalation-protocol.md)
+- 24 条工程原则与行为准则详解：[`references/principles-24.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/principles-24.md)
+- 科学排错闭环标准规程 (Bug-Fix Loop)：[`references/bugfix-loop.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/bugfix-loop.md)
+- 代码净化与 AI-Slop 去噪检查表：[`references/unslop-checklist.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/unslop-checklist.md)
+- 对抗式多视角代码审查协议：[`references/interrogate-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/interrogate-protocol.md)
+- 双清单门禁标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/double-checklist-template.md)
+- 20+ 核心 Playbooks 目录与索引：[`references/playbooks-catalog.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/playbooks-catalog.md)
