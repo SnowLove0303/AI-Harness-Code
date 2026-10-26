@@ -47,9 +47,13 @@
 
 ## 三、 Poteto Consolidated Brief 标准模板 (任务交付胶囊)
 
-主 Agent 调用 `invoke_subagent` 或分发任务时，`Prompt` 必须采用以下标准结构：
+主 Agent 调用 `invoke_subagent` 或分发任务时，`Prompt` 必须首行声明轨道管辖，并采用以下标准结构：
 
 ```markdown
+# 🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]
+> **法定执行轨道**：本任务受 OrbitStack (ps-openspec) 轨道工程体系严格管辖。
+> 接收方 Agent 必须无条件遵循：① 读取承重墙与代码封印；② 动工前落实双清单；③ 单步施工并出厂净化 (/unslop)；④ 回传必须附带 [Measured] 真实退出码 0。严禁脱离 ps-openspec 自由散漫编码！
+
 # 🎯 任务目标: [精确的单一职责描述，一句话概括]
 
 ## 1. 全量意图与合并背景 (Consolidated Brief)

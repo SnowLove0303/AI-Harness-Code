@@ -67,8 +67,8 @@
 ┌──────────────────────────────────▼─────────────────────────────────────┐
 │ Step 3: 单步施工与净化检阅 (Apply & VS Code Diff & Poteto Subagent)    │
 │ 1. 严格按照 tasks.md 单任务单步推进，执行科学排错五步法与 TDD 红绿循环  │
-│ 2. Poteto 委派双公理：默认派发全新 Subagent (Fresh by Default)，封装   │
-│    【全量合并简报 Consolidated Scope】；构建上下文屏蔽盾 (Context Shield)│
+│ 2. 跨线程派发任务强制绑定 ps-openspec 轨道；默认全新 Subagent，封装    │
+│    【全量合并简报 Consolidated Scope】并构筑上下文屏蔽盾 (Context Shield) │
 │ 3. 强制出厂净化 (/unslop)：剔除废话口水注释、套娃代码与 any 逃避       │
 │ 4. 源码修改必须触发 review_diff_in_vscode，供用户在原生 Diff 视图把控   │
 │ 5. 任务打勾必须以测试命令真实退出码 0 与 [Measured] 绿灯日志为充要依据  │
@@ -133,3 +133,14 @@
    - **证据三级分级标签**：所有测试与验收结论必须显式标注 `[Measured / 实测]`（真实 CLI / CDP 退出码 0 与日志）、`[Inferred / 推演]` 或 `[Guess / 猜想]`，严禁未实测谎称通过；
    - **零信任独立复测**：接收方 Agent 汇报“已完成”后，发起方 Agent 严禁盲目信任；必须在主环境亲自重新执行验收命令验证真实退出码 0 与日志全绿，并严查 `git diff` 是否发生未授权的文件与模块越界；
    - **跨线程唯一工件事实源**：跨线程协作必须以 OpenSpec 变更图纸（`proposal.md`、`specs/`、`tasks.md`）与共享黑板（Blackboard）作为唯一不可篡改的状态机，杜绝口头传话语义稀释。
+13. **跨线程任务发布法定绑定 ps-openspec 公理 (Mandatory ps-openspec Binding Axiom - 跨线程绝对入轨铁律)**：
+   - **触发即绑定**：任何线程（发起方 Agent），只要向其他线程（目标 Subagent、跨会话协作 Agent 或通过 A2A/总线工具派工）发布任务，**其指令顶部必须强制注入 `ps-openspec`（OrbitStack 轨道工程体系）法定执行约束**，绝无例外；
+   - **指令强制携带轨道宪法**：派发任务的 Prompt 或交接胶囊，必须首行显式声明：
+     `🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]`
+     强制要求接收方线程：
+     ① 必须阅读并遵循 `pstack-openspec` 技能规范与全局规则；
+     ② 严禁脱离 OpenSpec 规格与 `tasks.md` 进行无图纸散漫编码；
+     ③ 动工前必须严格落实双清单（拟变范围清单 + 保持现状承诺清单）；
+     ④ 涉及代码必须严格保护 `@ANTIGRAVITY_INVARIANT_LOCK` 源码级封印块与既有业务回退逻辑；
+     ⑤ 施工完毕必须执行 `/unslop` 净化，且交付必须附带 `[Measured]` 真实退出码 0 的执行日志；
+   - **接收方脱轨一票否决**：接收方线程一旦脱离 `ps-openspec` 轨道（如未跑测试直接声称完成、擅自篡改未授权文件、未出具双清单直接编码），发起方必须一票否决并拒绝合流；若接收方收到缺少 `ps-openspec` 约束的口头任务，必须主动打回并要求补齐标准胶囊方可开工。

@@ -20,9 +20,13 @@
 
 ## 二、 Poteto 优先：A2A 全量合并任务交付胶囊 (A2A Consolidated Handoff Capsule)
 
-无论通过 Antigravity 的 `invoke_subagent` 工具，还是跨会话、跨线程（Session/Thread）向目标 Agent 分发任务，其指令必须严格采用以下结构化 Markdown 契约，**严禁使用口语散文**：
+无论通过 Antigravity 的 `invoke_subagent` 工具，还是跨会话、跨线程（Session/Thread）向目标 Agent 分发任务，其指令必须首行强制声明轨道约束，严格采用以下结构化 Markdown 契约，**严禁使用口语散文**：
 
 ```markdown
+# 🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]
+> **跨线程法定入轨约束**：本任务严格受 OrbitStack (ps-openspec) 体系管辖。
+> 接收方线程/Agent 必须无条件遵循 ps-openspec 全流程（底座感知 -> 动工前双清单门禁 -> 源码封印与最小因果集 -> 单步施工与出厂去噪 -> [Measured] 真实退出码 0 验证）。严禁脱离轨道进行无图纸散漫编码！
+
 # 📦 【A2A 任务交付胶囊 / Poteto Consolidated Handoff Capsule】
 
 ## 1. 任务元信息 (Task Metadata)
