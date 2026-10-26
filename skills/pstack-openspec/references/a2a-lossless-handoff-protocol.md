@@ -1,38 +1,47 @@
-# A2A 无损任务指令交接协议 (Lossless Agent-to-Agent Handoff & Capsule Protocol)
+# A2A 无损任务指令交接协议 (Lossless Agent-to-Agent Handoff & Consolidated Capsule Protocol)
 
-> **核心法则**：**Never Summarize and Pray. Pass Contracts, Boundaries, and Pointers.**
-> （绝不采用“简述一番并祈祷它做对”的传统大白话交接，必须封装为具备强约束、边界封印与可验证退出码的法定任务胶囊。）
+> **最高法则 (Lauren Tan @poteto & OrbitStack)**：
+> **"Never Summarize and Pray. Pass Consolidated Scope, Boundaries, and Pointers."**
+> （绝不采用“简述一番并祈祷它做对”的传统大白话交接；必须遵循 Poteto 原生工程公理，以全量合并简报 Consolidated Brief、物理封闭边界与真实可验证退出码作为法定任务胶囊。）
 
 ---
 
 ## 一、 为什么跨 Agent 交接会严重失真（The Seam Problem / 接缝危机）？
 
 在多 Agent 协同（Multi-Agent System）或跨线程任务分发中，最普遍也是最致命的破产模式是：
-1. **过度精简陷阱 (Summarization Loss)**：用户与 Agent A 经过深度探讨梳理出的 10 项核心边界，被 Agent A “随口一句话总结”（例如：“请重构认证模块并加上校验”）传递给 Agent B。Agent B 丢失所有前置讨论细节，产生盲目发挥；
+1. **过度精简陷阱 (Summarization Loss)**：用户与 Agent A 经过深度探讨梳理出的核心边界与业务决策，被 Agent A “随口一句话总结”传递给 Agent B。Agent B 丢失前置讨论细节，产生盲目发挥；
 2. **上下文污染与 Lost-in-the-Middle**：若直接无脑倾倒几万字的历史会话记录，Agent B 会被无关思考日志和失败报错噪声淹没，无法抓取关键技术决策；
-3. **权责边界模糊**：Agent B 不清楚哪些属于“不能动的前人代码”，导致顺手把系统既有的特殊回退分支删除。
+3. **权责边界模糊**：Agent B 不清楚哪些属于“不能动的前人代码”，导致顺手把系统既有的特殊回退分支删除；
+4. **中断链污染 (Interrupt-Chain Drift)**：在一个已经积累了多轮报错的会话中持续追问子 Agent，导致上下文窗口漂移。
 
-**OrbitStack 解决方案**：**A2A 物理胶囊化（Capsule-Based Delivery） + 工件指针（Artifact Pointers） + 零信任复测（Zero-Trust Audit）**。
+**OrbitStack 权威解法**：**Poteto 原生公理（Fresh Subagents by Default + Consolidated Scope） + 物理胶囊化（Capsule-Based Delivery） + 工件指针（Artifact Pointers） + 零信任复测（Zero-Trust Audit）**。
 
 ---
 
-## 二、 A2A 任务交付标准胶囊 (A2A Handoff Capsule)
+## 二、 Poteto 优先：A2A 全量合并任务交付胶囊 (A2A Consolidated Handoff Capsule)
 
 无论通过 Antigravity 的 `invoke_subagent` 工具，还是跨会话、跨线程（Session/Thread）向目标 Agent 分发任务，其指令必须严格采用以下结构化 Markdown 契约，**严禁使用口语散文**：
 
 ```markdown
-# 📦 【A2A 任务交付胶囊 / Task Handoff Capsule】
+# 📦 【A2A 任务交付胶囊 / Poteto Consolidated Handoff Capsule】
 
 ## 1. 任务元信息 (Task Metadata)
-- **发起方 (Source)**: [Primary Agent / Orchestrator]
-- **接收方 (Target)**: [Target Subagent Role: e.g., Code Implementer / Test Verifier]
+- **发起方 (Source Orchestrator)**: [Primary Agent / Orchestrator]
+- **接收方 (Target Subagent)**: [Target Subagent Role: e.g., Fresh Implementer / Auditor]
 - **关联规格提案 (OpenSpec Anchors)**: `openspec/changes/<change-name>/proposal.md`
 - **对应任务原子项 (Task Item)**: `tasks.md` 中的 `Task [X.Y]`
+- **执行模式 (Mode)**: `Fresh Subagent` (隔离环境，默认干净上下文)
 
-## 2. 核心目标与意图全景 (Intent & Objectives - 无损保真)
-- **业务核心诉求**: [详细阐述用户与前置讨论中确立的根本目的，严禁过度精简]
-- **架构方案决策 (Architecture Decision)**: [说明为什么采用该方案，排除掉了哪些替代方案]
-- **非目标声明 (Non-Goals - 明确不做的事)**: [列举绝对禁止越界的范围]
+## 2. 全量合并意图与背景 (Consolidated Brief - 无损保真)
+- **原始核心诉求 (Original Brief)**:
+  [详细阐述用户最初的根本诉求，严禁过度精简，保留完整语境]
+- **多轮追加与澄清指令 (Append Directives)**:
+  [记录用户在多轮探讨中追加的所有补充约束、技术选型裁决与澄清结论]
+- **前置 Agent 产出与分支状态 (Prior Work & Git State)**:
+  - 工作分支 / Patch / Commit: [分支名或 Commit SHA]
+  - 既有进度与排错避坑记录: [前置 Agent 已验证有效/无效的结论]
+- **非目标声明 (Non-Goals - 明确不做的事)**:
+  [列举绝对禁止越界的范围与不应顺手改动的事项]
 
 ## 3. 物理封闭作用域 (Closed File Scope & Boundaries)
 - **✅ 唯独允许修改的文件清单**:
@@ -40,23 +49,27 @@
   - `path/to/target2.ts` (类型: `BarType`)
 - **🛑 绝对只读豁免区域 (Strictly Read-Only)**:
   - 凡代码中包含 `// @ANTIGRAVITY_INVARIANT_LOCK` 标记的区域享有最高只读豁免，严禁触碰；
+  - 专属领域引擎唯一路由公理：严禁绕开官方受控流水线直接修改底层业务生成物；
   - 周边未列出的模块一律遵循 **最小因果集 (Leave-as-is)**，严禁顺手重构！
 
 ## 4. 既有逻辑与特殊兼容承诺 (Preserved Invariants)
 - **前人特殊逻辑说明**: [列明当前文件里哪些看似冗余但属于人工确认的业务特殊校验/回退逻辑]
-- **禁止否定公理**: 严禁以大模型通用代码洁癖为名删除既有回退分支。
+- **既有功能不可否定公理**: 严禁以大模型通用代码洁癖为名删除既有回退分支或特殊逻辑。
 
 ## 5. 出厂净化与自测验收命令 (Acceptance Invariants)
 - **出厂去噪 (/unslop)**: 必须剔除废话口水注释、过度抽象套娃与 `any` 逃避；
-- **真实终端验收命令**:
-  - 编译与类型检查: `npm run typecheck` (必须退出码 0)
-  - 单元与集成测试: `npm test path/to/test.ts` (必须退出码 0，日志全绿)
-  - 静态代码检查: `npm run lint` (必须退出码 0)
+- **真实终端验收命令 (必须真实退出码 0)**:
+  - 编译与类型检查: `npm run typecheck`
+  - 单元与集成测试: `npm test path/to/test.ts`
+  - 静态代码检查: `npm run lint`
 
-## 6. 回传成果报表格式 (Return Payload)
-- 执行完毕后，必须以如下格式向发起方交付：
+## 6. 回传成果报表与证据分级契约 (Return Payload & Evidence Labeling)
+- 接收方执行完毕后，回传高密度精炼报告（1,000~2,000 tokens 内，充当上下文屏蔽盾），必须包含：
   1. `git diff --stat` 实际修改文件清单；
-  2. 真实测试命令的完整执行日志输出（标注为 `[Measured / 实测]`）；
+  2. 真实测试命令的完整执行日志输出，附带法定三级证据标签：
+     - `[Measured / 实测]`: 真实 CLI / CDP 退出码 0 与日志断言；
+     - `[Inferred / 推演]`: 从类型系统与调用拓扑严格推断的结论；
+     - `[Guess / 猜想]`: 待证实的猜想（严禁作为交付依据）；
   3. 遇到的任何技术阻塞点与环境异常（Blockers）。
 ```
 
@@ -68,7 +81,7 @@
 
 ```text
        ┌────────────────────────┐
-       │ Subagent 汇报: 已完成  │
+       │ Subagent 汇报: 已完成  │ (附带 [Measured] 证据)
        └───────────┬────────────┘
                    │
                    ▼

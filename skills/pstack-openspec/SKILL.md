@@ -114,18 +114,20 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 承诺严守最小因果集 (Leave-as-is)，绝不发散重构周边代码。
    ```
 
-### Step 3: 单步施工与触觉检阅 (Apply & VS Code Diff & Subagent Handoff)
+### Step 3: 单步施工与触觉检阅 (Apply & VS Code Diff & Poteto Subagent Handoff)
 1. **单任务单步推进**：严格按 `tasks.md` 单任务执行，严禁跨步越界；
-2. **Subagent 任务交接契约 (Task Handoff Capsule)**：
-   - 若调度子 Agent 执行任务，严禁口头大白话分发，必须组装标准【任务胶囊】（目标 + 允许修改文件圈 + 承重墙封印约束 + 退出码0验收命令）；
-   - 主 Agent 恪守**零信任原则**：接收子 Agent 汇报后，必须在主会话亲自复测退出码 0，核对 `git diff` 越界范围；
+2. **Poteto 委派双公理 (Fresh Subagents by Default & Consolidated Scope)**：
+   - **默认全新原则 (Fresh Subagents by Default)**：每次重试、排错转向或拆解的子任务，默认派发独立的全新 Subagent，严禁在带有失败污染历史的脏上下文中断链追问；
+   - **上下文屏蔽盾 (Context Shielding)**：子 Agent 作为“吸收盾”承担长篇读写、测试报错与网页抓取输出；主 Agent 保持高维清爽，只接收 1,000~2,000 tokens 内的高密度成果报表；
+   - **全量合并范围 (Consolidated Scope)**：派发给子 Agent 的指令严禁大白话随口概括，必须封装为包含“原始完整意图 + 所有多轮追加澄清 + 前置分支/Patch状态 + 物理封闭文件圈 + 退出码0命令”的【全量合并任务胶囊】；
+   - **主 Agent 恪守零信任原则**：接收子 Agent 汇报后，必须在主会话亲自复测退出码 0，严查 `git diff` 越界范围；
 3. **科学排错与 TDD 驱动**：
    - 修 Bug 必须先在真实终端复现报错，验证证伪立刻全量回滚；
    - 新增逻辑先写测试见证红灯，再写最小因果实现转为绿灯；
 4. **出厂代码去噪 (/unslop)**：
    - 剔除 AI 废话口水注释、过度防御包装、重复组件与 `any` 逃避；
 5. **触觉检阅**：源码变更必须调用 `vscode-review` 中的 `review_diff_in_vscode`，拉起原生两栏 Diff 供用户把控；
-6. **带证据的真实退出码**：任务打勾 `- [x]` 必须以测试命令终端真实退出码 `0` 与绿灯日志为充要依据，杜绝虚假打勾。
+6. **证据分级与真实退出码**：任务打勾 `- [x]` 必须以测试命令终端真实退出码 `0` 与标注为 `[Measured / 实测]` 的绿灯日志为充要依据，杜绝虚假打勾。
 
 ### Step 4: 触觉审计与高频存档 (Audit & Commit)
 1. **高频原子存档**：跑通一个可验证的小节点，立即执行一次 `git commit`。一旦后续发生逻辑漂移，一键 `git reset` 回退，杜绝大爆炸式改动；
@@ -159,7 +161,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 8. **问题与解法沉淀 (CHANGELOG 闭环)**：每次任务必须沉淀根因与解法。
 9. **专用领域工具链与专属引擎唯一路由公理**：严禁绕开官方流水线直接修改底层产物。
 10. **防线下沉自迭代公理**：禁止同一个错误重复依靠人眼盯防两次，必须机械化下沉固化到金字塔低层。
-11. **Subagent 任务胶囊与零信任验收公理**：向子 Agent 派发任务必须封装着标准上下文与退出码约束，主 Agent 必须在主环境亲自复测验收。
+11. **Poteto 委派双公理与零信任验收公理 (Consolidated Scope & Zero-Trust Axiom)**：向子 Agent 派发任务默认采用全新 Subagent (Fresh by Default)，严禁口头随口压缩，必须封装为全量合并简报 (Consolidated Scope) 与退出码 0 约束；主 Agent 充当高维中枢并保持上下文屏蔽盾 (Context Shielding)，接收汇报后必须在主环境亲自复测验收。
 12. **防退化三阶七律法典 (Anti-Regression Charter)**：彻底根治“修新坏旧”顽疾，严格执行断言先行、黄金标本库、策略开闭隔离、源码封印机防、最小因果集、全谱系全量回归强校验与防线下沉闭环迭代，全量回归全绿是交付的唯一充要依据。
 13. **通用深度审计法：双轴四阶红队审讯体系 (Universal Deep Audit Charter)**：彻底终结“盲目出结果”与虚假合格，融合 @poteto 的“实物真实验证 (Prove It Works)”与“红队多视角审讯 (/interrogate)”，强制推行垂直穿透轴（输入指纹冻结 + 100% 实体穿透率对账）与水平防护轴（底层 AST 机器机检 + 物理隔离红队审讯 + 黄金标本全量回归），证据严格分级为实测/推演/猜想。
 14. **通用工程与工作流审计规范 (Universal Engineering & Workflow Code)**：从纯编程、开发与工作流视角构筑四大支柱：类型层（非法状态不可表达/禁止静默降级）、测试层（变异测试自审/全结构纯净度断言/弱断言零容忍）、架构层（严格策略开闭隔离/不可变数据流/纯函数）、工作流层（裁执分离/施工者不得动测试/零信任交接胶囊）。
