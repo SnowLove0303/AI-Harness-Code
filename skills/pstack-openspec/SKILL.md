@@ -166,10 +166,13 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 13. **通用深度审计法：双轴四阶红队审讯体系 (Universal Deep Audit Charter)**：彻底终结“盲目出结果”与虚假合格，融合 @poteto 的“实物真实验证 (Prove It Works)”与“红队多视角审讯 (/interrogate)”，强制推行垂直穿透轴（输入指纹冻结 + 100% 实体穿透率对账）与水平防护轴（底层 AST 机器机检 + 物理隔离红队审讯 + 黄金标本全量回归），证据严格分级为实测/推演/猜想。
 14. **通用工程与工作流审计规范 (Universal Engineering & Workflow Code)**：从纯编程、开发与工作流视角构筑四大支柱：类型层（非法状态不可表达/禁止静默降级）、测试层（变异测试自审/全结构纯净度断言/弱断言零容忍）、架构层（严格策略开闭隔离/不可变数据流/纯函数）、工作流层（裁执分离/施工者不得动测试/零信任交接胶囊）。
 15. **跨线程任务发布法定绑定 ps-openspec 公理 (Mandatory ps-openspec Binding Axiom - 跨线程绝对入轨铁律)**：任何线程只要向跨线程或子 Agent 派发任务，指令首行必须强制声明并注入 `🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]`，强制接收方必须读取 `pstack-openspec` 技能入轨执行（严格落实 Step 0-5 闭环、双清单确认门禁、源码级封印保护、出厂去噪与退出码 0 实测证据）；接收方脱轨交付直接一票否决，接收方收到无轨道口头指令必须主动要求补齐标准胶囊。
+16. **用户反馈质疑与否定第一时间根因归因与递归自改进强制公理 (Feedback-Driven Root-Cause & Recursive Self-Improvement Axiom)**：任务执行后，凡用户对产出提出质疑、否定、不满意、遗漏指责或指出旧疾复发，必须无条件第一时间停机，启动 5-Whys 深度根因穿透（排查感知漏洞、规格漏洞、盲目审计漏洞、修新坏旧）；制定系统性杜绝复发方案，并**递归反哺更新 ps-openspec 与 GEMINI.md 规则库**，推送 Git 同步记忆。以会话 `7f4d4b46-78e6-435a-aa29-f0d6ec194caa` 为法定警示与参照（严禁盲目审计、不提醒就看不出、排版标点违章与旧疾复发）。
 
 ---
 
 ## 📚 五、 配套参考指南索引
+
+- 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)
 
 - 通用工程与工作流审计规范指南：[`references/universal-engineering-workflow-code.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/universal-engineering-workflow-code.md)
 - 通用深度审计法：双轴四阶红队审讯体系指南：[`references/universal-deep-audit-charter.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/universal-deep-audit-charter.md)
