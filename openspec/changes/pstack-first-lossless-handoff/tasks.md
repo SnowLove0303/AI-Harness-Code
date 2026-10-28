@@ -37,7 +37,7 @@
 ## 4. Historical-fix protection and Graph audit
 
 - [x] 4.1 Define stable protected-invariant IDs in OpenSpec with provenance, implementation anchors, behavior, and regression checks. Evidence: parser tests enforce all five invariant fields; new invariant records cite their originating change/request and runnable checks.
-- [x] 4.2 Add Graph impact review for changed nodes, callers, and flows, joined to invariant IDs. Evidence: Graph analyzed changed paths against baseline 9317068ecab93f291cf36cab95b37deb95080eba, found 0 affected flows and 1 Bash helper test gap; OpenSpec anchors map paths to invariant IDs.
+- [x] 4.2 Add Graph impact review for changed nodes, callers, and flows, joined to invariant IDs. Evidence: Graph updated at post-commit HEAD 6686eb78604d1d7c5de55025253a3d7f99b706bb and compared with baseline 9317068ecab93f291cf36cab95b37deb95080eba; it found 0 affected flows and 29 unmapped helper test gaps. The 16 Node regression checks and PowerShell/Git Bash installer smoke tests pass; OpenSpec anchors map affected paths to invariant IDs.
 - [x] 4.3 Add deterministic fallback for absent or stale Graph using diff/path inspection and invariant checks. Evidence: entrypoints document the fallback; regression cases prove unrelated paths avoid unrelated gates and missing disposition fails.
 - [x] 4.4 Require explicit OpenSpec supersession and replacement evidence. Evidence: tests reject supersession without a Supersedes invariant declaration and replacement check; archived history remains unchanged.
 
@@ -47,4 +47,4 @@
 - [x] 5.2 Verify routing, handoff, and protection behavior, then run strict OpenSpec validation. Evidence: all 23 routes pass structural audit; 14 Node regression checks pass; capsule generation/validation succeeds; strict validation passes 4/4.
 - [x] 5.3 Run isolated installer checks, preservation, package links, and PStack parity. Evidence: PowerShell and Git Bash install/reinstall pass in isolated temp projects; project AGENTS content remained; PStack hashes match across 573 files; extracted V2.00 package content and all local links pass.
 - [ ] 5.4 Run the full route and regression audit, correct failures, rerun checks, and archive only after all acceptance criteria pass. Core audits pass; task 5.1 remains before archive.
-- [ ] 5.5 Publish the verified V2.00 release artifact and push changes to the already authorized Ps-openspec branch. Verify the remote SHA and clean worktree.
+- [x] 5.5 Publish the verified V2.00 release artifact and push to the already authorized Ps-openspec branch. Evidence: origin/release/ps-openspec-v2.00 matches commit 6686eb78604d1d7c5de55025253a3d7f99b706bb; no force push, tag, release, or PR was used.
