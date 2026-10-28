@@ -1,97 +1,33 @@
-# OrbitStack 免疫防御宪章：防退化三阶七律法典 (Anti-Regression Charter)
+# Protect accepted fixes and optimizations
 
-> **法定地位**：本宪章为 OrbitStack (Pstack-OpenSpec) 体系应对“AI 治新复旧 (Whack-a-Mole Syndrome)”的最高法定防退化法则。所有 Agent 在任何项目执行修复、重构或演进任务时，均必须无条件服从。
+Use PStack's `Correct`, `Interrogate`, `Prove It Works`, and behavior-test principles as the review method. This extension supplies provenance across later tasks and uses Code Review Graph to find affected code.
 
----
+## Record a protected behavior
 
-## 核心痛点与工程认知
+When a user accepts a fix or optimization that must survive later work, record it as an OpenSpec requirement with:
 
-在 AI 辅助工程化实践中，“治新复旧”（修复新问题导致旧问题复发）的根因在于 Agent 的**局部因果近视 (Local Context Myopia)** 与 **注意力机制随 Token 消耗衰减**。将约束停留在 Prompt 散文中等同于没有约束，必须通过**“认知立法 -> 架构物理隔离 -> 机器法官验收”**三阶梯次建立免疫屏障。
+- A stable invariant ID.
+- The originating OpenSpec archive and commit.
+- The user-observable behavior or metric that must remain true.
+- The implementation path and qualified symbol.
+- The regression test, golden sample, or repeatable benchmark that proves it.
 
-```text
-┌────────────────────────────────────────────────────────────────────────┐
-│             【OrbitStack 免疫防御宪章：防退化三阶七律】                   │
-├────────────────────────────────────────────────────────────────────────┤
-│ 阶段一：认知立法（立项前约束——把散文期望变成机器防线）                   │
-│   律 1：断言先行公理 (The Gate-Before-Code Axiom)                        │
-│   律 2：黄金标本沉淀公理 (The Golden Corpus Axiom)                      │
-├────────────────────────────────────────────────────────────────────────┤
-│ 阶段二：架构物理隔离（施工期约束——让代码改动在物理层不可能溢出）         │
-│   律 3：策略开闭隔离公理 (Closed Core, Open Strategy Axiom)             │
-│   律 4：源码封印机防门禁 (Mechanical Invariant Lock Enforcement)         │
-│   律 5：最小因果集与严禁顺带洁癖 (Strict Leave-as-is Axiom)             │
-├────────────────────────────────────────────────────────────────────────┤
-│ 阶段三：机器法官验收（归档与交付门禁——让机器成为唯一验收法官）           │
-│   律 6：全谱系全量回归强校验 (Full-Spectrum Regression Mandate)          │
-│   律 7：防线下沉闭环迭代律 (Defense Escalation Feedback Loop)            │
-└────────────────────────────────────────────────────────────────────────┘
-```
+The OpenSpec specification owns the protection reason and evidence link. Graph data is derived and rebuildable.
 
----
+## Review later changes
 
-## 一、阶段一：认知立法（立项前约束）
+1. Use Code Review Graph's delta and affected-flow tools to inspect changed symbols, callers, and tests.
+2. Match affected code to protected invariant IDs in OpenSpec specs.
+3. Run each linked regression test or benchmark.
+4. If a user request intentionally changes the old behavior, add an explicit superseding requirement in the active OpenSpec change and prove the replacement before archive.
+5. Keep archived source changes unchanged. Update the current spec only by archiving the approved supersession.
 
-### 律 1：断言先行公理 (The Gate-Before-Code Axiom / TDD 红绿铁壁)
-1. **禁令**：严禁在未见红灯前直接编写修复代码；严禁口头宣称“已修复”而无机器断言。
-2. **法定规程**：凡发现系统退化、原有功能被篡改或出现边缘 Bug，动工前必须先编写一个真实会报红灯（Exit Code != 0）的自动化断言测试或质量门禁（Gate Assertion）。
-3. **闭环判据**：先红灯（证实真实复现） -> 最小修改 -> 转绿灯（证实修复） -> 测试永久纳入回归套件。**凡无机器断言的修复，一律视为“未修复并必然在未来复发”**。
+Graph supplies impact clues. It does not decide whether a behavior is important, prove the behavior still works, or infer a user's intent.
 
-### 律 2：黄金标本沉淀公理 (The Golden Corpus Axiom / 典型病历建档)
-1. **禁令**：严禁仅依赖当前报错的单一输入做验证；严禁测试仅使用内存 Mock。
-2. **法定规程**：任何系统必须建立覆盖极端正交维度的“黄金标本库 (Golden Fixture Matrix)”：
-   - 标准常规用例 (Standard Baseline)；
-   - 极端特殊用例 (Edge/Exemption Cases，如复合豁免、多阶段规程)；
-   - 复杂深层拓扑用例 (Deep Structural/Multi-component Cases)；
-   - 容错与退回用例 (Fallback & Graceful Degradation Cases)。
-3. **永久入驻**：每当人工审计出一个罕见特殊 Case，其原始输入与人工终审期望产出必须永久沉淀入黄金标本库，作为后续所有改动不可推翻的基准。
+## Fallback when Graph is unavailable
 
----
+Check the Git diff against the recorded implementation paths and symbols, search the relevant callers, and run the same regression checks. Continue unrelated PStack tasks while the graph is rebuilt. An unavailable graph is a missing review input, not a reason to skip regression evidence.
 
-## 二、阶段二：架构物理隔离（施工期约束）
+## Root-cause learning
 
-### 律 3：策略开闭隔离公理 (Closed Core, Open Strategy Axiom / 杜绝在主干硬塞 IF)
-1. **禁令**：严禁为了解决某个个案，在通用底层基础设施函数中硬加 `if-else` 分支直接污染全局。
-2. **法定规程**：核心基础设施（Core Engine）对修改关闭，业务表现策略（Mode Strategies）对扩展开放。
-3. **物理隔离**：面对特殊业务模式，强制使用显式策略模式或状态机路由：
-   - 通用流转保持纯净；
-   - 特例分支走独立的装配类或策略函数；
-   - 改动特例代码，在物理拓扑上绝对不可能波及其他常规 Case 的执行链路。
-
-### 律 4：源码封印机防门禁 (Mechanical Invariant Lock / 物理剥夺篡改权)
-1. **标记语法**：
-   ```javascript
-   // @ANTIGRAVITY_INVARIANT_LOCK_START: <保护原因与需求背景>
-   // 经过人工反复调优、脆弱但合规的核心承重墙代码
-   // @ANTIGRAVITY_INVARIANT_LOCK_END
-   ```
-2. **机防拦截**：凡包含封印标记的代码块，享有系统最高只读豁免权。在 pre-commit 或自动化门禁中，凡检测到 `git diff` 触碰了受封印区间且本次变更提案没有明文立项“解锁审批”，流水线直接一票否决阻断提交。
-
-### 律 5：最小因果集与严禁顺带洁癖 (Strict Leave-as-is Axiom)
-1. **禁令**：严禁借修复之机“顺手重命名周边变量”、“调整非关联函数缩进”或“删掉看似没用的注释”。
-2. **法定规程**：单次变更的物理影响圈必须严格等同于当前任务的直接因果集。周边检测到的异样和坏味道必须严格保持现状 (Leave-as-is)。
-
----
-
-## 三、阶段三：机器法官验收（归档与交付门禁）
-
-### 律 6：全谱系全量回归强校验 (Full-Spectrum Regression Mandate)
-1. **禁令**：严禁仅跑通当前单一测试脚本就打勾交付；严禁任何虚假宣称。
-2. **法定规程**：建立统领性的全量回归命令（如 `npm run test:corpus`）。
-3. **充要放行条件**：交付打勾的唯一充要依据，是黄金标本库中的所有用例（Case 1 到 Case N）在全量回归测试中全部通过、无一退化且真实退出码为 0。
-
-### 律 7：防线下沉闭环迭代律 (Defense Escalation Feedback Loop / 纠错两遍即立项)
-1. **黄金铁律**：同类错误在人工 Review 中纠正达到两次，绝对禁止第三次继续依赖肉眼盯防。
-2. **自迭代决策树**：
-   ```text
-   人工 Review 发现同类退化/错误第 2 次
-                 │
-                 ▼ 强制触发防线下沉
-   ┌────────────────────────────────────────────────────────┐
-   │ 是否可以在架构层阻止？                                    │
-   │   ├─ 是 ──► L1 状态机建模 (非法状态在类型/语法层根本不可表达) │
-   │   └─ 否 ──► 是否可以通过静态分析审查？                   │
-   │               ├─ 是 ──► L2 ESLint / AST 静态规则自动化拦截 │
-   │               └─ 否 ──► L3 固化为 Golden Corpus 门禁断言  │
-   └────────────────────────────────────────────────────────┘
-   ```
-3. **知识闭环**：在 `CHANGELOG.md` 中完整记录本次踩坑根因、解决解法以及下沉固化的防御规则编号，让代码库具备永久自我免疫力。
+When PStack `Correct` or `Reflect` identifies a repeated failure, encode the fix in the highest reliable structural layer. Keep OpenSpec as the task and provenance record. Do not add a second global error ledger.

@@ -1,35 +1,7 @@
-# 工业级 Vibe Coding 五阶段作业规程实操指南 (Vibe Coding SOP Guide)
+# PStack and OpenSpec workflow pointer
 
----
+Use upstream PStack `poteto-mode`, the selected playbook, and its triggered skills as the execution workflow. Use OpenSpec's native Codex skills for persistent proposals, task state, updates, verification evidence, and archive.
 
-## 阶段协同全景
+Do not start a second phase-based OrbitStack workflow. PStack autonomy applies to reversible work. User decisions, explicit user gates, missing authority, and irreversible actions remain pause points.
 
-```text
-阶段                Agent 行为特征                  人类开发者角色             产出物
-──────────────────────────────────────────────────────────────────────────────────
-Phase 0: 唤醒感知    只读摸底、查验承重墙、无任何写入  观察、提供任务描述          底座事实确认
-Phase 1: 灵感漫游    头脑风暴、翻阅代码、绘制拓扑图    提出直觉想法、讨论方案      方案共识（无代码）
-Phase 2: 规格立法    脚手架生成提案、输出双清单        审核双清单并敲“执行”       specs/tasks/承诺
-Phase 3: 单步施工    单步写代码、VS Code 差异弹窗      在 VS Code 中微调并确认     过审代码与测试凭证
-Phase 4: 验收归档    自动归档、记录 CHANGELOG          终审验收、体验功能          主规格与经验闭环
-```
-
----
-
-## 四句日常高频对话范式
-
-### 1. 触发探索（Phase 1）
-> **用户**：“进入 openspec explore 模式，帮我调研一下如何给当前系统增加多租户配置，翻一下现有的数据库模块和中间件，画个拓扑图看看影响面。”  
-> **Agent**：进入只读思考伙伴状态，快速 grep 代码、绘制 ASCII/Mermaid 流程图，阐明方案优劣与边缘冲突，**绝对不写业务代码**。
-
-### 2. 触发立项（Phase 2）
-> **用户**：“方案很清晰，按方案 B 立项，呈报双清单。”  
-> **Agent**：生成 `proposal.md`、`specs/`、`design.md`、`tasks.md`，并在聊天界面呈报【拟改动范围清单】与【保持现状承诺清单】，**原地暂停等待授权**。
-
-### 3. 授权动工（Phase 3）
-> **用户**：“执行”  
-> **Agent**：按照 `tasks.md` 单任务单步推进。每修改一个文件，自动调用 `review_diff_in_vscode` 弹开 VS Code Diff 视图供用户微调；运行真实测试，获得退出码 0 后打勾。
-
-### 4. 验收归档（Phase 4）
-> **用户**：“校验归档，沉淀 changelog。”  
-> **Agent**：执行 `openspec validate --all --strict`，归档变更，将踩坑经验与解决根因沉淀入 `CHANGELOG.md`。
+For original-intent delegation, use the PStack Consolidated Scope capsule and `scripts/pstack-handoff.mjs`. For historical behavior, record stable invariants and regression checks in OpenSpec and use Code Review Graph as a derived impact view.

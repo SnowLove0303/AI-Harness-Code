@@ -1,0 +1,5 @@
+schema: spec-driven
+created: 2026-10-28
+goal: Prevent subagent handoff from dropping original user intent and prevent
+  future fixes from reintroducing previously resolved defects or undoing
+  accepted optimizations.

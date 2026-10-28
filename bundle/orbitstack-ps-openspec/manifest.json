@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "releaseVersion": "V2.00",
   "displayName": "Ps-openspec",
-  "description": "Ps-openspec V2.00 完整工程体系分发包。包含固定版本且完整未修改的上游 PStack（skills、principles、agents、23 个 playbooks、references、scripts 与 assets）、23 路 Codex 适配与评测、OpenSpec 生命周期承载，以及 OrbitStack Agent.md、Step 0-5、双清单授权门禁与 16 份补充工程协议。",
+  "description": "Ps-openspec V2.00。以固定版本且未修改的 PStack 为主要执行体系，以 OpenSpec 作为唯一持久任务记录，提供 Codex 安装适配、无损 Agent handoff 和历史行为 Graph 审计。",
   "author": "SnowLove0303",
   "license": "MIT",
   "homepage": "https://github.com/SnowLove0303/AI-Harness-Code",
@@ -14,51 +14,29 @@
   },
   "compatibility": {
     "supportedHarnesses": [
-      "Antigravity (Google)",
-      "Claude Code (Anthropic)",
-      "Cursor / Windsurf",
-      "OpenCode / Codex",
-      "Aider",
-      "AI-Harness CLI (@hujiale2609/ai-harness)"
+      "Codex",
+      "Gemini CLI",
+      "Claude Code",
+      "Cursor"
     ]
   },
+  "codexEntry": "orbitstack-codex/SKILL.md",
+  "openSpecSetup": "openspec init --tools codex",
   "constitution": {
     "primary": "Agent.md",
     "compatibleAlias": "AGENTS.md",
-    "totalInvariants": 14,
+    "orbitStackExtensions": 2,
     "coreAxioms": [
-      "规格高于代码公理",
-      "既有逻辑与业务规范不可否定公理 (防自以为是重构禁令)",
-      "代码级防篡改封印标记机制 (@ANTIGRAVITY_INVARIANT_LOCK)",
-      "正向行动化表述准则",
-      "最小因果集与保留现状 (Leave-as-is)",
-      "差分作用域验证与真实契约验证 (退出码0)",
-      "双重人工授权与验收归口 (Step 0 对抗澄清 + Step 2 双清单门禁)",
-      "问题与解法沉淀 (CHANGELOG 闭环)",
-      "专用领域工具链与专属引擎唯一路由公理",
-      "防线下沉自迭代公理 (纠错两遍即立项为 Lint)",
-      "全网智能搜索先行与撞墙求助公理 (Tavily 检索与双击撞墙门禁)",
-      "Poteto 委派双公理与 A2A 无损任务交接公理 (Fresh Subagents + Consolidated Scope)",
-      "跨线程任务发布法定绑定 ps-openspec 公理 (跨线程绝对入轨铁律)",
-      "用户反馈质疑与否定第一时间根因归因与递归自改进强制公理 (参考 7f4d4b46 案例)"
+      "Lossless PStack subagent handoff anchored to OpenSpec intent and task IDs",
+      "OpenSpec-backed historical-invariant protection with Graph-assisted impact review"
     ]
   },
   "skills": [
     {
-      "name": "pstack-openspec",
+      "name": "pstack-openspec-compat",
       "entry": "skills/pstack-openspec/SKILL.md",
-      "referencesCount": 16,
-      "description": "OrbitStack 核心主控工程技能"
-    },
-    {
-      "name": "ai-harness-openspec",
-      "entry": "skills/ai-harness-openspec/SKILL.md",
-      "description": "AI-Harness 与 OpenSpec 底座承重墙与规格流技能"
-    },
-    {
-      "name": "spec-driven-workflow",
-      "entry": "skills/spec-driven-workflow/SKILL.md",
-      "description": "规格驱动工作流 SOP 技能"
+      "referencesCount": 2,
+      "description": "PStack/OpenSpec compatibility pointer with two gap-filling extensions"
     }
   ]
 }

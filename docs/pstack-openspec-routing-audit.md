@@ -4,7 +4,7 @@
 
 The upstream PStack source is pinned to `cursor/plugins/pstack` commit `c742dd61706fbacc1b95f1a20b7b988cf096ce6c` (plugin version `0.15.36`). Its complete 573-file tree is vendored under `bundle/pstack-upstream/`; the matching global Codex copy is `C:\Users\Administrator\.codex\pstack-upstream`. The pinned source includes all skills, principles, agents, playbooks, references, scripts, assets, and metadata. Upstream files remain unmodified.
 
-`docs/pstack-openspec-route-map.json` is the single route registry for the 23 `poteto-mode` playbooks. It also records `figure-it-out` as the upstream fallback skill, not a 24th playbook. OpenSpec `tasks.md` is the sole durable task/progress source; PStack supplies execution methods and checklists, while OrbitStack adds Step 0, the dual checklist, compatibility rules, and Codex host fallbacks.
+`docs/pstack-openspec-route-map.json` is the single route registry for the 23 `poteto-mode` playbooks. It also records `figure-it-out` as the upstream fallback skill, not a 24th playbook. OpenSpec `tasks.md` is the sole durable task/progress source. PStack supplies the primary execution method; the two OrbitStack extensions add lossless handoff and accepted-behavior protection. Codex host fallbacks are documented without adding a second workflow.
 
 ## Structural inventory result
 

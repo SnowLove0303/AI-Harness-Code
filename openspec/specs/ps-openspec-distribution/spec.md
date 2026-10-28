@@ -27,8 +27,8 @@ Packaging and installation MUST preserve existing repository files, project-spec
 - **THEN** pre-existing files remain present and unchanged except for explicitly listed release-facing metadata/documentation
 
 ### Requirement: Publish through a new branch only
-The V2.00 source changes MUST be pushed to a newly named branch without force-updating existing branches or publishing a tag/release/PR unless separately requested.
+The V2.00 source changes MUST be pushed to the user-authorized Ps-openspec branch without force-updating it or publishing a tag, release, or PR unless separately requested.
 
-#### Scenario: Push V2.00 branch
-- **WHEN** the package and checks pass
-- **THEN** a new branch containing the current system and release metadata exists on origin and the original default branch remains unchanged
+#### Scenario: Push the authorized V2.00 branch
+- **WHEN** the package and checks pass and the user has authorized the branch
+- **THEN** the verified commit is pushed to that branch, its remote SHA matches the local commit, the default branch remains unchanged, and no tag, release, or PR is created
