@@ -13,11 +13,23 @@ The system SHALL vendor every distributable file under the official PStack plugi
 - **THEN** every path and file hash matches, except explicitly documented host-generated artifacts that are not source distribution files
 
 ### Requirement: Codex task routing
-The system SHALL expose one Codex-compatible PStack entry point that routes each task to the matching upstream playbook and supporting skills, without silently dropping unsupported host capabilities.
+The system SHALL route Codex tasks through one entrypoint using the matching pinned PStack playbook and supporting skills. A versioned registry SHALL cover every upstream playbook and specify its OpenSpec action, OrbitStack gates, Codex host mapping/fallback, durable task source (`OpenSpec tasks.md`), and verification evidence. Each playbook SHALL have a representative fixture whose observed route and gate/lifecycle behavior are recorded separately from structural inventory checks.
 
 #### Scenario: Host capability unavailable
 - **WHEN** an upstream playbook requests a Cursor-only model route, agent type, UI, or automation
 - **THEN** the adapter selects an available Codex equivalent or records the exact unavailable step and safe fallback while preserving the playbook's objective and verification
+
+#### Scenario: Complete playbook inventory is mapped
+- **WHEN** the pinned PStack upstream inventory is audited
+- **THEN** each upstream playbook has exactly one route registry entry with OpenSpec action, gate policy, task source, host mapping, and evidence requirements, with no missing or duplicate playbook IDs
+
+#### Scenario: Every route is behaviorally evaluated
+- **WHEN** a task fixture for each PStack playbook is run through the Codex OrbitStack entrypoint
+- **THEN** the audit records the expected route, observed route, OpenSpec action, gate behavior, and pass/fail evidence; structural file existence alone MUST NOT count as runtime route proof
+
+#### Scenario: OpenSpec remains the only durable task source
+- **WHEN** a PStack playbook creates an execution checklist
+- **THEN** implementation progress and completion evidence are recorded in the active OpenSpec tasks.md, and no parallel persistent PStack task ledger is created
 
 ### Requirement: OpenSpec single durable lifecycle
 The system SHALL use the current project's OpenSpec root and active change as the only durable source for change intent, requirements, tasks, verification status, and archive history.
@@ -29,6 +41,13 @@ The system SHALL use the current project's OpenSpec root and active change as th
 #### Scenario: No active change exists
 - **WHEN** implementation changes project behavior
 - **THEN** the system creates one OpenSpec change with proposal, applicable delta specs, design when needed, and tasks before implementation
+
+### Requirement: OpenSpec root verification and recovery
+The system SHALL run OpenSpec from the actual root of the project named by the task and verify that the CLI resolves that same root.
+
+#### Scenario: OpenSpec is missing or resolves another root
+- **WHEN** the project is not initialized or `openspec context --json` reports another root
+- **THEN** the agent initializes OpenSpec at the intended project root or corrects the working directory/configuration, reruns context, and proceeds only after the resolved path matches
 
 ### Requirement: OrbitStack authorization gates are preserved
 The system SHALL retain the mandatory Step 0 user understanding confirmation and the pre-implementation dual checklist authorization gate.

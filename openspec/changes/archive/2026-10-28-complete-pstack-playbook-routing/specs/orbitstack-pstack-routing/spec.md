@@ -3,7 +3,7 @@
 ## MODIFIED Requirements
 
 ### Requirement: Codex task routing
-The system SHALL expose one Codex-compatible PStack entry point that routes each task to the matching upstream playbook and supporting skills, without silently dropping unsupported host capabilities. The system MUST maintain an explicit mapping for every playbook in the pinned upstream PStack inventory, including OpenSpec lifecycle action, OrbitStack gates, Codex host support/fallback, and verification evidence. The route registry MUST name OpenSpec tasks.md as the single durable task source. The system MUST evaluate representative prompts for every playbook and record observed route behavior separately from structural file-presence checks.
+The system SHALL route Codex tasks through one entrypoint using the matching pinned PStack playbook and supporting skills. A versioned registry SHALL cover every upstream playbook and specify its OpenSpec action, OrbitStack gates, Codex host mapping/fallback, durable task source (`OpenSpec tasks.md`), and verification evidence. Each playbook SHALL have a representative fixture whose observed route and gate/lifecycle behavior are recorded separately from structural inventory checks.
 
 #### Scenario: Host capability unavailable
 - **WHEN** an upstream playbook requests a Cursor-only model route, agent type, UI, or automation
@@ -20,3 +20,10 @@ The system SHALL expose one Codex-compatible PStack entry point that routes each
 #### Scenario: OpenSpec remains the only durable task source
 - **WHEN** a PStack playbook creates an execution checklist
 - **THEN** implementation progress and completion evidence are recorded in the active OpenSpec tasks.md, and no parallel persistent PStack task ledger is created
+
+### Requirement: OpenSpec root verification and recovery
+The system SHALL run OpenSpec from the actual root of the project named by the task and verify that the CLI resolves that same root.
+
+#### Scenario: OpenSpec is missing or resolves another root
+- **WHEN** the project is not initialized or `openspec context --json` reports another root
+- **THEN** the agent initializes OpenSpec at the intended project root or corrects the working directory/configuration, reruns context, and proceeds only after the resolved path matches
