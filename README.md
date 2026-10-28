@@ -1,20 +1,81 @@
-# AI-Harness-Code
+# AI-Harness-Code (OrbitStack 轨道工程体系与通用智能体代码库)
 
-AI Harness 的代码仓库。
+> **Throughput Comes From Trust (吞吐量源于信任体系)**  
+> 本仓库是 **OrbitStack (Pstack + AI-Harness + OpenSpec)** 工业级自迭代研发体系与 `@hujiale2609/ai-harness` 基座包的唯一权威事实来源。  
+> 现已完整封装为跨平台、跨 Harness 的通用分发包，原生支持 **Antigravity、Claude Code、Cursor、OpenCode、Aider** 等各类智能体工程环境开箱即用。
 
-## 目录
+---
 
-| 路径 | 说明 |
+## 📦 核心资产与分发目录
+
+| 路径 | 角色与说明 |
 |:--|:--|
-| `GLOBAL-RULES.md` | Antigravity 跨线程最高法定全局规则（含五层防御金字塔/双环驱动/防线下沉自迭代/全网搜索先行与撞墙求助公理） |
-| `skills/pstack-openspec/` | Pstack + AI-Harness + OpenSpec 工业级 Vibe Coding 闭环且可自迭代执行技能与剧本库 |
-| `skills/xmind-cloud-mcp/` | 官方 Xmind 云端 MCP 深度协同指南与通用持久化客户端脚本 |
-| `skills/tavily-search/` | 官方 Tavily AI 驱动的全网智能搜索与精准正文萃取技能（集成主备双密钥容灾与防撞墙机制） |
+| **[`Agent.md`](Agent.md)** / **[`AGENTS.md`](AGENTS.md)** | **跨 Harness 最高通用智能体宪法**（包含五层防御金字塔、Step 0-5 闭环 SOP、14 大核心法定公理） |
+| **[`bundle/orbitstack-ps-openspec/`](bundle/orbitstack-ps-openspec/)** | **【完整独立分发包】** 包含全套 `Agent.md`、`ps-openspec` 核心技能与 16 份法定协议，供其他 Harness 极速整体引入 |
+| **`scripts/install-to-harness.ps1`** | Windows PowerShell 一键极速部署器，支持将体系秒级注入任意目标项目 |
+| **`scripts/install-to-harness.sh`** | Linux / macOS / Bash 一键极速部署器 |
+| **`skills/pstack-openspec/`** | OrbitStack 核心主控技能，内含 `references/` 下 16 份工业级参考协议与指南 |
+| `skills/spec-driven-workflow/` | 规格驱动工作流规范技能 |
+| `skills/ai-harness-openspec/` | AI-Harness 与 OpenSpec 底座规范技能 |
+| `skills/tavily-search/` | 官方 Tavily AI 检索与防撞墙技能（主备双 Key 容灾规范） |
+| `skills/xmind-cloud-mcp/` | 官方 Xmind 云端 MCP 深度协同指南与持久化客户端脚本 |
 | `packages/ai-harness/` | npm 包 `@hujiale2609/ai-harness`（补丁层维护形态） |
-| `openspec/` | 本仓库的规格根（capabilities 与 changes） |
-| `.changeset/` | Changesets 配置与待发布变更记录 |
+| `openspec/` | 本仓库的 OpenSpec 规格根 |
 
-## 维护方式
+---
+
+## 🚀 给其他 Harness 的极速接入指南 (Quickstart)
+
+若要将完整的 `ps-openspec` 体系与 `Agent.md` 注入到另一个项目或新的 Harness 环境中：
+
+### 1. 一键命令行安装 (推荐)
+```powershell
+# 在克隆的 AI-Harness-Code 根目录执行：
+.\scripts\install-to-harness.ps1 -TargetDir "D:\MyOtherProject"
+
+# 或指定部署到的技能类型 (agents / gemini / claude / cursor / all)：
+.\scripts\install-to-harness.ps1 -TargetDir "D:\MyOtherProject" -SkillLocation all
+```
+
+Linux / macOS:
+```bash
+./scripts/install-to-harness.sh /path/to/my-other-project
+```
+
+### 2. 打包为 Release Zip 归档资产
+在根目录下运行：
+```powershell
+pnpm pack:bundle
+# 生成输出: dist/orbitstack-ps-openspec-bundle.zip (即拷即用)
+```
+
+### 3. 按不同 Harness 平台手动接入
+- **Claude Code / OpenCode / Codex**：将 `Agent.md` 放入项目根目录（或命名为 `AGENTS.md`），将 `skills/pstack-openspec` 放入 `.claude/skills/` 或 `.agents/skills/`；
+- **Cursor / Windsurf**：将 `Agent.md` 作为项目根目录的规则基座，在 `.cursor/rules/` 中引用；
+- **全新设备 Antigravity**：将 `Agent.md` 复制为 `~/.gemini/config/GEMINI.md`，将技能复制到 `~/.gemini/config/skills/` 即可全局生效。
+
+---
+
+## 🏛️ 十四大核心法定公理 (Core Axioms in Agent.md)
+
+1. **规格高于代码公理**：系统行为以 specs 规格定义为法定准则，严禁先改代码再补写规格。
+2. **既有逻辑与业务规范不可否定公理 (防自以为是重构禁令)**：既有业务逻辑为法定事实，严禁凭通用洁癖擅自删除回退分支。
+3. **代码级防篡改封印标记机制**：`@ANTIGRAVITY_INVARIANT_LOCK` 标记块享有最高只读豁免权。
+4. **正向行动化表述准则**：严禁“粉色大象”负向禁令，一律使用确定性封闭作用域与正向准入规则。
+5. **最小因果集与保留现状 (Leave-as-is)**：改动严格收敛在当前任务链路，无关历史坏味道保持现状。
+6. **差分作用域验证与真实契约验证**：任务打勾必须以测试命令终端真实退出码 0 与实测日志为充要依据。
+7. **双重人工授权与验收归口**：Step 0 对抗澄清确认门禁 + Step 2 动工前双清单授权门禁 + 交付后人工终审验收。
+8. **问题与解法沉淀 (CHANGELOG 闭环)**：每次任务交付必须在 CHANGELOG 中沉淀根因与解法。
+9. **专用领域工具链与专属引擎唯一路由公理**：在专属工作台项目中，严禁私写脚本绕开官方流水线直接篡改底层业务文件。
+10. **防线下沉自迭代公理**：纠错两遍即立项为 Lint，禁止同类错误重复依靠人眼盯防两次。
+11. **全网智能搜索先行与撞墙求助公理**：遇新任务/未知依赖优先搜索；排错连续失败 2 次强制停止盲试，调用智能搜索查外部解法。
+12. **Poteto 委派双公理与 A2A 无损任务交接公理**：Fresh Subagents by Default + Consolidated Scope（全量合并简报）+ 上下文屏蔽盾 + 三级证据分级标签 (`[Measured]` / `[Inferred]` / `[Guess]`)。
+13. **跨线程任务发布法定绑定 ps-openspec 公理 (跨线程绝对入轨铁律)**：任何线程只要跨线程派工，首行必须强制声明并注入 `🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]`，脱轨一票否决。
+14. **用户反馈质疑与否定第一时间根因归因与递归自改进强制公理**：受到用户批评/质疑第一时间停机，启动 5-Whys 深度剖析，制定系统性杜绝复发方案并递归反哺规则库（以真实会话 `7f4d4b46-78e6-435a-aa29-f0d6ec194caa` 为永久警示）。
+
+---
+
+## 维护方式与历史说明
 
 `packages/ai-harness/` 通过**补丁层**方式维护：`templates/`、`schemas/`、`.agents/` 为可直接修改的纯文本资产；`dist/` 为来自上游发布物的 vendored 编译产物（上游 TypeScript 源码尚未接入本仓库，18 个 sourcemap 均无 `sourcesContent`，无法由产物还原）。因此当前**可以发布模板/Schema/技能层面的变更，尚不能修改 CLI 行为**。
 

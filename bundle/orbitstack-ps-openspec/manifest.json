@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "@orbitstack/ps-openspec-bundle",
+  "version": "1.4.0",
+  "displayName": "OrbitStack: Universal Pstack + AI-Harness + OpenSpec Engineering System",
+  "description": "工业级 Vibe Coding 闭环且可自迭代研发体系完整分发包。包含最高法定智能体宪法 Agent.md、五层信任金字塔、Step 0-5 闭环 SOP、Poteto 委派双公理及全套 16 份工程协议。",
+  "author": "SnowLove0303",
+  "license": "MIT",
+  "homepage": "https://github.com/SnowLove0303/AI-Harness-Code",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnowLove0303/AI-Harness-Code.git"
+  },
+  "compatibility": {
+    "supportedHarnesses": [
+      "Antigravity (Google)",
+      "Claude Code (Anthropic)",
+      "Cursor / Windsurf",
+      "OpenCode / Codex",
+      "Aider",
+      "AI-Harness CLI (@hujiale2609/ai-harness)"
+    ]
+  },
+  "constitution": {
+    "primary": "Agent.md",
+    "compatibleAlias": "AGENTS.md",
+    "totalInvariants": 14,
+    "coreAxioms": [
+      "规格高于代码公理",
+      "既有逻辑与业务规范不可否定公理 (防自以为是重构禁令)",
+      "代码级防篡改封印标记机制 (@ANTIGRAVITY_INVARIANT_LOCK)",
+      "正向行动化表述准则",
+      "最小因果集与保留现状 (Leave-as-is)",
+      "差分作用域验证与真实契约验证 (退出码0)",
+      "双重人工授权与验收归口 (Step 0 对抗澄清 + Step 2 双清单门禁)",
+      "问题与解法沉淀 (CHANGELOG 闭环)",
+      "专用领域工具链与专属引擎唯一路由公理",
+      "防线下沉自迭代公理 (纠错两遍即立项为 Lint)",
+      "全网智能搜索先行与撞墙求助公理 (Tavily 检索与双击撞墙门禁)",
+      "Poteto 委派双公理与 A2A 无损任务交接公理 (Fresh Subagents + Consolidated Scope)",
+      "跨线程任务发布法定绑定 ps-openspec 公理 (跨线程绝对入轨铁律)",
+      "用户反馈质疑与否定第一时间根因归因与递归自改进强制公理 (参考 7f4d4b46 案例)"
+    ]
+  },
+  "skills": [
+    {
+      "name": "pstack-openspec",
+      "entry": "skills/pstack-openspec/SKILL.md",
+      "referencesCount": 16,
+      "description": "OrbitStack 核心主控工程技能"
+    },
+    {
+      "name": "ai-harness-openspec",
+      "entry": "skills/ai-harness-openspec/SKILL.md",
+      "description": "AI-Harness 与 OpenSpec 底座承重墙与规格流技能"
+    },
+    {
+      "name": "spec-driven-workflow",
+      "entry": "skills/spec-driven-workflow/SKILL.md",
+      "description": "规格驱动工作流 SOP 技能"
+    }
+  ]
+}
