@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "name": "@orbitstack/ps-openspec-bundle",
-  "version": "1.4.0",
-  "displayName": "OrbitStack: Universal Pstack + AI-Harness + OpenSpec Engineering System",
+  "name": "ps-openspec",
+  "version": "2.0.0",
+  "releaseVersion": "V2.00",
+  "displayName": "Ps-openspec",
   "description": "工业级 Vibe Coding 闭环且可自迭代研发体系完整分发包。包含最高法定智能体宪法 Agent.md、五层信任金字塔、Step 0-5 闭环 SOP、Poteto 委派双公理及全套 16 份工程协议。",
   "author": "SnowLove0303",
   "license": "MIT",

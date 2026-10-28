@@ -1,7 +1,7 @@
-# AI-Harness-Code (OrbitStack 轨道工程体系与通用智能体代码库)
+# Ps-openspec V2.00 (OrbitStack PStack + OpenSpec Engineering System)
 
 > **Throughput Comes From Trust (吞吐量源于信任体系)**  
-> 本仓库是 **OrbitStack (Pstack + AI-Harness + OpenSpec)** 工业级自迭代研发体系与 `@hujiale2609/ai-harness` 基座包的唯一权威事实来源。  
+> 本仓库是 **Ps-openspec V2.00** 完整开发体系的权威来源，包含 Lauren Tan 官方完整 PStack、Codex/OpenSpec 融合适配和既有 AI-Harness 基座。
 > 现已完整封装为跨平台、跨 Harness 的通用分发包，原生支持 **Antigravity、Claude Code、Cursor、OpenCode、Aider** 等各类智能体工程环境开箱即用。
 
 ---
@@ -12,6 +12,9 @@
 |:--|:--|
 | **[`Agent.md`](Agent.md)** / **[`AGENTS.md`](AGENTS.md)** | **跨 Harness 最高通用智能体宪法**（包含五层防御金字塔、Step 0-5 闭环 SOP、14 大核心法定公理） |
 | **[`bundle/orbitstack-ps-openspec/`](bundle/orbitstack-ps-openspec/)** | **【完整独立分发包】** 包含全套 `Agent.md`、`ps-openspec` 核心技能与 16 份法定协议，供其他 Harness 极速整体引入 |
+| **[`bundle/pstack-upstream/`](bundle/pstack-upstream/)** | Lauren Tan 官方 PStack 完整上游镜像，固定提交见 [`pstack-upstream.lock.json`](bundle/pstack-upstream.lock.json)，上游文件保持原样 |
+| **[`orbitstack-codex/`](orbitstack-codex/)** | Codex 融合入口：PStack 负责 playbook 路由与执行方法，OpenSpec 负责唯一持久变更生命周期 |
+| **[`docs/pstack-openspec-routing-audit.md`](docs/pstack-openspec-routing-audit.md)** | 初级任务路由审计矩阵及结构/运行时验收状态 |
 | **`scripts/install-to-harness.ps1`** | Windows PowerShell 一键极速部署器，支持将体系秒级注入任意目标项目 |
 | **`scripts/install-to-harness.sh`** | Linux / macOS / Bash 一键极速部署器 |
 | **`skills/pstack-openspec/`** | OrbitStack 核心主控技能，内含 `references/` 下 16 份工业级参考协议与指南 |
@@ -46,7 +49,7 @@ Linux / macOS:
 在根目录下运行：
 ```powershell
 pnpm pack:bundle
-# 生成输出: dist/orbitstack-ps-openspec-bundle.zip (即拷即用)
+# 生成输出: dist/Ps-openspec-V2.00.zip (即拷即用)
 ```
 
 ### 3. 按不同 Harness 平台手动接入

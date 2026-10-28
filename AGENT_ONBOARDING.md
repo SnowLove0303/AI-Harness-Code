@@ -172,6 +172,8 @@
 > 🛑 **门禁等待**：请您核对上述理解与边界规划。若理解正确，请回复“确认”或“理解正确”，我将正式开启 OpenSpec 立法并呈报双清单。
 ```
 
+---
+
 ### 模版 2：Step 2 《动工前双清单门禁报表》
 ```markdown
 # 🛑 【动工前双清单授权门禁】
@@ -212,3 +214,14 @@
 ## 4. 递归反哺规则库
 - 已更新至: `Agent.md` 与 `ps-openspec` 对应规范中，已提交 GitHub 远端。
 ```
+
+---
+
+## 六、PStack + OpenSpec 完整融合接入
+
+- 官方 PStack 完整镜像位于 `bundle/pstack-upstream/`，上游来源和固定 commit 由 `bundle/pstack-upstream.lock.json` 记录。不得只复制摘要或改写上游文件。
+- Codex 的唯一融合入口是 `orbitstack-codex/SKILL.md`。它按官方 `poteto-mode` 选择 playbook，并将持久需求、规格、任务、验证与归档统一落在同一项目 OpenSpec change 中。
+- 本地 OpenSpec 根与活动变更优先复用；不得用全局规则覆盖项目现有 `AGENTS.md`、构建命令、架构事实或领域工具路由。安装器只追加带标记的适配器指引。
+- Step 0 任务理解确认与实施前双清单授权是 OrbitStack 强制门禁，必须完整保留。
+- Codex 全局技能副本位于 `C:\Users\Administrator\.codex\skills\`；完整 PStack 原始镜像位于 `C:\Users\Administrator\.codex\pstack-upstream\`。宿主专属能力必须明确映射或标记不可用，不能声称已执行。
+- 初级任务路由验收矩阵见 `docs/pstack-openspec-routing-audit.md`，结构检查由 `scripts/audit-pstack-openspec-routing.ps1` 执行。脚本通过仅证明路由工件和 playbook 目标存在；新会话中的实际模型路由仍须单独验收。

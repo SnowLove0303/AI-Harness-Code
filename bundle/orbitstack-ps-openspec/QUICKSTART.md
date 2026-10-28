@@ -1,4 +1,4 @@
-# OrbitStack (ps-openspec) 其他 Harness 极速接入指南 (QUICKSTART)
+# Ps-openspec V2.00 其他 Harness 极速接入指南 (QUICKSTART)
 
 > 本指南用于指导如何在**其他 AI-Harness、不同项目或新环境**中快速装配并应用全套 OrbitStack (`ps-openspec`) 体系。
 
@@ -11,10 +11,10 @@
 ### Windows (PowerShell)
 ```powershell
 # 从克隆的 AI-Harness-Code 仓库中执行：
-.\scripts\install.ps1 -TargetDir "D:\MyOtherProject"
+.\scripts\install-to-harness.ps1 -TargetDir "D:\MyOtherProject"
 
 # 或者在目标项目目录中直接指定安装包路径执行：
-powershell -ExecutionPolicy Bypass -File "path\to\AI-Harness-Code\bundle\orbitstack-ps-openspec\scripts\install.ps1"
+powershell -ExecutionPolicy Bypass -File "path\to\Ps-openspec\scripts\install-to-harness.ps1"
 ```
 
 ### Linux / macOS (Bash)
