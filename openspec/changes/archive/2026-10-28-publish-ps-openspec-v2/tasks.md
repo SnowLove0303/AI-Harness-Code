@@ -9,8 +9,8 @@
 - [x] 2.2 Review Git status/diff and confirm no deleted files, unrelated project configuration changes, or changes to package.json/pnpm-lock.yaml.
 
 ## 3. New-branch publication
-- [ ] 3.1 Confirm release branch does not already exist, create release/ps-openspec-v2.00, and commit the scoped full system plus V2.00 updates.
-- [ ] 3.2 Push only the new branch to origin and verify the remote branch head equals the local commit; do not merge, tag, open PR, or publish a release.
+- [x] 3.1 Confirm release branch did not exist, create release/ps-openspec-v2.00, and commit the complete system plus V2.00 updates as d57472f340d493e63c9e85d08a7bd941e301d90e.
+- [x] 3.2 Push only the new branch to origin and verify remote head equals local commit d57472f340d493e63c9e85d08a7bd941e301d90e; no merge, tag, PR, or Release was created.
 
 ## 4. Close
-- [ ] 4.1 Archive this OpenSpec change after publication verification and report branch, commit, artifact, checks, and remaining items.
+- [x] 4.1 Archive this OpenSpec change after publication verification. The release branch, remote commit, package artifact, validation checks, and remaining limitations are recorded in the final handoff.
