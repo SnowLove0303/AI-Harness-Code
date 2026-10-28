@@ -8,6 +8,7 @@ This release combines the complete pinned PStack source with OpenSpec as the onl
 - [Codex adapter](orbitstack-codex/SKILL.md)
 - [PStack upstream source](bundle/pstack-upstream/skills/poteto-mode/SKILL.md) and [pinned source lock](bundle/pstack-upstream.lock.json)
 - [OpenSpec setup quickstart](bundle/orbitstack-ps-openspec/QUICKSTART.md)
+- [Complete system reference](docs/ps-openspec-system.md)
 - [Install into a project](scripts/install-to-harness.ps1) (Windows) or [Bash installer](scripts/install-to-harness.sh)
 
 ## Routing and protection

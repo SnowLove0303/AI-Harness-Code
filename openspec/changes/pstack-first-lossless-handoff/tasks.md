@@ -44,7 +44,9 @@
 ## 5. Behavior evaluation and release checks
 
 - [ ] 5.1 Run blinded PStack Eval candidates and an independent judge on sanitized fixtures for intent loss, protected-optimization regression, legitimate supersession, and unrelated changes. Verify candidate prompts do not expose the evaluation rubric and transcripts show the source artifacts opened.
-- [x] 5.2 Verify routing, handoff, and protection behavior, then run strict OpenSpec validation. Evidence: all 23 routes pass structural audit; 14 Node regression checks pass; capsule generation/validation succeeds; strict validation passes 4/4.
+- [x] 5.2 Verify routing, handoff, and protection behavior, then run strict OpenSpec validation. Evidence: all 23 routes pass structural audit; 16 Node regression checks pass; capsule generation/validation succeeds; strict validation passes 4/4.
 - [x] 5.3 Run isolated installer checks, preservation, package links, and PStack parity. Evidence: PowerShell and Git Bash install/reinstall pass in isolated temp projects; project AGENTS content remained; PStack hashes match across 573 files; extracted V2.00 package content and all local links pass.
 - [ ] 5.4 Run the full route and regression audit, correct failures, rerun checks, and archive only after all acceptance criteria pass. Core audits pass; task 5.1 remains before archive.
-- [x] 5.5 Publish the verified V2.00 release artifact and push to the already authorized Ps-openspec branch. Evidence: origin/release/ps-openspec-v2.00 matches commit 6686eb78604d1d7c5de55025253a3d7f99b706bb; no force push, tag, release, or PR was used.
+- [x] 5.5 Publish the verified V2.00 release artifact and push to the already authorized Ps-openspec branch. Evidence: origin/release/ps-openspec-v2.00 was checked against the pushed local commit; no force push, tag, release, or PR was used.
+
+- [x] 5.6 Document the complete system in a linked architecture reference. Evidence: docs/ps-openspec-system.md cross-checks the pinned source, route registry, specifications, installers, helper scripts, package layout, and current evidence limits; README, package README, onboarding, and audit docs link to it. Repository links pass, the release ZIP includes the guide, and all 205 Markdown files in the extracted package have valid local links. OpenSpec strict validation passes 4/4.

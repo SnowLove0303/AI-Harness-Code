@@ -20,6 +20,7 @@ Record protected behavior in OpenSpec specs with a stable ID, source change or c
 
 ## Source locations
 
+- Complete system reference: `docs/ps-openspec-system.md`.
 - PStack upstream and version lock: `bundle/pstack-upstream/`, `bundle/pstack-upstream.lock.json`.
 - Codex adapter: `orbitstack-codex/SKILL.md`.
 - PStack route registry: `docs/pstack-openspec-route-map.json`.

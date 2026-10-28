@@ -14,6 +14,7 @@
 | **[`bundle/orbitstack-ps-openspec/`](bundle/orbitstack-ps-openspec/)** | 兼容安装包与两项 OrbitStack 扩展参考。PStack 上游仍是执行流程的权威来源 |
 | **[`bundle/pstack-upstream/`](bundle/pstack-upstream/)** | Lauren Tan 官方 PStack 完整上游镜像，固定提交见 [`pstack-upstream.lock.json`](bundle/pstack-upstream.lock.json)，上游文件保持原样 |
 | **[`orbitstack-codex/`](orbitstack-codex/)** | Codex 适配入口：PStack 负责 playbook 路由和执行；OpenSpec 负责唯一持久变更生命周期 |
+| **[`docs/ps-openspec-system.md`](docs/ps-openspec-system.md)** | Ps-openspec 整体架构、权责边界、任务流转、handoff、历史行为保护、安装与验证说明 |
 | **[`docs/pstack-openspec-routing-audit.md`](docs/pstack-openspec-routing-audit.md)** / **[`docs/pstack-openspec-route-evaluation.md`](docs/pstack-openspec-route-evaluation.md)** | 23 个 PStack playbook 的结构审计与行为路由评测证据 |
 | **[`docs/pstack-openspec-route-map.json`](docs/pstack-openspec-route-map.json)** | 23 路映射：上游来源、OpenSpec task source、PStack skill resolver、Codex 能力和验证证据 |
 | **`scripts/install-to-harness.ps1`** | Windows PowerShell 一键极速部署器，支持将体系秒级注入任意目标项目 |

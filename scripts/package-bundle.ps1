@@ -21,6 +21,7 @@ $installShell = Join-Path $repoRoot "scripts\install-to-harness.sh"
 $auditDoc = Join-Path $repoRoot "docs\pstack-openspec-routing-audit.md"
 $routeMap = Join-Path $repoRoot "docs\pstack-openspec-route-map.json"
 $routeEvaluation = Join-Path $repoRoot "docs\pstack-openspec-route-evaluation.md"
+$systemReference = Join-Path $repoRoot "docs\ps-openspec-system.md"
 $readme = Join-Path $repoRoot "docs\ps-openspec-package-readme.md"
 $onboarding = Join-Path $repoRoot "AGENT_ONBOARDING.md"
 $openSpecRoot = Join-Path $repoRoot "openspec"
@@ -67,6 +68,7 @@ try {
     Copy-Item -LiteralPath $auditDoc -Destination (Join-Path $stageDir "docs\pstack-openspec-routing-audit.md")
     Copy-Item -LiteralPath $routeMap -Destination (Join-Path $stageDir "docs\pstack-openspec-route-map.json")
     Copy-Item -LiteralPath $routeEvaluation -Destination (Join-Path $stageDir "docs\pstack-openspec-route-evaluation.md")
+    Copy-Item -LiteralPath $systemReference -Destination (Join-Path $stageDir "docs\ps-openspec-system.md")
     New-Item -ItemType Directory -Path (Join-Path $stageDir "openspec") -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $openSpecRoot "config.yaml") -Destination (Join-Path $stageDir "openspec\config.yaml")
     Copy-Item -LiteralPath (Join-Path $openSpecRoot "specs") -Destination (Join-Path $stageDir "openspec") -Recurse
