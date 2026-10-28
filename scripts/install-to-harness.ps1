@@ -18,6 +18,8 @@ if (!(Test-Path -LiteralPath $TargetDir)) { throw "Target directory does not exi
 try {
 $pstackSource = Join-Path $repoRoot "bundle\pstack-upstream"
 $adapterSource = Join-Path $repoRoot "orbitstack-codex"
+$routeMapSource = Join-Path $repoRoot "docs\pstack-openspec-route-map.json"
+$routeMapTarget = Join-Path $TargetDir ".orbitstack\pstack-openspec-route-map.json"
 $pstackTarget = Join-Path $TargetDir ".orbitstack\pstack-upstream"
 if (!(Test-Path -LiteralPath $pstackSource)) { throw "Complete PStack source is missing: $pstackSource" }
 if (Test-Path -LiteralPath $pstackTarget) {
@@ -28,6 +30,7 @@ if (Test-Path -LiteralPath $pstackTarget) {
 }
 New-Item -ItemType Directory -Path (Split-Path -Parent $pstackTarget) -Force | Out-Null
 Copy-Item -LiteralPath $pstackSource -Destination $pstackTarget -Recurse
+Copy-Item -LiteralPath $routeMapSource -Destination $routeMapTarget -Force
 
     $skillTargets = switch ($SkillLocation) {
         "agents" { @((Join-Path $TargetDir ".agents\skills")) }
@@ -53,7 +56,7 @@ Copy-Item -LiteralPath $pstackSource -Destination $pstackTarget -Recurse
     $pointer = @"
 
 $marker
-For all tasks in this project, use the OrbitStack adapter at `.agents/skills/orbitstack-pstack-openspec/SKILL.md` (or the selected harness skill directory). The complete unmodified upstream PStack tree is at `.orbitstack/pstack-upstream/`. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.
+For all tasks in this project, use the OrbitStack adapter at `.agents/skills/orbitstack-pstack-openspec/SKILL.md` (or the selected harness skill directory). The complete unmodified upstream PStack tree is at `.orbitstack/pstack-upstream/`; its single route registry is `.orbitstack/pstack-openspec-route-map.json`. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.
 <!-- /OrbitStack PStack + OpenSpec adapter -->
 "@
     if (Test-Path -LiteralPath $agentsFile) {

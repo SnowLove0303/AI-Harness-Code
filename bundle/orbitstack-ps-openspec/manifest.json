@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "releaseVersion": "V2.00",
   "displayName": "Ps-openspec",
-  "description": "工业级 Vibe Coding 闭环且可自迭代研发体系完整分发包。包含最高法定智能体宪法 Agent.md、五层信任金字塔、Step 0-5 闭环 SOP、Poteto 委派双公理及全套 16 份工程协议。",
+  "description": "Ps-openspec V2.00 完整工程体系分发包。包含固定版本且完整未修改的上游 PStack（skills、principles、agents、23 个 playbooks、references、scripts 与 assets）、23 路 Codex 适配与评测、OpenSpec 生命周期承载，以及 OrbitStack Agent.md、Step 0-5、双清单授权门禁与 16 份补充工程协议。",
   "author": "SnowLove0303",
   "license": "MIT",
   "homepage": "https://github.com/SnowLove0303/AI-Harness-Code",

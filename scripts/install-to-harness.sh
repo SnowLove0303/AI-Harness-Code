@@ -14,7 +14,9 @@ fi
 
 PSTACK_SOURCE="$REPO_ROOT/bundle/pstack-upstream"
 ADAPTER_SOURCE="$REPO_ROOT/orbitstack-codex"
+ROUTE_MAP_SOURCE="$REPO_ROOT/docs/pstack-openspec-route-map.json"
 PSTACK_TARGET="$TARGET_DIR/.orbitstack/pstack-upstream"
+ROUTE_MAP_TARGET="$TARGET_DIR/.orbitstack/pstack-openspec-route-map.json"
 if [[ ! -d "$PSTACK_SOURCE" ]]; then
   echo "Complete PStack source is missing: $PSTACK_SOURCE" >&2
   exit 1
@@ -28,6 +30,7 @@ if [[ -e "$PSTACK_TARGET" ]]; then
 fi
 mkdir -p "$(dirname "$PSTACK_TARGET")"
 cp -a "$PSTACK_SOURCE" "$PSTACK_TARGET"
+cp -f "$ROUTE_MAP_SOURCE" "$ROUTE_MAP_TARGET"
 
 case "$SKILL_LOCATION" in
   agents) SKILL_DIRS=("$TARGET_DIR/.agents/skills") ;;
@@ -53,7 +56,7 @@ for SKILL_DIR in "${SKILL_DIRS[@]}"; do
 done
 
 AGENTS_FILE="$TARGET_DIR/AGENTS.md"
-POINTER="\n$MARKER\nFor all tasks in this project, use the OrbitStack adapter at .agents/skills/orbitstack-pstack-openspec/SKILL.md (or the selected harness skill directory). The complete unmodified upstream PStack tree is at .orbitstack/pstack-upstream/. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.\n<!-- /OrbitStack PStack + OpenSpec adapter -->\n"
+POINTER="\n$MARKER\nFor all tasks in this project, use the OrbitStack adapter at .agents/skills/orbitstack-pstack-openspec/SKILL.md (or the selected harness skill directory). The complete unmodified upstream PStack tree is at .orbitstack/pstack-upstream/; its single route registry is .orbitstack/pstack-openspec-route-map.json. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.\n<!-- /OrbitStack PStack + OpenSpec adapter -->\n"
 if [[ -f "$AGENTS_FILE" ]]; then
   if ! grep -Fq "$MARKER" "$AGENTS_FILE"; then printf '%b' "$POINTER" >> "$AGENTS_FILE"; fi
 else

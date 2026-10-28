@@ -16,6 +16,8 @@ $adapterDir = Join-Path $repoRoot "orbitstack-codex"
 $installScript = Join-Path $repoRoot "scripts\install-to-harness.ps1"
 $installShell = Join-Path $repoRoot "scripts\install-to-harness.sh"
 $auditDoc = Join-Path $repoRoot "docs\pstack-openspec-routing-audit.md"
+$routeMap = Join-Path $repoRoot "docs\pstack-openspec-route-map.json"
+$routeEvaluation = Join-Path $repoRoot "docs\pstack-openspec-route-evaluation.md"
 $readme = Join-Path $repoRoot "README.md"
 $onboarding = Join-Path $repoRoot "AGENT_ONBOARDING.md"
 $openSpecRoot = Join-Path $repoRoot "openspec"
@@ -40,6 +42,8 @@ try {
     Copy-Item -LiteralPath $installShell -Destination (Join-Path $stageDir "scripts\install-to-harness.sh")
     New-Item -ItemType Directory -Path (Join-Path $stageDir "docs") -Force | Out-Null
     Copy-Item -LiteralPath $auditDoc -Destination (Join-Path $stageDir "docs\pstack-openspec-routing-audit.md")
+    Copy-Item -LiteralPath $routeMap -Destination (Join-Path $stageDir "docs\pstack-openspec-route-map.json")
+    Copy-Item -LiteralPath $routeEvaluation -Destination (Join-Path $stageDir "docs\pstack-openspec-route-evaluation.md")
     New-Item -ItemType Directory -Path (Join-Path $stageDir "openspec") -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $openSpecRoot "config.yaml") -Destination (Join-Path $stageDir "openspec\config.yaml")
     Copy-Item -LiteralPath (Join-Path $openSpecRoot "specs") -Destination (Join-Path $stageDir "openspec") -Recurse

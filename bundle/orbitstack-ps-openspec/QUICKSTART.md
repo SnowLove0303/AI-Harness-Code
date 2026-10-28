@@ -2,6 +2,8 @@
 
 > 本指南用于指导如何在**其他 AI-Harness、不同项目或新环境**中快速装配并应用全套 OrbitStack (`ps-openspec`) 体系。
 
+开始每项任务时，先在目标项目根运行 `openspec context --json` 并核对返回路径。若未初始化，在目标根执行 `openspec init` 后复核；若根不一致，切换到正确项目根并排查 CLI 工作目录/配置来源，不能跳过 OpenSpec。
+
 ---
 
 ## 🚀 方式一：一键自动安装 (推荐)

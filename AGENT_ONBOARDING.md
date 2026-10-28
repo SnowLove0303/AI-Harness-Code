@@ -224,4 +224,4 @@
 - 本地 OpenSpec 根与活动变更优先复用；不得用全局规则覆盖项目现有 `AGENTS.md`、构建命令、架构事实或领域工具路由。安装器只追加带标记的适配器指引。
 - Step 0 任务理解确认与实施前双清单授权是 OrbitStack 强制门禁，必须完整保留。
 - Codex 全局技能副本位于 `C:\Users\Administrator\.codex\skills\`；完整 PStack 原始镜像位于 `C:\Users\Administrator\.codex\pstack-upstream\`。宿主专属能力必须明确映射或标记不可用，不能声称已执行。
-- 初级任务路由验收矩阵见 `docs/pstack-openspec-routing-audit.md`，结构检查由 `scripts/audit-pstack-openspec-routing.ps1` 执行。脚本通过仅证明路由工件和 playbook 目标存在；新会话中的实际模型路由仍须单独验收。
+- 23 路结构审计见 `docs/pstack-openspec-routing-audit.md`，独立 Subagent 的 23 个 fixture 路由分类结果见 `docs/pstack-openspec-route-evaluation.md`；结构检查由 `scripts/audit-pstack-openspec-routing.ps1` 执行。分类评测不等于 23 个端到端任务执行或新桌面线程自动发现证明，证据边界见评测报告。
