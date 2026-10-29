@@ -58,6 +58,7 @@ public static class PsOpenSpecPathCanonicalizer {
 }
 '@
 }
+
 function Get-CanonicalExistingPath {
     param([string]$Path)
     $fullPath = [IO.Path]::GetFullPath($Path)
@@ -71,6 +72,7 @@ function Test-SamePath {
     param([string]$First,[string]$Second)
     return [string]::Equals((Get-CanonicalExistingPath $First),(Get-CanonicalExistingPath $Second),[StringComparison]::OrdinalIgnoreCase)
 }
+
 $skillTargets = switch ($SkillLocation) {
     "agents" { @((Join-Path $TargetDir ".agents\skills")) }
     "gemini" { @((Join-Path $TargetDir ".gemini\skills")) }
@@ -86,6 +88,7 @@ $openSpecTools = switch ($SkillLocation) {
     "cursor" { "cursor" }
     "all" { "codex,gemini,claude,cursor" }
 }
+
 $openSpecCommand = Get-Command openspec -ErrorAction SilentlyContinue
 if (!$openSpecCommand) { throw "OpenSpec CLI is required. Install @fission-ai/openspec, then retry: npm install -g @fission-ai/openspec" }
 $nodeCommand = Get-Command node -ErrorAction SilentlyContinue
@@ -104,6 +107,7 @@ try {
     $contextOutput = & openspec context --json 2>$null
     $contextExitCode = $LASTEXITCODE
 } finally { Pop-Location }
+
 $hasLocalOpenSpecConfig = Test-Path -LiteralPath (Join-Path $TargetDir 'openspec\config.yaml')
 if ($contextExitCode -eq 0) {
     try { $contextJson = ($contextOutput -join "`n") | ConvertFrom-Json } catch { throw "OpenSpec returned invalid context JSON for $TargetDir" }
@@ -131,6 +135,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'OpenSpec context failed after initialization' }
     try { $contextJson = ($contextOutput -join "`n") | ConvertFrom-Json } catch { throw 'OpenSpec context returned invalid JSON after initialization' }
 } finally { Pop-Location }
+
 $resolvedOpenSpecRoot = [IO.Path]::GetFullPath($contextJson.root.path).TrimEnd('\')
 if (!(Test-SamePath $resolvedOpenSpecRoot $TargetDir)) {
     throw "OpenSpec root mismatch after setup. Expected $TargetDir, got $($contextJson.root.path)"
@@ -141,38 +146,45 @@ foreach ($skillsRoot in $skillTargets) {
 }
 
 try {
-$pstackSource = Join-Path $repoRoot "bundle\pstack-upstream"
-$adapterSource = Join-Path $repoRoot "orbitstack-codex"
-$routeMapSource = Join-Path $repoRoot "docs\pstack-openspec-route-map.json"
-$handoffSource = Join-Path $scriptDir "pstack-handoff.mjs"
-$protectedAuditSource = Join-Path $scriptDir "audit-protected-invariants.mjs"
-$routeAuditSource = Join-Path $scriptDir "audit-pstack-openspec-routing.ps1"
-$helperScriptsTarget = Join-Path $TargetDir ".orbitstack\scripts"
-$routeMapTarget = Join-Path $TargetDir ".orbitstack\pstack-openspec-route-map.json"
-$pstackTarget = Join-Path $TargetDir ".orbitstack\pstack-upstream"
-if (!(Test-Path -LiteralPath $pstackSource)) { throw "Complete PStack source is missing: $pstackSource" }
-if (Test-Path -LiteralPath $pstackTarget) {
-    if (Test-ManagedTreeEqual -Source $pstackSource -Destination $pstackTarget) {
-        Write-Host '[Skip] PStack mirror already matches the pinned source.' -ForegroundColor DarkGray
+    $pstackSource = Join-Path $repoRoot "bundle\pstack-upstream"
+    $routeMapSource = Join-Path $repoRoot "docs\pstack-openspec-route-map.json"
+    $handoffSource = Join-Path $scriptDir "pstack-handoff.mjs"
+    $protectedAuditSource = Join-Path $scriptDir "audit-protected-invariants.mjs"
+    $routeAuditSource = Join-Path $scriptDir "audit-pstack-openspec-routing.ps1"
+    $helperScriptsTarget = Join-Path $TargetDir ".orbitstack\scripts"
+    $routeMapTarget = Join-Path $TargetDir ".orbitstack\pstack-openspec-route-map.json"
+    $pstackTarget = Join-Path $TargetDir ".orbitstack\pstack-upstream"
+
+    if (!(Test-Path -LiteralPath $pstackSource)) { throw "Complete PStack source is missing: $pstackSource" }
+
+    if (Test-Path -LiteralPath $pstackTarget) {
+        if (Test-ManagedTreeEqual -Source $pstackSource -Destination $pstackTarget) {
+            Write-Host '[Skip] PStack mirror already matches the pinned source.' -ForegroundColor DarkGray
+        } else {
+            if (!$Force) { throw "PStack target differs from the pinned source. Use -Force to back it up and replace: $pstackTarget" }
+            $backup = "$pstackTarget.bak-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+            Move-Item -LiteralPath $pstackTarget -Destination $backup
+            Write-Host "[Backup] Existing PStack mirror moved to $backup" -ForegroundColor DarkGray
+            New-Item -ItemType Directory -Path (Split-Path -Parent $pstackTarget) -Force | Out-Null
+            Copy-Item -LiteralPath $pstackSource -Destination $pstackTarget -Recurse
+        }
     } else {
-        if (!$Force) { throw "PStack target differs from the pinned source. Use -Force to back it up and replace: $pstackTarget" }
-        $backup = "$pstackTarget.bak-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
-        Move-Item -LiteralPath $pstackTarget -Destination $backup
-        Write-Host "[Backup] Existing PStack mirror moved to $backup" -ForegroundColor DarkGray
         New-Item -ItemType Directory -Path (Split-Path -Parent $pstackTarget) -Force | Out-Null
         Copy-Item -LiteralPath $pstackSource -Destination $pstackTarget -Recurse
     }
-} else {
-    New-Item -ItemType Directory -Path (Split-Path -Parent $pstackTarget) -Force | Out-Null
-    Copy-Item -LiteralPath $pstackSource -Destination $pstackTarget -Recurse
-}
-New-Item -ItemType Directory -Path $helperScriptsTarget -Force | Out-Null
-Copy-ManagedFile -Source $routeMapSource -Destination $routeMapTarget -AllowBackup $Force
-Copy-ManagedFile -Source $handoffSource -Destination (Join-Path $helperScriptsTarget "pstack-handoff.mjs") -AllowBackup $Force
-Copy-ManagedFile -Source $protectedAuditSource -Destination (Join-Path $helperScriptsTarget "audit-protected-invariants.mjs") -AllowBackup $Force
-Copy-ManagedFile -Source $routeAuditSource -Destination (Join-Path $helperScriptsTarget "audit-pstack-openspec-routing.ps1") -AllowBackup $Force
+
+    New-Item -ItemType Directory -Path $helperScriptsTarget -Force | Out-Null
+    Copy-ManagedFile -Source $routeMapSource -Destination $routeMapTarget -AllowBackup $Force
+    Copy-ManagedFile -Source $handoffSource -Destination (Join-Path $helperScriptsTarget "pstack-handoff.mjs") -AllowBackup $Force
+    Copy-ManagedFile -Source $protectedAuditSource -Destination (Join-Path $helperScriptsTarget "audit-protected-invariants.mjs") -AllowBackup $Force
+    Copy-ManagedFile -Source $routeAuditSource -Destination (Join-Path $helperScriptsTarget "audit-pstack-openspec-routing.ps1") -AllowBackup $Force
 
     foreach ($skillsRoot in $skillTargets) {
+        $adapterSource = if ($skillsRoot -match [regex]::Escape('.gemini\skills')) {
+            Join-Path $repoRoot "orbitstack-gemini"
+        } else {
+            Join-Path $repoRoot "orbitstack-codex"
+        }
         $adapterTarget = Join-Path $skillsRoot "orbitstack-pstack-openspec"
         if (Test-Path -LiteralPath $adapterTarget) {
             if (Test-ManagedTreeEqual -Source $adapterSource -Destination $adapterTarget) {
@@ -188,22 +200,39 @@ Copy-ManagedFile -Source $routeAuditSource -Destination (Join-Path $helperScript
         Copy-Item -LiteralPath $adapterSource -Destination $adapterTarget -Recurse
     }
 
-    $agentsFile = Join-Path $TargetDir "AGENTS.md"
+    $rulesFile = if (Test-Path -LiteralPath (Join-Path $TargetDir "GEMINI.md")) {
+        Join-Path $TargetDir "GEMINI.md"
+    } elseif (Test-Path -LiteralPath (Join-Path $TargetDir "AGENTS.md")) {
+        Join-Path $TargetDir "AGENTS.md"
+    } elseif ($SkillLocation -eq 'gemini') {
+        Join-Path $TargetDir "GEMINI.md"
+    } else {
+        Join-Path $TargetDir "AGENTS.md"
+    }
+
+    $targetSkillRel = if ($SkillLocation -eq 'gemini') {
+        ".gemini/skills/orbitstack-pstack-openspec/SKILL.md"
+    } else {
+        ".agents/skills/orbitstack-pstack-openspec/SKILL.md"
+    }
+
     $marker = "<!-- OrbitStack PStack + OpenSpec adapter -->"
     $pointer = @"
 
 $marker
-For all tasks in this project, use the OrbitStack adapter at `.agents/skills/orbitstack-pstack-openspec/SKILL.md` (or the selected harness skill directory). The complete unmodified upstream PStack tree is at `.orbitstack/pstack-upstream/`; its single route registry is `.orbitstack/pstack-openspec-route-map.json`. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.
+For all tasks in this project, use the OrbitStack adapter at $targetSkillRel (or the selected harness skill directory). The complete unmodified upstream PStack tree is at `.orbitstack/pstack-upstream/`; its single route registry is `.orbitstack/pstack-openspec-route-map.json`. Preserve this project's existing rules, architecture facts, build commands, and domain pipelines.
 <!-- /OrbitStack PStack + OpenSpec adapter -->
 "@
-    if (Test-Path -LiteralPath $agentsFile) {
-        $existing = Get-Content -LiteralPath $agentsFile -Raw
-        if (!$existing.Contains($marker)) { Add-Content -LiteralPath $agentsFile -Value $pointer -Encoding utf8 }
+
+    if (Test-Path -LiteralPath $rulesFile) {
+        $existing = Get-Content -LiteralPath $rulesFile -Raw
+        if (!$existing.Contains($marker)) { Add-Content -LiteralPath $rulesFile -Value $pointer -Encoding utf8 }
     } else {
         $sourceAgent = Join-Path $repoRoot "bundle\orbitstack-ps-openspec\Agent.md"
-        Copy-Item -LiteralPath $sourceAgent -Destination $agentsFile
-        Add-Content -LiteralPath $agentsFile -Value $pointer -Encoding utf8
+        Copy-Item -LiteralPath $sourceAgent -Destination $rulesFile
+        Add-Content -LiteralPath $rulesFile -Value $pointer -Encoding utf8
     }
+
     Write-Host "Ps-openspec $releaseVersion installed. Existing project instructions were preserved." -ForegroundColor Green
 } catch {
     Write-Error $_

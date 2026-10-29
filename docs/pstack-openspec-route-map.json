@@ -1,7 +1,7 @@
 {
   "pstackCommit": "c742dd61706fbacc1b95f1a20b7b988cf096ce6c",
   "pstackVersion": "0.15.36",
-  "registryVersion": 3,
+  "registryVersion": 4,
   "durableTaskSource": "OpenSpec tasks.md",
   "supportingSkillPolicy": "resolve-from-pinned-playbook-and-poteto-mode-triggers",
   "authorityPolicy": "PStack playbook and principles take precedence; direct user instructions and safety boundaries remain authoritative",
@@ -13,6 +13,8 @@
       "openSpec": "One parent change with phased tasks",
       "gate": "PStack figure-it-out workflow; pause only for genuine user decisions or irreversible actions",
       "codex": "Codex agent tools and isolated worktrees; name unavailable Cursor-only controls and continue independent work",
+      "geminiCapability": "parent agent with bespoke phased subagents and brain artifacts",
+      "geminiModelTier": "pro",
       "verify": "Falsifiable phase predicates, independent review, and OpenSpec verification evidence",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -26,6 +28,8 @@
       "openSpec": "context-only; no change for a pure answer",
       "gate": "PStack investigation route; no edits unless the user asks",
       "codex": "native read-only tools",
+      "geminiCapability": "native read-only tools and brain artifacts",
+      "geminiModelTier": "flash_lite",
       "verify": "cited source-backed answer; no files changed",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -37,6 +41,8 @@
       "openSpec": "reuse active change or create one behavior delta",
       "gate": "PStack autonomy; pause only for a genuine user decision, an explicit user gate, or an irreversible action",
       "codex": "local CLI/tests; surface control where available",
+      "geminiCapability": "invoke_subagent(branch) + vscode-review + deterministic test run",
+      "geminiModelTier": "flash",
       "verify": "repro before/after plus regression evidence",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -48,6 +54,8 @@
       "openSpec": "reuse/create change with performance objective and baseline",
       "gate": "PStack autonomy; pause only for a genuine user decision, an explicit user gate, or an irreversible action",
       "codex": "profiler required; state unavailable if absent",
+      "geminiCapability": "benchmark run + profile analysis + invoke_subagent",
+      "geminiModelTier": "pro",
       "verify": "same workload baseline and post-change measurement",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -59,6 +67,8 @@
       "openSpec": "one active change tracks target and accepted iterations",
       "gate": "PStack autonomy; pause only for a genuine user decision, an explicit user gate, or an irreversible action",
       "codex": "repeatable local benchmark; long loop bounded by user scope",
+      "geminiCapability": "iterative benchmark loop + invoke_subagent(branch)",
+      "geminiModelTier": "pro",
       "verify": "comparable repeated measurements and threshold",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -70,6 +80,8 @@
       "openSpec": "context-only for diagnosis; create change only for authorized fix",
       "gate": "PStack diagnosis; use the bug-fix route before edits",
       "codex": "process and instrumentation access required",
+      "geminiCapability": "process telemetry and live diagnostics via terminal/tools",
+      "geminiModelTier": "flash_lite",
       "verify": "captured live runtime evidence",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -81,6 +93,8 @@
       "openSpec": "context-only for diagnosis; create change only for authorized fix",
       "gate": "PStack diagnosis; use the bug-fix route before edits",
       "codex": "trace artifact and compatible reader required",
+      "geminiCapability": "trace parsing + performance analysis in brain artifacts",
+      "geminiModelTier": "flash_lite",
       "verify": "trace-derived evidence with caveats",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -92,6 +106,8 @@
       "openSpec": "proposal+delta-spec+design-if-needed+tasks",
       "gate": "PStack autonomy; pause only for a genuine user decision, an explicit user gate, or an irreversible action",
       "codex": "native implementation and test tools",
+      "geminiCapability": "invoke_subagent(branch) + vscode-review + OpenSpec lifecycle",
+      "geminiModelTier": "flash",
       "verify": "OpenSpec scenarios and public behavior tests",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -103,6 +119,8 @@
       "openSpec": "reuse/create scoped change; specify behavior-preservation only when behavior unchanged",
       "gate": "PStack autonomy; pause only for a genuine user decision, an explicit user gate, or an irreversible action",
       "codex": "native edit/test tools",
+      "geminiCapability": "invoke_subagent(branch) + vscode-review + regression suite",
+      "geminiModelTier": "flash",
       "verify": "behavior tests and exact diff scope",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -114,6 +132,8 @@
       "openSpec": "record decision in one active change; keep prototypes isolated",
       "gate": "PStack prototype; preserve the decision boundary and pause only for irreversible production edits",
       "codex": "disposable test workspace",
+      "geminiCapability": "isolated branch experiments via invoke_subagent(branch)",
+      "geminiModelTier": "flash",
       "verify": "compare prototypes to named decision criteria",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -125,6 +145,8 @@
       "openSpec": "one change with visible behavior requirements and evidence",
       "gate": "PStack visual-parity route; pause only for an explicit user review gate or irreversible action",
       "codex": "browser/desktop control required; declare unavailable otherwise",
+      "geminiCapability": "image-generator / browser inspection + brain visual artifacts",
+      "geminiModelTier": "flash",
       "verify": "matched viewport screenshots and visual comparison",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -136,6 +158,8 @@
       "openSpec": "one change when skill behavior is persistent",
       "gate": "PStack skill-authoring route; pause only for global deployment or an explicit user gate",
       "codex": "global/project skill filesystem",
+      "geminiCapability": "skill authoring in .gemini/skills + structural validation",
+      "geminiModelTier": "flash",
       "verify": "frontmatter/structure checks and behavior cases",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -147,6 +171,8 @@
       "openSpec": "one change if routing contract changes",
       "gate": "PStack Eval; OpenSpec change and user-authorized rule updates only",
       "codex": "model-eval harness if available; otherwise blinded manual agent run",
+      "geminiCapability": "Arena blind evaluation: dual candidate subagents + pro judge",
+      "geminiModelTier": "pro",
       "verify": "rubric scores, sample cases, reproducible results",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -158,6 +184,8 @@
       "openSpec": "use existing linked change/PR; never create competing task ledger",
       "gate": "PStack Babysit; use PStack authorization for any newly scoped code or irreversible action",
       "codex": "GitHub/forge connection required",
+      "geminiCapability": "PR checks monitoring + review comments synthesis",
+      "geminiModelTier": "flash",
       "verify": "live PR, checks, and review-thread state",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -169,6 +197,8 @@
       "openSpec": "existing change tasks and archive after verified ship",
       "gate": "PStack Shipping; obtain authority for irreversible publish or merge",
       "codex": "forge credentials and tools required",
+      "geminiCapability": "independent verification + git release verification",
+      "geminiModelTier": "pro",
       "verify": "independent verdict and live remote heads",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -180,6 +210,8 @@
       "openSpec": "one active change and tasks.md; no duplicate progress ledger",
       "gate": "PStack Autonomous Run; pause only for user-named gates or irreversible actions",
       "codex": "background execution capability when available",
+      "geminiCapability": "background invoke_subagent with reactive wakeup",
+      "geminiModelTier": "flash",
       "verify": "predicate-specific checks and evidence",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -191,6 +223,8 @@
       "openSpec": "one parent change; child work references parent task IDs",
       "gate": "PStack Orchestrate; operate within the authorized parent scope and pause for irreversible actions",
       "codex": "subagents and durable project state required",
+      "geminiCapability": "parent agent orchestrating multiple parallel subagents",
+      "geminiModelTier": "pro",
       "verify": "owner and verifier evidence per workstream",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -202,6 +236,8 @@
       "openSpec": "one parent program change with child PR tasks",
       "gate": "PStack Autopilot Full; explicit merge authority required",
       "codex": "forge and parallel agent capabilities required",
+      "geminiCapability": "sequential PR queue dispatch via subagents",
+      "geminiModelTier": "pro",
       "verify": "independent verdict at every PR head plus remote merge state",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -213,6 +249,8 @@
       "openSpec": "one parent change with dependency-ordered tasks",
       "gate": "PStack Autopilot Stack; do not merge without explicit authority",
       "codex": "forge and parallel agent capabilities required",
+      "geminiCapability": "stacked PR construction and verification via subagents",
+      "geminiModelTier": "flash",
       "verify": "every stack head verified and remote state checked",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -224,6 +262,8 @@
       "openSpec": "resume same active change after reading current state",
       "gate": "PStack Session Pickup; preserve approved scope and ask only for new user decisions",
       "codex": "branch, transcript, or artifacts must be accessible",
+      "geminiCapability": "read active OpenSpec change and git status to resume",
+      "geminiModelTier": "flash",
       "verify": "inspect current files/branch and rerun relevant checks",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -235,6 +275,8 @@
       "openSpec": "leave change active and update accurate task evidence",
       "gate": "honor pause; never archive incomplete change",
       "codex": "local state and handoff artifacts",
+      "geminiCapability": "write handoff snapshot to brain artifact and update tasks.md",
+      "geminiModelTier": "flash_lite",
       "verify": "handoff names root, change, branch, completed and pending tasks",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -246,6 +288,8 @@
       "openSpec": "record plan in one change's design/tasks",
       "gate": "PStack plan-only; no implementation until later authorized",
       "codex": "plan artifact and requested checks",
+      "geminiCapability": "pure plan artifact in brain with Mermaid topology",
+      "geminiModelTier": "pro",
       "verify": "all plan sections and check-plan output",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -257,6 +301,8 @@
       "openSpec": "context-only unless cleanup belongs to a tracked change",
       "gate": "PStack Worktree Cleanup; explicit target authorization before destructive cleanup",
       "codex": "git worktree inventory; exact-target safety check",
+      "geminiCapability": "git worktree audit and safe removal commands",
+      "geminiModelTier": "flash_lite",
       "verify": "before/after worktree inventory",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
@@ -268,6 +314,8 @@
       "openSpec": "attach PR to existing change; no new requirement source",
       "gate": "PStack Opening a PR; explicit authority for external PR creation",
       "codex": "GitHub/forge integration required",
+      "geminiCapability": "git branch push and PR creation via tools",
+      "geminiModelTier": "flash",
       "verify": "live PR URL, base/head, checks and scoped diff",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"

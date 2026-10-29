@@ -217,6 +217,8 @@ export function createHandoffCapsule({changeId, taskId, originalRequest, appendD
       taskSource: routeInfo.taskSource,
       supportingSkills: routeInfo.supportingSkills,
       codexCapability: routeInfo.codex,
+      ...(routeInfo.geminiCapability ? {geminiCapability: routeInfo.geminiCapability} : {}),
+      ...(routeInfo.geminiModelTier ? {geminiModelTier: routeInfo.geminiModelTier} : {}),
       verificationRequirement: routeInfo.verify,
       instructionFiles,
       branch,
