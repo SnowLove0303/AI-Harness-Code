@@ -43,9 +43,15 @@ test('gemini adapter enforces PStack-first rules, native subagents, and model ti
   assert.match(content, /flash_lite/, 'must reference flash_lite tier');
   assert.match(content, /brain/, 'must reference brain artifacts for context shielding');
   assert.match(content, /vscode-review/, 'must prioritize vscode-review MCP');
+});
 
-  assert.doesNotMatch(content, /mandatory Step 0|dual checklist gate|wait for explicit authorization before writing/,
-    'must not impose universal blocking approval gates on reversible tasks');
+test('gemini adapter enforces Spec-Kit zero-loss ingestion and dual-gate workflow', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Spec-Kit zero-loss ingestion & dual-gate workflow/, 'must declare Spec-Kit dual-gate workflow');
+  assert.match(content, /Requirement Traceability Matrix/, 'must reference RTM');
+  assert.match(content, /Gate 1 \(Detailed Brief\)/, 'must define Gate 1');
+  assert.match(content, /Gate 2 \(Plan & Dual-Checklist\)/, 'must define Gate 2');
+  assert.match(content, /`?\[-\]`?\s*lock/, 'must enforce single-focus lock');
 });
 
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {

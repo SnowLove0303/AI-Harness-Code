@@ -14,6 +14,20 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
 3. PStack controls task execution. Proceed autonomously on reversible work within the user's request. Ask only for a genuine product decision, missing user authority, an explicit user-named gate, or an irreversible action. Direct user instructions and safety boundaries remain authoritative.
 4. If Gemini lacks a specific PStack feature (e.g. Cursor-only automation), use the closest native Gemini equivalent or mark that step unavailable. Continue independent work and report the limitation.
 
+## Spec-Kit zero-loss ingestion & dual-gate workflow
+
+1. Phase 1 (Spec-Kit Zero-Loss Ingestion):
+   - Capture user raw input verbatim without over-summarization or scope decay.
+   - Construct a 1:1 Requirement Traceability Matrix (RTM): map every user point (1, 2, 3, 4) to an atomic `REQ-01`, `REQ-02`... preserving Count Parity (N_raw == N_matrix).
+   - Expand each requirement with Spec-Kit's triad: Scenario/Scope, detailed functional assertion, and verifiable Acceptance Criteria.
+   - Gate 1 (Detailed Brief): Present the comprehensive, uncompressed requirement dossier to the user. Do not proceed to OpenSpec drafting until the user gives explicit confirmation.
+2. Phase 2 (Ps-openspec Expansion & Gate 2):
+   - Upon Gate 1 confirmation, inject the 1:1 RTM into `proposal.md` and generate RFC 2119 specs for each requirement.
+   - Decompose into atomic tasks in `tasks.md`, each bound to a specific verification command. Enforce Roo-Code/Cline single-focus execution (`[-]` lock: exactly one active in-progress task at a time).
+   - Gate 2 (Plan & Dual-Checklist): Present the technical approach, architecture topology, and Dual-Checklist (Proposed Scope + Preserved Commitments). Await user explicit authorization before modifying source code.
+3. Phase 3 (Bidirectional Delivery Checkoff):
+   - In the final report, verify each original requirement (REQ-01...N) against measured command evidence with exit code 0.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

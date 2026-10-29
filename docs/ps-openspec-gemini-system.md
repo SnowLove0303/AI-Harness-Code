@@ -9,17 +9,20 @@ Ps-openspec Gemini combines the pinned PStack plugin (573 files), OpenSpec, a na
 ```mermaid
 flowchart TD
     U[User request and safety boundaries] --> G[GEMINI.md or AGENTS.md]
-    G --> P[Pinned PStack poteto-mode]
+    G --> K1[Gate 1: Spec-Kit 1:1 RTM Detailed Brief]
+    K1 --> P[Pinned PStack poteto-mode]
     P --> R[Selected playbook and triggered skills]
     R --> M[Dynamic model tiering: flash_lite / flash / pro]
     M --> O[One OpenSpec change and tasks.md]
-    O --> A[Gemini adapter and route registry]
+    O --> K2[Gate 2: Ps-openspec Plan & Dual-Checklist]
+    K2 --> A[Gemini adapter and route registry]
     A --> S[Native subagent invoke_subagent with branch workspace]
     S --> X[Handoff capsule with SHA-256 integrity]
     S --> K[Context shielding: <appDataDir>/brain artifacts]
-    K --> V[Zero-trust verification and regression checks]
+    K --> V[Single-focus [-] apply and Zero-trust regression checks]
     V --> O
-    O --> H[Validate and archive when complete]
+    O --> C[1:1 Bidirectional checkoff]
+    C --> H[Validate and archive when complete]
 ```
 
 ## Authority and source of truth
@@ -27,6 +30,7 @@ flowchart TD
 | Concern | Authoritative source | Role |
 |---|---|---|
 | User intent | The current user request and later directives | Defines requested goals, constraints, and non-goals |
+| Requirements intake | Spec-Kit 1:1 Requirement Traceability Matrix (RTM) | Preserves Count Parity (N_raw == N_matrix) without over-summarization |
 | Execution method | `bundle/pstack-upstream/` (commit `c742dd61706fbacc1b95f1a20b7b988cf096ce6c`) | Supplies `poteto-mode`, 23 playbooks, 24 principles, 58 skills |
 | Gemini adaptation | `orbitstack-gemini/SKILL.md` | Maps PStack routing, model tiering, subagents, and artifacts to Gemini |
 | Playbook mapping | `docs/pstack-openspec-route-map.json` | Maps each PStack playbook to OpenSpec actions, Gemini capabilities, and model tiers |
@@ -78,6 +82,20 @@ Antigravity natively structures Phase 1 (Explore) through tool-guided exploratio
 - Core routing specification `orbitstack-pstack-routing` anchors on the pinned upstream mirror `bundle/pstack-upstream/` and `docs/pstack-openspec-route-map.json`.
 - Distribution package specification `ps-openspec-distribution` governs package construction and installer behavior.
 - Invariant IDs (e.g. `INV-GEMINI-ROUTE-MAPPING`, `INV-PSTACK-ROUTE-SOURCE`, `INV-OPEN-SPEC-SINGLE-SOURCE`) provide durable bidirectional traceability between code anchors, regression checks, and specification requirements.
+
+### 7. Spec-Kit zero-loss ingestion & dual-gate workflow
+
+To prevent the multi-turn requirement evaporation defect ("1,2,3,4 -> 1,2,3 -> 1,2 -> 1"):
+1. Gate 1 (Spec-Kit Zero-Loss Ingestion):
+   - Constructs a 1:1 Requirement Traceability Matrix (RTM) from the raw user prompt.
+   - Demands Count Parity ($N_{\text{raw}} \equiv N_{\text{matrix}}$).
+   - Reports an exhaustive, non-compressed requirement dossier and halts for user confirmation (Gate 1).
+2. Gate 2 (Ps-openspec Architectural Expansion):
+   - Embeds the RTM into `proposal.md`, maps requirements 1:1 to RFC 2119 specs, and binds tasks in `tasks.md` with explicit verification commands.
+   - Enforces Roo-Code single-focus execution (`[-]` lock: exactly one in-progress task at a time).
+   - Submits technical architecture and Dual-Checklist (Proposed Scope + Preserved Invariants) and halts for user authorization (Gate 2).
+3. 1:1 Bidirectional Delivery Checkoff:
+   - Final report must verify every numbered requirement against passing command evidence (`[Measured]` exit code 0).
 
 ## Installation and layout for Gemini
 
