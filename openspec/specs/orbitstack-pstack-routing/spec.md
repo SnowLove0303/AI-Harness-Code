@@ -145,3 +145,32 @@ The system SHALL retain only the two OrbitStack extensions that close gaps in PS
 #### Scenario: Graph reports an impact
 - **WHEN** Code Review Graph identifies changed symbols, callers, or flows
 - **THEN** the result informs review and points to OpenSpec invariant IDs; OpenSpec remains the authority for why behavior is protected and what may change
+
+### Requirement: Gemini native task routing
+The system SHALL route Gemini and Antigravity tasks through pinned upstream PStack `poteto-mode` and leaf skills. The route registry SHALL map all 23 playbooks to Gemini model tiers, native `invoke_subagent` workspaces, and `<appDataDir>\brain` context shielding.
+
+**Invariant ID:** `INV-GEMINI-ROUTE-MAPPING`
+**Origin:** `openspec/changes/gemini-harness-adapter/specs/orbitstack-pstack-routing/spec.md`
+**Code anchors:** `orbitstack-gemini/SKILL.md`; `docs/pstack-openspec-route-map.json#routes`
+**Expected behavior:** Every pinned playbook has a Gemini host mapping and model tier assignment, and the Gemini adapter routes tasks through PStack without mandatory confirmation loops on reversible work.
+**Regression checks:** `node --test scripts/tests/gemini-adapter.test.mjs`
+
+#### Scenario: Gemini subagent dispatch with isolated workspace
+- **WHEN** a task requires delegated worker execution in a Gemini host
+- **THEN** the parent agent dispatches a subagent via `invoke_subagent` using an isolated `branch` workspace and passes the machine-validated lossless handoff capsule generated from OpenSpec
+
+#### Scenario: Gemini dynamic model tier mapping
+- **WHEN** a PStack playbook is selected in Gemini
+- **THEN** the adapter maps the playbook's reasoning requirement to the appropriate Gemini model tier (`flash_lite` for classification/linting, `flash` for standard features/bugfixes, `pro` for architecture/arena judging)
+
+#### Scenario: Gemini artifact context shielding
+- **WHEN** a delegated subagent or complex playbook generates extensive output, diffs, or logs
+- **THEN** the output is preserved as a structured artifact in `<appDataDir>\brain\<conversation-id>` while the direct response to the parent remains a high-density summary under 2,000 tokens
+
+#### Scenario: Gemini route inventory mapping
+- **WHEN** the route registry is audited for Gemini capabilities
+- **THEN** all 23 pinned playbooks contain explicit `geminiCapability` and `geminiModelTier` entries
+
+#### Scenario: Gemini OpenSpec Explore phase tooling
+- **WHEN** an Antigravity agent enters Phase 1 Explore mode
+- **THEN** the agent executes in read-only mode, inspects context using `openspec context --json`, uses `openspec instructions` for schema guidance, and preserves architecture designs and Mermaid diagrams in `<appDataDir>\brain` artifacts before authoring `proposal.md`

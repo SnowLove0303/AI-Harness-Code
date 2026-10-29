@@ -65,6 +65,20 @@ PStack emphasizes matching reasoning budget to task difficulty:
 - Code modifications prioritize the `vscode-review` MCP tool `review_diff_in_vscode`, presenting two-column diffs for user review before application.
 - Fallback: `code --reuse-window --diff <base> <proposed>` if the MCP tool is not active.
 
+### 5. OpenSpec Explore mode tooling (Phase 1 Thinking)
+
+Antigravity natively structures Phase 1 (Explore) through tool-guided exploration:
+1. Pure Read-Only Exploration: Model reasons over architecture without modifying or creating code files.
+2. Context Resolution: Uses `openspec context --json` to verify workspace alignment.
+3. Instruction Fetching: Uses `openspec instructions <artifact>` for structural guidance and template validation.
+4. Brain Artifact Staging: Exploration topologies and decision matrices are saved to `<appDataDir>\brain\<conversation-id>` as persistent artifacts before proposing.
+
+### 6. Specification dependencies and trace mapping
+
+- Core routing specification `orbitstack-pstack-routing` anchors on the pinned upstream mirror `bundle/pstack-upstream/` and `docs/pstack-openspec-route-map.json`.
+- Distribution package specification `ps-openspec-distribution` governs package construction and installer behavior.
+- Invariant IDs (e.g. `INV-GEMINI-ROUTE-MAPPING`, `INV-PSTACK-ROUTE-SOURCE`, `INV-OPEN-SPEC-SINGLE-SOURCE`) provide durable bidirectional traceability between code anchors, regression checks, and specification requirements.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

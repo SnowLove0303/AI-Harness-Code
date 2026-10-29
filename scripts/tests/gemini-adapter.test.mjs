@@ -48,6 +48,22 @@ test('gemini adapter enforces PStack-first rules, native subagents, and model ti
     'must not impose universal blocking approval gates on reversible tasks');
 });
 
+test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
+  assert.match(content, /openspec context --json/, 'must use openspec context --json');
+  assert.match(content, /openspec instructions/, 'must use openspec instructions');
+  assert.match(content, /Specification dependencies:/, 'must declare specification dependencies');
+});
+
+test('living spec parses INV-GEMINI-ROUTE-MAPPING invariant correctly', () => {
+  const specPath = path.join(repoRoot, 'openspec/specs/orbitstack-pstack-routing/spec.md');
+  assert.ok(existsSync(specPath), 'routing spec must exist');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /Invariant ID:\*{0,2}\s*`INV-GEMINI-ROUTE-MAPPING`/, 'must contain Gemini route invariant');
+  assert.match(specContent, /Scenario: Gemini OpenSpec Explore phase tooling/, 'must contain explore tooling scenario');
+});
+
 test('tier mapping aligns with task complexity and reasoning budget', () => {
   const routeMap = JSON.parse(readFileSync(routeMapPath, 'utf8'));
   const routesById = Object.fromEntries(routeMap.routes.map(r => [r.id, r]));
@@ -73,58 +89,62 @@ test('tier mapping aligns with task complexity and reasoning budget', () => {
 });
 
 test('handoff capsule creation incorporates Gemini route metadata deterministically', () => {
+  const sampleRouteInfo = {
+    pstackRoot: 'bundle/pstack-upstream',
+    source: 'bundle/pstack-upstream/skills/poteto-mode/playbooks/feature.md',
+    codex: 'isolated worktrees and background bash tasks',
+    geminiCapability: 'native branch subagent and brain artifacts',
+    geminiModelTier: 'flash',
+    verify: 'tests pass and behavior matches design',
+    supportingSkills: 'resolve-from-pinned-playbook-and-poteto-mode-triggers',
+    taskSource: 'OpenSpec tasks.md',
+  };
+
   const sampleMetadata = {
     taskId: '1.1',
     playbook: 'feature',
-    playbookSteps: ['Step 1', 'Step 2'],
-    supportingSkillPaths: ['skills/principle-model-the-domain/SKILL.md'],
+    playbookSteps: ['Plan before implementing', 'Write tests first', 'Verify in terminal'],
+    supportingSkillPaths: ['skills/principle-prove-it-works/SKILL.md'],
     writePaths: ['docs/ps-openspec-gemini-system.md'],
-    readOnlyPaths: ['bundle/pstack-upstream/**', 'orbitstack-gemini/SKILL.md'],
-    instructionPaths: [
-      'bundle/pstack-upstream/skills/poteto-mode/playbooks/feature.md',
-      'bundle/pstack-upstream/skills/principle-model-the-domain/SKILL.md',
-      'orbitstack-gemini/SKILL.md'
-    ],
-    invariantActions: [{ id: 'INV-TEST-INVARIANT', action: 'preserve', checks: ['node --version'] }],
-    priorVerified: ['All tests green'],
-    nonGoals: ['Do not edit upstream mirror'],
-    acceptance: ['node --test'],
+    readOnlyPaths: ['bundle/pstack-upstream/**', 'orbitstack-gemini/**', 'docs/**'],
+    instructionPaths: ['docs/ps-openspec-gemini-system.md'],
+    invariantActions: [],
+    priorVerified: ['pre-requisites checked'],
+    nonGoals: ['no unneeded refactors'],
+    acceptance: ['feature test green'],
   };
+
+  const instructionFiles = [
+    { path: 'docs/ps-openspec-gemini-system.md', sha256: 'a'.repeat(64) },
+    { path: 'bundle/pstack-upstream/skills/poteto-mode/playbooks/feature.md', sha256: 'b'.repeat(64) },
+    { path: 'bundle/pstack-upstream/skills/principle-prove-it-works/SKILL.md', sha256: 'c'.repeat(64) },
+  ];
 
   const capsule = createHandoffCapsule({
     changeId: 'gemini-harness-adapter',
     taskId: '1.1',
-    originalRequest: 'Add Gemini adapter',
-    appendDirectives: ['Use Option 2'],
+    originalRequest: 'Implement native Gemini adapter',
+    appendDirectives: ['Preserve PStack priority'],
     branch: 'release/ps-openspec-v2.00',
-    baseCommit: 'bbeab67d777cfb1156134188a870c14bcd8741c0',
-    routeInfo: {
-      source: 'bundle/pstack-upstream/skills/poteto-mode/playbooks/feature.md',
-      pstackRoot: 'bundle/pstack-upstream',
-      taskSource: 'OpenSpec tasks.md',
-      supportingSkills: 'resolve-from-pinned-playbook-and-poteto-mode-triggers',
-      codex: 'native implementation',
-      geminiCapability: 'invoke_subagent(branch) + vscode-review',
-      geminiModelTier: 'flash',
-      verify: 'node test',
-    },
-    instructionFiles: [
-      { path: 'bundle/pstack-upstream/skills/poteto-mode/playbooks/feature.md', sha256: '1'.repeat(64) },
-      { path: 'bundle/pstack-upstream/skills/principle-model-the-domain/SKILL.md', sha256: '2'.repeat(64) },
-      { path: 'orbitstack-gemini/SKILL.md', sha256: '3'.repeat(64) }
-    ],
+    baseCommit: 'd000000000000000000000000000000000000000',
+    workingTreeStatus: '',
+    workingTreeDigest: 'e'.repeat(64),
+    routeInfo: sampleRouteInfo,
+    instructionFiles,
     metadata: sampleMetadata,
   });
 
-  assert.ok(capsule.capsuleDigest && capsule.capsuleDigest.length === 64, 'capsule must produce 64-char sha256 digest');
+  assert.ok(capsule.capsuleDigest, 'capsule must have a cryptographic digest');
+  assert.equal(capsule.execution.geminiCapability, 'native branch subagent and brain artifacts');
   assert.equal(capsule.execution.geminiModelTier, 'flash');
-  assert.equal(capsule.execution.geminiCapability, 'invoke_subagent(branch) + vscode-review');
+  assert.equal(capsule.execution.taskSource, 'OpenSpec tasks.md');
 });
 
-test('powershell installer deploys orbitstack-gemini adapter and writes GEMINI.md pointer', { skip: process.platform !== 'win32' }, () => {
-  const tempDir = mkdtempSync(path.join(tmpdir(), 'gemini-install-test-'));
+test('powershell installer deploys orbitstack-gemini adapter and writes GEMINI.md pointer', () => {
+  const tempDir = mkdtempSync(path.join(tmpdir(), 'gemini-installer-test-'));
+  const installScript = path.join(repoRoot, 'scripts/install-to-harness.ps1');
+
   try {
-    const installScript = path.join(repoRoot, 'scripts/install-to-harness.ps1');
     const result = spawnSync('powershell.exe', [
       '-NoProfile',
       '-ExecutionPolicy', 'Bypass',

@@ -21,6 +21,14 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
 3. Use the installed OpenSpec skills for proposal, exploration, apply, update, sync, and archive. Keep one active change and one `tasks.md`. Reuse the active change when it owns the requested work.
 4. Keep all PStack task status and evidence in OpenSpec. Do not create a Blackboard or a second persistent task ledger. Run `openspec validate --all --strict` before archive.
 
+## OpenSpec Explore mode tooling (Phase 1 Thinking)
+
+1. Explore mode is strictly for understanding, trade-off analysis, and architecture exploration. Absolutely no business code edits or file creation during Explore.
+2. Resolve working context via `openspec context --json` to identify active changes and living specs.
+3. Retrieve machine guidance and schema templates with `openspec instructions <artifact>` (e.g., `proposal`, `specs`, or `tasks`).
+4. Persist exploration traces, calling topologies, and Mermaid diagrams into `<appDataDir>\brain\<conversation-id>` artifacts rather than flooding conversation context.
+5. Once aligned with the user on design, present the Dual-Checklist and transition to Phase 2 (OpenSpec Propose).
+
 ## Dynamic reasoning budget (pstack-models -> Gemini model tiers)
 
 Map PStack reasoning budgets dynamically to Gemini model tiers when invoking subagents or running tasks:
@@ -56,6 +64,7 @@ Use PStack's Fresh Subagents and Consolidated Scope methods backed by Gemini's n
 - Read global rules at `C:\Users\Administrator\.gemini\config\GEMINI.md` or `.gemini/` in workspace. Preserve the target project's existing instructions, architecture facts, build commands, and official domain pipelines.
 - Open code changes in VS Code for review. Prioritize the `vscode-review` MCP tool `review_diff_in_vscode`; fallback to `code --reuse-window --diff <base> <proposed>` if MCP is unavailable.
 
-## Route evidence
+## Route evidence & specification dependencies
 
-Use the repository route registry at `docs/pstack-openspec-route-map.json`; installed projects use `.orbitstack/pstack-openspec-route-map.json`. Run `scripts/audit-pstack-openspec-routing.ps1` in the source repository or `.orbitstack/scripts/audit-pstack-openspec-routing.ps1` in an installed project.
+- Specification dependencies: `orbitstack-pstack-routing` anchors on `bundle/pstack-upstream/` (SHA-256 pinned) and `docs/pstack-openspec-route-map.json`. The package release depends on `ps-openspec-distribution`.
+- Use the repository route registry at `docs/pstack-openspec-route-map.json`; installed projects use `.orbitstack/pstack-openspec-route-map.json`. Run `scripts/audit-pstack-openspec-routing.ps1` in the source repository or `.orbitstack/scripts/audit-pstack-openspec-routing.ps1` in an installed project.
