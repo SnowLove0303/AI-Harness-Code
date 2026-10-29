@@ -126,3 +126,11 @@ if ($TargetHarness -eq 'gemini') {
     Build-PackageArchive -HarnessName "gemini" -ZipFileName "Ps-openspec-$releaseVersion-Gemini.zip"
     Build-PackageArchive -HarnessName "codex" -ZipFileName "Ps-openspec-$releaseVersion.zip"
 }
+
+if ($TargetHarness -eq 'gemini' -or $TargetHarness -eq 'all') {
+    $syncScript = Join-Path $scriptDir "sync-to-global.ps1"
+    if (Test-Path -LiteralPath $syncScript) {
+        Write-Host "Triggering automated global Gemini synchronization from package-bundle..." -ForegroundColor Cyan
+        & $syncScript
+    }
+}
