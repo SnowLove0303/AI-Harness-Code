@@ -54,6 +54,18 @@ test('gemini adapter enforces Spec-Kit zero-loss ingestion and dual-gate workflo
   assert.match(content, /`?\[-\]`?\s*lock/, 'must enforce single-focus lock');
 });
 
+
+test('gemini adapter enforces strict lint and compiler zero-tolerance enforcement', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Strict Lint and compiler hard blocker/, 'must declare Strict Lint and compiler hard blocker');
+  assert.match(content, /Hard Blocker/, 'must enforce hard blocker');
+  assert.match(content, /Zero Warnings, Zero Errors/, 'must enforce zero warnings zero errors');
+  assert.match(content, /--max-warnings=0/, 'must specify max-warnings=0');
+  assert.match(content, /Anti-Suppression/, 'must enforce anti-suppression');
+  assert.match(content, /@ts-ignore/, 'must forbid @ts-ignore');
+  assert.match(content, /eslint-disable/, 'must forbid eslint-disable');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

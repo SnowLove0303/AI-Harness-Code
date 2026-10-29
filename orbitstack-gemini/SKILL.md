@@ -23,10 +23,18 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
    - Gate 1 (Detailed Brief): Present the comprehensive, uncompressed requirement dossier to the user. Do not proceed to OpenSpec drafting until the user gives explicit confirmation.
 2. Phase 2 (Ps-openspec Expansion & Gate 2):
    - Upon Gate 1 confirmation, inject the 1:1 RTM into `proposal.md` and generate RFC 2119 specs for each requirement.
-   - Decompose into atomic tasks in `tasks.md`, each bound to a specific verification command. Enforce Roo-Code/Cline single-focus execution (`[-]` lock: exactly one active in-progress task at a time).
+   - Decompose into atomic tasks in `tasks.md`, each bound to a specific verification command. Enforce Roo-Code/Cline single-focus execution (`[-]` lock: exactly one active in-progress task at a time). Releasing the lock requires both behavioral test passes and strict compiler/lint zero-warning passes (`--max-warnings=0` with exit code 0). Anti-suppression is absolute: no `@ts-ignore`, `eslint-disable`, or `any` casts are permitted without explicit user signoff.
    - Gate 2 (Plan & Dual-Checklist): Present the technical approach, architecture topology, and Dual-Checklist (Proposed Scope + Preserved Commitments). Await user explicit authorization before modifying source code.
 3. Phase 3 (Bidirectional Delivery Checkoff):
    - In the final report, verify each original requirement (REQ-01...N) against measured command evidence with exit code 0.
+
+## Strict Lint and compiler hard blocker (Layer 2)
+
+1. Static analysis and compiler verification possess unconditional one-vote veto authority (Hard Blocker).
+2. Zero Warnings, Zero Errors: any lint warning is treated as a build failure (`--max-warnings=0`).
+3. Anti-Suppression Invariant: agents must never inject `// @ts-ignore`, `// @ts-nocheck`, `/* eslint-disable */`, or `as any` type escapes to bypass checks.
+4. Two-strike escalation: any defect corrected twice by human review must be converted into an AST/ESLint rule with actionable fix guidance.
+5. Zero-trust subagent verification: capsules dispatched across threads mandate build and lint exit code 0 verification before merging.
 
 ## OpenSpec lifecycle
 

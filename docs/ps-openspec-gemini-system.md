@@ -97,6 +97,14 @@ To prevent the multi-turn requirement evaporation defect ("1,2,3,4 -> 1,2,3 -> 1
 3. 1:1 Bidirectional Delivery Checkoff:
    - Final report must verify every numbered requirement against passing command evidence (`[Measured]` exit code 0).
 
+### 8. Strict Lint and compiler hard blocker (Layer 2)
+
+Static analysis and compilation errors possess non-negotiable one-vote veto authority:
+1. Hard Blocker with Zero Tolerance: commands must pass with `--max-warnings=0` and exit code 0; warnings are treated as build failures.
+2. Anti-Suppression Invariant: suppressing errors via `// @ts-ignore`, `// @ts-nocheck`, `/* eslint-disable */`, or `as any` casts without user authorization is strictly forbidden.
+3. Single-Focus Task Lock Requisite: unlocking an active `[-]` task requires green verified execution of both functional tests and zero-warning compiler/lint passes.
+4. Two-Strike Escalation: any recurrent defect corrected twice in review is escalated into an enforceable AST/ESLint rule.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
