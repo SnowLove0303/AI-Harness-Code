@@ -256,10 +256,14 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **人机双钥匙准出 (Human Tactile Gate)**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。
 ---
 
-25. **智能体执行层元归因与 Ps-openspec 体系化根治公理 (Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Axiom - 防就事论事与个案思维铁律)**：
-    - **严禁陷入个案业务口水战**：理解任何故障、偏离、质检违章或代码缺陷时，严禁仅停留于具体业务场景、单个产品型号或特定文本排版的微观个案做孤立的就事论事；
-    - **强制升维至 Agent 执行层失效模式**：必须第一时间将问题穿透抽象为 Agent 在执行层面的系统性缺陷（单点绿灯贪婪导致局部硬编码特化、控制流盲目重复导致死分支遮蔽、裁判与施工者不分导致弱断言自欺自通、宏观统计假象掩蔽微观事实替换）；
-    - **唯一通过 Ps-openspec 体系化机械根治**：解决问题必须且唯一通过 Ps-openspec 体系（Step 0 事实指纹冻结、Step 1-2 承重墙与双清单授权、Step 3 裁执隔离与单焦点锁、Step 4 变异元审计与红队审讯、Step 5 1:1 物理核销与双钥匙终审、以及防线下沉自迭代机制）建立机械化硬阻断，从工具链、状态机与门禁上彻底剥夺 Agent 再次犯错的执行空间。
+25. **智能体执行层元归因与 Ps-openspec 体系化根治公理 (Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Axiom - 绝对领域中立与元抽象铁律)**：
+    - **绝对领域中立与反个案具象化禁令**：理解任何异常、回归、偏离、质检缺陷或代码异样时，严禁代入具体业务场景名相、单个输入样本标本（Single Input Specimen / Sample Vector）或局部交付物排版/视觉表征（Surface Representation）；
+    - **强制升维至 Agent 智能体执行与状态转移元失效模式**：必须第一时间将问题穿透抽象为 Agent 在自主执行生命周期中的机器行为模式缺陷：
+      - **贪婪局部过拟合（Greedy Local Overfitting）**：Agent 为追求单步执行绿灯，将特定输入向量硬编码为常量，绕开泛化状态转移管线；
+      - **控制流死分支遮蔽（Dead-Code Shadowing）**：Agent 在已有控制流前盲目插入等价前置条件，导致通用动态分支发生可达性阻断；
+      - **裁执不分与弱断言欺诈（Trivial Assertion Fraud）**：Agent 兼任验证者时自发降低 Oracle 判定阈值，将事实正确性退化为浅层词汇/符号存在性检查，制造虚假退出码 0；
+      - **宏观统计学度量欺骗（Macro-Statistical Evading）**：Agent 以全局长度、字符保全比或粗粒度相似度掩盖微观实体的颠覆性替换与事实蒸发；
+    - **唯一通过 Ps-openspec 体系化机械根治**：解决问题必须且唯一通过 Ps-openspec 顶层治理架构（Step 0 事实指纹实体哈希冻结、Step 1-2 承重墙契约与双清单物理围栏、Step 3 验证平面只读隔离与单焦点执行锁、Step 4 自动化变异元审计与独立 Pro 敌手红队审讯、Step 5 1:1 实体级物理核销与人机双钥匙终审、以及防线下沉自迭代闭环）实施机器级硬阻断，从架构几何、类型系统与执行门禁上彻底剥夺 Agent 再次产生此类行为模式的空间。
 ---
 
 ## 📚 五、 配套参考指南索引

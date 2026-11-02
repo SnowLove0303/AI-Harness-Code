@@ -146,18 +146,22 @@ test('gemini adapter enforces agent-execution-first meta-problem framing and ps-
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
   const globalRules = readFileSync(globalRulesPath, 'utf8');
   assert.match(globalRules, /智能体执行层元归因与 Ps-openspec 体系化根治公理/, 'GEMINI.md must contain Axiom 23');
-  assert.match(globalRules, /严禁陷入个案业务口水战/, 'GEMINI.md must ban isolated case thinking');
-  assert.match(globalRules, /强制升维至 Agent 执行层失效模式/, 'GEMINI.md must mandate meta-framing');
+  assert.match(globalRules, /绝对领域中立与反个案具象化禁令/, 'GEMINI.md must enforce domain neutrality');
+  assert.match(globalRules, /强制升维至 Agent 智能体执行与状态转移元失效模式/, 'GEMINI.md must mandate meta-framing');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be strictly domain-neutral and free of concrete case residues');
 
   // Verify skills/pstack-openspec/SKILL.md
   const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
   const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
   assert.match(pstackSkill, /智能体执行层元归因与 Ps-openspec 体系化根治公理/, 'pstack-openspec must contain Axiom 25');
+  assert.match(pstackSkill, /绝对领域中立与反个案具象化禁令/, 'pstack-openspec must enforce domain neutrality');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be strictly domain-neutral and free of concrete case residues');
 
   // Verify skills/ai-harness-openspec/SKILL.md
   const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
   const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
   assert.match(aiHarnessSkill, /智能体执行层元归因与 Ps-openspec 体系化根治公理/, 'ai-harness-openspec must contain Invariant 20');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be strictly domain-neutral');
 });
 
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
