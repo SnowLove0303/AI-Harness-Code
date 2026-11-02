@@ -66,6 +66,28 @@ test('gemini adapter enforces strict lint and compiler zero-tolerance enforcemen
   assert.match(content, /eslint-disable/, 'must forbid eslint-disable');
 });
 
+test('gemini adapter enforces verifier isolation, env-witness, and ground-truth anchoring', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Advanced defensive matrix/, 'must declare Advanced defensive matrix');
+  assert.match(content, /Verifier Isolation & Anti-Patching/, 'must enforce verifier isolation');
+  assert.match(content, /Explicit Missing States & Anti-Fabrication/, 'must enforce explicit missing states');
+  assert.match(content, /Env-Authored Witness & Auto-Rollback/, 'must enforce env-authored witness');
+  assert.match(content, /Ground-Truth Anchoring & 100% Fact Provenance/, 'must enforce ground truth anchoring');
+  assert.match(content, /Axiom 17/, 'must cite Axiom 17');
+  assert.match(content, /Axiom 18/, 'must cite Axiom 18');
+  assert.match(content, /Axiom 19/, 'must cite Axiom 19');
+  assert.match(content, /Axiom 20/, 'must cite Axiom 20');
+
+  // Verify that GEMINI.md also reflects Axioms 17-20
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(globalRulesPath), 'GEMINI.md must exist');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /Verifier Isolation & Anti-Patching Axiom/, 'GEMINI.md must contain Axiom 17');
+  assert.match(globalRules, /Explicit Missing States & Anti-Fabrication Axiom/, 'GEMINI.md must contain Axiom 18');
+  assert.match(globalRules, /Env-Authored Witness & Auto-Rollback Axiom/, 'GEMINI.md must contain Axiom 19');
+  assert.match(globalRules, /Ground-Truth Anchoring & 100% Fact Provenance Axiom/, 'GEMINI.md must contain Axiom 20');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

@@ -105,6 +105,26 @@ Static analysis and compilation errors possess non-negotiable one-vote veto auth
 3. Single-Focus Task Lock Requisite: unlocking an active `[-]` task requires green verified execution of both functional tests and zero-warning compiler/lint passes.
 4. Two-Strike Escalation: any recurrent defect corrected twice in review is escalated into an enforceable AST/ESLint rule.
 
+### 9. Advanced defensive matrix against agent meta-pathologies
+
+To counteract systemic pathologies identified in autonomous Agent development (such as case overfitting, defensive fabrication, and shallow verification):
+
+1. **Verifier Isolation & Anti-Patching (Axiom 17)**:
+   - Evaluator definitions and test suites reside in an isolated Validation Plane, strictly excluded from the agent's writable scope during implementation.
+   - Forbids ad-hoc overfitting (e.g. `if (input === 'case') return special_val`).
+   - Requires transformations and core logic to generalize through parameterized verification.
+2. **Explicit Missing States & Anti-Fabrication (Axiom 18)**:
+   - Distinguishes Unknown/Unprovided from False/NotApplicable.
+   - Requires explicit algebraic types (`Option<T>`, `Result<T, E>`) and prohibits defensive fallbacks (`val || '未检出'`).
+   - Unobserved fields must be preserved as explicit `UNKNOWN` or propagated as recoverable errors rather than hallucinating convenient defaults.
+3. **Env-Authored Witness & Auto-Rollback (Axiom 19)**:
+   - Neutralizes self-attestation bias by mandating untamperable witness proofs: CLI exit code 0, zero lint warnings (`--max-warnings=0`), and test runner output.
+   - Automatic Atomic Rollback: When a compilation or lint regression occurs, the system triggers immediate atomic rollback (Git reset/stash) to the last clean baseline, preventing the stacking of broken patches.
+4. **Ground-Truth Anchoring & 100% Fact Provenance (Axiom 20)**:
+   - Computes and freezes cryptographic digests and fact fingerprints from raw user inputs and source assets at Step 0.
+   - Enforces 100% fact provenance across all extraction, translation, and rendering steps, eliminating procrustean truncation and intent evaporation.
+   - Delivery mandates a 1:1 bidirectional physical reconciliation table against the frozen fact fingerprint.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

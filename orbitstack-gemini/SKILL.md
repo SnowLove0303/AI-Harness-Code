@@ -36,6 +36,25 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
 4. Two-strike escalation: any defect corrected twice by human review must be converted into an AST/ESLint rule with actionable fix guidance.
 5. Zero-trust subagent verification: capsules dispatched across threads mandate build and lint exit code 0 verification before merging.
 
+## Advanced defensive matrix (Verifier isolation, env-witness, ground-truth anchoring)
+
+1. Verifier Isolation & Anti-Patching (Axiom 17):
+   - Decouple verification definitions from the agent's writable scope.
+   - Forbid ad-hoc input-case overfitting (e.g. `if (raw_input === 'XYZ') return special_val`).
+   - Structural transformations and business logic must generalize across unseen inputs.
+2. Explicit Missing States & Anti-Fabrication (Axiom 18):
+   - Distinguish Missing / Unknown / Untested from False / Not Applicable.
+   - Require explicit algebraic optional/enum types (`Option<T>`, `Result<T, E>`) for unobserved fields.
+   - Strictly prohibit defensive fabrication (e.g., `val || '未检出'`, `val || default_value`) and hallucinatory defaults.
+3. Env-Authored Witness & Auto-Rollback (Axiom 19):
+   - Reject unverified agent self-attestation.
+   - Acceptance must be witnessed by external system processes: untamperable CLI exit code 0, zero compiler warnings (`--max-warnings=0`), and test suites.
+   - If a step introduces compilation or lint regression, mandate immediate atomic rollback (git reset / discard patch) before trying an alternative fix.
+4. Ground-Truth Anchoring & 100% Fact Provenance (Axiom 20):
+   - Freeze input cryptographic digests and fact fingerprints at Step 0.
+   - Enforce 100% provenance: every synthesized or formatted fact in deliverables must trace directly to ground truth without procrustean truncation or intent evaporation.
+   - Final checkoff requires 1:1 bidirectional reconciliation against the frozen fact fingerprint.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
