@@ -14,7 +14,9 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
 3. PStack controls task execution. Proceed autonomously on reversible work within the user's request. Ask only for a genuine product decision, missing user authority, an explicit user-named gate, or an irreversible action. Direct user instructions and safety boundaries remain authoritative.
 4. If Gemini lacks a specific PStack feature (e.g. Cursor-only automation), use the closest native Gemini equivalent or mark that step unavailable. Continue independent work and report the limitation.
 
-## Spec-Kit zero-loss ingestion & dual-gate workflow
+## Spec-Kit zero-loss ingestion & dual-gate workflow (Subordinate to Ps-openspec)
+
+Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates as a subordinate requirement-ingestion protocol at Step 0, capturing user requirements without loss before handing off to Ps-openspec lifecycle:
 
 1. Phase 1 (Spec-Kit Zero-Loss Ingestion):
    - Capture user raw input verbatim without over-summarization or scope decay.
@@ -54,6 +56,17 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
    - Freeze input cryptographic digests and fact fingerprints at Step 0.
    - Enforce 100% provenance: every synthesized or formatted fact in deliverables must trace directly to ground truth without procrustean truncation or intent evaporation.
    - Final checkoff requires 1:1 bidirectional reconciliation against the frozen fact fingerprint.
+
+## Execution methodology skills & Graph-driven governance
+
+1. Action Skill Layer for Methodologies:
+   - Domain execution methodologies—including Workflow Development (ACI/MCP tool building, SOP state machines, trace crystallization to reusable skills), UI/UX Design (Experience First, pixel-exact visual parity), and Engineering Practices (TDD, Statechart, unslop)—are anchored as modular skills at the Action Skill Layer (`skills/<methodology>/SKILL.md`).
+2. Graph-Driven Association & Rapid Discovery:
+   - The Code Review Graph, Route Map, and Invariant DAG connect task types, target components, and domain keywords directly to the matching execution methodology skill.
+   - At Step 1 (Anchor) and Step 2 (Propose), Gemini queries the Graph to rapidly bind the required methodology skill without manual wandering.
+3. Graph Safety & Blast Radius Guardrails:
+   - The Graph bounds each methodology skill's writable scope to prevent collateral changes.
+   - Quality gates defined by the methodology (e.g. zero visual diff, `--max-warnings=0`, passing test suite with exit code 0) are enforced as prerequisites before releasing the single-focus task lock (`[-] lock`).
 
 ## OpenSpec lifecycle
 

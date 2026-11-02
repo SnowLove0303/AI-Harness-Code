@@ -25,9 +25,9 @@
 
 ---
 
-## 二、OrbitStack 轨道工程体系 (Ps-openspec V2.00: Pstack + AI-Harness + OpenSpec 工业级闭环体系)
+## 二、OrbitStack 轨道工程体系 (Ps-openspec: 全局最高法定总纲与工业级研发体系)
 
-每个线程、每次任务，必须无条件遵循以 **OrbitStack（Ps-openspec 轨道工程体系）** 为法定核心的工业级自迭代研发方法论。本体系由 **Lauren Tan（@poteto）Pstack 严密工程准则**、**GitHub 官方 Spec-Kit（需求零损耗立案）**、**AI-Harness（工程承重墙）** 与 **OpenSpec（增量生命周期）** 深度咬合，构成**五层防御金字塔**、**双阶段双门禁**与**防线下沉自迭代闭环**：
+每个线程、每次任务，必须无条件遵循以 **OrbitStack（Ps-openspec 轨道工程体系）** 为全系统的**最高法定总纲（Supreme Governance Framework）**，拥有超越任何单一插件或提示词的最高工程立法权。本体系以 **Ps-openspec** 为统领主干，将 **Lauren Tan（@poteto）Pstack 严密工程准则**、**AI-Harness（工程承重墙）** 与 **OpenSpec（增量生命周期）** 深度咬合；**GitHub Spec-Kit 属于 Ps-openspec 的附属思路与子模块 (Subordinate Requirement Ingestion Protocol)**，专职负责 Step 0 阶段的需求零损耗 1:1 物理对账。体系构成**五层防御金字塔**、**执行方法论原子技能层**、**Graph 关联拓扑与布控治理网**、**双阶段双门禁**与**防线下沉自迭代闭环**：
 
 ### 0. 全局法定权威资产路径 (Global Authoritative Paths)
 - **上游原生镜像**：`C:\Users\Administrator\.gemini\pstack-upstream\`（锁定 573 个原生文件、23 个 Playbooks、24 个 Principles、58 个 Skills，SHA-256 绝对只读）；
@@ -46,7 +46,8 @@
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│ Step 0: Spec-Kit 需求零损耗全量立案与【门禁 1】(Spec-Kit Ingestion)    │
+│ Step 0: [附属模块] Spec-Kit 需求零损耗立案与【门禁 1】(Spec-Kit Ingestion) │
+│ (归属于 Ps-openspec 顶层管辖，专职负责 Step 0 需求 1:1 摄入与事实指纹冻结) │
 │ 1. 原始输入 100% 逐字留存：冻结事实指纹 (Fact Fingerprint)，严禁截断   │
 │ 2. 建立【1:1 需求物理对账矩阵 (RTM)】：用户的 1, 2, 3, 4 拆为独立条目   │
 │ 3. 逐条展开 Spec-Kit 三要素：场景故事、详细功能契约、独立验收指标      │
@@ -113,6 +114,16 @@
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
+
+### 3. 基于 Graph 的方法论技能关联拓扑与布控治理网 (Graph-Driven Methodology Governance)
+
+为使 Agent 能够根据 Ps-openspec 总方法论快速检索并调用具体执行层面的方法论技能，体系构建了以 Graph（Code Review Graph / Route Map / Invariant DAG）为纽带的拓扑关联与布控网络：
+1. **执行方法论下沉至原子技能操作层 (Action Skill Layer)**：
+   - 诸如**工作流开发方法论**（造手脚 ACI / MCP、SOP 状态机执行、探索结晶为工作流）、**UI / UX 设计方法论**（Experience First、Visual Parity 像素级对齐）、**工程研发方法论**（TDD、Statechart、Unslop 净化、领域建模）等，统一下沉至原子技能操作层（`skills/<methodology>/SKILL.md`）。
+2. **Graph 快速穿透检索 (Fast Discovery)**：
+   - Agent 在 Ps-openspec 的 Step 1（底座感知）与 Step 2（立法扩展）阶段，依据任务特征（如 UI 界面调整、底层服务封装、工作流编排等）查询 Graph 拓扑，瞬间穿透索引并绑定匹配的方法论技能，避免在茫茫规则中迷航。
+3. **Graph 安全与门禁布控 (Safety Guardrails & Blast Radius Control)**：
+   - Graph 对方法论技能的执行范围建立物理布控围栏（锁定爆炸半径），并将方法论特有的质量断言（如 UI 图像零 Diff、编译零告警 `--max-warnings=0`、真实退出码 0）强制注入 `tasks.md`，作为单任务专注锁（`[-] lock`）解锁打勾的充要门禁。
 ---
 
 ## 三、核心操作纪律 (Operating Invariants)
@@ -215,3 +226,7 @@
    - **输入事实指纹冻结**：任务 Step 0 阶段即对原始输入文本、关键源文档计算并冻结不可篡改的事实指纹（Fact Fingerprint / Hash Digest）；
    - **100% 事实溯源链 (Fact Provenance)**：在结构化提取、智能匹配、排版装配、外语翻译与格式派生全流程中，输出结果中的每一个事实实体与字段值必须具备明确的源头溯源引用（Source Grounding），严禁削足适履式截断截短、严禁将复杂核心意图稀释蒸发；
    - **物理级指纹清算核销**：终审交付时，最终输出事实集必须与初始输入事实指纹进行 1:1 双向物理对账核销，任何事实遗漏、偷换概念或无源捏造均构成交付一票否决。
+21. **方法论原子技能与 Graph 拓扑布控公理 (Methodology Skills & Graph Governance Axiom - 方法论下沉与图谱布控铁律)**：
+   - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论、测试驱动方法论等）必须下沉至原子技能操作层（`skills/<name>/SKILL.md`），严禁在顶层散漫堆砌具体领域操作细节；
+   - **Graph 拓扑关联与快速寻路**：必须通过 Graph（Code Review Graph / Route Map / Invariant DAG）建立任务特征、代码模块与方法论技能的拓扑连接；Agent 依托 Ps-openspec 接收任务后，必须第一步通过 Graph 进行方法论技能的快速穿透寻路与精准绑定；
+   - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径（Blast Radius）；方法论规定的所有硬核检验指标必须通过 Graph 映射为 tasks.md 的机检命令与门禁阻断，确保方法论落地具备外部系统见证力。

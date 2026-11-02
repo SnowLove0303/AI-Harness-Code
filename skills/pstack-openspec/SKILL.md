@@ -6,7 +6,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 # OrbitStack 轨道工程体系 (Pstack & AI-Harness & OpenSpec 工业级自迭代方法论)
 
 > **核心哲学**：**Throughput Comes From Trust (吞吐量源于信任体系，而非盲目堆砌 Agent)**。
-> **OrbitStack（轨道工程体系）** 将 **Lauren Tan（@poteto）的 Pstack 严密工程准则**、**Hujiale 的 AI-Harness（工程底座与承重墙）**、**OpenSpec（增量立法与规格生命周期）** 以及 **VS Code 原生两栏 Diff 触觉检阅** 深度咬合，构成跨项目、跨任务、具备**自我进化（Self-Iterating）**能力的工业级 Vibe Coding 闭环研发方法论。如同现代航天器进入精确预定轨道，多 Agent 在受控轨道上高通量运行而绝不相撞。
+> **OrbitStack（Ps-openspec 轨道工程体系）** 为全系统的**最高法定总纲（Supreme Governance Framework）**，统领跨项目、跨任务的工业级研发闭环。本体系将 **Lauren Tan（@poteto）的 Pstack 严密工程准则**、**AI-Harness（工程底座与承重墙）**、**OpenSpec（增量生命周期）** 与 **VS Code 原生两栏 Diff 触觉检阅** 深度咬合；**GitHub Spec-Kit 属于 Ps-openspec 的附属思路与子模块**（专职 Step 0 需求零损耗 1:1 对账）。具体执行层面的方法论（工作流开发、UI设计等）统一下沉至**原子技能操作层**，由 **Graph 关联拓扑与布控治理网** 实现瞬时穿透检索与安全阻断。
 
 ---
 
@@ -32,6 +32,8 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 │      • CI/CD 真实退出码：退出码 0 为打勾充要条件，严禁无凭证自证宣称   │
 │                                                                        │
 │   📜 Layer 3 (工作流引导): 契约立法与剧本库 (Rules, Skills & Playbooks) │
+│      • 执行方法论下沉：工作流开发、UI设计等归入原子技能操作层 (Action) │
+│      • Graph 拓扑关联与布控网：通过 Graph 快速寻路与爆炸半径围栏布控   │
 │      • 验证平面物理隔离：测试断言集在 Agent 可写范围之外，裁执分离     │
 │      • AI-Harness 4份受管宪法：AGENTS/ARCHITECTURE/FRONTEND/BACKEND    │
 │      • AGENTS.md 负向禁令转正向约束：提供封闭作用域与准入准则          │
@@ -236,6 +238,12 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **输入事实指纹冻结**：任务 Step 0 阶段即对原始输入文本、关键源文档计算并冻结不可篡改的事实指纹（Fact Fingerprint / Hash Digest）；
     - **100% 事实溯源链 (Fact Provenance)**：在提取、匹配、排版装配、翻译与派生全流程中，输出结果中的每一个事实实体与字段值必须具备明确的源头溯源引用，严禁削足适履式截断截短、严禁将核心意图稀释蒸发；
     - **物理级指纹清算核销**：终审交付时，最终输出事实集必须与初始输入事实指纹进行 1:1 双向物理对账核销，任何事实遗漏、偷换概念或无源捏造均构成交付一票否决。
+---
+
+23. **方法论原子技能与 Graph 拓扑布控公理 (Methodology Skills & Graph Governance Axiom - 方法论下沉与图谱布控铁律)**：
+    - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论、测试驱动方法论等）必须下沉至原子技能操作层（`skills/<name>/SKILL.md`），严禁在顶层散漫堆砌具体领域操作细节；
+    - **Graph 拓扑关联与快速寻路**：必须通过 Graph（Code Review Graph / Route Map / Invariant DAG）建立任务特征、代码模块与方法论技能的拓扑连接；Agent 依托 Ps-openspec 接收任务后，必须第一步通过 Graph 进行方法论技能的快速穿透寻路与精准绑定；
+    - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径（Blast Radius）；方法论规定的所有硬核检验指标必须通过 Graph 映射为 tasks.md 的机检命令与门禁阻断，确保方法论落地具备外部系统见证力。
 ---
 
 ## 📚 五、 配套参考指南索引

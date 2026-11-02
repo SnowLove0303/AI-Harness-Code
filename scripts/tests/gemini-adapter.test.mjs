@@ -88,6 +88,23 @@ test('gemini adapter enforces verifier isolation, env-witness, and ground-truth 
   assert.match(globalRules, /Ground-Truth Anchoring & 100% Fact Provenance Axiom/, 'GEMINI.md must contain Axiom 20');
 });
 
+test('gemini adapter enforces ps-openspec supreme priority and graph methodology governance', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /supreme governance framework/i, 'must declare ps-openspec as supreme governance framework');
+  assert.match(content, /subordinate to Ps-openspec/i, 'must declare spec-kit as subordinate to ps-openspec');
+  assert.match(content, /Execution methodology skills & Graph-driven governance/, 'must document methodology skills & graph governance');
+  assert.match(content, /Action Skill Layer for Methodologies/, 'must specify action skill layer for methodologies');
+  assert.match(content, /Graph-Driven Association & Rapid Discovery/, 'must specify graph-driven association');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /最高法定总纲/, 'GEMINI.md must declare ps-openspec as highest master governance');
+  assert.match(globalRules, /附属思路与子模块/, 'GEMINI.md must declare spec-kit as subordinate');
+  assert.match(globalRules, /基于 Graph 的方法论技能关联拓扑与布控治理网/, 'GEMINI.md must define Graph methodology governance');
+  assert.match(globalRules, /Methodology Skills & Graph Governance Axiom/, 'GEMINI.md must contain Axiom 21');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

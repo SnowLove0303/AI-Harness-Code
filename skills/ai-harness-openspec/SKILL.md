@@ -5,7 +5,7 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 # Hujiale AI-Harness & OpenSpec 工业级 Vibe Coding 全流程闭环技能
 
-本技能将 **Hujiale 的 AI-Harness（底座契约与工程承重墙）**、**OpenSpec Explore（灵感漫游与思考伙伴）**、**OpenSpec（需求演进与执行立法）** 与 **VS Code 原生 Diff 检阅** 深度咬合，为 Antigravity 提供跨项目、跨任务的工业级 Vibe Coding 标准作业规程（SOP）。
+本技能以 **Ps-openspec（OrbitStack 轨道工程体系）** 为全系统的**最高法定总纲（Supreme Governance Framework）**，深度咬合 **AI-Harness（工程承重墙）**、**OpenSpec（增量生命周期）** 与 **VS Code 原生 Diff 检阅**；**Spec-Kit 属于 Ps-openspec 的附属思路与子模块**（专职 Step 0 需求 1:1 零损耗摄入）。具体执行层面的方法论（工作流开发、UI设计等）下沉至**原子技能操作层**，由 **Graph 关联拓扑与布控治理网** 实现瞬时穿透检索与安全阻断。
 
 ---
 
@@ -196,6 +196,12 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **输入事实指纹冻结**：任务 Step 0 阶段即对原始输入文本、关键源文档计算并冻结不可篡改的事实指纹（Fact Fingerprint / Hash Digest）；
     - **100% 事实溯源链 (Fact Provenance)**：在提取、匹配、排版装配、翻译与派生全流程中，输出结果中的每一个事实实体与字段值必须具备明确的源头溯源引用，严禁削足适履式截断截短、严禁将核心意图稀释蒸发；
     - **物理级指纹清算核销**：终审交付时，最终输出事实集必须与初始输入事实指纹进行 1:1 双向物理对账核销，任何事实遗漏、偷换概念或无源捏造均构成交付一票否决。
+---
+
+18. **方法论原子技能与 Graph 拓扑布控公理 (Methodology Skills & Graph Governance Axiom - 方法论下沉与图谱布控铁律)**：
+    - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论等）统一下沉至原子技能操作层（`skills/<name>/SKILL.md`）；
+    - **Graph 拓扑关联与快速寻路**：必须通过 Graph 建立任务特征与方法论技能的拓扑连接，实现快速穿透寻路与精准绑定；
+    - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径，硬核检验指标必须映射为 tasks.md 的机检命令与门禁阻断。
 ---
 
 ## 📚 附录与配套参考

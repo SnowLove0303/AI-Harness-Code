@@ -125,6 +125,22 @@ To counteract systemic pathologies identified in autonomous Agent development (s
    - Enforces 100% fact provenance across all extraction, translation, and rendering steps, eliminating procrustean truncation and intent evaporation.
    - Delivery mandates a 1:1 bidirectional physical reconciliation table against the frozen fact fingerprint.
 
+### 10. Graph-Driven Methodology Association & Governance Engine
+
+To enable rapid discovery and disciplined execution of domain methodologies under the supreme governance of Ps-openspec:
+
+1. **Supreme Framework vs. Subordinate Ingestion**:
+   - Ps-openspec (OrbitStack) functions as the top-level standard across all sessions and agent threads.
+   - Spec-Kit operates as a subordinate ingestion protocol within Step 0 to guarantee 1:1 Requirement Traceability without scope loss.
+2. **Action Skill Layer for Execution Methodologies**:
+   - Specific methodologies (e.g. Workflow Development—tooling ACI/MCP, SOP state machine execution, and trajectory crystallization into reusable skills; UI/UX Design—Experience First, visual parity with image diffs; and Engineering Practices—TDD, statecharts, unslop) reside modularly at the Action Skill Layer (`skills/<methodology>/SKILL.md`).
+3. **Graph Topology & Rapid Discovery (Fast Discovery)**:
+   - The system utilizes Graph relationships (Code Review Graph, Route Map, and Invariant DAG) to connect task domains to specific methodology skills.
+   - During Step 1 (Anchor) and Step 2 (Propose), the agent traverses Graph nodes to bind the exact methodology required for the detected component.
+4. **Graph-Enforced Blast Radius & Safety Guardrails**:
+   - Graph topology defines write boundaries, strictly confining methodology actions within designated blast radiuses.
+   - Quality checks stipulated by the methodology are compiled directly into `tasks.md` verification commands, barring false progress before external system verification.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
