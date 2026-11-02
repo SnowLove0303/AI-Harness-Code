@@ -118,12 +118,18 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
   1. **动态单任务专注锁（`[-] lock`）**：严格落实 Roo-Code/Cline 单焦点纪律，在任意时刻仅允许一个任务处于进行中状态（状态为 `[-]`）；上一个任务未绿灯打勾前严禁启动下一任务；
   2. 源码修改优先调用 `vscode-review` MCP 的 `review_diff_in_vscode`，拉起 VS Code 原生两栏 Diff 视图，由用户直观审查微调；
   3. **编译与 Lint 零容忍硬阻断 (Hard Blocker)**：任务打勾 `- [x]` 的充要条件必须同时包含功能测试通过与编译/Lint 静态检查（`--max-warnings=0` 真实退出码 0）；反逃避禁令绝对生效，严禁添加 `// @ts-ignore`、`/* eslint-disable */` 或 `as any` 强行绕过，红灯时任务严格锁死在 `[-]`；
+  4. **通用深度审计施工防线 (Deep Audit Verification Matrix)**：
+     - **验证平面只读隔离**：测试集代码不在 Agent 可写范围之内，严禁私改断言或公差，擅改考卷触发 `VERIFIER_TAMPERING_DETECTED` 熔断并原子回滚；
+     - **变异元审计 (Mutation Sanity)**：测试套件必须具备变异杀伤力，注入反例变异体时测试必须红灯；若仍报退出码 0 判定为弱断言作弊，任务锁死；
+     - **负向测试配比底线**：测试集包含 $\ge 30\%$ 负向与异常边界用例，显式断言抛出受控错误；
   4. 涉及 UI 调整与功能验收以人工操作为权威终审，人工确认前保持未勾选。
 
 ### Phase 4: 规格归档与经验永续 (OpenSpec Archive & CHANGELOG)
 - **目标**：规格合流，经验固化，防止未来复发。
 - **执行规程**：
   1. **1:1 需求双向回溯对账 (Bidirectional Checkoff)**：在最终交付报告中，必须将最终交付物与 Step 0 立案的 1:1 RTM（REQ-01...N）逐条对账，并附带退出码 0 与 [Measured] 凭证；
+  2. **全新独立红队敌手审讯 (/interrogate)**：严禁在当前脏上下文中自我审判，强制派发全新独立 Subagent（`Model='pro'`, `Workspace='branch'`）执行破坏性渗透测试并出具抗攻击报告；
+  3. **人机双钥匙准出机制**：机器测试退出码 0 为钥匙 1，人类在 VS Code 原生两栏 Diff 触觉检阅（`review_diff_in_vscode`）为钥匙 2；双钥匙齐备方可准出；
   2. 运行严格规格校验：
      ```bash
      npx openspec validate --all --strict
@@ -202,6 +208,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论等）统一下沉至原子技能操作层（`skills/<name>/SKILL.md`）；
     - **Graph 拓扑关联与快速寻路**：必须通过 Graph 建立任务特征与方法论技能的拓扑连接，实现快速穿透寻路与精准绑定；
     - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径，硬核检验指标必须映射为 tasks.md 的机检命令与门禁阻断。
+---
+
+19. **通用深度审计六阶高强制性防御公理 (Universal Deep Audit & Anti-Fraud Axiom - 防假通作弊与机械逃避铁律)**：
+    - **考卷绝对只读与防篡改 (Verifier Isolation)**：验证平面（测试集与黄金基线）享有最高只读豁免，严禁 Agent 为绿灯私改测试断言或删除用例；改动测试直接触发 `VERIFIER_TAMPERING_DETECTED` 熔断并原子回滚；
+    - **变异元审计不可逃避 (Mutation Sanity)**：测试套件必须具备变异杀伤力，在注入反例变异体时必须变红；变异下仍报 exit 0 一律判定为弱断言欺诈，锁死任务执行锁；
+    - **换位敌手红队审讯 (Adversarial Red-Team)**：交付前必须由全新独立的 `pro` 算力子 Agent 担任红队审讯官，执行真实破坏性测试并出具抗攻击日志；
+    - **负向防御用例底线 (Negative Test Ratio $\ge 30\%$)**：严禁仅测单一正常流程，负向防御用例占比必须 $\ge 30\%$ 并显式断言受控拒绝；
+    - **事实指纹 100% 物理核销 (Fact Provenance)**：终审清算表必须与初始事实指纹 1:1 逐字逐项对账核销，缺少物理凭证直接驳回；
+    - **人机双钥匙准出 (Human Tactile Gate)**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。
 ---
 
 ## 📚 附录与配套参考

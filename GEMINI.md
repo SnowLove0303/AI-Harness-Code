@@ -124,6 +124,22 @@
    - Agent 在 Ps-openspec 的 Step 1（底座感知）与 Step 2（立法扩展）阶段，依据任务特征（如 UI 界面调整、底层服务封装、工作流编排等）查询 Graph 拓扑，瞬间穿透索引并绑定匹配的方法论技能，避免在茫茫规则中迷航。
 3. **Graph 安全与门禁布控 (Safety Guardrails & Blast Radius Control)**：
    - Graph 对方法论技能的执行范围建立物理布控围栏（锁定爆炸半径），并将方法论特有的质量断言（如 UI 图像零 Diff、编译零告警 `--max-warnings=0`、真实退出码 0）强制注入 `tasks.md`，作为单任务专注锁（`[-] lock`）解锁打勾的充要门禁。
+
+### 4. 通用深度审计体系与六大高强制性防线 (Universal Deep Audit System)
+
+针对 Agent 自编自演虚假退出码 0、弱断言假过与绕过审计的系统性顽疾，体系设立六大硬核防线，核心承接 Lauren Tan (@poteto) 严密工程准则与 Spec-Kit 体系：
+1. **验证平面物理隔离与防篡改硬阻断 (Verifier Isolation & Anti-Tampering Gate)**：
+   - 测试用例集、基准断言与黄金标本（Validation Plane）物理隔离于 Agent 施工平面之外，严禁 Agent 具备修改考卷的权限。未经授权改动测试用例直接触发 `VERIFIER_TAMPERING_DETECTED` 一票否决并原子回滚；
+2. **变异元审计与反弱断言欺诈门禁 (Mutation Sanity & Anti-Trivial Assertion Gate)**：
+   - 核心落实 Poteto "Prove It Works"：在运行测试前，自动化探针向业务函数注入已知反例变异体（Mutation）；若测试套件在变异状态下依然输出退出码 0，直接判定为 `TRIVIAL_ASSERTION_FRAUD`（弱断言欺诈）并锁死任务锁；
+3. **全新上下文独立红队敌手智能体审讯门禁 (Adversarial Red-Team Interrogation Gate)**：
+   - 严禁当前 Agent 在脏上下文中自我审判；强制派发全新的独立 Subagent（`Model='pro'`, `Workspace='branch'`），加载 Poteto `/interrogate` 剧本以纯敌手身份发起边界与异常攻击；
+4. **强制负向防御测试配比门禁 (Mandatory Negative Test Ratio Gate)**：
+   - 测试用例集中针对非法入参、缺失字段、异常边界的负向测试比例必须 $\ge 30\%$，且必须显式断言抛出受控错误；严禁全量 Happy Path 的假通；
+5. **Spec-Kit 事实指纹 100% 物理核销硬阻断 (Fact Fingerprint 1:1 Checkoff Gate)**：
+   - Step 0 冻结原始事实指纹，终审交付必须出具机械化《1:1 逐条双向物理核销清算表》，逐条绑定真实命令、退出码 0 日志与行号链接，杜绝意图蒸发与削足适履；
+6. **人机双钥匙原生 Diff 触觉终审门禁 (Human Tactile Double-Key Gate)**：
+   - 机器测试退出码 0 为“钥匙 1（必要条件）”，人类在 VS Code 原生两栏 Diff 界面检阅确认为“钥匙 2（充要条件）”；双钥匙未齐备严禁合流发布。
 ---
 
 ## 三、核心操作纪律 (Operating Invariants)
@@ -230,3 +246,10 @@
    - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论、测试驱动方法论等）必须下沉至原子技能操作层（`skills/<name>/SKILL.md`），严禁在顶层散漫堆砌具体领域操作细节；
    - **Graph 拓扑关联与快速寻路**：必须通过 Graph（Code Review Graph / Route Map / Invariant DAG）建立任务特征、代码模块与方法论技能的拓扑连接；Agent 依托 Ps-openspec 接收任务后，必须第一步通过 Graph 进行方法论技能的快速穿透寻路与精准绑定；
    - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径（Blast Radius）；方法论规定的所有硬核检验指标必须通过 Graph 映射为 tasks.md 的机检命令与门禁阻断，确保方法论落地具备外部系统见证力。
+22. **通用深度审计六阶高强制性防御公理 (Universal Deep Audit & Anti-Fraud Axiom - 防假通作弊与机械逃避铁律)**：
+   - **考卷绝对只读与防篡改**：验证平面（测试集与黄金基线）享有最高只读豁免，严禁 Agent 为绿灯私改测试断言或删除用例；
+   - **变异元审计不可逃避**：测试套件必须具备变异杀伤力，在注入反例变异体时必须变红；变异下仍报 exit 0 一律判定为欺诈作弊；
+   - **换位敌手红队审讯**：交付前必须由全新独立的 `pro` 算力子 Agent 担任红队审讯官，执行真实破坏性测试并出具抗攻击日志；
+   - **负向防御用例底线**：严禁仅测单一正常流程，负向防御用例占比必须 $\ge 30\%$ 并显式断言受控拒绝；
+   - **事实指纹 100% 物理核销**：终审清算表必须与初始事实指纹 1:1 逐字逐项对账核销，缺少物理凭证直接驳回；
+   - **人机双钥匙准出**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。

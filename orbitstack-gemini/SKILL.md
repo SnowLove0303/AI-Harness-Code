@@ -68,6 +68,24 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - The Graph bounds each methodology skill's writable scope to prevent collateral changes.
    - Quality gates defined by the methodology (e.g. zero visual diff, `--max-warnings=0`, passing test suite with exit code 0) are enforced as prerequisites before releasing the single-focus task lock (`[-] lock`).
 
+## Deep audit enforcement (High-enforceability verification matrix)
+
+1. Verifier Isolation & Anti-Tampering:
+   - Test suites (`tests/**`, `specs/**`, and golden specimens) are strictly excluded from the agent's writable paths.
+   - Any unapproved edit to test definitions triggers `VERIFIER_TAMPERING_DETECTED`, halting execution with exit code 1 and rolling back uncommitted changes.
+2. Mutation Sanity & Anti-Trivial Assertions:
+   - Prohibits superficial exit code 0 passes (`expect(x).toBeDefined()` or swallowed exceptions).
+   - Test runners must demonstrate mutation sensitivity: injecting known adversarial mutations must cause tests to fail. If tests pass under mutation, the suite is flagged for trivial assertion fraud and task completion is denied.
+3. Adversarial Red-Team Interrogation:
+   - Delivery mandates dispatching an independent, fresh subagent (`Model='pro'`, `Workspace='branch'`) equipped with Poteto's `/interrogate` playbook.
+   - The red-team subagent conducts boundary and crash attacks from a clean context, producing an immutable adversarial audit log.
+4. Mandatory Negative Test Ratio:
+   - Test suites must contain at least 30% negative test cases explicitly asserting that invalid inputs and missing fields raise expected domain errors rather than defaulting to false success.
+5. 100% Fact Provenance Checkoff:
+   - Checkoff tables must reconcile final deliverables 1:1 against the frozen Step 0 Fact Fingerprint with terminal command strings, exit code 0 logs, and exact line ranges.
+6. Human Tactile Gate via VS Code:
+   - Passing automated tests is only Key 1. Human review and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 before final acceptance.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

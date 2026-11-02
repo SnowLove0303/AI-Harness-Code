@@ -141,6 +141,26 @@ To enable rapid discovery and disciplined execution of domain methodologies unde
    - Graph topology defines write boundaries, strictly confining methodology actions within designated blast radiuses.
    - Quality checks stipulated by the methodology are compiled directly into `tasks.md` verification commands, barring false progress before external system verification.
 
+### 11. Deep Audit Enforcement & High-Enforceability Verification Engine
+
+To prevent autonomous agents from bypassing audits, fabricating false exit code 0 results, or writing trivial assertions that pass despite broken logic:
+
+1. **Verifier Isolation & Anti-Tampering (Validation Plane vs Construction Plane)**:
+   - Test suites, golden baselines, and spec contracts are quarantined in the Validation Plane.
+   - Any agent attempting to loosen assertions, delete tests, or modify test definitions directly triggers `VERIFIER_TAMPERING_DETECTED`, immediately halting execution and rolling back uncommitted changes.
+2. **Mutation Sanity & Anti-Trivial Assertion Gate**:
+   - Grounded in Lauren Tan (@poteto)'s "Prove It Works" axiom: automated mutation probes inject known adversarial mutations into business logic before running test suites.
+   - If a test suite passes under deliberate mutation, it is flagged for trivial assertion fraud (`TRIVIAL_ASSERTION_FRAUD`) and task completion is strictly blocked.
+3. **Adversarial Red-Team Interrogation Subagent**:
+   - Self-review within a contaminated session context is prohibited. Final release requires invoking an independent fresh subagent (`Model='pro'`, `Workspace='branch'`) running Poteto's `/interrogate` playbook.
+   - The red-team subagent conducts boundary and crash attacks from a clean context, producing an immutable adversarial audit log.
+4. **Mandatory Negative Test Ratio ($\ge 30\%$)**:
+   - Test suites must contain at least 30% negative and boundary test cases explicitly asserting that invalid inputs and missing fields raise expected domain errors rather than defaulting to false success.
+5. **100% Fact Provenance Checkoff**:
+   - Delivery mandates a mechanical reconciliation table matching final deliverables 1:1 against the frozen Step 0 Fact Fingerprint with terminal command strings, exit code 0 logs, and exact line ranges.
+6. **Human Tactile Double-Key Gate via VS Code**:
+   - Passing automated tests is only Key 1 (necessary). Human inspection and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 (sufficient) before final acceptance.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

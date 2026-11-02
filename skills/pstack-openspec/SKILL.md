@@ -40,8 +40,9 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 │      • pstack 23 个标准剧本：任务先匹配剧本，严禁静默跳步 (No Skips)   │
 │                                                                        │
 │   🎯 Layer 4 (行为取证): 自验证与特征地图 (Verification & Feature Map) │
-│      • 外部系统见证者 (Env-Authored Witness)：CLI/编译器真实退出码 0   │
-│      • 事实指纹锚定：原始事实指纹 100% 溯源核销，严禁削足适履与意图蒸发│
+│      • 深度审计六大防线：考卷只读隔离、变异元审计、负向用例底线(≥30%)  │
+│      • 对抗式红队审讯：全新独立 pro 子 Agent 执行 /interrogate 破防测试│
+│      • 外部物理见证者：真实退出码 0 + 图像像素零差 + 事实指纹1:1核销   │
 │      • 证据分级标注：严格标明 实测(Measured) / 推演(Inferred) / 猜想  │
 │      • Feature Map 持续同步：动态维护功能入口与 DOM 地图指导精准探针  │
 │                                                                        │
@@ -244,6 +245,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **最高总纲与方法论下沉分离**：Ps-openspec 作为顶层唯一法定总纲统揽全局生命周期；所有具体执行层面的方法论（工作流开发方法论、UI/UX 设计方法论、测试驱动方法论等）必须下沉至原子技能操作层（`skills/<name>/SKILL.md`），严禁在顶层散漫堆砌具体领域操作细节；
     - **Graph 拓扑关联与快速寻路**：必须通过 Graph（Code Review Graph / Route Map / Invariant DAG）建立任务特征、代码模块与方法论技能的拓扑连接；Agent 依托 Ps-openspec 接收任务后，必须第一步通过 Graph 进行方法论技能的快速穿透寻路与精准绑定；
     - **Graph 爆炸半径与门禁布控**：方法论技能的调用必须受控于 Graph 划定的爆炸半径（Blast Radius）；方法论规定的所有硬核检验指标必须通过 Graph 映射为 tasks.md 的机检命令与门禁阻断，确保方法论落地具备外部系统见证力。
+---
+
+24. **通用深度审计六阶高强制性防御公理 (Universal Deep Audit & Anti-Fraud Axiom - 防假通作弊与机械逃避铁律)**：
+    - **考卷绝对只读与防篡改 (Verifier Isolation)**：验证平面（测试集与黄金基线）享有最高只读豁免，严禁 Agent 为绿灯私改测试断言或删除用例；改动测试直接触发 `VERIFIER_TAMPERING_DETECTED` 熔断并原子回滚；
+    - **变异元审计不可逃避 (Mutation Sanity)**：测试套件必须具备变异杀伤力，在注入反例变异体时必须变红；变异下仍报 exit 0 一律判定为弱断言欺诈，锁死任务执行锁；
+    - **换位敌手红队审讯 (Adversarial Red-Team)**：交付前必须由全新独立的 `pro` 算力子 Agent 担任红队审讯官，执行真实破坏性测试并出具抗攻击日志；
+    - **负向防御用例底线 (Negative Test Ratio $\ge 30\%$)**：严禁仅测单一正常流程，负向防御用例占比必须 $\ge 30\%$ 并显式断言受控拒绝；
+    - **事实指纹 100% 物理核销 (Fact Provenance)**：终审清算表必须与初始事实指纹 1:1 逐字逐项对账核销，缺少物理凭证直接驳回；
+    - **人机双钥匙准出 (Human Tactile Gate)**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。
 ---
 
 ## 📚 五、 配套参考指南索引
