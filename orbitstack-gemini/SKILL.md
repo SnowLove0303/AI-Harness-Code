@@ -86,6 +86,19 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 6. Human Tactile Gate via VS Code:
    - Passing automated tests is only Key 1. Human review and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 before final acceptance.
 
+## Agent-execution-first meta-problem framing (Ps-openspec resolution)
+
+1. Abstract Beyond Isolated Cases:
+   - When encountering failures, regressions, or user challenges, strictly avoid reducing analysis to isolated business instances or specific product payloads.
+   - Immediately elevate the issue to systemic Agent execution failure modes: greedy local overfitting, dead-code control-flow shadowing, self-verification conflicts leading to trivial assertions, and macro-statistical evading of microscopic facts.
+2. Direct Resolution via Ps-openspec Governance:
+   - Solve every failure mode exclusively through Ps-openspec architectural mechanisms:
+     - Fact Fingerprinting and 1:1 RTM ingestion at Step 0 to stop payload substitution.
+     - L1 architectural invariants and AST linters at Step 1-2 to prevent hardcoded constants.
+     - Validation plane isolation and single-focus locks at Step 3 to separate judges from workers.
+     - Mutation sanity and adversarial red-team interrogation at Step 4 to defeat trivial exit-0 assertions.
+     - 1:1 physical reconciliation and human tactile double-key signoff at Step 5.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

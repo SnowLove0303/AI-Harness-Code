@@ -219,6 +219,12 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **人机双钥匙准出 (Human Tactile Gate)**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。
 ---
 
+20. **智能体执行层元归因与 Ps-openspec 体系化根治公理 (Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Axiom - 防就事论事与个案思维铁律)**：
+    - **严禁个案思维**：排查问题严禁就事论事，必须穿透至 Agent 执行层的认知偏离与行为模式；
+    - **执行失效映射**：深度剖析贪婪特化、死代码遮蔽、弱断言欺诈与宏观比率蒙蔽等 Agent 典型执行缺陷；
+    - **Ps-openspec 体系化阻断**：全生命周期注入事实指纹、双清单、变异审计、红队审讯与双钥匙门禁，以系统机制防范 Agent 执行恶习。
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

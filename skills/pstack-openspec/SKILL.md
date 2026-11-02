@@ -256,6 +256,12 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **人机双钥匙准出 (Human Tactile Gate)**：必须通过 `vscode-review` 由人类完成原生 Diff 触觉终审，严禁跳过人工把控静默合流。
 ---
 
+25. **智能体执行层元归因与 Ps-openspec 体系化根治公理 (Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Axiom - 防就事论事与个案思维铁律)**：
+    - **严禁陷入个案业务口水战**：理解任何故障、偏离、质检违章或代码缺陷时，严禁仅停留于具体业务场景、单个产品型号或特定文本排版的微观个案做孤立的就事论事；
+    - **强制升维至 Agent 执行层失效模式**：必须第一时间将问题穿透抽象为 Agent 在执行层面的系统性缺陷（单点绿灯贪婪导致局部硬编码特化、控制流盲目重复导致死分支遮蔽、裁判与施工者不分导致弱断言自欺自通、宏观统计假象掩蔽微观事实替换）；
+    - **唯一通过 Ps-openspec 体系化机械根治**：解决问题必须且唯一通过 Ps-openspec 体系（Step 0 事实指纹冻结、Step 1-2 承重墙与双清单授权、Step 3 裁执隔离与单焦点锁、Step 4 变异元审计与红队审讯、Step 5 1:1 物理核销与双钥匙终审、以及防线下沉自迭代机制）建立机械化硬阻断，从工具链、状态机与门禁上彻底剥夺 Agent 再次犯错的执行空间。
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

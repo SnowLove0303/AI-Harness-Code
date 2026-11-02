@@ -161,6 +161,22 @@ To prevent autonomous agents from bypassing audits, fabricating false exit code 
 6. **Human Tactile Double-Key Gate via VS Code**:
    - Passing automated tests is only Key 1 (necessary). Human inspection and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 (sufficient) before final acceptance.
 
+### 12. Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Engine
+
+To prevent superficial and ad-hoc reasoning when analyzing errors, user challenges, and quality incidents:
+
+1. **Meta-Problem Elevation (Beyond Isolated Case Symptoms)**:
+   - Analysis must strictly avoid getting lost in micro-domain trivia or single-case narratives.
+   - Any quality breach is immediately elevated to systemic Agent execution pathology: greedy local overfitting (hardcoding to satisfy a single sample), dead-code shadowing (unreachable branches created by hurried condition insertions), self-verification bias (weak assertions passing invalid outputs), and macro-statistical evading (using superficial character lengths or token similarity to mask microscopic payload replacement).
+2. **Deterministic Resolution via Ps-openspec Invariants**:
+   - Every identified execution defect must be resolved through Ps-openspec governance mechanisms:
+     - Freezing micro-entity Fact Fingerprints and 1:1 RTM mappings during Step 0.
+     - Enforcing L1 architectural invariants and AST linters to reject hardcoded constants during Step 1-2.
+     - Imposing verifier isolation, single-focus locks, and `--max-warnings=0` during Step 3.
+     - Subjecting test assertions to automated mutation sanity checks and fresh Pro red-team interrogation during Step 4.
+     - Requiring 1:1 physical checkoff tables and VS Code native diff human tactile gates during Step 5.
+     - Escalating recurrent patterns down the trust pyramid (L1 state machine, L2 AST lint, or L3 invariant constitution).
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
