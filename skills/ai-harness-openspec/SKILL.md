@@ -124,22 +124,24 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
      - **负向测试配比底线**：测试集包含 $\ge 30\%$ 负向与异常边界用例，显式断言抛出受控错误；
   4. 涉及 UI 调整与功能验收以人工操作为权威终审，人工确认前保持未勾选。
 
-### Phase 4: 规格归档与经验永续 (OpenSpec Archive & CHANGELOG)
-- **目标**：规格合流，经验固化，防止未来复发。
+### Phase 4: 两阶双轨深度审计与经验永续 (Two-Step Deep Audit & Archive)
+- **目标**：彻底消除对单一机械 exit 0 的盲信与走过场伪审计，实现语义契约闭环合流。
 - **执行规程**：
-  1. **1:1 需求双向回溯对账 (Bidirectional Checkoff)**：在最终交付报告中，必须将最终交付物与 Step 0 立案的 1:1 RTM（REQ-01...N）逐条对账，并附带退出码 0 与 [Measured] 凭证；
-  2. **全新独立红队敌手审讯 (/interrogate)**：严禁在当前脏上下文中自我审判，强制派发全新独立 Subagent（`Model='pro'`, `Workspace='branch'`）执行破坏性渗透测试并出具抗攻击报告；
-  3. **人机双钥匙准出机制**：机器测试退出码 0 为钥匙 1，人类在 VS Code 原生两栏 Diff 触觉检阅（`review_diff_in_vscode`）为钥匙 2；双钥匙齐备方可准出；
-  2. 运行严格规格校验：
+  1. **第一步：机械确定性审计硬门禁 (Step 1: Mechanical Deterministic Audit)**：
+     - 验证平面隔离，严禁篡改测试断言；
+     - 变异元杀伤力 (Mutation Sanity) 验证通过，严禁弱断言欺诈；
+     - 编译与 Lint 零警告 (`--max-warnings=0`)，测试套件真实退出码 0 [Measured]；
+  2. **第二步：智能体语义规范审计 (Step 2: Agent Cognitive & Specification Audit)**：
+     - **裁执物理隔离**：派发全新独立 Subagent（`Model='pro'`, `Workspace='branch'`）加载 `/interrogate` 敌手剧本执裁，杜绝施工者自审；
+     - **双轨规范核销矩阵**：严格对账【全局规范 (宏观承重墙/不变量)】与【局部规范 (模块RFC 2119契约)】，出具 $N_{\text{Global}} + M_{\text{Local}}$ 项数绝对守恒的物理行号锚定与主动证伪报告；
+  3. **1:1 需求双向回溯对账 (Bidirectional Checkoff)**：将交付物与 Step 0 立案的 1:1 RTM（REQ-01...N）逐条对账；
+  4. **人机双钥匙终审准出**：机械全绿 (钥匙 1) + 规范审计全绿 (钥匙 2) 齐备后，拉起 `review_diff_in_vscode` 由人类工程师终审；
+  5. 运行严格规格校验与归档：
      ```bash
      npx openspec validate --all --strict
-     ```
-  3. 归档规格变更：
-     ```bash
      npx openspec archive -y <change-name>
      ```
-  4. 若涉及系统拓扑调整，同步更新 `ARCHITECTURE.md` 并执行 `npx ai-harness validate`；
-  5. **知识沉淀（CHANGELOG 闭环）**：在交付总结与 `CHANGELOG.md` 中必须单列“遇到问题与解法”，详述根因与防范措施。
+  6. **知识沉淀（CHANGELOG 闭环）**：在交付总结与 `CHANGELOG.md` 中沉淀根因与防御加固措施。
 
 ---
 
@@ -223,6 +225,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **严禁个案思维**：排查问题严禁就事论事，必须穿透至 Agent 执行层的认知偏离与行为模式；
     - **执行失效映射**：深度剖析贪婪特化、死代码遮蔽、弱断言欺诈与宏观比率蒙蔽等 Agent 典型执行缺陷；
     - **Ps-openspec 体系化阻断**：全生命周期注入事实指纹、双清单、变异审计、红队审讯与双钥匙门禁，以系统机制防范 Agent 执行恶习。
+---
+
+21. **两阶双轨深度审计公理 (Two-Step Dual-Scope Deep Audit Axiom - 机械审计与智能体认知审计双阶治理铁律)**：
+    - **机械审计与认知审计分阶解耦**：机械审计为第一步硬门禁（验证平面隔离、真实退出码 0、变异杀伤力），智能体规范审计为第二步语义把控（独立全新 Auditor Subagent 执行对抗式证伪），严禁单一依赖机械 exit 0，严禁自施工自审；
+    - **全局规范与局部规范双轨核销**：必须严格将项目级全局规范（宏观承重墙与不变量）与模块级局部规范（微观契约与状态边界）拓扑分流，出具项数绝对守恒（$N_{\text{Global}} + M_{\text{Local}}$）的微观物理对账清算表；
+    - **对抗式反向证伪与物理锚定**：每一项规范审计必须包含代码绝对行号区间锚点与证伪攻击记录，严禁口水化伪对账；
+    - **人机双钥匙准出充要条件**：机械全绿（钥匙 1）+ 智能体规范核销全绿（钥匙 2）= 触发 VS Code 原生 Diff 人类终审（准出充要条件）。
 ---
 
 ## 📚 附录与配套参考

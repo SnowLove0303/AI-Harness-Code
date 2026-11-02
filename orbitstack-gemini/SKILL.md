@@ -68,23 +68,23 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - The Graph bounds each methodology skill's writable scope to prevent collateral changes.
    - Quality gates defined by the methodology (e.g. zero visual diff, `--max-warnings=0`, passing test suite with exit code 0) are enforced as prerequisites before releasing the single-focus task lock (`[-] lock`).
 
-## Deep audit enforcement (High-enforceability verification matrix)
+## Two-step dual-scope deep audit enforcement (High-enforceability verification matrix)
 
-1. Verifier Isolation & Anti-Tampering:
-   - Test suites (`tests/**`, `specs/**`, and golden specimens) are strictly excluded from the agent's writable paths.
-   - Any unapproved edit to test definitions triggers `VERIFIER_TAMPERING_DETECTED`, halting execution with exit code 1 and rolling back uncommitted changes.
-2. Mutation Sanity & Anti-Trivial Assertions:
-   - Prohibits superficial exit code 0 passes (`expect(x).toBeDefined()` or swallowed exceptions).
-   - Test runners must demonstrate mutation sensitivity: injecting known adversarial mutations must cause tests to fail. If tests pass under mutation, the suite is flagged for trivial assertion fraud and task completion is denied.
-3. Adversarial Red-Team Interrogation:
-   - Delivery mandates dispatching an independent, fresh subagent (`Model='pro'`, `Workspace='branch'`) equipped with Poteto's `/interrogate` playbook.
-   - The red-team subagent conducts boundary and crash attacks from a clean context, producing an immutable adversarial audit log.
-4. Mandatory Negative Test Ratio:
-   - Test suites must contain at least 30% negative test cases explicitly asserting that invalid inputs and missing fields raise expected domain errors rather than defaulting to false success.
-5. 100% Fact Provenance Checkoff:
-   - Checkoff tables must reconcile final deliverables 1:1 against the frozen Step 0 Fact Fingerprint with terminal command strings, exit code 0 logs, and exact line ranges.
-6. Human Tactile Gate via VS Code:
-   - Passing automated tests is only Key 1. Human review and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 before final acceptance.
+1. Step 1: Mechanical Deterministic Audit (Base Machine Admission Gate):
+   - Verifier Isolation & Anti-Tampering: Test suites (`tests/**`, `specs/**`, and golden specimens) are strictly excluded from writable paths; unauthorized edits trigger `VERIFIER_TAMPERING_DETECTED` rollback.
+   - Mutation Sanity & Anti-Trivial Assertions: Automated probes inject known adversarial mutations before running test suites. Passing under mutation triggers `TRIVIAL_ASSERTION_FRAUD`, locking the task.
+   - Mandatory Negative Test Ratio: Compiler and linters run under `--max-warnings=0`. Mandatory negative/boundary test ratio $\ge 30\%$ asserting expected domain errors.
+   - Role: Mechanical green is Key 1 (necessary prerequisite). Execution cannot proceed to Step 2 without exit code 0.
+2. Step 2: Agent Cognitive & Specification Audit (Semantic Falsification Gate):
+   - Adversarial Red-Team Interrogation (Fresh Auditor Subagent): Self-review by builder agents is prohibited. A fresh subagent (`Model='pro'`, `Workspace='branch'`) running Poteto's `/interrogate` playbook executes adversarial audits.
+   - 100% Fact Provenance Checkoff & Code Pointer Anchoring: Every specification clause must be backed by exact source file paths, line ranges (`file:///path#Lxx-Lyy`), and `[Measured]` logs.
+   - Active Adversarial Falsification: The auditor must record boundary falsification attacks, proving the codebase deterministically resists attacks.
+3. Dual-Scope Specification Governance:
+   - Global Specs: Cross-cutting invariants, system-wide constitutions, architecture承重墙, and immutable locks (`@ANTIGRAVITY_INVARIANT_LOCK`).
+   - Local Specs: Module-specific behavioral contracts (RFC 2119 SHALL/WHEN/THEN), domain boundaries, and state transition topologies.
+   - 1:1 Itemized Reconciliation ($N_{\text{Global}} + M_{\text{Local}}$): Zero omission permitted. Missing any spec clause triggers `SPEC_OMISSION_DETECTED`.
+4. Human Tactile Gate via VS Code:
+   - Mechanical pass (Key 1) + Cognitive specification pass (Key 2) are mandatory prerequisites before pulling up the VS Code native diff viewer (`review_diff_in_vscode`) for human tactile signoff.
 
 ## Agent-execution-first meta-problem framing (Ps-openspec resolution)
 

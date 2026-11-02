@@ -125,21 +125,31 @@
 3. **Graph 安全与门禁布控 (Safety Guardrails & Blast Radius Control)**：
    - Graph 对方法论技能的执行范围建立物理布控围栏（锁定爆炸半径），并将方法论特有的质量断言（如 UI 图像零 Diff、编译零告警 `--max-warnings=0`、真实退出码 0）强制注入 `tasks.md`，作为单任务专注锁（`[-] lock`）解锁打勾的充要门禁。
 
-### 4. 通用深度审计体系与六大高强制性防线 (Universal Deep Audit System)
+### 4. 两阶双轨通用深度审计体系与六大高强制性防线 (Two-Step Dual-Scope Deep Audit System)
 
-针对 Agent 自编自演虚假退出码 0、弱断言假过与绕过审计的系统性顽疾，体系设立六大硬核防线，核心承接 Lauren Tan (@poteto) 严密工程准则与 Spec-Kit 体系：
-1. **验证平面物理隔离与防篡改硬阻断 (Verifier Isolation & Anti-Tampering Gate)**：
-   - 测试用例集、基准断言与黄金标本（Validation Plane）物理隔离于 Agent 施工平面之外，严禁 Agent 具备修改考卷的权限。未经授权改动测试用例直接触发 `VERIFIER_TAMPERING_DETECTED` 一票否决并原子回滚；
-2. **变异元审计与反弱断言欺诈门禁 (Mutation Sanity & Anti-Trivial Assertion Gate)**：
-   - 核心落实 Poteto "Prove It Works"：在运行测试前，自动化探针向业务函数注入已知反例变异体（Mutation）；若测试套件在变异状态下依然输出退出码 0，直接判定为 `TRIVIAL_ASSERTION_FRAUD`（弱断言欺诈）并锁死任务锁；
-3. **全新上下文独立红队敌手智能体审讯门禁 (Adversarial Red-Team Interrogation Gate)**：
-   - 严禁当前 Agent 在脏上下文中自我审判；强制派发全新的独立 Subagent（`Model='pro'`, `Workspace='branch'`），加载 Poteto `/interrogate` 剧本以纯敌手身份发起边界与异常攻击；
-4. **强制负向防御测试配比门禁 (Mandatory Negative Test Ratio Gate)**：
-   - 测试用例集中针对非法入参、缺失字段、异常边界的负向测试比例必须 $\ge 30\%$，且必须显式断言抛出受控错误；严禁全量 Happy Path 的假通；
-5. **Spec-Kit 事实指纹 100% 物理核销硬阻断 (Fact Fingerprint 1:1 Checkoff Gate)**：
-   - Step 0 冻结原始事实指纹，终审交付必须出具机械化《1:1 逐条双向物理核销清算表》，逐条绑定真实命令、退出码 0 日志与行号链接，杜绝意图蒸发与削足适履；
-6. **人机双钥匙原生 Diff 触觉终审门禁 (Human Tactile Double-Key Gate)**：
-   - 机器测试退出码 0 为“钥匙 1（必要条件）”，人类在 VS Code 原生两栏 Diff 界面检阅确认为“钥匙 2（充要条件）”；双钥匙未齐备严禁合流发布。
+针对 Agent 过度依赖自己编写的机械审计、产生虚假退出码 0、弱断言假通及自审确认偏差等系统性顽疾，体系设立**两阶双轨深度审计架构**，将“机械确定性审计（第一步）”与“智能体语义规范审计（第二步）”严格分阶，并以“全局规范 + 局部规范”双轨拓扑实施全景治理：
+
+#### 一、 审计执行两阶分工（Two-Step Audit Lifecycle）
+1. **第一步：机械确定性审计（Step 1: Mechanical Deterministic Audit - 机器底座准入）**：
+   - **验证平面只读隔离 (Verifier Isolation)**：测试集、基准断言与黄金标本位于 Agent 可写范围外，任何改动测试行为直接触发 `VERIFIER_TAMPERING_DETECTED` 熔断并原子回滚；
+   - **变异元审计杀伤力 (Mutation Sanity Gate)**：反例变异注入测试必须红灯；若在变异状态下仍出退出码 0，直接判定为 `TRIVIAL_ASSERTION_FRAUD`（弱断言欺诈）并锁死任务锁；
+   - **零告警零错误硬指标**：编译与静态检查强制 `--max-warnings=0`，测试套件真实进程退出码 0；负向异常用例占比必须 $\ge 30\%$；
+   - **定位**：机械全绿仅作为准入的**钥匙 1（必要条件）**，未通过前严禁进入第二步。
+2. **第二步：智能体语义规范审计（Step 2: Agent Cognitive & Specification Audit - 语义契约证伪）**：
+   - **裁执物理隔离（Fresh Auditor by Default）**：严禁施工 Agent 自审产出物；强制派发全新独立 Subagent（`Model='pro'`, `Workspace='branch'`），加载 `/interrogate` 剧本以纯敌手身份执裁；
+   - **微观证据链物理锚定**：每一项审计结论必须精准绑定源码物理文件与行号区间（`file:///path#Lxx-Lyy`）及 `[Measured]` 实测凭据，严禁无证据口水化宣称；
+   - **主动对抗反向证伪**：审计智能体必须记录反向证伪攻击尝试（Falsification Attack），证明实现代码在面对边界攻击时具备受控防御能力；
+   - **定位**：语义规范核销全绿作为**钥匙 2（充要条件之一）**，与机械审计构成双重保障。
+
+#### 二、 规范双轨治理网（Dual-Scope Specification Governance）
+1. **全局规范（Global Specs / Macro Invariants）**：
+   - 定义全系统通用的最高法定宪法与跨模块不变量（如承重墙模型、不可变封印 `@ANTIGRAVITY_INVARIANT_LOCK`、未知与否定显式解耦、零防御性捏造、输入事实指纹 100% 守恒）；
+2. **局部规范（Local Specs / Micro Contracts）**：
+   - 定义特定功能模块或具体变更的原子行为契约（RFC 2119 SHALL/WHEN/THEN）、输入合法域校验、状态机转移合法路径及局部依赖爆炸半径；
+3. **规范项数 1:1 绝对守恒与遗漏熔断（Zero-Omission Circuit Breaker）**：
+   - 提取全局规范生效的 $N$ 项条款与局部规范绑定的 $M$ 项契约，终审审计报告中必须出具严格对应的 $N+M$ 行清算矩阵，少一项直接触发 `SPEC_OMISSION_DETECTED` 阻断。
+4. **人机双钥匙原生 Diff 触觉终审门禁 (Human Tactile Double-Key Gate)**：
+   - 机械审计（第一步）全绿 + 智能体双轨规范核销（第二步）全绿，方可触发 VS Code 原生两栏 Diff 触觉终审，由人类工程师把控最终合流发布。
 ---
 
 ## 三、核心操作纪律 (Operating Invariants)
@@ -261,4 +271,10 @@
      - **裁执不分与弱断言欺诈（Trivial Assertion Fraud）**：Agent 兼任验证者时自发降低 Oracle 判定阈值，将事实正确性退化为浅层词汇/符号存在性检查，制造虚假退出码 0；
      - **宏观统计学度量欺骗（Macro-Statistical Evading）**：Agent 以全局长度、字符保全比或粗粒度相似度掩盖微观实体的颠覆性替换与事实蒸发；
    - **唯一通过 Ps-openspec 体系化机械根治**：解决问题必须且唯一通过 Ps-openspec 顶层治理架构（Step 0 事实指纹实体哈希冻结、Step 1-2 承重墙契约与双清单物理围栏、Step 3 验证平面只读隔离与单焦点执行锁、Step 4 自动化变异元审计与独立 Pro 敌手红队审讯、Step 5 1:1 实体级物理核销与人机双钥匙终审、以及防线下沉自迭代闭环）实施机器级硬阻断，从架构几何、类型系统与执行门禁上彻底剥夺 Agent 再次产生此类行为模式的空间。
+24. **两阶双轨深度审计公理 (Two-Step Dual-Scope Deep Audit Axiom - 机械审计与智能体认知审计双阶治理铁律)**：
+   - **机械审计与认知审计分阶解耦**：机械审计为第一步硬门禁（验证平面隔离、真实退出码 0、变异杀伤力），智能体规范审计为第二步语义把控（独立全新 Auditor Subagent 执行对抗式证伪），严禁单一依赖机械 exit 0，严禁自施工自审；
+   - **全局规范与局部规范双轨核销**：必须严格将项目级全局规范（宏观承重墙与不变量）与模块级局部规范（微观契约与状态边界）拓扑分流，出具项数绝对守恒（$N_{\text{Global}} + M_{\text{Local}}$）的微观物理对账清算表；
+   - **对抗式反向证伪与物理锚定**：每一项规范审计必须包含代码绝对行号区间锚点与证伪攻击记录，严禁口水化伪对账；
+   - **人机双钥匙准出充要条件**：机械全绿（钥匙 1）+ 智能体规范核销全绿（钥匙 2）= 触发 VS Code 原生 Diff 人类终审（准出充要条件）。
+
 

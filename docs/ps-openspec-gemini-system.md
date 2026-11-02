@@ -141,25 +141,26 @@ To enable rapid discovery and disciplined execution of domain methodologies unde
    - Graph topology defines write boundaries, strictly confining methodology actions within designated blast radiuses.
    - Quality checks stipulated by the methodology are compiled directly into `tasks.md` verification commands, barring false progress before external system verification.
 
-### 11. Deep Audit Enforcement & High-Enforceability Verification Engine
+### 11. Two-Step Dual-Scope Deep Audit Enforcement Engine
 
-To prevent autonomous agents from bypassing audits, fabricating false exit code 0 results, or writing trivial assertions that pass despite broken logic:
+To eliminate over-reliance on purely mechanical exit code 0 passes, eradicate confirmation bias during self-reviews, and ensure comprehensive contract verification:
 
-1. **Verifier Isolation & Anti-Tampering (Validation Plane vs Construction Plane)**:
-   - Test suites, golden baselines, and spec contracts are quarantined in the Validation Plane.
-   - Any agent attempting to loosen assertions, delete tests, or modify test definitions directly triggers `VERIFIER_TAMPERING_DETECTED`, immediately halting execution and rolling back uncommitted changes.
-2. **Mutation Sanity & Anti-Trivial Assertion Gate**:
-   - Grounded in Lauren Tan (@poteto)'s "Prove It Works" axiom: automated mutation probes inject known adversarial mutations into business logic before running test suites.
-   - If a test suite passes under deliberate mutation, it is flagged for trivial assertion fraud (`TRIVIAL_ASSERTION_FRAUD`) and task completion is strictly blocked.
-3. **Adversarial Red-Team Interrogation Subagent**:
-   - Self-review within a contaminated session context is prohibited. Final release requires invoking an independent fresh subagent (`Model='pro'`, `Workspace='branch'`) running Poteto's `/interrogate` playbook.
-   - The red-team subagent conducts boundary and crash attacks from a clean context, producing an immutable adversarial audit log.
-4. **Mandatory Negative Test Ratio ($\ge 30\%$)**:
-   - Test suites must contain at least 30% negative and boundary test cases explicitly asserting that invalid inputs and missing fields raise expected domain errors rather than defaulting to false success.
-5. **100% Fact Provenance Checkoff**:
-   - Delivery mandates a mechanical reconciliation table matching final deliverables 1:1 against the frozen Step 0 Fact Fingerprint with terminal command strings, exit code 0 logs, and exact line ranges.
-6. **Human Tactile Double-Key Gate via VS Code**:
-   - Passing automated tests is only Key 1 (necessary). Human inspection and signoff in VS Code native diff viewer (`review_diff_in_vscode`) is mandatory Key 2 (sufficient) before final acceptance.
+1. **Two-Step Audit Lifecycle (分阶审计生命周期)**:
+   - **Step 1: Mechanical Deterministic Audit (Base Machine Admission Gate)**:
+     - Verifier isolation quarantines test suites in the read-only Validation Plane. Unapproved changes trigger `VERIFIER_TAMPERING_DETECTED` and atomic rollback.
+     - Mutation sanity injects adversarial bugs to ensure tests fail under mutation, blocking `TRIVIAL_ASSERTION_FRAUD`.
+     - Compilers and linters enforce `--max-warnings=0`. Mandatory negative/boundary test ratio $\ge 30\%$.
+     - Passing Step 1 is Key 1 (necessary prerequisite). Execution cannot transition to Step 2 without exit code 0.
+   - **Step 2: Agent Cognitive & Specification Audit (Semantic Falsification Gate)**:
+     - Builder agents are barred from self-auditing. A fresh independent subagent (`Model='pro'`, `Workspace='branch'`) executing Poteto's `/interrogate` playbook acts as adversarial auditor.
+     - Requires micro-evidence anchoring with absolute file paths and line ranges (`file:///path#Lxx-Lyy`) plus verified logs.
+     - Requires active adversarial falsification recording: demonstrating how the implementation withstands boundary attacks.
+2. **Dual-Scope Specification Governance (双轨规范治理网)**:
+   - **Global Specs (Macro Invariants)**: System-wide constitutions, architecture承重墙, immutable locks (`@ANTIGRAVITY_INVARIANT_LOCK`), explicit missing states, and 100% fact provenance.
+   - **Local Specs (Micro Contracts)**: Module-level behavioral contracts (RFC 2119 SHALL/WHEN/THEN), domain boundaries, and state transition topologies.
+   - **1:1 Itemized Reconciliation ($N_{\text{Global}} + M_{\text{Local}}$)**: The audit dossier must output an itemized reconciliation table containing every single spec item. Missing any clause triggers `SPEC_OMISSION_DETECTED`.
+3. **Human Tactile Double-Key Release Gate**:
+   - Both Key 1 (mechanical green) and Key 2 (cognitive specification green) must be achieved before presenting the VS Code native diff viewer (`review_diff_in_vscode`) for final human tactile authorization.
 
 ### 12. Agent-Execution-First Meta-Problem Framing & Ps-openspec Resolution Engine
 

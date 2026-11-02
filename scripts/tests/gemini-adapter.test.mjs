@@ -107,7 +107,7 @@ test('gemini adapter enforces ps-openspec supreme priority and graph methodology
 
 test('gemini adapter enforces deep audit high-enforceability verification matrix', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Deep audit enforcement \(High-enforceability verification matrix\)/, 'must document deep audit enforcement');
+  assert.match(content, /deep audit enforcement \(High-enforceability verification matrix\)/i, 'must document deep audit enforcement');
   assert.match(content, /Verifier Isolation & Anti-Tampering/, 'must enforce verifier isolation');
   assert.match(content, /VERIFIER_TAMPERING_DETECTED/, 'must trigger VERIFIER_TAMPERING_DETECTED on unapproved edits');
   assert.match(content, /Mutation Sanity & Anti-Trivial Assertions/, 'must enforce mutation sanity');
@@ -162,6 +162,41 @@ test('gemini adapter enforces agent-execution-first meta-problem framing and ps-
   const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
   assert.match(aiHarnessSkill, /智能体执行层元归因与 Ps-openspec 体系化根治公理/, 'ai-harness-openspec must contain Invariant 20');
   assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be strictly domain-neutral');
+});
+
+test('gemini adapter enforces two-step dual-scope deep audit architecture', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Two-step dual-scope deep audit enforcement/, 'must document two-step dual-scope deep audit');
+  assert.match(content, /Step 1: Mechanical Deterministic Audit/, 'must specify Step 1 mechanical audit');
+  assert.match(content, /Step 2: Agent Cognitive & Specification Audit/, 'must specify Step 2 cognitive audit');
+  assert.match(content, /Dual-Scope Specification Governance/, 'must specify dual-scope specification governance');
+  assert.match(content, /Global Specs: Cross-cutting invariants/, 'must define global specs');
+  assert.match(content, /Local Specs: Module-specific behavioral contracts/, 'must define local specs');
+  assert.match(content, /SPEC_OMISSION_DETECTED/, 'must enforce zero-omission circuit breaker');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /两阶双轨通用深度审计体系/, 'GEMINI.md must contain Two-Step Dual-Scope section');
+  assert.match(globalRules, /Two-Step Dual-Scope Deep Audit Axiom/, 'GEMINI.md must contain Axiom 24');
+  assert.match(globalRules, /第一步：机械确定性审计/, 'GEMINI.md must declare Step 1 mechanical audit');
+  assert.match(globalRules, /第二步：智能体语义规范审计/, 'GEMINI.md must declare Step 2 cognitive audit');
+  assert.match(globalRules, /规范双轨治理网/, 'GEMINI.md must declare dual-scope specification governance');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /两阶双轨深度审计公理/, 'pstack-openspec must contain Axiom 26');
+  assert.match(pstackSkill, /两阶双轨深度审计 \(Two-Step Dual-Scope Audit\)/, 'pstack-openspec L4 diagram must be updated');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /两阶双轨深度审计公理/, 'ai-harness-openspec must contain Invariant 21');
+  assert.match(aiHarnessSkill, /Phase 4: 两阶双轨深度审计与经验永续/, 'ai-harness-openspec Phase 4 must be updated');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
 });
 
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
