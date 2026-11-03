@@ -274,6 +274,47 @@ test('gemini adapter enforces state legitimacy and anti-symptom-masking', () => 
   assert.match(docsContent, /SINK_PATCHING_BLOCKED/, 'docs must document SINK_PATCHING_BLOCKED');
 });
 
+test('gemini adapter enforces generic asset anti-tampering and mechanism-policy separation', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Generic asset anti-tampering & mechanism-policy separation/, 'must document generic asset anti-tampering');
+  assert.match(content, /Mechanism vs. Policy Physical Separation/, 'must specify mechanism vs policy');
+  assert.match(content, /Caller-Side Adaptation First/, 'must specify caller adaptation first');
+  assert.match(content, /Four Laws of General Evolution/, 'must specify four laws of general evolution');
+  assert.match(content, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'must enforce Gate 2 TASK_SPECIFIC_POLLUTION_BLOCKED');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /通用程序防篡改与机制策略物理隔离公理/, 'GEMINI.md must contain Axiom 27');
+  assert.match(globalRules, /Generic Asset Anti-Tampering & Mechanism-Policy Separation Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /调用端适配优先/, 'GEMINI.md must mandate caller adaptation first');
+  assert.match(globalRules, /通用演进四严律/, 'GEMINI.md must mandate four laws of evolution');
+  assert.match(globalRules, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'GEMINI.md must enforce Gate 2 TASK_SPECIFIC_POLLUTION_BLOCKED');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /通用程序防篡改与机制策略物理隔离公理/, 'pstack-openspec must contain Axiom 29');
+  assert.match(pstackSkill, /通用底层机制与业务策略边界隔离/, 'pstack-openspec Step 1 must require mechanism-policy boundary perception');
+  assert.match(pstackSkill, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'pstack-openspec Step 2 must require generality self-proof');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /通用程序防篡改与机制策略物理隔离公理/, 'ai-harness-openspec must contain Invariant 24');
+  assert.match(aiHarnessSkill, /通用底层机制与业务策略边界隔离/, 'ai-harness-openspec Phase 1 must require mechanism-policy boundary perception');
+  assert.match(aiHarnessSkill, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'ai-harness-openspec Phase 2 must require generality self-proof');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /15. Generic Asset Anti-Tampering & Mechanism-Policy Separation Engine/, 'docs must document Section 15');
+  assert.match(docsContent, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'docs must document TASK_SPECIFIC_POLLUTION_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

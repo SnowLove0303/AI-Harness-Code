@@ -84,6 +84,7 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 - **行为规范**：
   - 只读探索：读取源码、排查测试、追踪调用链、跑只读分析命令；
   - 逆向数据流穿透与状态合法性二分判定：异常排查必须逆向穿透至 Origin Producer，严禁在消费端 (Sink) 局部防御性掩盖；
+  - 通用底层机制与业务策略边界隔离：识别底层通用工具与引擎资产，严禁将调用端业务策略反向污染至通用机制；
   - 思维可视化：绘制 ASCII 或 Mermaid 架构图/时序图；
   - 严禁行为：绝对禁止新建或修改任何业务代码文件；
   - 准出标准：当与用户对齐思路、确定技术路径后，指引用户进入 Phase 2。
@@ -105,6 +106,7 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
   - 受影响文件：`path/to/file1.js`, `path/to/file2.js`
   - 拟新增/修改函数：`funcA()`, `funcB()`
   - 拟变清单因果位置自证：显式标注 [Root Source] / [State Transition] / [Consumer Sink] 因果角色（仅修 Sink 直接触发 SINK_PATCHING_BLOCKED 阻断）
+  - 通用性自证硬门禁：改动若涉及通用底层程序，必须自证具备通用参数化抽象（单任务特判硬编码直接触发 TASK_SPECIFIC_POLLUTION_BLOCKED 阻断）
   - 细粒度任务与验证凭据：[tasks.md 对应任务条目及验证命令]
 
   ### 二、保持现状承诺清单 (Preserved Functionality Commitments)
@@ -260,6 +262,17 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **门禁 2 拟变清单因果位置自证与硬阻断 (Causal Role Self-Proof & SINK_PATCHING_BLOCKED)**：
       在【门禁 2 拟变范围清单】中，所有拟修改的文件与函数必须显式标注其在因果图谱中的角色：`[Root Source]`（故障源头生成器）、`[State Transition]`（中间状态流转管线）或 `[Consumer Sink]`（末端消费崩溃宿主）。**若拟变清单中仅包含 `[Consumer Sink]` 而未触及或证明 `[Root Source]`，门禁直接触发 `SINK_PATCHING_BLOCKED` 熔断驳回，严禁开工**；
     - **变异杀伤力检验与伪通熔断**：反症状修补方案必须通过反例变异测试验证，证明非法输入在源头即被硬阻断，而非在末端被隐式吸收。
+---
+
+24. **通用程序防篡改与机制策略物理隔离公理 (Generic Asset Anti-Tampering & Mechanism-Policy Separation Axiom - 反单任务污染通用资产铁律)**：
+    - **机制与策略物理隔离公理 (Separation of Mechanism & Policy)**：通用程序/底层引擎（Generic Engine / Tool Asset）为系统共享基础设施，只提供通用执行机制；单次任务的业务特化逻辑属于策略，必须由外部调用端或适配器承载，绝对禁止将策略逻辑反向注入通用程序内部；
+    - **通用能力演进与单任务特化二分判定 (General Evolution vs. Task Specialization)**：
+      - **调用端适配优先（Caller Adaptation First）**：凡属单次输入特异性、业务特定字段或数据格式非标问题，一律在调用端做前置适配/清洗，通用程序代码享有最高只读豁免，严禁就地涂鸦篡改；
+      - **通用演进四严律（Four Laws of General Evolution）**：凡属通用程序核心功能不足需升级，必须严格遵循四严律：① 零单任务特异标识与特判硬编码；② 抽象参数化与策略注入；③ 历史调用方 100% 零退化与向后兼容；④ 广义化多参数与变异测试见证；
+    - **门禁 2 通用性自证与硬阻断 (TASK_SPECIFIC_POLLUTION_BLOCKED)**：
+      在动工前呈报的【门禁 2 拟变范围清单】中，凡涉及通用底层程序的改动，Agent 必须显式完成“通用性自证”。若检测到试图通过局部特判硬编码来迁就当前单步任务，门禁直接触发 `TASK_SPECIFIC_POLLUTION_BLOCKED` 阻断，一票否决；
+    - **基座承重墙契约不可弱化禁令**：严禁 Agent 为使当前任务通过而擅自删改通用程序的校验逻辑、降低防御公差或注释异常阻断；
+    - **广义化泛化检验为充要条件**：对通用程序的任何改动，必须通过多场景参数化测试与变异测试，证明其在广义域内有效且保持历史调用方 100% 零退化回归。
 ---
 
 ## 📚 附录与配套参考

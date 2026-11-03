@@ -128,6 +128,25 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Gate 2 Causal Role Self-Proof (`SINK_PATCHING_BLOCKED`):
    - Proposed changes in Gate 2 must classify modified units as `[Root Source]`, `[State Transition]`, or `[Consumer Sink]`. Proposing patches that only modify `[Consumer Sink]` without touching or proving `[Root Source]` triggers immediate `SINK_PATCHING_BLOCKED` rejection.
 
+## Generic asset anti-tampering & mechanism-policy separation
+
+1. Mechanism vs. Policy Physical Separation:
+   - Generic utilities, engines, and tool pipelines provide domain-neutral mechanisms (transforms, calculations, execution primitives).
+   - Task-specific logic, idiosyncratic data formats, and business parameters represent policy. Policy belongs strictly in the caller/adapter layer and must never infiltrate generic assets.
+2. Caller-Side Adaptation First:
+   - When friction or failures occur due to task-specific input nuances or non-standard payloads, the generic program remains read-only under `@ANTIGRAVITY_INVARIANT_LOCK`.
+   - The agent must implement adapters, pre-parsers, or transformers at the caller boundary rather than modifying the core generic tool.
+3. Four Laws of General Evolution:
+   - When core generic capabilities must be extended, changes must obey:
+     - Zero task-specific identifiers or single-task branch conditions.
+     - Parametric abstraction (generic configuration, options, or strategy injection).
+     - Strict backward compatibility (zero regression for historical callers).
+     - Generalized verification (parameterized test matrices + mutation sanity).
+4. Gate 2 Generality Self-Proof (`TASK_SPECIFIC_POLLUTION_BLOCKED`):
+   - Proposed changes touching generic assets must supply an explicit generality proof. Introducing task-specific hardcoded branches triggers immediate `TASK_SPECIFIC_POLLUTION_BLOCKED` rejection.
+5. Invariant Contract Non-Weakening:
+   - Agents are forbidden from loosening validation thresholds, widening tolerances, or commenting out guard assertions in generic programs to force single-task passes.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
