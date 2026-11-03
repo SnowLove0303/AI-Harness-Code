@@ -359,6 +359,59 @@ test('gemini adapter enforces mandatory user-specification ingestion and active 
   assert.match(specContent, /强制前置全量通读与任务后主动找茬铁律/, 'audit spec must document Section 6');
 });
 
+test('gemini adapter enforces mutation anti-fraud and negative proof deep audit gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Mutation anti-fraud & negative proof deep audit gate/, 'must document mutation anti-fraud gate');
+  assert.match(content, /TRIVIAL_ASSERTION_FRAUD/, 'must document TRIVIAL_ASSERTION_FRAUD');
+  assert.match(content, /Negative Proof Gate & Mandatory Adversarial Quota/, 'must document negative proof gate');
+  assert.match(content, /Fresh Pro Auditor Enforcement/, 'must document fresh pro auditor enforcement');
+  assert.match(content, /Two-Strike Machine Escalation/, 'must document two-strike escalation');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'GEMINI.md must contain Axiom 29');
+  assert.match(globalRules, /Mutation Anti-Fraud & Negative Proof Deep Audit Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /TRIVIAL_ASSERTION_FRAUD/, 'GEMINI.md must specify TRIVIAL_ASSERTION_FRAUD');
+  assert.match(globalRules, /ZERO_FINDING_SUSPICION/, 'GEMINI.md Step 5 must specify ZERO_FINDING_SUSPICION');
+  assert.match(globalRules, /Two-Strike Machine Escalation/, 'GEMINI.md must specify Two-Strike Escalation');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'pstack-openspec must contain Axiom 31');
+  assert.match(pstackSkill, /变异反欺诈验证前置/, 'pstack-openspec Step 3 must require mutation verification');
+  assert.match(pstackSkill, /TRIVIAL_ASSERTION_FRAUD/, 'pstack-openspec must specify TRIVIAL_ASSERTION_FRAUD');
+  assert.match(pstackSkill, /ZERO_FINDING_SUSPICION/, 'pstack-openspec Step 5 must specify ZERO_FINDING_SUSPICION');
+  assert.match(pstackSkill, /Two-Strike Machine Escalation/, 'pstack-openspec must specify Two-Strike Escalation');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'ai-harness-openspec must contain Invariant 26');
+  assert.match(aiHarnessSkill, /变异反欺诈验证前置/, 'ai-harness-openspec Phase 3 must require mutation verification');
+  assert.match(aiHarnessSkill, /TRIVIAL_ASSERTION_FRAUD/, 'ai-harness-openspec must specify TRIVIAL_ASSERTION_FRAUD');
+  assert.match(aiHarnessSkill, /ZERO_FINDING_SUSPICION/, 'ai-harness-openspec Phase 4 must specify ZERO_FINDING_SUSPICION');
+  assert.match(aiHarnessSkill, /Two-Strike Machine Escalation/, 'ai-harness-openspec must specify Two-Strike Escalation');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /17. Mutation Anti-Fraud & Negative Proof Deep Audit Engine/, 'docs must document Section 17');
+  assert.match(docsContent, /TRIVIAL_ASSERTION_FRAUD/, 'docs must document TRIVIAL_ASSERTION_FRAUD');
+  assert.match(docsContent, /Negative Proof Gate & Mandatory Adversarial Quota/, 'docs must document Negative Proof Gate');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /七、 变异反欺诈与逆向举证硬门禁机制/, 'audit spec must document Section 7');
+  assert.match(specContent, /TRIVIAL_ASSERTION_FRAUD/, 'audit spec must document TRIVIAL_ASSERTION_FRAUD');
+  assert.match(specContent, /ZERO_FINDING_SUSPICION/, 'audit spec must document ZERO_FINDING_SUSPICION');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

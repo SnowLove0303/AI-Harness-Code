@@ -247,6 +247,22 @@ To eliminate superficial reading of human intent and eradicate passive confirmat
 3. **Universal Cross-Agent Propagation (跨智能体穿透约束)**:
    - Dispatched subagents and handoff capsules inherit user-provided rules and must return explicit proof of post-task active cognitive auditing before task signoff.
 
+### 17. Mutation Anti-Fraud & Negative Proof Deep Audit Engine
+
+To break the agent self-verification paradox and eliminate superficial "0-issue" pseudo-audits:
+
+1. **Mutation Sanity Gate & TRIVIAL_ASSERTION_FRAUD**:
+   - Automated test suites must exhibit genuine mutation killing power. When deliberate fault mutations (condition inversion, guard skipping, payload tampering) are injected, the test suite must produce a red-light failure.
+   - If a test suite reports exit code 0 under mutation, it is flagged as weak assertion fraud (`TRIVIAL_ASSERTION_FRAUD`), and the single-focus execution lock (`[-] lock`) remains strictly locked.
+2. **Negative Proof Gate & Mandatory Adversarial Quota**:
+   - For non-trivial engineering tasks, audit reports claiming "0 issues / all passed" trigger `ZERO_FINDING_SUSPICION` circuit breaker rejection.
+   - The auditor agent MUST supply at least 1–2 documented counter-factual boundary attack records proving the system rejected invalid inputs, or provide 1 mutation-kill witness before signoff.
+3. **Fresh Pro Auditor Enforcement & Physical Lockout**:
+   - Builder agents are physically barred from auditing their own work or granting release signoffs.
+   - Final audit must be delegated to a fresh, independent Subagent (`Model='pro'`, `Workspace='branch'`) running the `/interrogate` adversarial playbook.
+4. **Two-Strike Machine Escalation Axiom (两碰立项机器化下沉)**:
+   - Admonishments in prompts are the weakest form of defense. Any defect or audit omission caught twice by human review must be converted into deterministic machine-executable assets (AST/ESLint rules, pre-commit hooks, or parameterized mutation tests with exit code 1).
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

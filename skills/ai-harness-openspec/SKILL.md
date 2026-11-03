@@ -121,14 +121,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 - **目标**：精准、稳健、可控地将图纸转化为高质量代码。
 - **执行规则**：
   1. **动态单任务专注锁（`[-] lock`）**：严格落实 Roo-Code/Cline 单焦点纪律，在任意时刻仅允许一个任务处于进行中状态（状态为 `[-]`）；上一个任务未绿灯打勾前严禁启动下一任务；
+     - **变异反欺诈验证前置**：在核心条件分支与保护门禁上执行故意变异注入（如条件取反、短路核心断言），测试套件必须红灯杀伤；若变异状态下测试依然全绿，直接判定为弱断言欺诈（`TRIVIAL_ASSERTION_FRAUD`），任务严格锁死在 `[-]`，严禁解锁；
   2. 源码修改优先调用 `vscode-review` MCP 的 `review_diff_in_vscode`，拉起 VS Code 原生两栏 Diff 视图，由用户直观审查微调；
   3. **编译与 Lint 零容忍硬阻断 (Hard Blocker)**：任务打勾 `- [x]` 的充要条件必须同时包含功能测试通过与编译/Lint 静态检查（`--max-warnings=0` 真实退出码 0）；反逃避禁令绝对生效，严禁添加 `// @ts-ignore`、`/* eslint-disable */` 或 `as any` 强行绕过，红灯时任务严格锁死在 `[-]`；
   4. **通用深度审计施工防线 (Deep Audit Verification Matrix)**：
      - **验证平面只读隔离**：测试集代码不在 Agent 可写范围之内，严禁私改断言或公差，擅改考卷触发 `VERIFIER_TAMPERING_DETECTED` 熔断并原子回滚；
-     - **变异元审计 (Mutation Sanity)**：测试套件必须具备变异杀伤力，注入反例变异体时测试必须红灯；若仍报退出码 0 判定为弱断言作弊，任务锁死；
+     - **变异元审计 (Mutation Sanity)**：测试套件必须具备变异杀伤力，注入反例变异体时测试必须红灯；若仍报退出码 0 判定为弱断言欺诈，任务锁死；
      - **负向测试配比底线**：测试集包含 $\ge 30\%$ 负向与异常边界用例，显式断言抛出受控错误；
-  4. 涉及 UI 调整与功能验收以人工操作为权威终审，人工确认前保持未勾选；
-  5. **施工期摩擦动态存证**：单步任务凡触发测试报错、环境断裂或经历排错重试，必须实时记录 `[Incident: Friction/Bug]` 存证，严禁静默掩盖调试痕迹。
+  5. 涉及 UI 调整与功能验收以人工操作为权威终审，人工确认前保持未勾选；
+  6. **施工期摩擦动态存证**：单步任务凡触发测试报错、环境断裂或经历排错重试，必须实时记录 `[Incident: Friction/Bug]` 存证，严禁静默掩盖调试痕迹。
 
 ### Phase 4: 两阶双轨深度审计与经验永续 (Two-Step Deep Audit & Archive)
 - **目标**：彻底消除对单一机械 exit 0 的盲信与走过场伪审计，实现语义契约闭环合流。
@@ -139,7 +140,9 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
      - 编译与 Lint 零警告 (`--max-warnings=0`)，测试套件真实退出码 0 [Measured]；
   2. **第二步：智能体语义规范审计 (Step 2: Agent Cognitive & Specification Audit)**：
      - **裁执物理隔离与主动找茬**：派发全新独立 Subagent（`Model='pro'`, `Workspace='branch'`）加载 `/interrogate` 敌手剧本执裁；机械 Exit Code 0 仅为底座，Agent 必须以敌手身份主动寻找代码漏洞与未覆盖边界，严禁消极放行；
+     - **逆向举证门禁与非平凡任务缺陷指标 (Negative Proof Gate & Mandatory Adversarial Quota)**：严禁 0 缺陷消极放行；对非平凡工程任务，审计报告宣称“0 缺陷 / 0 问题”直接触发 `ZERO_FINDING_SUSPICION` 熔断并驳回；审计 Agent 必须提供至少 1~2 项边界反例攻击记录或 1 项变异杀伤力见证；
      - **双轨规范核销矩阵**：严格对账【全局规范 (宏观承重墙/不变量)】与【局部规范 (模块RFC 2119契约)】，出具 $N_{\text{Global}} + M_{\text{Local}}$ 项数绝对守恒的物理行号锚定与主动证伪报告；
+     - **纠错两遍立项硬门禁 (Two-Strike Machine Escalation)**：凡人类 Review 纠正两次的问题，严禁停留在 Prompt 散文说教，必须机械化下沉为带真实退出码 1 的 AST / Lint 规则或测试用例；
   3. **1:1 需求双向回溯对账 (Bidirectional Checkoff)**：将交付物与 Step 0 立案的 1:1 RTM（REQ-01...N）逐条对账；
   4. **人机双钥匙终审准出**：机械全绿 (钥匙 1) + 规范审计全绿 (钥匙 2) 齐备后，拉起 `review_diff_in_vscode` 由人类工程师终审；
   5. **终审强制挂载复盘提案**：交付总结必须三位一体（1:1 需求核销 + 过程摩擦复盘 + 防线下沉提案），单列《执行期遇到问题与阻力清单》与《避免复发的长效防线下沉改进方案》，并附带可一键授权执行的加固动作；
@@ -283,6 +286,17 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
       - 任务交付前，Agent 必须强制执行**第二步认知审计（充要条件）**：Agent 必须彻底摆脱消极打勾心智，以独立敌手身份**“主动去挑刺、主动去找问题”**（穷尽状态机死锁、极限边界变异注入、负向空间缺失审计、未捕获异常与资源泄漏推演）；
       - 任何未经历 Agent 主动找茬证伪攻击、仅凭机械 Exit Code 0 交付的成果一律视为“未完成审计”并一票否决；
     - **跨智能体全量穿透约束 (Universal Agent Enforcement)**：该公理对全系统所有智能体（主智能体、后台子智能体、跨线程智能体）具备绝对穿透效力；跨线程交接胶囊强制注入用户规范基准与任务后主动审计检查项。
+---
+
+26. **变异反欺诈与逆向举证深度审计硬门禁公理 (Mutation Anti-Fraud & Negative Proof Deep Audit Axiom - 反形式主义自审与假通铁律)**：
+    - **变异元注入反欺诈门禁 (Mutation Sanity Gate & TRIVIAL_ASSERTION_FRAUD)**：
+      任何测试套件与自动化验证流程必须具备真实的变异杀伤力。系统在准出前自动或受控注入反例变异体（如反转条件表达式、短路核心断言、替换关键返回值）；若测试套件与审计流程在变异体侵入状态下依然输出 Exit Code 0 或绿灯判定，系统直接判定为弱断言欺诈（`TRIVIAL_ASSERTION_FRAUD`），任务执行锁（`[-] lock`）坚决锁死，一票否决；
+    - **逆向举证与强制找茬配额门禁 (Negative Proof Gate & Mandatory Adversarial Quota)**：
+      彻底终结“0 缺陷消极放行”的形式主义假审计。在任何非平凡（Non-Trivial）任务的交付前，审计 Agent 必须强制出具至少 1~2 项主动构造的证伪反例攻击记录（包含具体的执行命令、非预期崩溃/异常表现、以及系统边界防御见证）。凡未出具对抗性证伪反例、仅凭口水化“无问题”宣称的审计报告，直接视为无效并驳回；
+    - **裁执物理死锁与 Pro 算力敌手审讯 (Fresh Pro Auditor Enforcement)**：
+      施工 Agent 仅拥有代码编写权，被底层系统在物理上剥夺任务自审打勾与终审准出权；终审必须派发全新的独立子智能体（`Model='pro'`, `Workspace='branch'`），加载 `/interrogate` 敌手剧本，以推翻施工假设、攻击极端边界为唯一目标执行敌手审讯；
+    - **用户规范两碰立项机器化下沉公理 (Two-Strike Machine Escalation Axiom)**：
+      严禁将人类指出过的错误长期停留在 Prompt 劝诫层面。凡用户在交互或审阅中指出达到两次的同类执行偏差或审计漏洞，必须在该会话或变更生命周期内，强制将其转化为具体的、具备真实 Exit 1 阻断力的机器机检资产（AST/Lint 规则、预提交钩子或参数化变异测试用例）。
 ---
 
 ## 📚 附录与配套参考

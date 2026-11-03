@@ -159,6 +159,20 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 3. Universal Cross-Agent Propagation:
    - Dispatched subagents and handoff capsules inherit user-provided rules and must return explicit proof of post-task active cognitive auditing before task signoff.
 
+## Mutation anti-fraud & negative proof deep audit gate
+
+1. Mutation Sanity Gate (`TRIVIAL_ASSERTION_FRAUD`):
+   - All test suites and automated verifiers must demonstrate mutation kill power. Deliberate fault injections (inverting conditions, skipping core validations, mutating return payloads) must cause tests to fail.
+   - Passing tests under mutation triggers `TRIVIAL_ASSERTION_FRAUD`, immediately locking task execution.
+2. Negative Proof Gate & Mandatory Adversarial Quota:
+   - For all non-trivial tasks, an audit report reporting "0 issues / perfectly clean" without evidence of active stress testing is rejected as a superficial pseudo-audit.
+   - The auditor agent must provide at least 1-2 active counter-factual falsification attempts with reproduction commands, proving the system deterministically rejected or survived invalid inputs.
+3. Fresh Pro Auditor Enforcement & Architectural Lock:
+   - Builder agents are fundamentally barred from marking tasks `[x]` or issuing release signoffs.
+   - A fresh, independent auditor subagent (`Model='pro'`, `Workspace='branch'`) running the `/interrogate` playbook acts as the sole adversary.
+4. Two-Strike Machine Escalation:
+   - Recurring human-identified defects cannot remain as natural language advice in prompts. Any issue corrected twice by a human must be converted into a machine-enforced AST/Lint rule or deterministic test with a non-zero exit code.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
