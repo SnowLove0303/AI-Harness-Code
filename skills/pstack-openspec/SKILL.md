@@ -366,6 +366,20 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **裁执物理隔离与系统改动权限封锁公理 (Verifier-Only Merge Authority & Workspace Sandboxing)**：
       执行子智能体必须严格运行在隔离的分支工作区（`Workspace='branch'`）中，物理剥夺其直接对主系统工作树实施破坏性直改或自主合流的权限；系统主干代码合流与最终生效权严格且唯一归属于主协调与审计智能体，在完成两阶双轨全方位审计且真实复测退出码 0 验证通过后方可执行合流。
 
+33. **通用工程防伪执行与拓扑零退化公理 (Universal Engineering Anti-Phantom & Structural Fidelity Axiom - 六大通用工程法定铁律)**：
+    - **反伪执行与快速失败机制 (Zero-Unverified-Effect & SILENT_NO_OP_FRAUD)**：
+      严禁在操作原语或业务执行函数中基于猜想假设编写静默逃逸分支；凡接收到不符合前置契约的异常输入，必须立即主动抛出致命异常（Fail-Fast），绝对禁止静默 return 或吞没错误；任何声称修改数据状态的原语，其验收充要条件是必须提供差分单测见证（证明前态不满足、执行后跃迁为期望状态），无差分见证的原语一律判定为伪执行欺诈并一票否决；
+    - **原子洁净构建与边界隔离铁律 (Clean Construction & Zero-Boundary-Leakage)**：
+      动态扩充有序集合或拓扑树时，严禁通过直接深拷贝既有填充节点创建新元素；新节点必须由洁净构造器（Clean Constructor）原子实例化；若派生自原型，必须在进入集合前执行显式特异性状态净化（Sanitization），剥离末尾边界标记、特异索引与局部缓存，杜绝脏状态向后扩散；
+    - **同构集合单轨生成与零方差铁律 (Single-Pipeline Invariance & Zero-Variance Assembly)**：
+      同一逻辑父级下的同构数据集合，必须且唯一由单一正规化管线（Canonical Pipeline）单轨生成，严禁“部分复用旧残留 + 部分裸生成”的双轨拼装；集合内所有对等元素的微观控制属性（缩进、间距、度量）在统计上方差必须严格为 0；展现层属性必须由结构元数据承载，严禁在数据文本中注入补丁字符模拟排版；
+    - **源拓扑保真与反投机性结构拟造铁律 (Source Topology Invariance & Anti-Speculative-Synthesis)**：
+      数据转换管线的输出拓扑必须严格服从输入源的物理拓扑几何；严禁 Agent 凭借大模型预训练常识、语义联想或所谓经验，在目标结构中投机性拟造源输入不存在的容器层级、前言行或独立嵌套；语义关键词仅为节点值，严禁因值内容触发容器结构的非预期膨胀；
+    - **契约槽位非空与实体属性防漂移铁律 (Mandatory Slot Completeness & Anti-Attribute-Drift)**：
+      数据模型必须显式定义必填端点槽位（Mandatory Terminal Slots）；在生成与交付阶段，核心必填槽位若解析为 null、undefined 或空白，系统直接触发 `EMPTY_MANDATORY_SLOT_BLOCKED` 致命熔断并驳回，严禁静默空置；实体属性必须严格绑定在指定槽位，严禁向相邻节点溢出拼凑；
+    - **终端物理叶子节点穿透式审计铁律 (Terminal Leaf-Node Deterministic Audit)**：
+      自动化测试与认知审计必须直接穿透至数据模型最底层的离散叶子节点与精确物理属性值；严禁将进程退出码 0、函数被调用过、字符串包含或全局宏观统计学度量作为功能合格的依据；未断言到物理叶子属性变更与离散事实值一致性的审计一律判定为形式主义伪审计，一票否决。
+
 ---
 
 ## 📚 五、 配套参考指南索引

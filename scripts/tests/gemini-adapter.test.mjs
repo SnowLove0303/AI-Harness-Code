@@ -470,6 +470,57 @@ test('gemini adapter enforces autonomous subagent swarm and four-in-one handoff 
   assert.match(specContent, /manage_subagents/, 'audit spec must specify manage_subagents');
 });
 
+test('gemini adapter enforces universal engineering anti-phantom and structural fidelity gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Universal engineering anti-phantom & structural fidelity gate/, 'must document universal engineering gate');
+  assert.match(content, /Zero-Unverified-Effect/, 'must specify zero unverified effect');
+  assert.match(content, /SILENT_NO_OP_FRAUD/, 'must specify SILENT_NO_OP_FRAUD');
+  assert.match(content, /Clean Construction & Zero-Boundary-Leakage/, 'must specify clean construction');
+  assert.match(content, /Single-Pipeline Invariance & Zero-Variance Assembly/, 'must specify single pipeline invariance');
+  assert.match(content, /Source Topology Invariance & Anti-Speculative-Synthesis/, 'must specify source topology invariance');
+  assert.match(content, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'must specify EMPTY_MANDATORY_SLOT_BLOCKED');
+  assert.match(content, /Terminal Leaf-Node Deterministic Audit/, 'must specify terminal leaf-node audit');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /通用工程防伪执行与拓扑零退化公理/, 'GEMINI.md must contain Axiom 31');
+  assert.match(globalRules, /Universal Engineering Anti-Phantom & Structural Fidelity Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /SILENT_NO_OP_FRAUD/, 'GEMINI.md must specify SILENT_NO_OP_FRAUD');
+  assert.match(globalRules, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'GEMINI.md must specify EMPTY_MANDATORY_SLOT_BLOCKED');
+  assert.match(globalRules, /Terminal Leaf-Node Deterministic Audit/, 'GEMINI.md must specify leaf-node audit');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /通用工程防伪执行与拓扑零退化公理/, 'pstack-openspec must contain Axiom 33');
+  assert.match(pstackSkill, /SILENT_NO_OP_FRAUD/, 'pstack-openspec must specify SILENT_NO_OP_FRAUD');
+  assert.match(pstackSkill, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'pstack-openspec must specify EMPTY_MANDATORY_SLOT_BLOCKED');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版|OS-9547/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /通用工程防伪执行与拓扑零退化公理/, 'ai-harness-openspec must contain Invariant 28');
+  assert.match(aiHarnessSkill, /SILENT_NO_OP_FRAUD/, 'ai-harness-openspec must specify SILENT_NO_OP_FRAUD');
+  assert.match(aiHarnessSkill, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'ai-harness-openspec must specify EMPTY_MANDATORY_SLOT_BLOCKED');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版|OS-9547/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /19\. Universal Engineering Anti-Phantom & Structural Fidelity Engine/, 'docs must document Section 19');
+  assert.match(docsContent, /SILENT_NO_OP_FRAUD/, 'docs must document SILENT_NO_OP_FRAUD');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /九、 终端物理叶子节点穿透式审计与六大通用工程铁律/, 'audit spec must document Section 9');
+  assert.match(specContent, /SILENT_NO_OP_FRAUD/, 'audit spec must specify SILENT_NO_OP_FRAUD');
+  assert.match(specContent, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'audit spec must specify EMPTY_MANDATORY_SLOT_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

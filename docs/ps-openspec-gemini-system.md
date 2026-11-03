@@ -287,6 +287,24 @@ To solve context window saturation, handoff transmission loss, and executor-veri
    - Executor subagents run strictly in isolated branch workspaces (`Workspace='branch'`), physically preventing direct mutations or autonomous merges into the main tree.
    - Merge authority belongs exclusively to the coordinator/auditor after passing 100% mechanical verification and adversarial interrogation.
 
+### 19. Universal Engineering Anti-Phantom & Structural Fidelity Engine
+
+To eradicate phantom execution, prototype contamination, dual-track layout variance, hallucinatory structural bloat, and surface pseudo-audits across all automated engineering:
+
+1. **Zero-Unverified-Effect & Fail-Fast Assertion (`SILENT_NO_OP_FRAUD`)**:
+   - Primitives and transform handlers are strictly barred from silent exits (e.g., `if (!node) return;`). Any unexpected input structure must fail fast with fatal exceptions.
+   - All mutating primitives require differential unit tests demonstrating pre-state failure and post-state transition.
+2. **Clean Construction & Zero-Boundary-Leakage**:
+   - Collection expansions must construct fresh nodes via atomic schema constructors rather than deep-cloning existing populated nodes, preventing terminal and boundary-specific properties from cascading to peers.
+3. **Single-Pipeline Invariance & Zero-Variance Assembly**:
+   - Peer entities in homogeneous sets must be generated exclusively via a unified normalizer pipeline; dual-track assembly mixing residual state with ad-hoc creation is prohibited. Layout variance across peers must evaluate to 0.
+4. **Source Topology Invariance & Anti-Speculative-Synthesis**:
+   - Output structural topology strictly mirrors input specification geometry ($T_{\text{out}} \subseteq \Phi(T_{\text{in}})$). Speculative invention of synthetic wrapper tiers, preamble blocks, or unrequested nodes is an invariant violation.
+5. **Mandatory Slot Completeness & Anti-Attribute-Drift (`EMPTY_MANDATORY_SLOT_BLOCKED`)**:
+   - Mandatory terminal slots resolving to null, undefined, or empty whitespace trigger immediate `EMPTY_MANDATORY_SLOT_BLOCKED` halt. Attribute values are strictly bound to designated slots without spilling over to neighboring entities.
+6. **Terminal Leaf-Node Deterministic Audit**:
+   - Audits and verification suites must assert against the deepest physical discrete leaf attributes; macro exit code 0 or substring matching alone cannot certify compliance.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

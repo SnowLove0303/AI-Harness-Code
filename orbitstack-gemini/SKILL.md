@@ -195,6 +195,28 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - Executor subagents run in isolated branch workspaces (`Workspace='branch'`) and are physically prevented from mutating the main tree or self-merging.
    - Final code merge and status signoff authority belongs exclusively to the coordinator/auditor after 100% audit verification.
 
+## Universal engineering anti-phantom & structural fidelity gate (The 6 Invariants)
+
+1. Zero-Unverified-Effect & `SILENT_NO_OP_FRAUD`:
+   - Functions and transformation primitives are barred from silent exits (e.g., `if (!x) return;`).
+   - Any invocation with unmet preconditions or contract violations must fail fast by throwing fatal exceptions.
+   - Any state-mutating primitive must provide a differential unit test witness proving red light before and green light after execution.
+2. Clean Construction & Zero-Boundary-Leakage:
+   - Dynamic collection appends must instantiate clean nodes via canonical constructors.
+   - Deep-cloning existing populated nodes is prohibited to prevent terminal delimiters, boundary flags, and local caches from contaminating peer items.
+3. Single-Pipeline Invariance & Zero-Variance Assembly:
+   - Peer elements in a homogeneous collection must be generated exclusively by a single canonical normalizer pipeline.
+   - Dual-track assembly (mixing residual template state with fresh generation) is prohibited; micro-layout attributes must maintain zero variance across peers.
+4. Source Topology Invariance & Anti-Speculative-Synthesis:
+   - Output topology must strictly preserve the physical topology of the source specification ($T_{\text{out}} \subseteq \Phi(T_{\text{in}})$).
+   - Agents must never speculatively invent wrapper tiers, synthetic preamble rows, or unrequested structural nodes based on LLM semantic associations.
+5. Mandatory Slot Completeness & `EMPTY_MANDATORY_SLOT_BLOCKED`:
+   - Extraction and generation schemas must define mandatory terminal slots.
+   - Any mandatory slot resolving to null, undefined, or empty whitespace triggers `EMPTY_MANDATORY_SLOT_BLOCKED` fatal halt; attributes must not drift into adjacent slots.
+6. Terminal Leaf-Node Deterministic Audit:
+   - Verification suites and auditor subagents must assert on deepest physical leaf-node attributes and discrete values.
+   - High-level exit code 0, regex presence, or macro-statistical word-count metrics are strictly insufficient for signoff.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
