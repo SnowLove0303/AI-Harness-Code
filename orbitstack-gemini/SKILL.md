@@ -147,6 +147,18 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Invariant Contract Non-Weakening:
    - Agents are forbidden from loosening validation thresholds, widening tolerances, or commenting out guard assertions in generic programs to force single-task passes.
 
+## Mandatory user-specification ingestion & active post-task agent audit
+
+1. Full-Text User Standards Ingestion:
+   - When the user provides explicit correct practices, formal specifications, reference exemplars, or audit schemes, every agent (main or subagent) must read them 100% in full before designing or coding.
+   - Relying on generic LLM pre-training assumptions or skimming/truncating user-provided rules is strictly prohibited.
+2. Two-Step Audit with Active Bug Hunting:
+   - Mechanical verification (compilers, linters, tests, exit code 0) serves as Step 1 (machine baseline).
+   - Upon completing mechanical passes, the agent must execute Step 2 (Agent Cognitive Audit): actively hunting for hidden defects, unhandled edge cases, negative space regressions, and state machine deadlocks.
+   - Passive confirmation bias ("looks good to me") is strictly barred; findings survive through active adversarial falsification.
+3. Universal Cross-Agent Propagation:
+   - Dispatched subagents and handoff capsules inherit user-provided rules and must return explicit proof of post-task active cognitive auditing before task signoff.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

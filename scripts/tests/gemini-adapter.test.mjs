@@ -315,6 +315,50 @@ test('gemini adapter enforces generic asset anti-tampering and mechanism-policy 
   assert.match(docsContent, /TASK_SPECIFIC_POLLUTION_BLOCKED/, 'docs must document TASK_SPECIFIC_POLLUTION_BLOCKED');
 });
 
+test('gemini adapter enforces mandatory user-specification ingestion and active post-task agent audit', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Mandatory user-specification ingestion & active post-task agent audit/, 'must document user-specification ingestion');
+  assert.match(content, /Full-Text User Standards Ingestion/, 'must specify full-text ingestion');
+  assert.match(content, /Two-Step Audit with Active Bug Hunting/, 'must specify active bug hunting');
+  assert.match(content, /Universal Cross-Agent Propagation/, 'must specify universal cross-agent propagation');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /用户规范全量通读与任务后主动认知审计公理/, 'GEMINI.md must contain Axiom 28');
+  assert.match(globalRules, /Mandatory User-Specification Ingestion & Active Post-Task Agent Audit Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /用户规范与方案全量通读公理/, 'GEMINI.md must declare full ingestion axiom');
+  assert.match(globalRules, /双阶结合与主动找茬公理/, 'GEMINI.md must declare active bug hunting axiom');
+  assert.match(globalRules, /主动挑刺寻找漏洞与未覆盖边界/, 'GEMINI.md Step 5 must mandate active hunting');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /用户规范全量通读与任务后主动认知审计公理/, 'pstack-openspec must contain Axiom 30');
+  assert.match(pstackSkill, /用户正确做法与审计方案全量通读/, 'pstack-openspec Step 0 must require full ingestion');
+  assert.match(pstackSkill, /任务结束后强制 Agent 主动认知审计/, 'pstack-openspec Step 5 must require active audit');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /用户规范全量通读与任务后主动认知审计公理/, 'ai-harness-openspec must contain Invariant 25');
+  assert.match(aiHarnessSkill, /用户规范与方案全量通读/, 'ai-harness-openspec Step 0 must require full ingestion');
+  assert.match(aiHarnessSkill, /裁执物理隔离与主动找茬/, 'ai-harness-openspec Phase 4 must require active bug hunting');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /16. Mandatory User-Specification Ingestion & Active Agent Audit Engine/, 'docs must document Section 16');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /强制前置全量通读与任务后主动找茬铁律/, 'audit spec must document Section 6');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

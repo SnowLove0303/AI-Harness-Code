@@ -233,6 +233,20 @@ To prevent single-task pollution and preserve generic infrastructure assets:
 5. **Invariant Contract Non-Weakening**:
    - Agents are forbidden from loosening validation thresholds, widening tolerances, or commenting out guard assertions in generic programs to force single-task passes.
 
+### 16. Mandatory User-Specification Ingestion & Active Agent Audit Engine
+
+To eliminate superficial reading of human intent and eradicate passive confirmation bias during audit:
+
+1. **Zero-Omission Ingestion of User Standards (用户法定规范全量通读)**:
+   - When the user provides explicit correct practices, formal specifications, reference exemplars, or audit schemes, every agent (main or subagent) must read them 100% in full before designing or coding.
+   - Relying on generic LLM pre-training assumptions or skimming/truncating user-provided rules is strictly prohibited.
+2. **Two-Step Audit with Active Bug Hunting (双阶结合与主动找茬)**:
+   - Mechanical verification (compilers, linters, tests, exit code 0) serves as Step 1 (machine baseline).
+   - Upon completing mechanical passes, the agent must execute Step 2 (Agent Cognitive Audit): actively hunting for hidden defects, unhandled edge cases, negative space regressions, and state machine deadlocks.
+   - Passive confirmation bias ("looks good to me") is strictly barred; findings survive through active adversarial falsification.
+3. **Universal Cross-Agent Propagation (跨智能体穿透约束)**:
+   - Dispatched subagents and handoff capsules inherit user-provided rules and must return explicit proof of post-task active cognitive auditing before task signoff.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
