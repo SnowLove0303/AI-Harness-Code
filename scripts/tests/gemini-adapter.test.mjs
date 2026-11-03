@@ -462,6 +462,12 @@ test('gemini adapter enforces autonomous subagent swarm and four-in-one handoff 
   assert.match(contractContent, /四位一体无损任务交接胶囊标准规范/, 'contract must document four-in-one capsule');
   assert.match(contractContent, /manage_subagents/, 'contract must specify manage_subagents');
   assert.match(contractContent, /Verifier-Only Merge Authority/, 'contract must specify verifier-only merge authority');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /八、 智能体自动编组、四位一体任务交接胶囊与裁执物理隔离体系/, 'audit spec must document Section 8');
+  assert.match(specContent, /manage_subagents/, 'audit spec must specify manage_subagents');
 });
 
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {

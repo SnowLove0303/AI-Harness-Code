@@ -174,3 +174,33 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 4. 用户规范两碰立项机器化下沉公理 (Two-Strike Machine Escalation Axiom)
 - **散文劝诫为最弱防线**：Prompt 劝诫与文档口水说教是防御金字塔中最脆弱的一层。
 - **两碰立项硬下沉**：凡用户在交互或人工 Review 中指出达到两次的同类执行偏差、排版疏漏或审计漏洞，严禁仅在代码中打创可贴了事，必须强制将其转化为具体的、具备真实 Exit 1 阻断力的机器机检资产（AST/Lint 规则、预提交钩子或参数化变异测试用例），永久固化到系统底座。
+
+---
+
+## 🤖 八、 智能体自动编组、四位一体任务交接胶囊与裁执物理隔离体系 (Autonomous Subagent Swarm & Four-in-One Handoff Architecture)
+
+为解决复杂工程任务中主智能体认知过载（Syntax Drift）、交接口水化信息失真、错误上下文污染与自审自改权责混淆，体系确立五项最高编组准则：
+
+### 1. 默认自动编组与主协调禁下场铁律 (Auto-Dispatch by Default)
+- **协调者纯净视角**：接收用户指令的主协调智能体（Main Agent / Coordinator）严格定位为系统架构师、门禁把关者与最高审计官，严禁亲自下场直接编写或修改业务代码；
+- **自动编组派发**：所有具体编码、排错、重构与测试执行任务，默认必须自动编组、派发给执行子智能体（Executor Subagent）完成。
+
+### 2. 智能 Subagent 复用判定决策树 (Subagent Reuse vs. Fresh Decision Tree)
+- **探查前置**：派发前必须调用 `manage_subagents(Action='list')` 探查当前活跃子智能体状态；
+- **状态延续性复用 (`send_message`)**：唯独当后续工作严格属于当前子智能体尚未完成的同一任务断点、或持有未落盘瞬态开发环境（挂载中的 Git 工作分支、运行中的常驻测试服务/进程）时，方可通过 `send_message` 队列复用；
+- **全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`)**：凡属新任务、重构任务、排错转向或重试，一律强制启动干净的全新 Subagent（`Workspace='branch'`），杜绝污染上下文断链追问。
+
+### 3. 四位一体无损任务交接胶囊 (Four-in-One Lossless Handoff Capsule)
+派发简报严禁用大白话口水化随口压缩，必须 100% 封装四位一体不可精简交付胶囊：
+1. **`ps-openspec` 架构契约**：挂载 OpenSpec 增量提案、RFC 2119 规范、单任务专注锁（`[-] lock`）条目及真实 Exit Code 0 验收命令；
+2. **`skill` 执行方法论**：显式注入执行该任务所必须绑定的方法论技能（如 `pstack-openspec`、`unslop`、`tdd` 等）；
+3. **`上下文 (Context)` 物理围栏**：物理封闭的可读写文件白名单、严禁触碰的只读承重墙与 `@ANTIGRAVITY_INVARIANT_LOCK` 封印代码块、基准 Commit SHA 及冻结的事实指纹；
+4. **`提示词 (Prompt)` 聚焦指令**：单一职责清晰指令，显式声明 **非目标 (Non-Goals)**，严禁越权发散。
+
+### 4. 主动完成报告与响应式审计唤醒 (Active Return & Reactive Wakeup)
+- **标准化完成报告**：Subagent 施工完毕后必须主动向主协调智能体回传报告，包含真实修改文件清单、`[Measured]` 真实退出码 0 日志凭据、变异测试杀伤记录及遗留阻碍；
+- **响应式自动唤醒**：系统通过底层事件自动唤醒主 Agent 接管，严禁主 Agent 在循环中轮询等待，唤醒后立即启动两阶双轨认知审计。
+
+### 5. 裁执物理隔离与合流权限封锁 (Verifier-Only Merge Authority & Workspace Sandboxing)
+- **执行端沙箱隔离**：执行 Subagent 必须在 `Workspace='branch'` 中启动，物理隔离主系统工作树，从底层机制上杜绝执行端直接篡改主系统；
+- **裁决端唯一合流权**：系统合流与最终主干代码落盘权限严格归属于主协调/审计 Agent，必须在双阶段机械审计与敌手反向挑刺全绿后，方可完成代码合流。
