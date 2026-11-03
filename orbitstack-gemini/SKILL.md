@@ -113,6 +113,21 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
      - L4: Automated mutation test vectors asserting domain rejection.
    - Propose explicit actionable hardening steps that the user can authorize for immediate in-situ hardening.
 
+## State legitimacy & anti-symptom-masking (Root-cause causal back-tracing)
+
+1. State Legitimacy Dichotomy:
+   - When a defect, runtime error, or invalid payload surfaces at a Consumer Sink, the agent must trace dataflow backward from sink to Origin Producer before generating patches.
+   - If the state is legitimate within domain semantics but unhandled: the Consumer Sink lacks handling; patch the sink.
+   - If the state is illegitimate (violates schema, missing mandatory invariant, corrupted structure): the Consumer Sink must NOT mask it. Patching the sink via fallback defaults, swallowed errors, or scattered guards is strictly forbidden (Symptom Masking / 脚痛医脚). The agent must backtrace to the Origin Producer and eliminate the illegal state generation at the source.
+2. Five Forbidden Masking Anti-Patterns:
+   - Scattered Guards (`if (!x) return`), Swallowed Errors (`catch (e) {}`), Clamped / Coerced Values (`val || default_value` or `Math.max/min`), Discarded State (silent filtering of unparseable items), and Shotgun Validation (redundant inner checks violating boundary guarantees).
+3. Boundary Parsing (*Parse, don't validate*):
+   - Untrusted inputs must be parsed and structured into strict domain types at the ingestion boundary. Internal functions operate on guaranteed valid models without defensive boilerplate.
+4. Fail-Fast & Non-Masking:
+   - Invariant violations must fail fast near the source with explicit domain errors.
+5. Gate 2 Causal Role Self-Proof (`SINK_PATCHING_BLOCKED`):
+   - Proposed changes in Gate 2 must classify modified units as `[Root Source]`, `[State Transition]`, or `[Consumer Sink]`. Proposing patches that only modify `[Consumer Sink]` without touching or proving `[Root Source]` triggers immediate `SINK_PATCHING_BLOCKED` rejection.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

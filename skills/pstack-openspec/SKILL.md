@@ -110,7 +110,9 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 严禁静默跳步（No Silent Skips）：若某步无需执行，必须显式注明 `skip: <客观原因>`；
 4. **复杂场景只读探查 (OpenSpec Explore)**：
    - 纯只读探索调用链路，运行 `/how` 与 `/why` 理清上下文，绘制 Mermaid 拓扑；
-   - 铁律：**只输出分析报告与计划，严禁在此阶段修改任何业务代码**。
+   - 铁律：**只输出分析报告与计划，严禁在此阶段修改任何业务代码**；
+5. **逆向数据流穿透与状态合法性二分判定**：
+   - 异常必须逆向溯源至 Origin Producer，严禁在末端调用宿主 (Sink) 局部防御性掩盖，非法状态杜绝防御性兜底。
 
 ### Step 2: 分支隔离与规格立法与【门禁 2】(Branch & Propose & Gate 2 Plan Auth)
 1. **工作区/分支物理隔离**：
@@ -127,6 +129,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
    ### 一、拟变更范围清单 (Proposed Scope)
    - 受影响文件路径与改动函数明细；
+   - 拟变清单因果位置自证：所有拟变文件必须显式标注 [Root Source] / [State Transition] / [Consumer Sink] 因果角色。若拟变清单仅修改 [Consumer Sink] 而未修复或证明 [Root Source]，门禁直接触发 SINK_PATCHING_BLOCKED 熔断驳回，严禁开工；
    - tasks.md 原子化条目与可执行验证命令。
 
    ### 二、保持现状承诺清单 (Preserved Commitments)
@@ -281,6 +284,23 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **交付期终审强制挂载复盘提案**：任务终审交付报告必须三位一体（1:1 需求核销 + 执行摩擦复盘 + 防线下沉提案），单列《执行期遭遇问题与阻力清单》与《避免复发的长效防线下沉改进方案》；
     - **四阶防御下沉闭环推进**：针对捕获的每一个摩擦点，必须顺着 Lauren Tan 信任金字塔提出可落地的下沉方案（L1 类型状态机、L2 静态 AST/Lint 拦截、L3 封闭宪法、L4 变异反例测试），严禁“只解当前、不防后续”的短视创可贴修复；
     - **可执行加固动作一键授权**：必须输出明确的后续加固待办动作，经用户一键授权即可原地执行资产固化，使代码库获得永久免疫力。
+---
+
+28. **状态合法性因果溯源与反症状修补公理 (State Legitimacy & Anti-Symptom-Masking Axiom - 反脚痛医脚铁律)**：
+    - **状态合法性二分判定公理 (State Legitimacy Dichotomy)**：当调用宿主/消费端（Consumer Sink）触发异常或未预期状态时，必须首先判定该状态在系统领域模型中是否具有合法性：
+      - **合法状态（Legitimate State）**：状态在系统合法域内，但下游逻辑未予以处理 ➔ 当前宿主为真实根因（Root Cause），允许在此补充合法处理分支；
+      - **非法状态（Illegitimate State）**：状态在系统正常契约下根本不应存在（如必填字段缺失、无效枚举、脏格式） ➔ **严禁在崩溃宿主处进行任何形式的就地防御性掩盖（Symptom Masking / 脚痛医脚）**，必须逆向穿透调用栈与数据流，追溯至生成该非法状态的源头（Origin Producer）进行根治；
+    - **五大受限症状掩盖反模式绝对禁令 (Five Forbidden Symptom-Masking Anti-Patterns)**：
+      ① **零星防御性守卫 (Scattered Guards)**：严禁在业务链路深处散落 `if (!x) return;` 或 `if (item == null) continue;` 掩盖上游契约违约；
+      ② **静默吞没异常 (Swallowed Errors)**：严禁编写空的 `catch (e) {}` 或将致命异常降级为无动作日志；
+      ③ **强制夹紧与篡改 (Clamped / Coerced Values)**：严禁在消费端使用 `Math.max/min` 强行截断越界值，严禁使用 `val || default_value` 伪造假兜底；
+      ④ **静默丢弃残缺状态 (Discarded State)**：严禁在未向系统报警的情况下静默过滤、丢弃无法解析的数据实体；
+      ⑤ **霰弹式重复校验 (Shotgun Validation)**：严禁在信任域内各层反复编写同质化防空校验，彻底违背类型系统保障；
+    - **边界解析与内部纯粹信任 (Parse, don't validate)**：外部不可信数据必须在系统物理边界（Boundary / Ingestion Layer）完成类型解析与结构化合法性构筑；一旦越过边界进入核心领域逻辑，必须拥有强类型保证并完全信任，严禁在内层业务函数编写防御性兜底；
+    - **快速失败原则 (Fail-Fast Principle)**：一旦检测到非法状态或数据违约，系统必须立即在距离源头最近的位置主动抛出受控致命异常或拒绝响应，严禁携带脏状态向后污染；
+    - **门禁 2 拟变清单因果位置自证与硬阻断 (Causal Role Self-Proof & SINK_PATCHING_BLOCKED)**：
+      在【门禁 2 拟变范围清单】中，所有拟修改的文件与函数必须显式标注其在因果图谱中的角色：`[Root Source]`（故障源头生成器）、`[State Transition]`（中间状态流转管线）或 `[Consumer Sink]`（末端消费崩溃宿主）。**若拟变清单中仅包含 `[Consumer Sink]` 而未触及或证明 `[Root Source]`，门禁直接触发 `SINK_PATCHING_BLOCKED` 熔断驳回，严禁开工**；
+    - **变异杀伤力检验与伪通熔断**：反症状修补方案必须通过反例变异测试验证，证明非法输入在源头即被硬阻断，而非在末端被隐式吸收。
 ---
 
 ## 📚 五、 配套参考指南索引

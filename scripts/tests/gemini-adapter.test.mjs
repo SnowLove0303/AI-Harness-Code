@@ -232,6 +232,48 @@ test('gemini adapter enforces execution friction journaling and defense escalati
   assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
 });
 
+test('gemini adapter enforces state legitimacy and anti-symptom-masking', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /State legitimacy & anti-symptom-masking/, 'must document state legitimacy & anti-symptom-masking');
+  assert.match(content, /State Legitimacy Dichotomy/, 'must specify State Legitimacy Dichotomy');
+  assert.match(content, /Five Forbidden Masking Anti-Patterns/, 'must specify Five Forbidden Masking Anti-Patterns');
+  assert.match(content, /Parse, don't validate/, 'must specify boundary parsing');
+  assert.match(content, /Fail-Fast & Non-Masking/, 'must specify fail-fast');
+  assert.match(content, /SINK_PATCHING_BLOCKED/, 'must enforce Gate 2 causal role self-proof');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /状态合法性因果溯源与反症状修补公理/, 'GEMINI.md must contain Axiom 26');
+  assert.match(globalRules, /State Legitimacy & Anti-Symptom-Masking Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /状态合法性二分判定公理/, 'GEMINI.md must declare dichotomy');
+  assert.match(globalRules, /五大受限症状掩盖反模式绝对禁令/, 'GEMINI.md must declare forbidden anti-patterns');
+  assert.match(globalRules, /SINK_PATCHING_BLOCKED/, 'GEMINI.md must enforce Gate 2 SINK_PATCHING_BLOCKED');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /状态合法性因果溯源与反症状修补公理/, 'pstack-openspec must contain Axiom 28');
+  assert.match(pstackSkill, /逆向数据流穿透与状态合法性二分判定/, 'pstack-openspec Step 1 must require reverse dataflow traversal');
+  assert.match(pstackSkill, /SINK_PATCHING_BLOCKED/, 'pstack-openspec Step 2 must require causal role self-proof');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /状态合法性因果溯源与反症状修补公理/, 'ai-harness-openspec must contain Invariant 23');
+  assert.match(aiHarnessSkill, /逆向数据流穿透与状态合法性二分判定/, 'ai-harness-openspec Phase 1 must require reverse dataflow traversal');
+  assert.match(aiHarnessSkill, /SINK_PATCHING_BLOCKED/, 'ai-harness-openspec Phase 2 must require causal role self-proof');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /14. State Legitimacy & Anti-Symptom-Masking Engine/, 'docs must document Section 14');
+  assert.match(docsContent, /SINK_PATCHING_BLOCKED/, 'docs must document SINK_PATCHING_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

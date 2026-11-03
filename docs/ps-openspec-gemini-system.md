@@ -195,6 +195,23 @@ To prevent myopic in-situ patching and eliminate silent swallowing of execution 
 3. **Actionable Hardening Tasks**:
    - The retro dossier must conclude with concrete, actionable hardening tasks. With single-phrase user authorization ("批准下沉"), the agent immediately executes and commits these hardening assets.
 
+### 14. State Legitimacy & Anti-Symptom-Masking Engine
+
+To prevent myopic symptom patching ("脚痛医脚") and enforce root-cause resolution:
+
+1. **State Legitimacy Dichotomy (状态合法性二分判定)**:
+   - When a defect, unhandled case, or invalid payload manifests at a Consumer Sink, the agent must trace dataflow backward to the Origin Producer before proposing fixes.
+   - If the state is legitimate within domain semantics but unhandled: the Consumer Sink lacks handling; patch the sink.
+   - If the state is illegitimate (violates schema, missing mandatory invariant, corrupted structure): the Consumer Sink must NOT mask it. Patching the sink via fallback defaults, swallowed errors, or scattered guards is strictly forbidden (Symptom Masking). The agent must backtrace to the Origin Producer and eliminate the illegal state generation at the source.
+2. **Five Forbidden Masking Anti-Patterns (五大受限掩盖反模式)**:
+   - Scattered Guards (`if (!x) return`), Swallowed Errors (`catch (e) {}`), Clamped / Coerced Values (`val || default_value` or `Math.max/min`), Discarded State (silent filtering of unparseable items), and Shotgun Validation (redundant inner checks violating boundary guarantees).
+3. **Boundary Parsing (Parse, don't validate)**:
+   - Untrusted inputs must be parsed and structured into strict domain types at the ingestion boundary. Internal functions operate on guaranteed valid models without defensive boilerplate.
+4. **Fail-Fast & Non-Masking**:
+   - Invariant violations must fail fast near the source with explicit domain errors.
+5. **Gate 2 Causal Role Self-Proof (`SINK_PATCHING_BLOCKED`)**:
+   - Proposed changes in Gate 2 must classify modified units as `[Root Source]`, `[State Transition]`, or `[Consumer Sink]`. Proposing patches that only modify `[Consumer Sink]` without touching or proving `[Root Source]` triggers immediate `SINK_PATCHING_BLOCKED` rejection.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
