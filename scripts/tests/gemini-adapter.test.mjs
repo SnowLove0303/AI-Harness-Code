@@ -521,6 +521,62 @@ test('gemini adapter enforces universal engineering anti-phantom and structural 
   assert.match(specContent, /EMPTY_MANDATORY_SLOT_BLOCKED/, 'audit spec must specify EMPTY_MANDATORY_SLOT_BLOCKED');
 });
 
+test('gemini adapter enforces autonomous spec and audit gate co-evolution gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Autonomous spec & audit gate co-evolution gate/, 'must document autonomous spec and audit gate co-evolution gate');
+  assert.match(content, /Anti-Patch-and-Forget/, 'must specify anti-patch-and-forget invariant');
+  assert.match(content, /Fuzzy Probing of Project Guidance/, 'must specify fuzzy probing of project guidance');
+  assert.match(content, /The Trinity Self-Augmentation Procedure/, 'must specify trinity self-augmentation procedure');
+  assert.match(content, /Living Specification/, 'must specify living specification augmentation');
+  assert.match(content, /Audit Guidance/, 'must specify audit guidance enrichment');
+  assert.match(content, /Deterministic Gate/, 'must specify deterministic gate construction');
+  assert.match(content, /Permanent Baseline Inheritance/, 'must specify permanent baseline inheritance');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /人机协同纠错后规范与审计门禁主动自增补公理/, 'GEMINI.md must contain Axiom 32');
+  assert.match(globalRules, /Autonomous Spec & Audit Gate Co-Evolution Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /Anti-Patch-and-Forget/, 'GEMINI.md must specify anti-patch-and-forget');
+  assert.match(globalRules, /Fuzzy Probing of Project Guidance/, 'GEMINI.md must specify fuzzy probing');
+  assert.match(globalRules, /The Trinity Self-Augmentation Procedure/, 'GEMINI.md must specify trinity augmentation');
+  assert.match(globalRules, /Permanent Baseline Inheritance/, 'GEMINI.md must specify permanent baseline inheritance');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /人机协同纠错后规范与审计门禁主动自增补公理/, 'pstack skill must contain Axiom 34');
+  assert.match(pstackSkill, /Autonomous Spec & Audit Gate Co-Evolution Axiom/, 'pstack skill must contain English title');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /人机协同纠错后规范与审计门禁主动自增补公理/, 'ai-harness skill must contain Invariant 29');
+  assert.match(aiHarnessSkill, /Autonomous Spec & Audit Gate Co-Evolution Axiom/, 'ai-harness skill must contain English title');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /Autonomous Spec & Audit Gate Co-Evolution Engine/, 'docs must document Section 20');
+  assert.match(docsContent, /Anti-Patch-and-Forget/, 'docs must specify anti-patch-and-forget');
+  assert.match(docsContent, /The Trinity Self-Augmentation Procedure/, 'docs must specify trinity augmentation');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十、 人机协同纠错后规范与审计门禁主动自增补规程/, 'audit spec must document Section 10');
+  assert.match(specContent, /Autonomous Spec & Audit Gate Co-Evolution Standard/, 'audit spec must contain Section 10 English title');
+  assert.match(specContent, /Anti-Patch-and-Forget/, 'audit spec must specify anti-patch-and-forget');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十、 人机协同纠错后规范与审计门禁主动自增补规程/, 'ref audit spec must document Section 10');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

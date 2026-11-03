@@ -229,3 +229,28 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 
 ### 6. 洁净原型隔离验证 (Clean Prototype Isolation)
 - 审查动态新增节点是否携带被克隆原型的局部边界特异性（如末尾标记、特异索引）；未经过显式净化的克隆追加一律判定为脏状态扩散违规。
+
+## 🔄 十、 人机协同纠错后规范与审计门禁主动自增补规程 (Autonomous Spec & Audit Gate Co-Evolution Standard)
+
+> **最高铁律**：就地修补片面性绝对禁令（Anti-Patch-and-Forget）。凡人类工程师介入指出缺陷、提出质询或提供纠偏指导，Agent 在修复业务逻辑后，严禁就地终止。代码修复仅为最底层必要动作，未完成项目规范、审计指导与机器门禁的主动同步自增补，一律判定为未交付闭环。
+
+### 1. 就地修补片面性绝对禁令 (Anti-Patch-and-Forget Invariant)
+- **片面修补零容忍**：人类的每一次纠偏指正，暴露的不仅是代码缺陷，更是项目规范的盲区与审计防线的缺口。
+- **交付阻断判定**：若 Agent 仅修复代码而未主动发起规范与审计门禁的增补，任何声称“已修复完成”的报告均视为无效，单任务专注锁（`[-] lock`）坚决禁止打勾解除。
+
+### 2. 项目规范与审计指导文档模糊探测机制 (Fuzzy Probing of Project Guidance)
+- **模糊路径探测**：Agent 必须在项目上下文、根目录及文档目录中，主动探测并识别项目既有的规范、标准、约定或审计指导文件（无论是 `specs/`、`docs/`、`guidelines/`、`standards/`、`audit_guide.md`、`qa_rules.md` 还是其他非标命名的指导性文档）。
+- **Living Spec 主动立案**：若检测到项目缺乏集中规范文档，Agent 必须主动提请并在标准目录建立 Living Spec 规范文件，确立基准。
+
+### 3. 三位一体主动自增补规程 (The Trinity Self-Augmentation Procedure)
+在业务代码修复完成后，Agent 必须无需用户催促，主动发起并向用户呈报对以下三层资产的增补：
+1. **项目规范条款增补 (Living Specification Augmentation)**：
+   - 将本次纠偏的规则提炼为明确的契约条款（RFC 2119 `SHALL` / `SHALL NOT`），增补进项目规范文档中，严格界定合法操作域与非法操作域。
+2. **审计方法与核验清单增补 (Audit Guidance & Inspection Checklist Enrichment)**：
+   - 将本次捕获的失效模式（Failure Mode）、反例形态与挑刺核验步骤，增补进项目的审计指导文档，作为后续人类与 Agent 审计的显式检查项。
+3. **机器化确定性门禁铸造 (Deterministic Gate Construction - `principle-build-the-lever`)**：
+   - 贯彻 Lauren Tan 工具杠杆原则（Build the Lever），必须将该教训固化为一条可重复执行的自动化测试断言、预提交校验脚本或 AST/Lint 规则（保证在未满足时抛出真实 Exit Code 1），使之具备机器一票否决权。
+
+### 4. 后续审计永久基准继承 (Permanent Baseline Inheritance)
+- **代码库永久资产晋升**：所有增补的规范条款与审计门禁，经用户 VS Code Diff 终审通过并提交后，立即晋升为该项目代码库的永久法定基准。
+- **全集群子智能体无损继承**：后续任意会话、任意派发的子智能体（Subagent）在执行涉及该模块的任务时，必须自动读取并执行该门禁，彻底杜绝同类问题在未来的隐蔽复发。

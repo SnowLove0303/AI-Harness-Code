@@ -217,6 +217,21 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - Verification suites and auditor subagents must assert on deepest physical leaf-node attributes and discrete values.
    - High-level exit code 0, regex presence, or macro-statistical word-count metrics are strictly insufficient for signoff.
 
+## Autonomous spec & audit gate co-evolution gate
+
+1. Anti-Patch-and-Forget Invariant:
+   - When resolving defects under human guidance or feedback, patching business code alone is prohibited as an incomplete fix.
+   - Tasks cannot be signed off until project specifications, audit guidance, and deterministic gates are proactively updated.
+2. Fuzzy Probing of Project Guidance:
+   - The agent must probe and discover existing specification and audit documents across the project (`specs/`, `docs/`, `guidelines/`, `audit_guide.md`, `qa_rules.md`, or custom guidelines).
+   - If missing, the agent initiates and establishes the project's living specification structure.
+3. The Trinity Self-Augmentation Procedure:
+   - Living Specification: Translate the remediation into explicit RFC 2119 requirement clauses (SHALL / SHALL NOT) to define legal vs. illegal states.
+   - Audit Guidance & Checklists: Add the concrete failure mode, counter-example attack vectors, and inspection steps to project audit manuals.
+   - Build the Lever (Deterministic Gate): Construct an executable regression test, pre-commit hook, or AST/Lint rule that produces a non-zero exit code upon failure.
+4. Permanent Baseline Inheritance:
+   - Augmented specifications and gates become permanent baseline assets under version control. Subsequent agent dispatches and review tasks must automatically inherit and enforce these gates.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

@@ -194,6 +194,11 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - **能下沉到 L2 吗？** ➔ （**黄金法则**：同类错误纠正两次，立刻写成一条带有正向修复提示的 ESLint 规则或编译拦截脚本）；
    - **能下沉到 L3 吗？** ➔ 若无法写成 AST 规则，是否需要在 `AGENTS.md` 中增加封闭作用域的正向准入规范？
    - **闭环记录**：在 `CHANGELOG.md` 中沉淀本次踩坑根因、解决解法以及下沉后的防御加固点。
+8. **人机纠错后主动自增补规程 (Autonomous Spec & Audit Gate Co-Evolution)**：
+   - 用户指导纠正问题后，严禁就地修补代码即止；
+   - 必须主动探测项目既有规范与审计指导文档（无论命名形式）；
+   - 执行三位一体自增补：① 活化规范增补 RFC 2119 契约条款；② 审计手册增补失效模式案例与核验步骤；③ 机器门禁增补（Build the Lever：自动化单测/脚本，保证 Exit 1 阻断力）；
+   - 增补资产提交后晋升为后续任务的永久法定基准。
 
 ---
 
@@ -379,6 +384,19 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
       数据模型必须显式定义必填端点槽位（Mandatory Terminal Slots）；在生成与交付阶段，核心必填槽位若解析为 null、undefined 或空白，系统直接触发 `EMPTY_MANDATORY_SLOT_BLOCKED` 致命熔断并驳回，严禁静默空置；实体属性必须严格绑定在指定槽位，严禁向相邻节点溢出拼凑；
     - **终端物理叶子节点穿透式审计铁律 (Terminal Leaf-Node Deterministic Audit)**：
       自动化测试与认知审计必须直接穿透至数据模型最底层的离散叶子节点与精确物理属性值；严禁将进程退出码 0、函数被调用过、字符串包含或全局宏观统计学度量作为功能合格的依据；未断言到物理叶子属性变更与离散事实值一致性的审计一律判定为形式主义伪审计，一票否决。
+
+34. **人机协同纠错后规范与审计门禁主动自增补公理 (Autonomous Spec & Audit Gate Co-Evolution Axiom - 严禁止步于就地修补铁律)**：
+    - **就地修补片面性绝对禁令 (Anti-Patch-and-Forget)**：
+      在任何工程任务中，凡用户介入指出缺陷、提出质询或提供纠偏指导，Agent 在定位根因并修复业务代码后，严禁宣称“任务已完成”并就地终止；代码修复仅为最底层必要动作，未完成项目规范与审计门禁的主动同步增补，一律判定为未交付闭环；
+    - **项目规范与审计指导文档模糊探测机制 (Fuzzy Probing of Project Guidance)**：
+      Agent 必须在项目上下文、根目录及文档目录中，主动探测并识别项目既有的规范、标准、约定或审计指导文件（无论命名为 `specs/`、`docs/`、`guidelines/`、`standards/`、`audit_guide.md`、`qa_rules.md` 或其他非标命名的指导性文档）；若项目缺乏集中规范文档，Agent 主动提请并在标准目录建立 Living Spec 规范文件；
+    - **三位一体主动自增补规程 (The Trinity Self-Augmentation Procedure)**：
+      在问题解决后，Agent 必须无需用户催促，主动发起并向用户呈报对以下三层资产的增补：
+      ① **项目规范条款增补 (Living Specification)**：将本次纠偏的规则提炼为明确的契约条款（RFC 2119 SHALL / SHALL NOT），补充进项目规范文档中，明确定义合法域与非法域；
+      ② **审计方法与核验清单增补 (Audit Guidance & Inspection Checklist)**：将本次捕获的失效模式（Failure Mode）、反例形态与挑刺核验步骤，增补进项目的审计指导文档，作为后续人类与 Agent 审计的显式检查项；
+      ③ **机器化确定性门禁铸造 (Build the Lever & Deterministic Gate)**：必须将该教训固化为一条可重复执行的自动化测试断言、预提交校验脚本或 AST/Lint 规则（保证在未满足时抛出真实 Exit Code 1），使之具备机器一票否决权；
+    - **后续审计永久基准继承 (Permanent Baseline Inheritance)**：
+      所有增补的规范条款与审计门禁，经用户 VS Code Diff 终审通过并提交后，立即晋升为该项目代码库的永久法定基准；后续任意会话、任意派发的子智能体（Subagent）在执行涉及该模块的任务时，必须自动读取并执行该门禁，彻底杜绝同类问题在未来的隐蔽复发。
 
 ---
 

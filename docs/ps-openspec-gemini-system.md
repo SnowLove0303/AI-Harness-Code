@@ -305,6 +305,21 @@ To eradicate phantom execution, prototype contamination, dual-track layout varia
 6. **Terminal Leaf-Node Deterministic Audit**:
    - Audits and verification suites must assert against the deepest physical discrete leaf attributes; macro exit code 0 or substring matching alone cannot certify compliance.
 
+### 20. Autonomous Spec & Audit Gate Co-Evolution Engine
+
+To eradicate patch-and-forget remediation and ensure human-guided corrections permanently elevate project defenses:
+
+1. **Anti-Patch-and-Forget Invariant**:
+   - Resolving defects or implementing fixes under human guidance or review never concludes with code changes alone. Stopping at local code remediation without elevating project specifications and audit gates constitutes an incomplete delivery violation.
+2. **Fuzzy Probing of Living Guidance & Project Standards**:
+   - The agent proactively searches context, root directories, and documentation paths for living guidelines, specifications, and QA criteria (matching patterns like `specs/`, `docs/`, `guidelines/`, `standards/`, `audit_guide.md`, `qa_rules.md`, or custom project guidance). If no consolidated specification exists, the agent initiates and formalizes a living specification document in the standard path.
+3. **The Trinity Self-Augmentation Procedure**:
+   - **Living Specification Augmentation**: Extracts RFC 2119 requirement clauses (`SHALL` / `SHALL NOT`) defining newly identified valid and invalid operational domains.
+   - **Audit Guidance & Inspection Checklist Enrichment**: Codifies newly captured failure modes, edge-case attack vectors, and step-by-step verification instructions into project audit playbooks.
+   - **Deterministic Gate Construction (`principle-build-the-lever`)**: Encodes lessons into machine-enforced test assertions, pre-commit checks, or AST/Lint rules throwing non-negotiable exit code 1 on regression.
+4. **Permanent Baseline Elevation & Universal Swarm Inheritance**:
+   - Once reviewed and merged via VS Code Diff review, augmented specifications and deterministic gates become non-negotiable baselines for all subsequent sessions and subagent swarms. Every future agent or subagent touching related modules automatically inherits and executes these gates, preventing regression cycles.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
