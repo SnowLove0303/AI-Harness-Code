@@ -323,6 +323,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 - 通用工程与工作流审计规范指南：[`references/universal-engineering-workflow-code.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/universal-engineering-workflow-code.md)
 - 通用深度审计法：双轴四阶红队审讯体系指南：[`references/universal-deep-audit-charter.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/universal-deep-audit-charter.md)
+- Agent 智能体认知审计与双轨规范核销指南：[`references/agent-cognitive-audit-specification.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/agent-cognitive-audit-specification.md)
 - 深度审计与认知求证宪章：[`references/deep-audit-charter.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/deep-audit-charter.md)
 - 免疫防御宪章：防退化三阶七律法典：[`references/anti-regression-charter.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/anti-regression-charter.md)
 - A2A 无损任务交接与胶囊协议：[`references/a2a-lossless-handoff-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/a2a-lossless-handoff-protocol.md)
