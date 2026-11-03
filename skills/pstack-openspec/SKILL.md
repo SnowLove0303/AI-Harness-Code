@@ -150,11 +150,14 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 变异反欺诈验证前置：在核心条件分支与保护门禁上执行故意变异注入（如条件取反、短路核心断言），测试套件必须红灯杀伤；若变异状态下测试依然全绿，直接判定为弱断言欺诈（`TRIVIAL_ASSERTION_FRAUD`），任务严格锁死在 `[-]`，严禁解锁；
    - 严禁逃避注解：绝对禁止添加 `// @ts-ignore`、`/* eslint-disable */` 或 `as any` 强行绕过，红灯时任务严格锁死在 `[-]`；
    - 上一个任务未通过真实退出码 0 验证并打勾前，绝对禁止启动下一个任务；
-2. **Poteto 委派双公理 (Fresh Subagents by Default & Consolidated Scope)**：
-   - **默认全新原则 (Fresh Subagents by Default)**：每次重试、排错转向或拆解的子任务，默认派发独立的全新 Subagent，严禁在带有失败污染历史的脏上下文中断链追问；
-   - **上下文屏蔽盾 (Context Shielding)**：子 Agent 作为“吸收盾”承担长篇读写、测试报错与网页抓取输出；主 Agent 保持高维清爽，只接收 1,000~2,000 tokens 内的高密度成果报表；
-   - **全量合并范围 (Consolidated Scope)**：派发给子 Agent 的指令严禁大白话随口概括，必须封装为包含“原始完整意图 + 所有多轮追加澄清 + 前置分支/Patch状态 + 物理封闭文件圈 + 退出码0命令”的【全量合并任务胶囊】；
-   - **主 Agent 恪守零信任原则**：接收子 Agent 汇报后，必须在主会话亲自复测退出码 0，严查 `git diff` 越界范围；
+2. **Poteto 委派双公理与智能自动编组 (Fresh Subagents by Default & Consolidated Scope)**：
+   - **默认自动编组 (Auto-Dispatch by Default)**：主协调 Agent 负责架构统筹与全方位终审，禁止直接编写或修改业务代码；具体施工执行必须自动编组委派给执行 Subagent；
+   - **智能探查复用判定决策树 (`manage_subagents`)**：派发前必须调用 `manage_subagents(Action='list')` 探查活跃状态：
+     - 若新任务属于同一未完结断点或持有未落盘瞬态环境，通过 `send_message` 消息队列复用；
+     - 若为独立新任务、重构、排错转向或重试，默认派发全新干净的 Subagent (`invoke_subagent`, `Workspace='branch'`)；
+   - **四位一体任务交接胶囊 (Four-in-One Handoff Capsule)**：派发必须封装 `ps-openspec + skill + 上下文 (Context) + 提示词 (Prompt)` 全量合并胶囊，严禁随口大白话压缩；
+   - **主动完成报告与响应式唤醒**：Subagent 施工完毕主动回传包含 `[Measured]` 退出码 0 日志与变异测试杀伤记录的完成报告，主 Agent 被系统响应式唤醒开启全方位认知审计；
+   - **裁执物理隔离与合流权归属**：执行 Subagent 运行在独立 branch 工作区，禁止直改主系统与自主合流；系统改动与合流权归属于主协调审计 Agent；
 3. **科学排错与 TDD 驱动**：
    - 修 Bug 必须先在真实终端复现报错，验证证伪立刻全量回滚；
    - 新增逻辑先写测试见证红灯，再写最小因果实现转为绿灯；
@@ -345,6 +348,24 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
       施工 Agent 仅拥有代码编写权，被底层系统在物理上剥夺任务自审打勾与终审准出权；终审必须派发全新的独立子智能体（`Model='pro'`, `Workspace='branch'`），加载 `/interrogate` 敌手剧本，以推翻施工假设、攻击极端边界为唯一目标执行敌手审讯；
     - **用户规范两碰立项机器化下沉公理 (Two-Strike Machine Escalation Axiom)**：
       严禁将人类指出过的错误长期停留在 Prompt 劝诫层面。凡用户在交互或审阅中指出达到两次的同类执行偏差或审计漏洞，必须在该会话或变更生命周期内，强制将其转化为具体的、具备真实 Exit 1 阻断力的机器机检资产（AST/Lint 规则、预提交钩子或参数化变异测试用例）。
+32. **智能体自动编组与四位一体任务交接公理 (Autonomous Subagent Swarm & Four-in-One Handoff Axiom - 默认自动派发与裁执物理隔离铁律)**：
+    - **主协调智能体默认自动编组公理 (Auto-Dispatch by Default)**：
+      接收用户任务指令的主协调智能体（Main Agent / Coordinator）定位为宏观架构师与终审裁决者，严禁亲自下场直接编写或修改业务代码；默认必须将具体施工执行任务自动编组、派发给执行子智能体（Executor Subagent）执行，主 Agent 保持高维清爽视野与全局审计定力；
+    - **智能 Subagent 复用判定决策树公理 (Subagent Reuse vs. Fresh Decision Tree)**：
+      在派发任务前，主 Agent 必须首先调用 `manage_subagents(Action='list')` 探查当前活跃的 Subagent 列表与生命周期状态：
+      ① **状态延续性复用 (`send_message`)**：唯独当后续工作严格属于当前子智能体正在执行的未完结同一任务断点、或者子智能体持有未落盘且不可轻易迁移的瞬态开发环境（如挂载中的 Git 工作分支、正在运行的本地常驻测试服务/进程）时，方可通过 `send_message` 消息队列直接复用该 Subagent；
+      ② **干净独立全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`)**：凡属新任务、重构任务、排错转向、或前序失败重试，一律强制启动干净的全新 Subagent（`Workspace='branch'`），严禁在被海量错误日志污染的长上下文中击鼓传花；
+    - **四位一体任务交接胶囊公理 (Four-in-One Lossless Handoff Capsule)**：
+      主 Agent 向 Subagent 派发任务时，严禁用随口大白话口水化压缩，必须 100% 封装四位一体不可精简交付胶囊：
+      ① `ps-openspec`: 架构法定规格（OpenSpec 增量提案、RFC 2119 specs 规范、单任务专注锁 `[-] lock` 条目及真实 Exit Code 0 验收命令）；
+      ② `skill`: 显式绑定的执行方法论与操作技能（如 `pstack-openspec`, `unslop`, `tdd` 等）；
+      ③ `上下文 (Context)`: 物理可读写文件白名单、只读承重墙与 `@ANTIGRAVITY_INVARIANT_LOCK` 封印约束、基准 Commit SHA 及冻结的事实指纹；
+      ④ `提示词 (Prompt)`: 聚焦单一职责、带明确非目标（Non-Goals）、无歧义的执行指令；
+    - **主动回传任务完成报告与响应式审计唤醒公理 (Active Completion Report & Reactive Wakeup)**：
+      执行子智能体施工完毕后，必须主动向主协调智能体发送标准化《任务完成报告》（包含真实修改文件清单、`[Measured]` 真实命令退出码 0 日志凭据、变异测试杀伤记录、以及未解决的环境摩擦阻碍）；主协调智能体通过系统底层响应式事件自动唤醒并接管，严禁主 Agent 采用任何形式的轮询或等待死循环；
+    - **裁执物理隔离与系统改动权限封锁公理 (Verifier-Only Merge Authority & Workspace Sandboxing)**：
+      执行子智能体必须严格运行在隔离的分支工作区（`Workspace='branch'`）中，物理剥夺其直接对主系统工作树实施破坏性直改或自主合流的权限；系统主干代码合流与最终生效权严格且唯一归属于主协调与审计智能体，在完成两阶双轨全方位审计且真实复测退出码 0 验证通过后方可执行合流。
+
 ---
 
 ## 📚 五、 配套参考指南索引

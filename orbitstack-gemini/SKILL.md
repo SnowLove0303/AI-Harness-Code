@@ -173,6 +173,28 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 4. Two-Strike Machine Escalation:
    - Recurring human-identified defects cannot remain as natural language advice in prompts. Any issue corrected twice by a human must be converted into a machine-enforced AST/Lint rule or deterministic test with a non-zero exit code.
 
+## Autonomous subagent swarm & four-in-one handoff gate
+
+1. Auto-Dispatch by Default & Coordinator Bar:
+   - The coordinator (Main Agent) receiving user instructions acts strictly as architect and supreme auditor; the coordinator is fundamentally barred from directly modifying or writing business code.
+   - All concrete construction and execution tasks must be automatically dispatched to an Executor Subagent.
+2. Subagent Reuse vs. Fresh Decision Tree (`manage_subagents`):
+   - Prior to dispatch, the coordinator must call `manage_subagents(Action='list')` to inspect active subagents.
+   - Reuse via `send_message`: Permitted strictly when subsequent work continues the same unbroken task breakpoint, or when the subagent holds non-persisted, expensive-to-migrate transient state (e.g., active Git branch, running test daemon/watcher/server).
+   - Fresh by default via `invoke_subagent`: New scopes, refactoring tasks, triage pivots, or retries after failure must launch fresh subagents (`Workspace='branch'`) to prevent interrupt-chain prompt pollution.
+3. Four-in-One Lossless Handoff Capsule:
+   - Task handoff cannot be casually summarized; it must package four indivisible elements:
+     ① `ps-openspec`: Architectural contract (proposal, RFC 2119 specs, atomic `tasks.md` item, non-zero exit acceptance commands).
+     ② `skill`: Explicit methodological and operational skills (e.g. `pstack-openspec`, `unslop`, `tdd`).
+     ③ `Context`: Writable scope boundaries, read-only paths, invariant locks (`@ANTIGRAVITY_INVARIANT_LOCK`), base commit, and frozen fact fingerprints.
+     ④ `Prompt`: Focused single-responsibility directive with explicit Non-Goals.
+4. Active Completion Report & Reactive Wakeup:
+   - Upon completion, the executor subagent must deliver a structured report with `[Measured]` exit code 0 log evidence, mutation kill records, and changed file paths.
+   - The system reactively wakes up the coordinator without polling; the coordinator initiates deep two-step cognitive audit.
+5. Verifier-Only Merge Authority & Workspace Sandboxing:
+   - Executor subagents run in isolated branch workspaces (`Workspace='branch'`) and are physically prevented from mutating the main tree or self-merging.
+   - Final code merge and status signoff authority belongs exclusively to the coordinator/auditor after 100% audit verification.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

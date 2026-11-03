@@ -130,6 +130,12 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
      - **负向测试配比底线**：测试集包含 $\ge 30\%$ 负向与异常边界用例，显式断言抛出受控错误；
   5. 涉及 UI 调整与功能验收以人工操作为权威终审，人工确认前保持未勾选；
   6. **施工期摩擦动态存证**：单步任务凡触发测试报错、环境断裂或经历排错重试，必须实时记录 `[Incident: Friction/Bug]` 存证，严禁静默掩盖调试痕迹。
+  7. **智能自动编组与四位一体任务交接**：
+     - **默认自动派发**：主协调 Agent 统筹全局与把关终审，禁止直接编写或修改业务代码；具体施工执行必须自动编组委派给执行 Subagent；
+     - **智能探查复用判定决策树 (`manage_subagents`)**：派发前必须调用 `manage_subagents(Action='list')` 探查活跃状态：若属于同一未完结断点或持有未落盘瞬态开发环境，通过 `send_message` 复用；若为独立新任务、重构、排错转向或重试，默认派发全新干净的 Subagent (`invoke_subagent`, `Workspace='branch'`)；
+     - **四位一体任务交接胶囊**：派发必须封装 `ps-openspec + skill + 上下文 (Context) + 提示词 (Prompt)` 全量合并胶囊，严禁随口大白话压缩；
+     - **主动完成报告与响应式唤醒**：Subagent 施工完毕主动回传包含 `[Measured]` 退出码 0 日志与变异测试杀伤记录的完成报告，主 Agent 响应式唤醒开启两阶双轨审计；
+     - **裁执物理隔离与合流权归属**：执行 Subagent 运行在独立 branch 工作区，禁止直改主系统与自主合流；系统改动与合流权严格归属于主协调审计 Agent；
 
 ### Phase 4: 两阶双轨深度审计与经验永续 (Two-Step Deep Audit & Archive)
 - **目标**：彻底消除对单一机械 exit 0 的盲信与走过场伪审计，实现语义契约闭环合流。
@@ -297,6 +303,24 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
       施工 Agent 仅拥有代码编写权，被底层系统在物理上剥夺任务自审打勾与终审准出权；终审必须派发全新的独立子智能体（`Model='pro'`, `Workspace='branch'`），加载 `/interrogate` 敌手剧本，以推翻施工假设、攻击极端边界为唯一目标执行敌手审讯；
     - **用户规范两碰立项机器化下沉公理 (Two-Strike Machine Escalation Axiom)**：
       严禁将人类指出过的错误长期停留在 Prompt 劝诫层面。凡用户在交互或审阅中指出达到两次的同类执行偏差或审计漏洞，必须在该会话或变更生命周期内，强制将其转化为具体的、具备真实 Exit 1 阻断力的机器机检资产（AST/Lint 规则、预提交钩子或参数化变异测试用例）。
+27. **智能体自动编组与四位一体任务交接公理 (Autonomous Subagent Swarm & Four-in-One Handoff Axiom - 默认自动派发与裁执物理隔离铁律)**：
+    - **主协调智能体默认自动编组公理 (Auto-Dispatch by Default)**：
+      接收用户任务指令的主协调智能体（Main Agent / Coordinator）定位为宏观架构师与终审裁决者，严禁亲自下场直接编写或修改业务代码；默认必须将具体施工执行任务自动编组、派发给执行子智能体（Executor Subagent）执行，主 Agent 保持高维清爽视野与全局审计定力；
+    - **智能 Subagent 复用判定决策树公理 (Subagent Reuse vs. Fresh Decision Tree)**：
+      在派发任务前，主 Agent 必须首先调用 `manage_subagents(Action='list')` 探查当前活跃的 Subagent 列表与生命周期状态：
+      ① **状态延续性复用 (`send_message`)**：唯独当后续工作严格属于当前子智能体正在执行的未完结同一任务断点、或者子智能体持有未落盘且不可轻易迁移的瞬态开发环境（如挂载中的 Git 工作分支、正在运行的本地常驻测试服务/进程）时，方可通过 `send_message` 消息队列直接复用该 Subagent；
+      ② **干净独立全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`)**：凡属新任务、重构任务、排错转向、或前序失败重试，一律强制启动干净的全新 Subagent（`Workspace='branch'`），严禁在被海量错误日志污染的长上下文中击鼓传花；
+    - **四位一体任务交接胶囊公理 (Four-in-One Lossless Handoff Capsule)**：
+      主 Agent 向 Subagent 派发任务时，严禁用随口大白话口水化压缩，必须 100% 封装四位一体不可精简交付胶囊：
+      ① `ps-openspec`: 架构法定规格（OpenSpec 增量提案、RFC 2119 specs 规范、单任务专注锁 `[-] lock` 条目及真实 Exit Code 0 验收命令）；
+      ② `skill`: 显式绑定的执行方法论与操作技能（如 `pstack-openspec`, `unslop`, `tdd` 等）；
+      ③ `上下文 (Context)`: 物理可读写文件白名单、只读承重墙与 `@ANTIGRAVITY_INVARIANT_LOCK` 封印约束、基准 Commit SHA 及冻结的事实指纹；
+      ④ `提示词 (Prompt)`: 聚焦单一职责、带明确非目标（Non-Goals）、无歧义的执行指令；
+    - **主动回传任务完成报告与响应式审计唤醒公理 (Active Completion Report & Reactive Wakeup)**：
+      执行子智能体施工完毕后，必须主动向主协调智能体发送标准化《任务完成报告》（包含真实修改文件清单、`[Measured]` 真实命令退出码 0 日志凭据、变异测试杀伤记录、以及未解决的环境摩擦阻碍）；主协调智能体通过系统底层响应式事件自动唤醒并接管，严禁主 Agent 采用任何形式的轮询或等待死循环；
+    - **裁执物理隔离与系统改动权限封锁公理 (Verifier-Only Merge Authority & Workspace Sandboxing)**：
+      执行子智能体必须严格运行在隔离的分支工作区（`Workspace='branch'`）中，物理剥夺其直接对主系统工作树实施破坏性直改或自主合流的权限；系统主干代码合流与最终生效权严格且唯一归属于主协调与审计智能体，在完成两阶双轨全方位审计且真实复测退出码 0 验证通过后方可执行合流。
+
 ---
 
 ## 📚 附录与配套参考

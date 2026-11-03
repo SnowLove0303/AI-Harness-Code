@@ -263,6 +263,30 @@ To break the agent self-verification paradox and eliminate superficial "0-issue"
 4. **Two-Strike Machine Escalation Axiom (两碰立项机器化下沉)**:
    - Admonishments in prompts are the weakest form of defense. Any defect or audit omission caught twice by human review must be converted into deterministic machine-executable assets (AST/ESLint rules, pre-commit hooks, or parameterized mutation tests with exit code 1).
 
+### 18. Autonomous Subagent Swarm & Four-in-One Handoff Engine
+
+To solve context window saturation, handoff transmission loss, and executor-verifier conflict of interest:
+
+1. **Auto-Dispatch by Default & Coordinator Architectural Lock**:
+   - The coordinator agent (Main Agent) receiving user instructions serves strictly as system architect, gatekeeper, and supreme auditor. The coordinator is barred from directly writing or modifying business code.
+   - All concrete construction, bug fixing, and refactoring tasks must be automatically dispatched to an Executor Subagent.
+2. **Subagent Reuse vs. Fresh Decision Tree (`manage_subagents`)**:
+   - Before spawning, the coordinator invokes `manage_subagents(Action='list')` to survey active agents.
+   - *Stateful Continuity Reuse (`send_message`)*: Only when following up on an unfinished breakpoint of the same active task, or when the subagent holds non-persisted transient state (active Git worktree branch, running test daemon/watcher/server).
+   - *Fresh by Default (`invoke_subagent`)*: New tasks, scope changes, triage pivots, or retries after failure must spawn a fresh subagent with `Workspace='branch'` to prevent interrupt-chain prompt contamination.
+3. **Four-in-One Lossless Handoff Capsule**:
+   - Dispatches cannot rely on casual oral summaries; they must package the Four-in-One Capsule:
+     - `ps-openspec`: Architectural contract (proposal, RFC 2119 specs, single-focus `[-]` task, non-zero exit acceptance commands).
+     - `skill`: Methodological action skills (`pstack-openspec`, `unslop`, `tdd`).
+     - `Context`: Physical writable file bounds, read-only invariants (`@ANTIGRAVITY_INVARIANT_LOCK`), base commit SHA, and frozen fact fingerprints.
+     - `Prompt`: Single-responsibility directive with explicit Non-Goals.
+4. **Active Completion Report & Reactive Wakeup**:
+   - Upon completion, the executor subagent actively submits a structured completion report containing `[Measured]` exit code 0 log evidence, mutation kill records, and changed file paths.
+   - The coordinator agent is reactively resumed by system event without polling loops, immediately triggering two-step cognitive and adversarial audit.
+5. **Verifier-Only Merge Authority & Workspace Sandboxing**:
+   - Executor subagents run strictly in isolated branch workspaces (`Workspace='branch'`), physically preventing direct mutations or autonomous merges into the main tree.
+   - Merge authority belongs exclusively to the coordinator/auditor after passing 100% mechanical verification and adversarial interrogation.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

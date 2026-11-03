@@ -43,11 +43,25 @@
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
+### 3. 智能 Subagent 复用判定决策树 (Reuse vs. Fresh Decision Tree)
+
+主 Agent 派发任务前，必须调用 `manage_subagents(Action='list')` 探查当前活跃的 Subagent 列表：
+- **状态延续性复用 (`send_message`)**：唯独当后续工作严格属于当前子智能体正在执行的未完结同一任务断点、或者子智能体持有未落盘且不可轻易迁移的瞬态开发环境（如挂载中的 Git 工作分支、正在运行的本地常驻测试服务/进程）时，方可通过 `send_message` 消息队列直接复用该 Subagent；
+- **干净独立全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`)**：凡属新任务、重构任务、排错转向、或前序失败重试，一律强制启动干净的全新 Subagent（`Workspace='branch'`），严禁在被海量错误日志污染的长上下文中击鼓传花。
+
 ---
 
-## 三、 Poteto Consolidated Brief 标准模板 (任务交付胶囊)
+## 三、 四位一体无损任务交接胶囊标准规范 (Four-in-One Handoff Capsule)
 
-主 Agent 调用 `invoke_subagent` 或分发任务时，`Prompt` 必须首行声明轨道管辖，并采用以下标准结构：
+主 Agent 派发任务时，严禁用随口大白话口水化压缩，必须 100% 封装四位一体不可精简交付胶囊：
+
+### 1. 四位一体胶囊架构构成 (The Four Elements)
+1. **`ps-openspec` 架构契约**：挂载 OpenSpec 增量提案、RFC 2119 规范、单任务专注锁（`[-] lock`）条目及真实 Exit Code 0 验收命令；
+2. **`skill` 执行方法论**：显式注入执行该任务所必须绑定的方法论技能（如 `pstack-openspec`、`unslop`、`tdd` 等）；
+3. **`上下文 (Context)` 物理围栏**：物理封闭的可读写文件白名单、严禁触碰的只读承重墙与 `@ANTIGRAVITY_INVARIANT_LOCK` 封印代码块、基准 Commit SHA 及冻结的事实指纹；
+4. **`提示词 (Prompt)` 聚焦指令**：单一职责清晰指令，显式声明 **非目标 (Non-Goals)**，严禁越权发散。
+
+### 2. 标准交付 Prompt 模板 (Handoff Capsule Format)
 
 ```markdown
 # 🚨 [MANDATORY EXECUTION STANDARD: ps-openspec (OrbitStack)]
@@ -56,38 +70,33 @@
 
 # 🎯 任务目标: [精确的单一职责描述，一句话概括]
 
-## 1. 全量意图与合并背景 (Consolidated Brief)
-- **原始核心诉求 (Original Brief)**:
-  [详细记录用户最初的业务目标，不丢弃原始语境]
-- **追加与演进指令 (Append Directives)**:
-  [记录用户在多轮对话中补充的所有特殊要求、纠偏指令与澄清结果]
-- **前置 Agent 产出与状态 (Prior Agent & Branch State)**:
-  - 工作分支 / Commit: [分支名或 Commit SHA]
-  - 已完成节点与现状: [前人已做好的部分与经验沉淀]
+## 一、 ps-openspec 规格契约
+- **关联 OpenSpec 变更**: [Change ID]
+- **对应 tasks.md 条目**: `- [-] 任务描述` (单焦点执行锁)
+- **RFC 2119 规范块**: [必须满足的 SHALL / WHEN / THEN 条款]
+- **强制真实退出码 0 验证命令**: [npm test / npm run lint]
 
-## 2. 物理封闭作用域 (Closed Scope & Invariant Locks)
-- **✅ 唯独允许修改的文件清单**:
+## 二、 绑定方法论技能 (Skills)
+- 核心执行技能: `pstack-openspec`
+- 出厂代码去噪: `unslop`
+- 测试驱动开发: `tdd`
+
+## 三、 物理上下文围栏 (Context Boundaries)
+- **✅ 唯独允许修改的文件白名单**:
   - `src/foo/bar.ts`
   - `tests/foo/bar.test.ts`
-- **🛑 严格只读与承重墙约束**:
+- **🛑 严格只读承重墙与封印**:
   - 严禁触碰任何带有 `// @ANTIGRAVITY_INVARIANT_LOCK` 标记的源码块；
   - 既有业务回退分支与特殊校验皆为法定事实，严禁擅自否定或删除；
   - 周边未授权模块严格遵循 **最小因果集 (Leave-as-is)**。
+- **基准快照**: Commit SHA: `abc1234`, 分支: `feature/xxx`
 
-## 3. 非目标声明 (Non-Goals)
-- 明确指出本次任务绝对禁止做的事项（如：严禁引入新的依赖库、严禁改动数据库 Schema、严禁顺手重构无关代码）。
-
-## 4. 强制验收命令 (Acceptance Commands - 必须真实退出码 0)
-- 类型检查: `npm run typecheck`
-- 单元测试: `npm test path/to/target.test.ts`
-- 代码规范: `npm run lint`
-
-## 5. 汇报契约与证据分级 (Evidence-Based Return Payload)
-- Subagent 汇报必须遵循以下证据标签：
-  - `[Measured / 实测]`: 必须附带 CLI / CDP 实际运行日志与退出码 0；
-  - `[Inferred / 推演]`: 基于代码类型与链路推导出的结论；
-  - `[Guess / 猜想]`: 待证实的猜想（严禁作为交付依据）。
-- 提交内容：修改文件清单 + 测量证据日志 + 未解决的阻碍 (Blockers)。
+## 四、 聚焦提示词与非目标 (Prompt & Non-Goals)
+- **核心执行指令**: [清晰、无歧义的执行步骤]
+- **🛑 非目标声明 (Non-Goals)**:
+  - 绝对禁止改动未授权的文件；
+  - 绝对禁止引入新的未经审批的第三方依赖；
+  - 绝对禁止直接修改主系统工作树或执行自主合流。
 ```
 
 ---
@@ -111,8 +120,13 @@
 │ (Zero-Trust)    │    • 检查 git diff 是否存在未授权文件越界？
 │                 │    • 在主环境中亲自执行验收命令，核实退出码 0！
 │                 │ 5. 验收通过 ➔ tasks.md 打勾 ➔ VS Code Diff 呈报用户
+│                 │ 6. 终审通过 ➔ 主协调统一合流 (Verifier-Only Merge Authority)
 └─────────────────┘
 ```
+
+### 2. 裁执物理隔离与系统改动权限封锁 (Verifier-Only Merge Authority)
+- **执行端沙箱隔离**：执行 Subagent 必须在 `Workspace='branch'` 中启动，物理隔离主系统工作树，从底层机制上杜绝执行端直接篡改主系统；
+- **裁决端唯一合流权**：系统合流与最终主干代码落盘权限严格归属于主协调/审计 Agent，必须在双阶段机械审计与敌手反向挑刺全绿后，方可完成代码合流。
 
 ---
 

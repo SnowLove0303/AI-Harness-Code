@@ -412,6 +412,58 @@ test('gemini adapter enforces mutation anti-fraud and negative proof deep audit 
   assert.match(specContent, /ZERO_FINDING_SUSPICION/, 'audit spec must document ZERO_FINDING_SUSPICION');
 });
 
+test('gemini adapter enforces autonomous subagent swarm and four-in-one handoff gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Autonomous subagent swarm & four-in-one handoff gate/, 'must document autonomous subagent swarm gate');
+  assert.match(content, /Auto-Dispatch by Default & Coordinator Bar/, 'must specify auto-dispatch by default');
+  assert.match(content, /Subagent Reuse vs\. Fresh Decision Tree/, 'must specify reuse vs fresh decision tree');
+  assert.match(content, /manage_subagents/, 'must specify manage_subagents inspection');
+  assert.match(content, /Four-in-One Lossless Handoff Capsule/, 'must specify four-in-one capsule');
+  assert.match(content, /Active Completion Report & Reactive Wakeup/, 'must specify active completion report');
+  assert.match(content, /Verifier-Only Merge Authority & Workspace Sandboxing/, 'must specify verifier-only merge authority');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /智能体自动编组与四位一体任务交接公理/, 'GEMINI.md must contain Axiom 30');
+  assert.match(globalRules, /Autonomous Subagent Swarm & Four-in-One Handoff Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /manage_subagents/, 'GEMINI.md must specify manage_subagents inspection');
+  assert.match(globalRules, /四位一体任务交接胶囊/, 'GEMINI.md must specify four-in-one capsule');
+  assert.match(globalRules, /裁执物理隔离与系统改动权限封锁公理/, 'GEMINI.md must specify verifier-only merge authority');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /智能体自动编组与四位一体任务交接公理/, 'pstack-openspec must contain Axiom 32');
+  assert.match(pstackSkill, /manage_subagents/, 'pstack-openspec must specify manage_subagents inspection');
+  assert.match(pstackSkill, /四位一体任务交接胶囊/, 'pstack-openspec must specify four-in-one capsule');
+  assert.match(pstackSkill, /裁执物理隔离与合流权归属/, 'pstack-openspec must specify verifier-only merge authority');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /智能体自动编组与四位一体任务交接公理/, 'ai-harness-openspec must contain Invariant 27');
+  assert.match(aiHarnessSkill, /manage_subagents/, 'ai-harness-openspec must specify manage_subagents inspection');
+  assert.match(aiHarnessSkill, /四位一体任务交接胶囊/, 'ai-harness-openspec must specify four-in-one capsule');
+  assert.match(aiHarnessSkill, /裁执物理隔离与合流权归属/, 'ai-harness-openspec must specify verifier-only merge authority');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /18\. Autonomous Subagent Swarm & Four-in-One Handoff Engine/, 'docs must document Section 18');
+  assert.match(docsContent, /Verifier-Only Merge Authority & Workspace Sandboxing/, 'docs must document Verifier-Only Merge Authority');
+
+  // Verify references/subagent-handoff-contract.md
+  const contractPath = path.join(repoRoot, 'skills/pstack-openspec/references/subagent-handoff-contract.md');
+  const contractContent = readFileSync(contractPath, 'utf8');
+  assert.match(contractContent, /四位一体无损任务交接胶囊标准规范/, 'contract must document four-in-one capsule');
+  assert.match(contractContent, /manage_subagents/, 'contract must specify manage_subagents');
+  assert.match(contractContent, /Verifier-Only Merge Authority/, 'contract must specify verifier-only merge authority');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
