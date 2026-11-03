@@ -99,6 +99,20 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
      - Mutation sanity and adversarial red-team interrogation at Step 4 to defeat trivial exit-0 assertions.
      - 1:1 physical reconciliation and human tactile double-key signoff at Step 5.
 
+## Execution friction journaling & defense escalation retro
+
+1. In-Execution Friction Journaling (Step 3):
+   - Whenever execution encounters test failures, compilation errors, brittle dependencies, or tool exceptions requiring retries, the agent must record an `[Incident: Friction/Bug]` entry in local task memory or `tasks.md`.
+   - Silent swallowing of friction is strictly barred: all diagnostic attempts, root causes, and temporary patches must be preserved.
+2. Mandatory Post-Task Retro Dossier (Step 5 Delivery):
+   - Delivery reports must be triad: 1:1 Requirement Checkoff + Execution Friction Journal + Long-Term Defense Escalation Proposal.
+   - For every recorded incident, the agent must propose a durable escalation following the Trust Pyramid:
+     - L1: Type-level state machine constraints making invalid states unrepresentable.
+     - L2: Static AST/Lint rules with auto-fix guidance blocking reintroduction.
+     - L3: Closed-scope constitutional constraints in `AGENTS.md`.
+     - L4: Automated mutation test vectors asserting domain rejection.
+   - Propose explicit actionable hardening steps that the user can authorize for immediate in-situ hardening.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

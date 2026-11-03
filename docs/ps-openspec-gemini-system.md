@@ -178,6 +178,23 @@ To prevent superficial and ad-hoc reasoning when analyzing errors, user challeng
      - Requiring 1:1 physical checkoff tables and VS Code native diff human tactile gates during Step 5.
      - Escalating recurrent patterns down the trust pyramid (L1 state machine, L2 AST lint, or L3 invariant constitution).
 
+### 13. Execution Friction Journaling & Defense Escalation Retro Engine
+
+To prevent myopic in-situ patching and eliminate silent swallowing of execution frictions:
+
+1. **In-Execution Friction Journaling (Step 3)**:
+   - During task execution under the single-focus lock (`[-] lock`), whenever an agent encounters failed test runs, compiler diagnostic errors, brittle dependency mismatches, or tool-level exceptions requiring retries, it must log an immutable `[Incident: Friction/Bug]` entry into local task memory or `tasks.md`.
+   - Agents are forbidden from sanitizing diagnostic traces: the friction signature, root cause hypotheses, and initial patches must be transparently preserved.
+2. **Mandatory Post-Task Retro Dossier (Step 5 Delivery)**:
+   - Final release dossiers must be triad: 1:1 Requirement Checkoff + Encountered Friction Journal + Durable Escalation Proposals.
+   - For every recorded incident, the agent must formulate a durable escalation plan across the Trust Pyramid:
+     - L1 (Type/Architecture): Making invalid states unrepresentable via algebraic data types or state machines.
+     - L2 (Static Lint/AST): Hard mechanical AST rules with auto-fix guidance blocking defect recurrence.
+     - L3 (Constitutional Rules): Closed-scope admission constraints in `AGENTS.md`.
+     - L4 (Verification): Adversarial mutation tests validating active domain error rejection.
+3. **Actionable Hardening Tasks**:
+   - The retro dossier must conclude with concrete, actionable hardening tasks. With single-phrase user authorization ("批准下沉"), the agent immediately executes and commits these hardening assets.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

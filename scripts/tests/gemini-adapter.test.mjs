@@ -199,6 +199,39 @@ test('gemini adapter enforces two-step dual-scope deep audit architecture', () =
   assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
 });
 
+test('gemini adapter enforces execution friction journaling and defense escalation retro', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Execution friction journaling & defense escalation retro/, 'must document friction journaling & retro');
+  assert.match(content, /In-Execution Friction Journaling/, 'must specify in-execution friction journaling');
+  assert.match(content, /\[Incident: Friction\/Bug\]/, 'must record Incident tags');
+  assert.match(content, /Mandatory Post-Task Retro Dossier/, 'must require post-task retro dossier');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /执行摩擦动态存证与防线下沉复盘公理/, 'GEMINI.md must contain Axiom 25');
+  assert.match(globalRules, /施工期摩擦不可篡改动态存证/, 'GEMINI.md must mandate friction journaling');
+  assert.match(globalRules, /交付期终审强制挂载复盘提案/, 'GEMINI.md must mandate retro dossier');
+  assert.match(globalRules, /四阶防御下沉闭环推进/, 'GEMINI.md must mandate 4-layer escalation');
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /执行摩擦动态存证与防线下沉复盘公理/, 'pstack-openspec must contain Axiom 27');
+  assert.match(pstackSkill, /施工期摩擦动态存证/, 'pstack-openspec Step 3 must require incident logging');
+  assert.match(pstackSkill, /终审强制挂载复盘提案/, 'pstack-openspec Step 5 must require retro dossier');
+  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /执行摩擦动态存证与防线下沉复盘公理/, 'ai-harness-openspec must contain Invariant 22');
+  assert.match(aiHarnessSkill, /施工期摩擦动态存证/, 'ai-harness-openspec Phase 3 must require incident logging');
+  assert.match(aiHarnessSkill, /终审强制挂载复盘提案/, 'ai-harness-openspec Phase 4 must require retro dossier');
+  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
