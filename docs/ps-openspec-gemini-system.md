@@ -376,6 +376,29 @@ To establish absolute domain neutrality and prevent AI agents from contaminating
 7. **Popperian Adversarial Verification**:
    - Verifiers must be physically separated from implementers, operating with the sole objective of falsification. Mutating output data must deterministically break test suites; failing to catch mutations triggers `META_AUDIT_FAILURE`.
 
+### 24. Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Engine
+
+To eliminate superficial apologetic loops and force AI agents to mechanistically codify human feedback into durable automated lint and AST verification gates:
+
+1. **Human-Correction State Machine & Escalation Blocker**:
+   - The harness maintains a dynamic human-correction incident counter (`correction_incident_counter`).
+   - Any explicit rebuke, rejection, or quality correction from the human user increments the counter and logs a `[Correction Incident]`.
+   - When the counter reaches $\ge 2$, the system triggers `CORRECTION_INCIDENT_ESCALATION` and injects an unavoidable blocking subtask into `tasks.md`: `[-] Task: 固化机器级 AST/Lint/变异门禁并实测 Exit 1 阻断`.
+   - The single-focus task lock (`[-] lock`) physically deadlocks until the linter rule or AST checker is created, executed against bad code, and proven to emit a real non-zero exit code (`Exit 1`).
+2. **Pre-Commit Delivery Interceptor & Anti-Free-Apology Gate**:
+   - At delivery, merge, and signoff checkpoints, if the session recorded human corrections ($\text{Counter} \ge 1$), the system audits the Git Staged Diff.
+   - The staged diff MUST contain newly added or modified static analysis checks, AST visitor rules, linter configurations, or mutation test assertions.
+   - If the staged diff contains only implementation code or prose documents without machine enforcement assets, the system aborts delivery with `NO_LINT_DELIVERY_BLOCKED` and executes an atomic rollback.
+3. **Anti-Superficial-Apology Protocol**:
+   - Conversational, tokenized prose apologies ("非常抱歉", "我深刻反省", "下次一定注意") are physically banned; detecting such boilerplate triggers `SUPERFICIAL_APOLOGY_REJECTED`.
+   - Under `ANTI_SUPERFICIAL_APOLOGY_PROTOCOL`, the agent's first response to human correction must strictly and exclusively output three engineering facts:
+     ① **Failure Mode Specification**: Precise formal definition of the violated invariant and the code pattern characteristics;
+     ② **Proposed Machine Lever**: The exact AST script, lint rule, or mutation test file being introduced;
+     ③ **Falsification Proof**: Execution proof demonstrating real exit code 1 when the bad pattern is detected, and exit code 0 when compliant.
+4. **Permanent Lint Reservoir & Swarm Cold-Start Invariance**:
+   - Solidified lint gates are preserved in permanent project repositories (`scripts/lint/`, `package.json`, or Git pre-commit hooks) under `PERMANENT_LINT_RESERVOIR`.
+   - All newly spawned subagents across the swarm during cold-start environment perception (Step 1) must inherit and run the full reservoir suite, ensuring organizational memory persists across agents and threads.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

@@ -391,6 +391,16 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **验证平面裁执隔离与波普尔敌手证伪公理 (Popperian Adversarial Verification & META_AUDIT_FAILURE)**：
       审查者在物理上必须与施工者隔离，以推翻实现为唯一合法目的；严禁将 Exit Code 0 作为合格凭据，终审必须强制出具变异反例杀伤见证；若向产出物注入变异脏数据而测试套件依然返回 0，直接判定该测试套件自身失效（`META_AUDIT_FAILURE`），任务执行锁（`[-] lock`）坚决锁死。
 
+33. **人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理 (Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom - 严禁口水敷衍与虚假不长记性铁律)**：
+    - **人机纠偏状态机与两碰立项硬阻断引擎 (Human-Correction Incident State Machine & Two-Strike Hard Escalation Gate - CORRECTION_INCIDENT_ESCALATION)**：
+      全流程建立人机交互纠偏计数器（`correction_incident_counter`）。凡人类提出质量或规范质问、纠正与驳斥，在执行摩擦日志中登记 `[Correction Incident]` 且计数器递增；当计数器 $\ge 2$ 时，强制触发 `CORRECTION_INCIDENT_ESCALATION`，自动向 `tasks.md` 首位注入不可跳过的原子阻断任务：`[-] Task: 固化机器级 AST/Lint/变异门禁并实测 Exit 1 阻断`；未完成机器阻断任务并出具 Exit 1 阻断凭据前，任务专注锁（`[-] lock`）坚决死锁；
+    - **交付拦截断路器与反空头支票硬门禁 (Pre-Commit Delivery Interceptor & Anti-Free-Apology Gate - NO_LINT_DELIVERY_BLOCKED)**：
+      Pre-Commit、Merge 与交付前机械扫描 Git Staged Diff。若任务存在人类纠偏记录（$\ge 1$），暂存区必须包含新增或修改的自动化检查脚本（AST 规则、Lint 规则或变异断言代码）；缺少自动化机器拦截资产直接触发 `NO_LINT_DELIVERY_BLOCKED` 阻断并原子回滚；
+    - **反廉价口水道歉与三要素工程事实响应契约 (Anti-Superficial-Apology Protocol - ANTI_SUPERFICIAL_APOLOGY_PROTOCOL & SUPERFICIAL_APOLOGY_REJECTED)**：
+      严禁输出廉价口水化道歉文本（如“非常抱歉”、“我深刻反省”、“下次一定注意”），违者直接触发 `SUPERFICIAL_APOLOGY_REJECTED`；第一响应必须严格且仅输出三项工程事实：① 失效模式形式化定义 (Failure Mode Specification)；② 机器杠杆落地方案 (Proposed Machine Lever)；③ 反向证伪杀伤凭证 (Falsification Proof，实测 Exit 1)；
+    - **沉淀规则永久水库与蜂群冷启动继承机制 (Permanent Lint Reservoir & Swarm Cold-Start Invariance - PERMANENT_LINT_RESERVOIR)**：
+      沉淀规则严禁作为单次会话的临时脚本，必须持久化固化至项目常态化门禁水库（`scripts/lint/`、`package.json` 或 pre-commit hooks）；子智能体在冷启动（Step 1）必须全量继承执行。
+
 ---
 
 ## 📚 附录与配套参考

@@ -336,3 +336,26 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 
 ### 6. 验证平面裁执隔离与波普尔敌手证伪审计 (`META_AUDIT_FAILURE`)
 - **变异杀伤力实测**：审查者在物理上与施工者隔离；严禁将 Exit Code 0 作为合格凭据；终审必须包含对产出物注入变异脏数据的攻击尝试，若变异注入后测试依然返回 0，直接判定该测试套件自身失效（`META_AUDIT_FAILURE`），任务执行锁（`[-] lock`）坚决锁死。
+
+## 🔨 十四、 人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉规程 (Mandatory Lint-Escalation & Anti-Superficial-Apology Protocol)
+
+> **最高铁律**：严禁 Agent 在面对人类纠偏批评时产生低成本、套路化的文本道歉（违者判定为 `SUPERFICIAL_APOLOGY_REJECTED`）。人类纠错两次（$\text{Counter} \ge 2$）必须机械化下沉为自动执行的 AST 规则或 Lint 门禁，以物理代码阻断杜绝人类重复盯防与虚假不长记性。
+
+### 1. 人机纠偏计数器与状态机硬阻断 (`CORRECTION_INCIDENT_ESCALATION`)
+- **纠偏事件动态存证**：每次人类对 Agent 输出的审计漏洞、标准放水、退化违规进行纠正或批评，系统自动登记 `[Correction Incident]`，`correction_incident_counter` 递增。
+- **两碰立项硬阻断**：当计数器达到 2 时，系统触发 `CORRECTION_INCIDENT_ESCALATION`，自动向 `tasks.md` 注入最高优先级阻断任务：`[-] Task: 固化机器级 AST/Lint/变异门禁并实测 Exit 1 阻断`；单任务专注锁（`[-] lock`）坚决死锁，直到出具机器退出码 1 阻断凭据方可解锁。
+
+### 2. 交付拦截断路器与反空头支票硬门禁 (`NO_LINT_DELIVERY_BLOCKED`)
+- **Git 暂存区机械审计**：在 Step 4 审计与 Step 5 交付签发时，若会话中存在人类纠偏记录（$\text{Counter} \ge 1$），系统机械扫描 Git Staged Diff。
+- **机器规则资产守恒**：暂存区必须包含新增或修改的自动化检查脚本（AST 脚本、Lint 规则、编译门禁或变异断言代码）；若暂存区仅有业务代码补丁或口头文档，直接抛出 `NO_LINT_DELIVERY_BLOCKED` 阻断并原子回滚，坚决拒绝口头保证。
+
+### 3. 反廉价口水道歉与三要素工程事实响应契约 (`ANTI_SUPERFICIAL_APOLOGY_PROTOCOL`)
+- **空洞道歉文本一票否决**：严禁“非常抱歉”、“我深刻反省”、“下次一定注意”等廉价口水；触发直接判罚 `SUPERFICIAL_APOLOGY_REJECTED`。
+- **三要素客观工程事实输出契约**：第一响应必须严格且仅允许包含：
+  ① **失效模式形式化定义 (Failure Mode Specification)**：精确说明本次违背的规则抽象、反模式代码特征与漏检根因；
+  ② **机器杠杆落地方案 (Proposed Machine Lever)**：指出拟固化的 AST 检查脚本、Lint 规则或变异断言代码与目标文件；
+  ③ **反向证伪杀伤凭证 (Falsification Proof)**：出具在反模式代码上真实执行该机器门禁并产生真实非零退出码（`Exit 1`）的阻断记录。
+
+### 4. 沉淀规则永久水库与蜂群冷启动继承机制 (`PERMANENT_LINT_RESERVOIR`)
+- **持久化门禁水库**：因纠偏沉淀的 Lint / AST 规则严禁作为单次临时脚本，必须持久化固化至项目常态化门禁水库（如 `scripts/lint/`、`package.json` 的 lint/test 命令或 Git 预提交钩子），纳入常态化自动化流水线。
+- **蜂群冷启动绝对继承**：所有新派发的子智能体（Subagents）在冷启动底座感知（Step 1）阶段必须自动加载并执行当前水库中的全量规则，确保历史纠偏经验跨智能体、跨会话绝对零遗忘。

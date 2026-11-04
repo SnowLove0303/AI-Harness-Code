@@ -417,3 +417,15 @@
       数据集合填充完毕后必须包含紧凑化收敛（Pruning/Compacting），物理消除未消费的悬空槽位；由同一源数据生成的多种衍生投影，其核心拓扑几何方差必须严格为 0（$\text{Var}_{\text{topology}} \equiv 0$），杜绝同构断裂；
     - **验证平面裁执隔离与波普尔敌手证伪公理 (Popperian Adversarial Verification & META_AUDIT_FAILURE)**：
       审查者在物理上必须与施工者隔离，以推翻实现为唯一合法目的；严禁将 Exit Code 0 作为合格凭据，终审必须强制出具变异反例杀伤见证；若向产出物注入变异脏数据而测试套件依然返回 0，直接判定该测试套件自身失效（`META_AUDIT_FAILURE`），任务执行锁（`[-] lock`）坚决锁死。
+36. **人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理 (Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom - 严禁口水敷衍与虚假不长记性铁律)**：
+    - **人机纠偏状态机与两碰立项硬阻断引擎 (Human-Correction Incident State Machine & Two-Strike Hard Escalation Gate - CORRECTION_INCIDENT_ESCALATION)**：
+      全系统建立动态人机纠偏计数器（`correction_incident_counter`）。凡在执行任务、审计代码或规格验收过程中，人类对 Agent 提出纠正、质问或驳斥（如指出审计放水、标准漏检、代码退化、旧疾复发），系统立即在执行摩擦日志中登记一次 `[Correction Incident]`，计数器递增；当单次会话或同一模块中纠偏计数器达到阈值（$\text{Counter} \ge 2$）时，系统自动触发状态机升级硬阻断，强制向 `tasks.md` 首位注入不可跳过的原子阻断任务：`[-] Task: 固化机器级 AST/Lint/变异门禁并实测 Exit 1 阻断`；在此机器门禁任务未完成并出具退出码 1 阻断证据之前，单任务专注锁（`[-] lock`）坚决死锁，严禁推进任何业务编码或交付动作；
+    - **交付拦截断路器与反空头支票硬门禁 (Pre-Commit Delivery Interceptor & Anti-Free-Apology Gate - NO_LINT_DELIVERY_BLOCKED)**：
+      在代码提交（Pre-Commit）、任务合流（Merge）与终审交付节点设立物理拦截断路器。凡当前任务会话中存在人类纠偏记录（$\text{Counter} \ge 1$），交付前系统必须对 Git Staged Diff 执行机械审计：检查暂存区是否包含新增或修订的自动化静态分析检查脚本（如 AST 检查规则、Lint 规则、静态类型断言或变异测试断言文件）；若暂存区仅包含业务逻辑补丁或文档修订，而缺少可独立执行的机器阻断规则资产，系统直接触发 `NO_LINT_DELIVERY_BLOCKED` 致命阻断并执行原子回滚，坚决拒绝任何“下次一定遵守”的口头承诺交付；
+    - **反廉价口水道歉与三要素工程事实响应契约 (Anti-Superficial-Apology Protocol - ANTI_SUPERFICIAL_APOLOGY_PROTOCOL & SUPERFICIAL_APOLOGY_REJECTED)**：
+      严禁 Agent 在遭遇人类用户纠偏批评时产生低成本、套路化的文本道歉（如“非常抱歉我犯了低级错误”、“我深刻反省”、“我向您诚恳道歉”、“下次一定注意”等廉价口水）；凡检测到此类空洞道歉文本，直接判定为 `SUPERFICIAL_APOLOGY_REJECTED` 违规；Agent 面对纠偏的第一响应，必须（SHALL）且仅允许输出三项客观工程事实：
+      ① **失效模式形式化定义 (Failure Mode Specification)**：精确说明本次违背的规则抽象、触发的反模式代码特征与漏检根因；
+      ② **机器杠杆落地方案 (Proposed Machine Lever)**：精确指出拟固化的 AST 检查脚本、Lint 规则、编译门禁或变异断言代码与目标文件；
+      ③ **反向证伪杀伤凭证 (Falsification Proof)**：出具在错误模式下真实运行该机器门禁并产生真实非零退出码（`Exit 1`）的阻断记录，证明其具备物理拦截能力；
+    - **沉淀规则永久水库与蜂群冷启动继承机制 (Permanent Lint Reservoir & Swarm Cold-Start Invariance - PERMANENT_LINT_RESERVOIR)**：
+      所有因人机纠偏而沉淀的 Lint / AST 检查规则，严禁作为单次会话的临时一次性脚本（Scratch）；规则必须持久化固化至项目常驻门禁水库（如 `scripts/lint/`、`package.json` 的 lint/test 命令或 Git 预提交钩子），纳入项目常态化静态分析管线；主智能体与派发的后台子智能体（Subagent Swarm）在冷启动底座感知（Step 1）阶段，必须自动继承并执行当前水库中的全量规则，确保历史纠偏经验跨智能体、跨会话绝对零遗忘。

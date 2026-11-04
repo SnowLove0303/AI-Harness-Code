@@ -284,6 +284,26 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 7. Popperian Adversarial Verification:
    - The verifier must be physically separated from the implementer, with the sole objective of falsifying assumptions. Exit code 0 alone cannot authorize completion. Mutating output data must deterministically break test suites; failing to catch mutations triggers `META_AUDIT_FAILURE`.
 
+## Mandatory lint-escalation engine & anti-superficial-apology gate
+
+1. Human-Correction State Machine & Escalation Blocker:
+   - Tracks all human correction interactions during task execution (`correction_incident_counter`).
+   - If $\text{Counter} \ge 2$, triggers `CORRECTION_INCIDENT_ESCALATION` and injects an unavoidable blocking subtask into `tasks.md`: `[-] Task: 固化机器级 AST/Lint/变异门禁并实测 Exit 1 阻断`.
+   - The single-focus task lock (`[-] lock`) physically deadlocks until this machine lint gate is solidified and verified with real non-zero exit codes.
+2. Pre-Commit Delivery Interceptor & Anti-Free-Apology Gate:
+   - At delivery/signoff, if human corrections occurred ($\text{Counter} \ge 1$), the system inspects the Git staged diff.
+   - The staged diff MUST contain newly created or modified lint rules, AST inspection scripts, static analysis configs, or mutation assertions.
+   - If the staged diff lacks machine enforcement assets, the system halts with `NO_LINT_DELIVERY_BLOCKED` and atomic rollback.
+3. Anti-Superficial-Apology Protocol:
+   - Cheap, tokenized conversational apologies ("非常抱歉", "我深刻反省", "下次一定记住") are strictly forbidden. Emitting hollow apologies triggers `SUPERFICIAL_APOLOGY_REJECTED`.
+   - Under `ANTI_SUPERFICIAL_APOLOGY_PROTOCOL`, the agent's first response must exclusively deliver three engineering facts:
+     ① Failure Mode Specification (precise violation abstraction and pattern characteristics);
+     ② Proposed Machine Lever (AST visitor, lint rule, compiler check, or mutation assertion file);
+     ③ Falsification Proof (measured execution evidence showing Exit 1 on failing patterns and Exit 0 on compliant code).
+4. Permanent Lint Reservoir & Swarm Cold-Start Invariance:
+   - Codified lint rules must be committed to permanent project lint reservoirs (`scripts/lint/`, `package.json`, or Git pre-commit hooks) under `PERMANENT_LINT_RESERVOIR`.
+   - All newly initialized subagents across the swarm during cold-start environment perception (Step 1) must inherit and run the full reservoir suite, ensuring zero organizational amnesia.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
