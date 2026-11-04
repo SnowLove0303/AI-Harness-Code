@@ -913,6 +913,80 @@ test('gemini adapter enforces generic tooling crystallization and anti-one-off-s
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
+test('gemini adapter enforces project-canonical single audit system and audit graph handoff gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Project-canonical single audit system & Audit Graph handoff gate/, 'must document single audit gate');
+  assert.match(content, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(content, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(content, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(content, /UNANCHORED_AUDIT_ISLAND_BLOCKED/, 'must specify UNANCHORED_AUDIT_ISLAND_BLOCKED');
+  assert.match(content, /HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION/, 'must specify HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION');
+  assert.match(content, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+  assert.match(content, /AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED/, 'must specify AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED');
+  assert.match(content, /UNIVERSAL_AUDIT_ABSTRACTION_STANDARD/, 'must specify UNIVERSAL_AUDIT_ABSTRACTION_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接公理/, 'GEMINI.md must contain Axiom 38');
+  assert.match(globalRules, /Project-Canonical Single Audit System & Audit Graph Handoff Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'GEMINI.md must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(globalRules, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'GEMINI.md must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(globalRules, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'GEMINI.md must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(globalRules, /UNANCHORED_AUDIT_ISLAND_BLOCKED/, 'GEMINI.md must specify UNANCHORED_AUDIT_ISLAND_BLOCKED');
+  assert.match(globalRules, /HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION/, 'GEMINI.md must specify HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION');
+  assert.match(globalRules, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'GEMINI.md must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+  assert.match(globalRules, /AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED/, 'GEMINI.md must specify AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED');
+  assert.match(globalRules, /UNIVERSAL_AUDIT_ABSTRACTION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_AUDIT_ABSTRACTION_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接公理/, 'pstack skill must contain Axiom 40');
+  assert.match(pstackSkill, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'pstack skill must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(pstackSkill, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'pstack skill must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(pstackSkill, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'pstack skill must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(pstackSkill, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'pstack skill must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接公理/, 'ai-harness skill must contain Invariant 35');
+  assert.match(aiHarnessSkill, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'ai-harness skill must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(aiHarnessSkill, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'ai-harness skill must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(aiHarnessSkill, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'ai-harness skill must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(aiHarnessSkill, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'ai-harness skill must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /26. Project-Canonical Single Audit System & Audit Graph Handoff Engine/, 'docs must document Section 26');
+  assert.match(docsContent, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'docs must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(docsContent, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'docs must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(docsContent, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'docs must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(docsContent, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'docs must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十六、 项目唯一权威审计体系与审计拓扑图/, 'audit spec must document Section 16');
+  assert.match(specContent, /Project-Canonical Single Audit System & Audit Graph Handoff Protocol/, 'audit spec must contain Section 16 English title');
+  assert.match(specContent, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'audit spec must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
+  assert.match(specContent, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'audit spec must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+  assert.match(specContent, /AUDIT_GRAPH_TOPOLOGY_ENGINE/, 'audit spec must specify AUDIT_GRAPH_TOPOLOGY_ENGINE');
+  assert.match(specContent, /UNANCHORED_AUDIT_ISLAND_BLOCKED/, 'audit spec must specify UNANCHORED_AUDIT_ISLAND_BLOCKED');
+  assert.match(specContent, /HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION/, 'audit spec must specify HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION');
+  assert.match(specContent, /LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE/, 'audit spec must specify LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE');
+  assert.match(specContent, /AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED/, 'audit spec must specify AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED');
+  assert.match(specContent, /UNIVERSAL_AUDIT_ABSTRACTION_STANDARD/, 'audit spec must specify UNIVERSAL_AUDIT_ABSTRACTION_STANDARD');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十六、 项目唯一权威审计体系与审计拓扑图/, 'ref audit spec must document Section 16');
+  assert.match(refSpecContent, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'ref audit spec must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

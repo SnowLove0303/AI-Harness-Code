@@ -422,6 +422,24 @@ To prevent AI agents from accumulating ephemeral, hardcoded scratch scripts and 
      ① **Prevention Gate**: Integrated into CI / Pre-commit / Lint pipelines to halt future regressions with Exit 1;
      ② **Acceleration Lever**: Parameterized CLI reducing future diagnosis and resolution from hours to seconds.
 
+### 26. Project-Canonical Single Audit System & Audit Graph Handoff Engine
+
+To prevent multiple fragmented audit standards across agents and ensure lossless verification handoff through structured causal topology:
+
+1. **Project-Canonical Single Audit Base (`PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM`)**:
+   - Each project must maintain one and only one canonical audit system baseline registered in its managed audit root.
+   - Creating parallel, ad-hoc, or duplicate audit standards is strictly blocked by `DUPLICATE_AUDIT_SYSTEM_BLOCKED`.
+2. **Audit Graph Topology Engine (`AUDIT_GRAPH_TOPOLOGY_ENGINE`)**:
+   - The canonical audit system models governance invariants as an explicit directed acyclic graph (Audit Graph DAG).
+   - Nodes consist of `Specification` (RFC 2119 contracts), `Invariant` (`@ANTIGRAVITY_INVARIANT_LOCK`), `SourceAnchor` (code physical ranges), `Evidence` (measured exit code 0 / mutation kills), and `HumanGuidance` (user decisions).
+   - Edges explicitly define causal flow: `governs`, `anchors_to`, `verified_by`, and `derived_from_guidance`. Unanchored audit islands trigger `UNANCHORED_AUDIT_ISLAND_BLOCKED`.
+3. **Human-Guidance Continuous Evolution (`HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION`)**:
+   - User reviews, corrections, and instructions serve as the supreme evolutionary driver, immediately ingested as `HumanGuidance` nodes and escalated into L1 state machines, L2 AST/Lint checks, or L3 OpenSpec contracts.
+4. **Lossless Agent Handoff Baseline (`LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE`)**:
+   - Serves as the sole statutory truth baseline across agents and sessions. Handoff capsules (`pstack-handoff`) bind the relevant Audit Graph slice to eliminate cognitive drift (`AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED`).
+5. **Universal Pure Engineering Abstraction (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`)**:
+   - Audit Graph and rules are 100% specified using computer science and software engineering primitives (DAG, statecharts, exit codes), with zero scenario-specific keywords.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

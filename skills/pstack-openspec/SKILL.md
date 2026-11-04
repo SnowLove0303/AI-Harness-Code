@@ -462,6 +462,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+40. **项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接公理 (Project-Canonical Single Audit System & Audit Graph Handoff Axiom - 严禁割裂分散与图谱对账铁律)**：
+    - **单项目唯一权威审计体系公理 (PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM & DUPLICATE_AUDIT_SYSTEM_BLOCKED)**：任何受管项目有且仅有一套权威审计体系基座；严禁建立平行、割裂的第二套私有审计规则，违者触发 `DUPLICATE_AUDIT_SYSTEM_BLOCKED` 阻断并强制合流；
+    - **审计拓扑图因果网络治理公理 (AUDIT_GRAPH_TOPOLOGY_ENGINE & UNANCHORED_AUDIT_ISLAND_BLOCKED)**：审计体系以 Audit Graph（DAG）形式显式维护规范、不变量、源码锚点、实测证据与用户指导五维节点及其有向依赖边，孤岛审计节点触发 `UNANCHORED_AUDIT_ISLAND_BLOCKED` 阻断；
+    - **基于用户指导与 Ps-openspec 咬合的动态演进自迭代公理 (HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION)**：人类架构师指导为最高驱动源，即刻写入 `HumanGuidance` 节点，指导两次自动下沉固化为 L1 状态机、L2 AST/Lint 规则或 L3 规范条款；
+    - **跨 Agent 无损交接与真理平面核销公理 (LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE & AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED)**：跨 Agent 派发与交接胶囊强制绑定 Audit Graph 拓扑快照；接手 Agent 零认知漂移对齐，任务打勾以实测退出码 0（[Measured] Evidence）为充要凭证；
+    - **纯通用工程抽象与反业务情境锚定硬门禁 (UNIVERSAL_AUDIT_ABSTRACTION_STANDARD)**：100% 采用图论（DAG）、状态机理论、RFC 2119 规范与标准退出码通用工程语言，严禁业务专有名词污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

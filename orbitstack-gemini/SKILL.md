@@ -325,6 +325,23 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
      ① Prevention Gate (CI/Pre-commit/Lint gate halting future occurrences with Exit 1);
      ② Acceleration Lever (parameterized CLI reducing future diagnosis and resolution from hours to seconds).
 
+## Project-canonical single audit system & Audit Graph handoff gate
+
+1. Project-Canonical Single Audit Base:
+   - Each project under Ps-openspec governance must maintain exactly one canonical audit system baseline registered in its managed audit root (`PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM`).
+   - Any attempt to introduce duplicate, ad-hoc, or fragmented audit standards across agents or sessions triggers immediate `DUPLICATE_AUDIT_SYSTEM_BLOCKED` rejection.
+2. Audit Graph Topology Engine:
+   - The canonical audit system models governance invariants as an explicit directed acyclic graph (Audit Graph DAG) (`AUDIT_GRAPH_TOPOLOGY_ENGINE`).
+   - Nodes: `Specification` (RFC 2119 contracts), `Invariant` (`@ANTIGRAVITY_INVARIANT_LOCK`), `SourceAnchor` (code ranges), `Evidence` (measured exit code 0 / mutation kills), and `HumanGuidance` (user directives).
+   - Edges: `governs`, `anchors_to`, `verified_by`, and `derived_from_guidance`. Unanchored audit islands are blocked by `UNANCHORED_AUDIT_ISLAND_BLOCKED`.
+3. Human-Guidance Continuous Evolution:
+   - User reviews, corrections, and instructions serve as the supreme evolutionary driver (`HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION`), ingested as `HumanGuidance` nodes and escalated into L1 state machines, L2 AST/Lint checks, or L3 OpenSpec contracts.
+4. Lossless Agent Handoff Truth Baseline:
+   - Serves as the sole statutory truth baseline across agents and sessions (`LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE`).
+   - Handoff capsules (`pstack-handoff`) bind the relevant Audit Graph slice to eliminate cognitive drift (`AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED`). Task checkoff strictly requires measured exit code 0 evidence.
+5. Domain-Neutrality Standard:
+   - All Audit Graph entities and rules must strictly adhere to pure computer science and software engineering primitives (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`), with zero scenario-specific keywords.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

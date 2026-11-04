@@ -386,3 +386,40 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 - **赋能目标自证**：交付报告中必须显式自证该工装的工程赋能目标（满足至少其一）：
   ① **主动免疫规避 (Prevention Gate)**：挂载至自动化流水线（CI/Pre-commit/Lint），对同类违规代码实施秒级 Exit 1 拦截；
   ② **缩短排障耗时 (Acceleration Lever)**：提供标准化参数化 CLI/API，将后续同类故障的排障与修复耗时压缩至秒级一键命令执行。
+
+
+## 🌐 十六、 项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接审计规程 (Project-Canonical Single Audit System & Audit Graph Handoff Protocol)
+
+> **最高铁律**：任何受 Ps-openspec 管辖的项目，其内部**有且仅有一套**法定权威审计体系基座（违者直接判定为 `DUPLICATE_AUDIT_SYSTEM_BLOCKED` 阻断）。审计体系必须以 Audit Graph（审计拓扑图）作为因果与依赖治理网络，并基于用户指导与 Ps-openspec 进行持续维护、动态优化与版本化演进，为跨 Agent 交接提供唯一法定真理核销底座。
+
+### 1. 单项目唯一权威审计体系准则 (`PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM` & `DUPLICATE_AUDIT_SYSTEM_BLOCKED`)
+- **法定唯一事实基座**：每个项目必须维护统一的受管审计入口与基线规范，杜绝多套审计规则碎片化、各自为政或随意拼凑；
+- **多套审计体系硬阻断**：严禁任何 Agent 在单一项目内建立平行、割裂或重叠的第二套审计体系。凡检测到未登记在项目受管审计入口中的独立审计体系或同义重复规则，系统直接触发 `DUPLICATE_AUDIT_SYSTEM_BLOCKED` 阻断并强制合流；
+- **全系统统一演进**：所有对审计标准的增补、纠偏与细化，必须就地演进该唯一审计体系，保持版本历史与不可变封印完整。
+
+### 2. 审计拓扑图因果网络治理规程 (`AUDIT_GRAPH_TOPOLOGY_ENGINE` & `UNANCHORED_AUDIT_ISLAND_BLOCKED`)
+- **五维拓扑节点实体**：
+  ① `Specification Node`（规范契约节点）：RFC 2119 规范条目（SHALL/WHEN/THEN）；
+  ② `Invariant Node`（架构不变量节点）：系统不可变承重墙锁（`@ANTIGRAVITY_INVARIANT_LOCK`）；
+  ③ `SourceAnchor Node`（物理源码锚点）：受保护的代码文件路径、行号区间与符号定义；
+  ④ `Evidence Node`（环境见证凭据）：真实退出码 0（[Measured] Evidence）与反例变异杀伤记录；
+  ⑤ `HumanGuidance Node`（用户指导节点）：人类架构师的纠偏、指导意见与历史裁决事实。
+- **因果有向边依赖网**：
+  支持 `governs`（规范治理不变量）、`anchors_to`（不变量锚定源码）、`verified_by`（源码/规范由实测凭证核销）、`derived_from_guidance`（规范与规则演化自用户指导）；
+- **孤岛审计节点清零门禁 (`UNANCHORED_AUDIT_ISLAND_BLOCKED`)**：
+  严禁存在无规范支撑、无代码锚点或无环境见证凭证的虚假孤岛审计节点；审查流程对孤岛节点实行一票否决。
+
+### 3. 基于用户指导与 Ps-openspec 的持续演进与自迭代机制 (`HUMAN_GUIDANCE_CONTINUOUS_EVOLUTION`)
+- **人类指导最高演进权威**：当用户对审计标准提出指导、指出漏洞或提出边界要求时，强制即刻摄入为 `HumanGuidance` 节点，以此为驱动扩展 Audit Graph；
+- **防线下沉三阶固化**：结合 Ps-openspec 五层防御金字塔，用户指导两次的问题，必须自动下沉为 L1 状态机合法性约束、L2 静态 AST/Lint 阻断规则或 L3 OpenSpec 封闭规范条款；
+- **版本化与 OpenSpec 增量生命周期**：审计体系的维护与优化必须遵循 OpenSpec 增量流程（Proposal -> Specs -> Tasks -> Archive），严禁破坏既有历史不变量，确保全生命周期演进可追溯。
+
+### 4. 跨 Agent 无损交接与真理平面核销契约 (`LOSSLESS_AGENT_HANDOFF_AUDIT_BASELINE` & `AUDIT_STATE_COGNITIVE_DRIFT_BLOCKED`)
+- **跨 Agent 唯一法定真理平面**：在主 Agent 派发子 Agent（Subagent Swarm）、跨会话恢复或多 Agent 协同工作流中，项目唯一的审计体系与 Audit Graph 是唯一被系统认可的真理对账底座；
+- **交接胶囊深度绑定**：跨 Agent 交接胶囊（`pstack-handoff`）中必须注入 Audit Graph 拓扑快照与任务对应子图；
+- **认知零漂移与秒级对齐**：接手的 Agent 禁止重新推测或私设审计标准，必须严格遵循 Audit Graph 拓扑执行因果穿透与边界审查；
+- **任务打勾充要条件**：任务打勾必须且仅能以 Audit Graph 中所有挂接的真实退出码 0 凭据为充要判定依据，严禁口头宣称与形式主义放行。
+
+### 5. 纯通用工程抽象与反业务情境锚定硬门禁 (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`)
+- **100% 纯通用工程语言**：审计体系、Audit Graph 节点与验证逻辑必须 100% 采用图论（DAG）、状态机、RFC 2119 与操作系统退出码等通用计算机科学抽象；
+- **零业务情境污染**：严禁在审计规则或 Graph 拓扑中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者直接阻断并拒绝合流。
