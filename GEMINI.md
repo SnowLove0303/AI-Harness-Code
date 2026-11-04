@@ -431,3 +431,20 @@
       所有因人机纠偏而沉淀的 Lint / AST 检查规则，严禁作为单次会话的临时一次性脚本（Scratch）；规则必须持久化固化至项目常驻门禁水库（如 `scripts/lint/`、`package.json` 的 lint/test 命令或 Git 预提交钩子），纳入项目常态化静态分析管线；主智能体与派发的后台子智能体（Subagent Swarm）在冷启动底座感知（Step 1）阶段，必须自动继承并执行当前水库中的全量规则，确保历史纠偏经验跨智能体、跨会话绝对零遗忘。
     - **Lint 抽象纯粹性与反具体情境污染规程 (Lint Domain-Neutrality Standard - LINT_DOMAIN_NEUTRALITY_STANDARD & SCENARIO_ANCHORING_LINT_BLOCKED)**：
       全系统因纠偏而固化、沉淀的所有 AST 规则、Lint 规则、静态守卫与变异断言，**必须（SHALL）100% 基于纯粹的代码语法树拓扑（AST Syntax Nodes，如 CallExpression、ImportDeclaration、ThrowStatement 等）、形式化类型契约与通用状态机理论**；严禁在 Lint 规则或静态分析脚本中硬编码任何特定业务实体的专有名词、特定业务领域代码或特定场景格式文本；凡编写耦合单一具体业务情境的特化 Lint 规则，系统静态检查与审计流程直接判定为 `SCENARIO_ANCHORING_LINT_BLOCKED` 违规并一票否决；
+37. **通用工装结晶与反一次性修补公理 (Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom - Poteto 杠杆工具与结构化沉淀铁律)**：
+    - **上游原生准则深度咬合 (Poteto Principles Integration)**：
+      全系统深度咬合 Lauren Tan (@poteto) 原生两大支柱准则：
+      ① `principle-build-the-lever`（构建杠杆工具）：非琐碎工作（Non-trivial work）必须构建能够执行或证明工作的通用工具/脚本/生成器，禁止手工就地修补；工具是复核人员可重复运行（Rerun for free）的唯一实体凭据，将“相信我（Trust me）”转化为确定性的“运行此工具（Run this）”；
+      ② `principle-encode-lessons-in-structure`（将教训编码进结构）：同类错误在人工审阅中纠正两次，绝对禁止通过文本反复提醒，必须将规则编码进结构、工具与门禁，文字指令只是表象，结构性工具是唯一根治解法；
+    - **从一次性脚本到通用工装的结晶跃迁机制 (Generic Tooling Crystallization - GENERIC_TOOLING_CRYSTALLIZATION)**：
+      严格划分脚本生命周期：一次性临时脚本（Scratch Scripts）仅允许在 Phase 1 (Explore) 探索期作为只读探针使用；因果链路查明后，施工期（Phase 3）严禁交付任何带有写死路径或特例参数的临时脚本，必须将解法结晶跃迁为常驻、可复用、参数化的通用工装（Generic Tooling），统一归入 `scripts/tools/` 或项目标准 CLI 工具链；
+    - **反一次性脚本与修补陷阱硬门禁 (Anti-One-Off-Scripting Gate - ONE_OFF_SCRIPT_TRAP_BLOCKED)**：
+      在代码提交与交付签发节点，严格审查变更代码资产；凡针对系统问题仅提供写死特定参数的一次性脚本、未提供参数化接口或缺乏通用抽象的，系统直接触发 `ONE_OFF_SCRIPT_TRAP_BLOCKED` 致命阻断并原子回滚，坚决拒绝一次性修补；
+    - **通用工装三大物理契约 (The Three Physical Tooling Contracts)**：
+      ① **参数化输入契约 (Parameterized Invariance - PARAMETERIZED_INVARIANCE)**：零硬编码特例值（Zero Magic Values），通过 CLI 标志、配置文件或标准输入传递动态上下文；
+      ② **确定性机器接口契约 (Deterministic Machine Lever - DETERMINISTIC_LEVER_CONTRACT)**：严格遵循标准 UNIX 退出码（0 为合格，非 0 为异常），具备可重复执行与幂等性；
+      ③ **自验证黄金契约 (Self-Testing Sanity)**：通用工具自身必须配备单元测试或变异测试，证明其在正确输入上放行、在故障模式下精准阻断；
+    - **双轮驱动赋能目标 (Dual-Purpose Leverage - DUAL_PURPOSE_LEVERAGE)**：
+      所有结晶沉淀的通用工具，必须在设计中明确其赋能目标（满足至少其一）：
+      ① **主动免疫规避 (Prevention Gate)**：作为自动化门禁接入 CI / Pre-commit / Lint，凡后续代码违背不变性时自动抛出 Exit 1 阻断，彻底根绝复发；
+      ② **缩短排障耗时 (Acceleration Lever)**：提供标准化参数化 CLI / API，将后续同类问题的定位、诊断与修复耗时从数十小时压缩至秒级一键命令执行。

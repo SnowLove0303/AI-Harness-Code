@@ -402,6 +402,26 @@ To eliminate superficial apologetic loops and force AI agents to mechanistically
    - All machine lint gates, AST inspectors, and compiler rules produced under this engine must enforce pure software engineering and AST syntax constraints (`LINT_DOMAIN_NEUTRALITY_STANDARD`).
    - Lint rules hardcoding business domain keywords, specific product codes, or ad-hoc format strings are strictly rejected with `SCENARIO_ANCHORING_LINT_BLOCKED` to preserve global neutrality.
 
+### 25. Generic Tooling Crystallization & Anti-One-Off-Scripting Engine
+
+To prevent AI agents from accumulating ephemeral, hardcoded scratch scripts and force solutions into reusable, durable software engineering leverage:
+
+1. **Poteto Principles Grounding**:
+   - Deeply coupled with Lauren Tan (@poteto)'s `principle-build-the-lever` (build rerunnable tools that do or prove the work) and `principle-encode-lessons-in-structure` (encode lessons into structural tools and checks rather than repeated prose).
+2. **Lifecycle Separation & Tooling Crystallization (`GENERIC_TOOLING_CRYSTALLIZATION`)**:
+   - Disposable scratch scripts are strictly confined to Phase 1 (Explore) read-only diagnostic probing.
+   - Upon moving to implementation and delivery, the solution must undergo `GENERIC_TOOLING_CRYSTALLIZATION`, elevating disposable scripts into reusable, parameterized tools within `scripts/tools/` or CLI packages.
+3. **Anti-One-Off-Scripting Blocker (`ONE_OFF_SCRIPT_TRAP_BLOCKED`)**:
+   - Submitting disposable, single-use scripts that hardcode paths or scenario-specific constants triggers immediate `ONE_OFF_SCRIPT_TRAP_BLOCKED` failure and atomic rollback.
+4. **The Three Physical Tooling Contracts**:
+   - ① **Parameterized Invariance (`PARAMETERIZED_INVARIANCE`)**: Zero magic strings or hardcoded paths; inputs must be supplied via CLI flags, configs, or streams;
+   - ② **Deterministic Machine Lever (`DETERMINISTIC_LEVER_CONTRACT`)**: Returns standard UNIX exit codes (0 for pass, non-zero for explicit failure) with structured diagnostics; safely rerunnable and idempotent;
+   - ③ **Self-Testing Sanity**: Accompanied by unit tests or mutation checks proving it allows valid inputs and blocks defect patterns.
+5. **Dual-Purpose Leverage (`DUAL_PURPOSE_LEVERAGE`)**:
+   - Crystallized tools must explicitly serve at least one statutory objective under `DUAL_PURPOSE_LEVERAGE`:
+     ① **Prevention Gate**: Integrated into CI / Pre-commit / Lint pipelines to halt future regressions with Exit 1;
+     ② **Acceleration Lever**: Parameterized CLI reducing future diagnosis and resolution from hours to seconds.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

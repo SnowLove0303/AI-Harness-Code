@@ -403,6 +403,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **Lint 抽象纯粹性与反具体情境污染规程 (Lint Domain-Neutrality Standard - LINT_DOMAIN_NEUTRALITY_STANDARD & SCENARIO_ANCHORING_LINT_BLOCKED)**：
       所有沉淀的 AST 规则与 Lint 门禁，必须 100% 作用于代码语法树节点与通用状态机理论；严禁在 Lint 规则中硬编码业务专有名词或特定场景文本，违者触发 `SCENARIO_ANCHORING_LINT_BLOCKED` 阻断；
 
+34. **通用工装结晶与反一次性修补公理 (Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom - Poteto 杠杆工具与结构化沉淀铁律)**：
+    - **上游原生准则深度咬合**：深度结合 `principle-build-the-lever`（构建可复核杠杆工具）与 `principle-encode-lessons-in-structure`（将教训编码进结构工具与门禁，文字指令只是表象）；
+    - **从一次性脚本到通用工装的结晶跃迁机制 (GENERIC_TOOLING_CRYSTALLIZATION)**：一次性临时脚本（Scratch）仅限 Phase 1 (Explore) 探索期作为探针使用；施工期与交付期严禁交付带硬编码参数的临时脚本，必须结晶跃迁为参数化通用工具（Generic Tooling），归入 `scripts/tools/` 或标准 CLI；
+    - **反一次性脚本与修补陷阱硬门禁 (ONE_OFF_SCRIPT_TRAP_BLOCKED)**：交付仅包含写死特例参数的一次性脚本、未提供参数化抽象者，系统直接触发 `ONE_OFF_SCRIPT_TRAP_BLOCKED` 阻断并原子回滚；
+    - **通用工装三大物理契约**：① 参数化输入契约（`PARAMETERIZED_INVARIANCE`）；② 确定性机器接口契约（`DETERMINISTIC_LEVER_CONTRACT`，标准退出码 0/1）；③ 自验证黄金契约（自带单元测试或变异测试）；
+    - **双轮驱动赋能目标 (DUAL_PURPOSE_LEVERAGE)**：结晶产出的通用工具必须明确赋能目标：① 主动免疫规避（接入 CI/Pre-commit/Lint 根绝复发）；② 缩短排障耗时（参数化 CLI 将排障修复压缩至秒级）。
+
 ---
 
 ## 📚 附录与配套参考

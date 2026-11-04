@@ -363,3 +363,26 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 5. Lint 抽象纯粹性与反具体情境污染规程 (`LINT_DOMAIN_NEUTRALITY_STANDARD` & `SCENARIO_ANCHORING_LINT_BLOCKED`)
 - **纯粹语法树分析铁律**：所有固化沉淀的 Lint / AST 规则必须 100% 作用于代码语法树结构（AST Syntax Nodes）、通用类型守卫与程序逻辑状态机；
 - **业务情境硬编码零容忍**：严禁在 Lint 规则或静态分析脚本中硬编码任何具体业务领域的专有名词、业务实体名称或特定情境格式文本；违者直接判定为 `SCENARIO_ANCHORING_LINT_BLOCKED` 并一票否决。
+
+
+## 🔨 十五、 通用工装结晶与反一次性修补审计规程 (Generic Tooling Crystallization & Anti-One-Off-Scripting Protocol)
+
+> **最高铁律**：严禁 Agent 针对具体问题交付写死路径或特例参数的一次性脚本（违者直接判定为 `ONE_OFF_SCRIPT_TRAP_BLOCKED` 阻断）。所有解法必须遵循 Lauren Tan (@poteto) 的 `principle-build-the-lever` 与 `principle-encode-lessons-in-structure`，结晶跃迁为可重复运行、参数化的通用工装。
+
+### 1. 探索与施工严格生命周期二分 (`GENERIC_TOOLING_CRYSTALLIZATION`)
+- **探索期沙盒受限许可**：一次性临时脚本（Scratch Scripts）仅被允许在 Phase 1（Explore）探索思考期作为只读探针使用；
+- **施工与交付期硬结晶**：因果链路一旦查清，施工期（Phase 3）必须将解法结晶跃迁为常驻、可复用、参数化的通用工装（Generic Tooling），统一归入 `scripts/tools/` 或标准 CLI，严禁将一次性修补脚本作为交付方案。
+
+### 2. 反一次性脚本陷阱审查门禁 (`ONE_OFF_SCRIPT_TRAP_BLOCKED`)
+- **静态硬编码特例值审查**：审计官必须穿透审查提交的工装代码；凡存在硬编码具体业务文件路径、业务特例常量、缺乏 CLI 参数化接口的，直接判定为 `ONE_OFF_SCRIPT_TRAP_BLOCKED` 阻断并原子回滚；
+- **边际成本递减核验**：审查该工装是否能够一键复用于后续同类问题，拒绝一次性止痛药方案。
+
+### 3. 通用工装三大物理契约审计
+- **参数化输入契约 (`PARAMETERIZED_INVARIANCE`)**：必须支持通过命令行参数（Flags）、配置文件或标准输入（STDIN）传入目标，严禁任何 Magic Strings；
+- **确定性机器接口契约 (`DETERMINISTIC_LEVER_CONTRACT`)**：必须提供确定性 UNIX 退出码（0 为合格，非 0 为异常），输出结构化诊断日志，支持幂等重跑（Rerun for free）；
+- **自验证黄金契约**：通用工装自身必须配备单元测试或变异测试，证明其自验证能力。
+
+### 4. 双轮驱动赋能目标审计 (`DUAL_PURPOSE_LEVERAGE`)
+- **赋能目标自证**：交付报告中必须显式自证该工装的工程赋能目标（满足至少其一）：
+  ① **主动免疫规避 (Prevention Gate)**：挂载至自动化流水线（CI/Pre-commit/Lint），对同类违规代码实施秒级 Exit 1 拦截；
+  ② **缩短排障耗时 (Acceleration Lever)**：提供标准化参数化 CLI/API，将后续同类故障的排障与修复耗时压缩至秒级一键命令执行。

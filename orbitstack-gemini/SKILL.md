@@ -307,6 +307,24 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - All codified AST / Lint rules and verification scripts must operate strictly on AST syntax node patterns (e.g. CallExpression, ImportDeclaration, ThrowStatement) and language-level state machine constraints (`LINT_DOMAIN_NEUTRALITY_STANDARD`).
    - Hardcoding domain business entity keywords, proprietary codes, or scenario-specific format heuristics inside lint rules triggers immediate `SCENARIO_ANCHORING_LINT_BLOCKED` rejection.
 
+## Generic tooling crystallization & anti-one-off-scripting gate
+
+1. Upstream Poteto Principles Coupling:
+   - Deeply couples with Lauren Tan (@poteto)'s `principle-build-the-lever` (build rerunnable tools that do or prove the work) and `principle-encode-lessons-in-structure` (encode lessons into structural tools and checks rather than repeated text).
+2. Lifecycle Separation & Tooling Crystallization:
+   - Scratch scripts are strictly confined to Phase 1 (Explore) read-only diagnostic probing.
+   - When moving to implementation and delivery, the solution must undergo `GENERIC_TOOLING_CRYSTALLIZATION`, elevating disposable scripts into reusable, parameterized tools within `scripts/tools/` or CLI packages.
+3. Anti-One-Off-Scripting Blocker:
+   - Submitting disposable, single-use scripts that hardcode paths or scenario-specific constants triggers immediate `ONE_OFF_SCRIPT_TRAP_BLOCKED` failure and atomic rollback.
+4. The Three Physical Tooling Contracts:
+   - ① Parameterized Invariance (`PARAMETERIZED_INVARIANCE`): Zero magic strings or hardcoded paths; inputs must be supplied via CLI flags, configs, or streams;
+   - ② Deterministic Machine Lever (`DETERMINISTIC_LEVER_CONTRACT`): Returns standard UNIX exit codes (0 for pass, non-zero for explicit failure) with structured diagnostics; safely rerunnable and idempotent;
+   - ③ Self-Testing Sanity: Accompanied by unit tests or mutation checks proving it allows valid inputs and blocks defect patterns.
+5. Dual-Purpose Leverage:
+   - Crystallized tools must explicitly serve at least one statutory objective under `DUAL_PURPOSE_LEVERAGE`:
+     ① Prevention Gate (CI/Pre-commit/Lint gate halting future occurrences with Exit 1);
+     ② Acceleration Lever (parameterized CLI reducing future diagnosis and resolution from hours to seconds).
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

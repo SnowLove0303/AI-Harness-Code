@@ -841,6 +841,78 @@ test('gemini adapter enforces mandatory lint escalation engine and anti-superfic
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
+test('gemini adapter enforces generic tooling crystallization and anti-one-off-scripting gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Generic tooling crystallization & anti-one-off-scripting gate/, 'must document generic tooling gate');
+  assert.match(content, /GENERIC_TOOLING_CRYSTALLIZATION/, 'must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(content, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(content, /DUAL_PURPOSE_LEVERAGE/, 'must specify DUAL_PURPOSE_LEVERAGE');
+  assert.match(content, /PARAMETERIZED_INVARIANCE/, 'must specify PARAMETERIZED_INVARIANCE');
+  assert.match(content, /DETERMINISTIC_LEVER_CONTRACT/, 'must specify DETERMINISTIC_LEVER_CONTRACT');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /通用工装结晶与反一次性修补公理/, 'GEMINI.md must contain Axiom 37');
+  assert.match(globalRules, /Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /GENERIC_TOOLING_CRYSTALLIZATION/, 'GEMINI.md must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(globalRules, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'GEMINI.md must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(globalRules, /DUAL_PURPOSE_LEVERAGE/, 'GEMINI.md must specify DUAL_PURPOSE_LEVERAGE');
+  assert.match(globalRules, /PARAMETERIZED_INVARIANCE/, 'GEMINI.md must specify PARAMETERIZED_INVARIANCE');
+  assert.match(globalRules, /DETERMINISTIC_LEVER_CONTRACT/, 'GEMINI.md must specify DETERMINISTIC_LEVER_CONTRACT');
+  assert.match(globalRules, /principle-build-the-lever/, 'GEMINI.md must bind principle-build-the-lever');
+  assert.match(globalRules, /principle-encode-lessons-in-structure/, 'GEMINI.md must bind principle-encode-lessons-in-structure');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /通用工装结晶与反一次性修补公理/, 'pstack skill must contain Axiom 39');
+  assert.match(pstackSkill, /Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom/, 'pstack skill must contain English title');
+  assert.match(pstackSkill, /GENERIC_TOOLING_CRYSTALLIZATION/, 'pstack skill must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(pstackSkill, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'pstack skill must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(pstackSkill, /DUAL_PURPOSE_LEVERAGE/, 'pstack skill must specify DUAL_PURPOSE_LEVERAGE');
+  assert.match(pstackSkill, /principle-build-the-lever/, 'pstack skill must bind principle-build-the-lever');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /通用工装结晶与反一次性修补公理/, 'ai-harness skill must contain Invariant 34');
+  assert.match(aiHarnessSkill, /Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom/, 'ai-harness skill must contain English title');
+  assert.match(aiHarnessSkill, /GENERIC_TOOLING_CRYSTALLIZATION/, 'ai-harness skill must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(aiHarnessSkill, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'ai-harness skill must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(aiHarnessSkill, /DUAL_PURPOSE_LEVERAGE/, 'ai-harness skill must specify DUAL_PURPOSE_LEVERAGE');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /25\. Generic Tooling Crystallization & Anti-One-Off-Scripting Engine/, 'docs must document Section 25');
+  assert.match(docsContent, /GENERIC_TOOLING_CRYSTALLIZATION/, 'docs must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(docsContent, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'docs must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(docsContent, /DUAL_PURPOSE_LEVERAGE/, 'docs must specify DUAL_PURPOSE_LEVERAGE');
+  assert.match(docsContent, /PARAMETERIZED_INVARIANCE/, 'docs must specify PARAMETERIZED_INVARIANCE');
+  assert.match(docsContent, /DETERMINISTIC_LEVER_CONTRACT/, 'docs must specify DETERMINISTIC_LEVER_CONTRACT');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十五、 通用工装结晶与反一次性修补审计规程/, 'audit spec must document Section 15');
+  assert.match(specContent, /Generic Tooling Crystallization & Anti-One-Off-Scripting Protocol/, 'audit spec must contain Section 15 English title');
+  assert.match(specContent, /GENERIC_TOOLING_CRYSTALLIZATION/, 'audit spec must specify GENERIC_TOOLING_CRYSTALLIZATION');
+  assert.match(specContent, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'audit spec must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+  assert.match(specContent, /DUAL_PURPOSE_LEVERAGE/, 'audit spec must specify DUAL_PURPOSE_LEVERAGE');
+  assert.match(specContent, /PARAMETERIZED_INVARIANCE/, 'audit spec must specify PARAMETERIZED_INVARIANCE');
+  assert.match(specContent, /DETERMINISTIC_LEVER_CONTRACT/, 'audit spec must specify DETERMINISTIC_LEVER_CONTRACT');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十五、 通用工装结晶与反一次性修补审计规程/, 'ref audit spec must document Section 15');
+  assert.match(refSpecContent, /ONE_OFF_SCRIPT_TRAP_BLOCKED/, 'ref audit spec must specify ONE_OFF_SCRIPT_TRAP_BLOCKED');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
