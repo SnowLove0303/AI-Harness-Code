@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "ps-openspec",
-  "version": "2.0.0",
-  "releaseVersion": "V2.00",
+  "version": "2.1.0",
+  "releaseVersion": "V2.10",
   "displayName": "Ps-openspec",
-  "description": "Ps-openspec V2.00。以固定版本且未修改的 PStack 为主要执行体系，以 OpenSpec 作为唯一持久任务记录，提供 Codex 安装适配、无损 Agent handoff 和历史行为 Graph 审计。",
+  "description": "Ps-openspec V2.10。以固定版本且未修改的 PStack 为主要执行体系，以 OpenSpec 作为唯一持久任务记录，集成双门禁、全自动 Lint 沉淀门禁与通用工装结晶跃迁，提供 Codex/Gemini 安装适配、无损 Agent handoff 和历史行为 Graph 审计。",
   "author": "SnowLove0303",
   "license": "MIT",
   "homepage": "https://github.com/SnowLove0303/AI-Harness-Code",

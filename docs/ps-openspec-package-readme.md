@@ -1,4 +1,4 @@
-# Ps-openspec V2.00
+# Ps-openspec V2.10
 
 This release combines the complete pinned PStack source with OpenSpec as the only durable task record. The Codex adapter preserves PStack routing and host limits, with two OrbitStack extensions for lossless Agent handoff and protection of accepted behavior.
 

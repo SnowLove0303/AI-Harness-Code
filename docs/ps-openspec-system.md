@@ -1,6 +1,6 @@
 # Ps-openspec system reference
 
-This document describes the Ps-openspec V2.00 system in this repository. It explains which component owns each decision, how a task moves from a user request to verified work, how the two OrbitStack extensions fill gaps in PStack, and how the system is installed and packaged.
+This document describes the Ps-openspec V2.10 system in this repository. It explains which component owns each decision, how a task moves from a user request to verified work, how the two OrbitStack extensions fill gaps in PStack, and how the system is installed and packaged.
 
 ## System boundary
 
@@ -37,7 +37,7 @@ The user request and safety boundaries control the work. PStack is the primary e
 | Code relationship map | Code Review Graph | Identifies changed symbols, callers, and flows; remains derived data |
 | Historical behavior protection | OpenSpec invariant metadata and regression checks | States what must remain true and how a future change may replace it |
 
-The pinned PStack mirror contains 573 files, 58 skill directories, 24 principle skills, 23 playbooks, 2 agent definitions, and 12 automation files at the V2.00 pin. The lock file records the upstream repository, commit `c742dd61706fbacc1b95f1a20b7b988cf096ce6c`, plugin version `0.15.36`, and file count. The source mirror is immutable for this release. A PStack update requires changing the pin and verifying the new mirror as one deliberate release change.
+The pinned PStack mirror contains 573 files, 58 skill directories, 24 principle skills, 23 playbooks, 2 agent definitions, and 12 automation files at the V2.10 pin. The lock file records the upstream repository, commit `c742dd61706fbacc1b95f1a20b7b988cf096ce6c`, plugin version `0.15.36`, and file count. The source mirror is immutable for this release. A PStack update requires changing the pin and verifying the new mirror as one deliberate release change.
 
 `Agent.md` is the packaged primary instruction file. `AGENTS.md` is the compatible alias. If a target project already has `AGENTS.md`, the installer preserves its contents and appends one adapter pointer. If the file is absent, the installer copies the packaged baseline and adds the pointer. The installer does not replace project architecture facts, commands, or domain pipelines.
 
@@ -149,7 +149,7 @@ The installer resolves and verifies the target OpenSpec root before it writes th
 
 An existing PStack tree or adapter that exactly matches the release is left in place. A mismatched PStack tree or adapter requires `-Force` in PowerShell or `--force` in Bash. Both installers move that tree to a timestamped backup before replacing it. PowerShell also checks hashes for the route registry and helper files. It backs up a differing file only with `-Force`. Bash replaces those files on each run. Neither installer installs Node.js or OpenSpec, or edits shell startup files.
 
-The V2.00 package builder is `scripts/package-bundle.ps1`. It stages the pinned PStack tree, adapter, installers, route documentation, OpenSpec specifications, and archived changes. It excludes the active OpenSpec change. A versioned ZIP must not already exist when the package is built.
+The V2.10 package builder is `scripts/package-bundle.ps1`. It stages the pinned PStack tree, adapter, installers, route documentation, OpenSpec specifications, and archived changes. It excludes the active OpenSpec change. A versioned ZIP must not already exist when the package is built.
 
 ## Verification and evidence limits
 
@@ -166,7 +166,7 @@ The route evaluation document reports 23 of 23 route-classification matches. It 
 
 ## Separate package in this repository
 
-`packages/ai-harness/` is a separate patch-layer package in this repository. It is not the PStack route registry, the OpenSpec task store, or a dependency of the Ps-openspec installer. The Ps-openspec V2.00 package builder does not include that package.
+`packages/ai-harness/` is a separate patch-layer package in this repository. It is not the PStack route registry, the OpenSpec task store, or a dependency of the Ps-openspec installer. The Ps-openspec V2.10 package builder does not include that package.
 
 ## Source index
 
@@ -174,4 +174,4 @@ The route evaluation document reports 23 of 23 route-classification matches. It 
 - [Structural route audit](pstack-openspec-routing-audit.md) records what the audit checks and what its results prove.
 - [Route evaluation](pstack-openspec-route-evaluation.md) records the route-classification method and its limits.
 - [OpenSpec routing specification](../openspec/specs/orbitstack-pstack-routing/spec.md) defines the routing, handoff, and invariant contracts.
-- [OpenSpec distribution specification](../openspec/specs/ps-openspec-distribution/spec.md) defines the V2.00 package and branch requirements.
+- [OpenSpec distribution specification](../openspec/specs/ps-openspec-distribution/spec.md) defines the V2.10 package and branch requirements.

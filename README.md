@@ -49,7 +49,7 @@ Linux / macOS:
 在根目录下运行：
 ```powershell
 pnpm pack:bundle
-# 生成输出：`dist/Ps-openspec-V2.00.zip`
+# 生成输出：`dist/Ps-openspec-V2.10.zip`
 ```
 
 ### 手动初始化 Codex OpenSpec
