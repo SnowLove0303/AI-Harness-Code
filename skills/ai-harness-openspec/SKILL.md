@@ -51,7 +51,7 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
    - 详细展开每一项诉求的场景范围、功能断言与验收标准，呈报《需求全量追溯备忘录（详细版，严禁精简）》并停等用户明确确认回复（【门禁 1】）；
 2. **查验基座宪法与承重墙**：
    - 检查并读取项目中的 `AGENTS.md`、`ARCHITECTURE.md`，运行 `npx ai-harness status` 确认契约状态；
-   - **① 专属引擎唯一路由**：排查是否有专用工作台或受控流水线（如 MSDS 任务必须走 MSDS Studio API / `run_pipeline.mjs`，严禁私写脚本直改 DOCX/PDF 文档）；
+   - **① 专属引擎唯一路由**：排查是否有专用工作台或受控流水线（凡有专用引擎管线必须严格走官方受控 API / 流水线脚本，严禁私写一次性脚本直改受控目标资产）；
    - **② 源码级防篡改封印**：扫描代码中是否存在 `// @ANTIGRAVITY_INVARIANT_LOCK` 封印注解（享有最高只读豁免，严禁擅动）；
    - **③ 既有逻辑不可否定公理**：既有业务逻辑为法定事实，严禁凭大模型通用洁癖自以为是地删除或重构；
 3. **分流至合法阶段**：
@@ -400,6 +400,8 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
       严禁输出廉价口水化道歉文本（如“非常抱歉”、“我深刻反省”、“下次一定注意”），违者直接触发 `SUPERFICIAL_APOLOGY_REJECTED`；第一响应必须严格且仅输出三项工程事实：① 失效模式形式化定义 (Failure Mode Specification)；② 机器杠杆落地方案 (Proposed Machine Lever)；③ 反向证伪杀伤凭证 (Falsification Proof，实测 Exit 1)；
     - **沉淀规则永久水库与蜂群冷启动继承机制 (Permanent Lint Reservoir & Swarm Cold-Start Invariance - PERMANENT_LINT_RESERVOIR)**：
       沉淀规则严禁作为单次会话的临时脚本，必须持久化固化至项目常态化门禁水库（`scripts/lint/`、`package.json` 或 pre-commit hooks）；子智能体在冷启动（Step 1）必须全量继承执行。
+    - **Lint 抽象纯粹性与反具体情境污染规程 (Lint Domain-Neutrality Standard - LINT_DOMAIN_NEUTRALITY_STANDARD & SCENARIO_ANCHORING_LINT_BLOCKED)**：
+      所有沉淀的 AST 规则与 Lint 门禁，必须 100% 作用于代码语法树节点与通用状态机理论；严禁在 Lint 规则中硬编码业务专有名词或特定场景文本，违者触发 `SCENARIO_ANCHORING_LINT_BLOCKED` 阻断；
 
 ---
 

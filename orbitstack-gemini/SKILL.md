@@ -303,6 +303,9 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 4. Permanent Lint Reservoir & Swarm Cold-Start Invariance:
    - Codified lint rules must be committed to permanent project lint reservoirs (`scripts/lint/`, `package.json`, or Git pre-commit hooks) under `PERMANENT_LINT_RESERVOIR`.
    - All newly initialized subagents across the swarm during cold-start environment perception (Step 1) must inherit and run the full reservoir suite, ensuring zero organizational amnesia.
+5. Lint Domain-Neutrality Standard:
+   - All codified AST / Lint rules and verification scripts must operate strictly on AST syntax node patterns (e.g. CallExpression, ImportDeclaration, ThrowStatement) and language-level state machine constraints (`LINT_DOMAIN_NEUTRALITY_STANDARD`).
+   - Hardcoding domain business entity keywords, proprietary codes, or scenario-specific format heuristics inside lint rules triggers immediate `SCENARIO_ANCHORING_LINT_BLOCKED` rejection.
 
 ## OpenSpec lifecycle
 

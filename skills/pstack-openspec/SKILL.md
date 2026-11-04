@@ -450,6 +450,8 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
       严禁输出口水化道歉文本（如“非常抱歉”、“我深刻反省”、“下次一定注意”），触发者直接被系统判定为 `SUPERFICIAL_APOLOGY_REJECTED`；第一响应必须严格且仅输出三项工程事实：① 失效模式形式化定义 (Failure Mode Specification)；② 机器杠杆落地方案 (Proposed Machine Lever)；③ 反向证伪杀伤凭证 (Falsification Proof，实测 Exit 1)；
     - **沉淀规则永久水库与蜂群冷启动继承机制 (Permanent Lint Reservoir & Swarm Cold-Start Invariance - PERMANENT_LINT_RESERVOIR)**：
       沉淀规则严禁作为临时脚本，必须持久化沉淀至项目常态化门禁水库（`scripts/lint/`、`package.json` 或 pre-commit hooks）；所有子智能体在冷启动（Step 1）必须全量继承执行。
+    - **Lint 抽象纯粹性与反具体情境污染规程 (Lint Domain-Neutrality Standard - LINT_DOMAIN_NEUTRALITY_STANDARD & SCENARIO_ANCHORING_LINT_BLOCKED)**：
+      所有沉淀的 AST 规则与 Lint 门禁，必须 100% 作用于代码语法树节点与通用状态机理论；严禁在 Lint 规则中硬编码业务专有名词或特定场景文本，违者触发 `SCENARIO_ANCHORING_LINT_BLOCKED` 阻断；
 
 ---
 

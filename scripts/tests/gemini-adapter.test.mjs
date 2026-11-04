@@ -577,74 +577,6 @@ test('gemini adapter enforces autonomous spec and audit gate co-evolution gate',
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
-test('gemini adapter enforces mandatory lint escalation engine and anti-superficial-apology gate', () => {
-  const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Mandatory lint-escalation engine & anti-superficial-apology gate/, 'must document mandatory lint gate');
-  assert.match(content, /CORRECTION_INCIDENT_ESCALATION/, 'must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(content, /NO_LINT_DELIVERY_BLOCKED/, 'must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(content, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-  assert.match(content, /SUPERFICIAL_APOLOGY_REJECTED/, 'must specify SUPERFICIAL_APOLOGY_REJECTED');
-  assert.match(content, /PERMANENT_LINT_RESERVOIR/, 'must specify PERMANENT_LINT_RESERVOIR');
-
-  // Verify GEMINI.md global rules
-  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
-  assert.match(globalRules, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'GEMINI.md must contain Axiom 36');
-  assert.match(globalRules, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'GEMINI.md must contain English title');
-  assert.match(globalRules, /CORRECTION_INCIDENT_ESCALATION/, 'GEMINI.md must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(globalRules, /NO_LINT_DELIVERY_BLOCKED/, 'GEMINI.md must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(globalRules, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'GEMINI.md must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-  assert.match(globalRules, /SUPERFICIAL_APOLOGY_REJECTED/, 'GEMINI.md must specify SUPERFICIAL_APOLOGY_REJECTED');
-  assert.match(globalRules, /PERMANENT_LINT_RESERVOIR/, 'GEMINI.md must specify PERMANENT_LINT_RESERVOIR');
-
-  // Verify skills/pstack-openspec/SKILL.md
-  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
-  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
-  assert.match(pstackSkill, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'pstack skill must contain Axiom 38');
-  assert.match(pstackSkill, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'pstack skill must contain English title');
-  assert.match(pstackSkill, /CORRECTION_INCIDENT_ESCALATION/, 'pstack skill must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(pstackSkill, /NO_LINT_DELIVERY_BLOCKED/, 'pstack skill must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(pstackSkill, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'pstack skill must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-
-  // Verify skills/ai-harness-openspec/SKILL.md
-  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
-  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
-  assert.match(aiHarnessSkill, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'ai-harness skill must contain Invariant 33');
-  assert.match(aiHarnessSkill, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'ai-harness skill must contain English title');
-  assert.match(aiHarnessSkill, /CORRECTION_INCIDENT_ESCALATION/, 'ai-harness skill must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(aiHarnessSkill, /NO_LINT_DELIVERY_BLOCKED/, 'ai-harness skill must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(aiHarnessSkill, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'ai-harness skill must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-
-  // Verify docs/ps-openspec-gemini-system.md
-  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
-  const docsContent = readFileSync(docsPath, 'utf8');
-  assert.match(docsContent, /24\. Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Engine/, 'docs must document Section 24');
-  assert.match(docsContent, /CORRECTION_INCIDENT_ESCALATION/, 'docs must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(docsContent, /NO_LINT_DELIVERY_BLOCKED/, 'docs must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(docsContent, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'docs must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-  assert.match(docsContent, /SUPERFICIAL_APOLOGY_REJECTED/, 'docs must specify SUPERFICIAL_APOLOGY_REJECTED');
-  assert.match(docsContent, /PERMANENT_LINT_RESERVOIR/, 'docs must specify PERMANENT_LINT_RESERVOIR');
-
-  // Verify docs/agent-cognitive-audit-specification.md
-  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
-  const specContent = readFileSync(specPath, 'utf8');
-  assert.match(specContent, /十四、 人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉规程/, 'audit spec must document Section 14');
-  assert.match(specContent, /Mandatory Lint-Escalation & Anti-Superficial-Apology Protocol/, 'audit spec must contain Section 14 English title');
-  assert.match(specContent, /CORRECTION_INCIDENT_ESCALATION/, 'audit spec must specify CORRECTION_INCIDENT_ESCALATION');
-  assert.match(specContent, /NO_LINT_DELIVERY_BLOCKED/, 'audit spec must specify NO_LINT_DELIVERY_BLOCKED');
-  assert.match(specContent, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'audit spec must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
-  assert.match(specContent, /SUPERFICIAL_APOLOGY_REJECTED/, 'audit spec must specify SUPERFICIAL_APOLOGY_REJECTED');
-  assert.match(specContent, /PERMANENT_LINT_RESERVOIR/, 'audit spec must specify PERMANENT_LINT_RESERVOIR');
-
-  // Verify references copy
-  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
-  const refSpecContent = readFileSync(refSpecPath, 'utf8');
-  assert.match(refSpecContent, /十四、 人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉规程/, 'ref audit spec must document Section 14');
-
-  // Verify domain neutrality
-  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
-});
-
 test('gemini adapter enforces spec supremacy, invariant immunity, and constitutional amendment exclusivity gate', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /Spec supremacy, invariant immunity & constitutional amendment exclusivity gate/, 'must document spec supremacy and constitutional gate');
@@ -815,6 +747,95 @@ test('gemini adapter enforces pure universal engineering abstraction and anti-sc
   const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
   const refSpecContent = readFileSync(refSpecPath, 'utf8');
   assert.match(refSpecContent, /十三、 纯粹通用工程抽象、反具体情境锚定与六大通用元病理审计规程/, 'ref audit spec must document Section 13');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
+test('gemini adapter enforces mandatory lint escalation engine and anti-superficial-apology gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Mandatory lint-escalation engine & anti-superficial-apology gate/, 'must document mandatory lint gate');
+  assert.match(content, /CORRECTION_INCIDENT_ESCALATION/, 'must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(content, /NO_LINT_DELIVERY_BLOCKED/, 'must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(content, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(content, /SUPERFICIAL_APOLOGY_REJECTED/, 'must specify SUPERFICIAL_APOLOGY_REJECTED');
+  assert.match(content, /PERMANENT_LINT_RESERVOIR/, 'must specify PERMANENT_LINT_RESERVOIR');
+  assert.match(content, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(content, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'GEMINI.md must contain Axiom 36');
+  assert.match(globalRules, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /CORRECTION_INCIDENT_ESCALATION/, 'GEMINI.md must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(globalRules, /NO_LINT_DELIVERY_BLOCKED/, 'GEMINI.md must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(globalRules, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'GEMINI.md must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(globalRules, /SUPERFICIAL_APOLOGY_REJECTED/, 'GEMINI.md must specify SUPERFICIAL_APOLOGY_REJECTED');
+  assert.match(globalRules, /PERMANENT_LINT_RESERVOIR/, 'GEMINI.md must specify PERMANENT_LINT_RESERVOIR');
+  assert.match(globalRules, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'GEMINI.md must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(globalRules, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'GEMINI.md must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'pstack skill must contain Axiom 38');
+  assert.match(pstackSkill, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'pstack skill must contain English title');
+  assert.match(pstackSkill, /CORRECTION_INCIDENT_ESCALATION/, 'pstack skill must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(pstackSkill, /NO_LINT_DELIVERY_BLOCKED/, 'pstack skill must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(pstackSkill, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'pstack skill must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(pstackSkill, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'pstack skill must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(pstackSkill, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'pstack skill must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'ai-harness skill must contain Invariant 33');
+  assert.match(aiHarnessSkill, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'ai-harness skill must contain English title');
+  assert.match(aiHarnessSkill, /CORRECTION_INCIDENT_ESCALATION/, 'ai-harness skill must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(aiHarnessSkill, /NO_LINT_DELIVERY_BLOCKED/, 'ai-harness skill must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(aiHarnessSkill, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'ai-harness skill must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(aiHarnessSkill, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'ai-harness skill must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(aiHarnessSkill, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'ai-harness skill must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /24\. Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Engine/, 'docs must document Section 24');
+  assert.match(docsContent, /CORRECTION_INCIDENT_ESCALATION/, 'docs must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(docsContent, /NO_LINT_DELIVERY_BLOCKED/, 'docs must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(docsContent, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'docs must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(docsContent, /SUPERFICIAL_APOLOGY_REJECTED/, 'docs must specify SUPERFICIAL_APOLOGY_REJECTED');
+  assert.match(docsContent, /PERMANENT_LINT_RESERVOIR/, 'docs must specify PERMANENT_LINT_RESERVOIR');
+  assert.match(docsContent, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'docs must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(docsContent, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'docs must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十四、 人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉规程/, 'audit spec must document Section 14');
+  assert.match(specContent, /Mandatory Lint-Escalation & Anti-Superficial-Apology Protocol/, 'audit spec must contain Section 14 English title');
+  assert.match(specContent, /CORRECTION_INCIDENT_ESCALATION/, 'audit spec must specify CORRECTION_INCIDENT_ESCALATION');
+  assert.match(specContent, /NO_LINT_DELIVERY_BLOCKED/, 'audit spec must specify NO_LINT_DELIVERY_BLOCKED');
+  assert.match(specContent, /ANTI_SUPERFICIAL_APOLOGY_PROTOCOL/, 'audit spec must specify ANTI_SUPERFICIAL_APOLOGY_PROTOCOL');
+  assert.match(specContent, /SUPERFICIAL_APOLOGY_REJECTED/, 'audit spec must specify SUPERFICIAL_APOLOGY_REJECTED');
+  assert.match(specContent, /PERMANENT_LINT_RESERVOIR/, 'audit spec must specify PERMANENT_LINT_RESERVOIR');
+  assert.match(specContent, /LINT_DOMAIN_NEUTRALITY_STANDARD/, 'audit spec must specify LINT_DOMAIN_NEUTRALITY_STANDARD');
+  assert.match(specContent, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'audit spec must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十四、 人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉规程/, 'ref audit spec must document Section 14');
+  assert.match(refSpecContent, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'ref audit spec must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+
+  // Verify active governance scenario neutrality (Zero MSDS / SDS / TDS in active governance)
+  assert.doesNotMatch(globalRules, /\b(MSDS|SDS|TDS)\b/i, 'GEMINI.md must have 0 MSDS/SDS/TDS mentions');
+  assert.doesNotMatch(aiHarnessSkill, /\b(MSDS|SDS|TDS)\b/i, 'ai-harness skill must have 0 MSDS/SDS/TDS mentions');
+  const defenseRef = readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/defense-escalation-protocol.md'), 'utf8');
+  assert.doesNotMatch(defenseRef, /\b(MSDS|SDS|TDS)\b/i, 'defense protocol must have 0 MSDS/SDS/TDS mentions');
+  const recursiveRef = readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/recursive-self-improvement-protocol.md'), 'utf8');
+  assert.doesNotMatch(recursiveRef, /\b(MSDS|SDS|TDS)\b/i, 'recursive protocol must have 0 MSDS/SDS/TDS mentions');
 
   // Verify domain neutrality
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');

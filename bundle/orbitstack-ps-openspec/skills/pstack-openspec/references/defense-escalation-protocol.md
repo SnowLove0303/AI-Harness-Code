@@ -85,10 +85,10 @@ Lauren Tan 体系的自迭代核心是：**将人的纠错精力，物理转化�
 
 ```markdown
 ### [Self-Escalation] 缺陷固化沉淀记录
-- **问题现象**：Agent 试图绕过 MSDS 引擎直改 DOCX 破坏网格几何。
-- **根因分析**：模型偏向使用通用 python-docx 库走捷径，未读取架构约束。
+- **问题现象**：Agent 试图绕过专用受控领域引擎直改底层持久化文件破坏内部拓扑几何。
+- **根因分析**：模型偏向直接调用通用第三方低级解析库走捷径，未遵循架构隔离约束。
 - **下沉层级**：Layer 1 架构隔离 + Layer 2 Lint 禁令。
 - **加固资产**：
-  1. 在 `msds-studio` 增加源码级防篡改封印 `@ANTIGRAVITY_INVARIANT_LOCK`；
-  2. 增加 ESLint 规则禁止在业务层直接引用 `docx` / `pdf-lib` 底层包。
+  1. 在底层受控引擎关键装配逻辑增加源码级防篡改封印 `@ANTIGRAVITY_INVARIANT_LOCK`；
+  2. 增加 AST / Lint 规则禁止在业务层直接导入未封装的底层低级解析包。
 ```

@@ -398,6 +398,9 @@ To eliminate superficial apologetic loops and force AI agents to mechanistically
 4. **Permanent Lint Reservoir & Swarm Cold-Start Invariance**:
    - Solidified lint gates are preserved in permanent project repositories (`scripts/lint/`, `package.json`, or Git pre-commit hooks) under `PERMANENT_LINT_RESERVOIR`.
    - All newly spawned subagents across the swarm during cold-start environment perception (Step 1) must inherit and run the full reservoir suite, ensuring organizational memory persists across agents and threads.
+5. **Lint Domain-Neutrality Standard & Anti-Scenario Coupling Gate**:
+   - All machine lint gates, AST inspectors, and compiler rules produced under this engine must enforce pure software engineering and AST syntax constraints (`LINT_DOMAIN_NEUTRALITY_STANDARD`).
+   - Lint rules hardcoding business domain keywords, specific product codes, or ad-hoc format strings are strictly rejected with `SCENARIO_ANCHORING_LINT_BLOCKED` to preserve global neutrality.
 
 ## Installation and layout for Gemini
 

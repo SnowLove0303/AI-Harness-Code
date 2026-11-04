@@ -359,3 +359,7 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 4. 沉淀规则永久水库与蜂群冷启动继承机制 (`PERMANENT_LINT_RESERVOIR`)
 - **持久化门禁水库**：因纠偏沉淀的 Lint / AST 规则严禁作为单次临时脚本，必须持久化固化至项目常态化门禁水库（如 `scripts/lint/`、`package.json` 的 lint/test 命令或 Git 预提交钩子），纳入常态化自动化流水线。
 - **蜂群冷启动绝对继承**：所有新派发的子智能体（Subagents）在冷启动底座感知（Step 1）阶段必须自动加载并执行当前水库中的全量规则，确保历史纠偏经验跨智能体、跨会话绝对零遗忘。
+
+### 5. Lint 抽象纯粹性与反具体情境污染规程 (`LINT_DOMAIN_NEUTRALITY_STANDARD` & `SCENARIO_ANCHORING_LINT_BLOCKED`)
+- **纯粹语法树分析铁律**：所有固化沉淀的 Lint / AST 规则必须 100% 作用于代码语法树结构（AST Syntax Nodes）、通用类型守卫与程序逻辑状态机；
+- **业务情境硬编码零容忍**：严禁在 Lint 规则或静态分析脚本中硬编码任何具体业务领域的专有名词、业务实体名称或特定情境格式文本；违者直接判定为 `SCENARIO_ANCHORING_LINT_BLOCKED` 并一票否决。
