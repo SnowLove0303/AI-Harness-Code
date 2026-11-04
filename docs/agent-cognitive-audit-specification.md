@@ -254,3 +254,42 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 4. 后续审计永久基准继承 (Permanent Baseline Inheritance)
 - **代码库永久资产晋升**：所有增补的规范条款与审计门禁，经用户 VS Code Diff 终审通过并提交后，立即晋升为该项目代码库的永久法定基准。
 - **全集群子智能体无损继承**：后续任意会话、任意派发的子智能体（Subagent）在执行涉及该模块的任务时，必须自动读取并执行该门禁，彻底杜绝同类问题在未来的隐蔽复发。
+
+## 🛡️ 十一、 既有法定规范保护、反审计倒置与宪法修改排他权规程 (Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Standard)
+
+> **最高铁律**：规范高于审计（Spec Supremacy）与反特洛伊木马式改宪（Anti-Trojan Amendments）。审计智能体是规范的执行者与见证者，绝无立宪权或释宪权；合规免审保护锁（`SPEC_IMMUNITY_PROTECTED`）一票保护法定代码，违者直接判定为审计倒置欺诈（`SPEC_INVERSION_FRAUD`）；宪法修改神圣排他权严禁在任何具体业务情境中夹带暗改宪法，违者触发 `CONSTITUTIONAL_TAMPERING_DETECTED` 致命熔断。
+
+### 1. 规范高于审计与合规免审保护锁 (Spec Supremacy & SPEC_IMMUNITY_PROTECTED)
+- **权能物理绝对隔离**：立宪权（人类与 Living Spec）与审计权（Auditor Agent）物理隔离。审计 Agent 无论拥有多高的 Reasoning 算力，其职责严格限定于以规范为标尺进行证伪，绝无资格否定规范本身。
+- **免审保护触发条件**：凡被审计代码具备以下任意要素之一，系统自动激活 `SPEC_IMMUNITY_PROTECTED`：
+  ① 显式遵循项目既有 Living Spec 条款或官方业务契约；
+  ② 处于 `// @ANTIGRAVITY_INVARIANT_LOCK_START` 与 `// @ANTIGRAVITY_INVARIANT_LOCK_END` 封印块内；
+  ③ 拥有对应的基准验收测试或单测见证。
+- **审计倒置欺诈熔断 (`SPEC_INVERSION_FRAUD`)**：任何审计智能体若以“过度设计”、“写法冗余”、“不符合通用洁癖”、“代码异味”或预训练常识为由，将符合 Living Spec 的法定实现归类为缺陷或要求重构，直接判定为 `SPEC_INVERSION_FRAUD` 审计倒置欺诈，审计报告作废并驳回。
+
+### 2. 碧昂丝反向变异守卫测试 (Beyoncé Pinning & Mutation Tests)
+- **黄金锁定测试 (Pinning Tests)**：针对历史上经人类确认的特殊业务逻辑、异常处理或非标实现，必须建立碧昂丝单测（Google Beyoncé Rule: "If you liked it, then you shoulda put a test on it"）。
+- **反向变异杀伤力验证**：该测试必须具备反向变异杀伤力——若审计器或开发者将该特殊代码重构为常规的“简洁/通用写法”，测试必须真实红灯（Exit 1）；变异后若依然退出码 0，直接判定为弱断言伪通（`TRIVIAL_ASSERTION_FRAUD`），严禁准出。
+
+### 3. 切斯特顿之栅因果标签与反思证明 (Chesterton's Fences & Why-Not-Just Labels)
+- **三要素因果标签**：历史遗留的防御性代码与定制逻辑，必须在规范或源码中承载切斯特顿标签：
+  ① `[Living Spec]`: 法定契约编号；
+  ② `[Why-Not-Just]`: 反向否定反思（证明为何直观通用写法会导致边界崩溃）；
+  ③ `[Origin Commit / PR]`: 历史引入上下文。
+- **拆除证明责任倒置**：审计智能体若主张简化或移除某段防御性代码，举证责任完全倒置——必须先行出具客观证明，证实“该栅栏当初设立的根因是什么，以及当前宿主环境为何已经使得该根因彻底不复存在”；未能完成因果自证前，严禁提议拆除。
+
+### 4. 规范单调演进棘轮与正式废止议定书 (Monotonic Ratchet & Supersession RFC)
+- **单调不可变性**：规范与门禁只能单调递增演进，禁止静默删除或降级。
+- **废止四步议定书**：废止或更新历史规范，必须遵循【正式废止议定书（Supersession RFC）】：
+  ① 建立独立废止立案（Deprecation RFC），标注旧规范 ID、废止根因与替代新规；
+  ② 显式重构对应的碧昂丝变异测试与基准断言；
+  ③ 呈报独立废止提案至人类终审；
+  ④ 取得人类在 VS Code 原生 Diff 中的明文签署。严禁在日常业务开发或局部重构中隐式废除旧规。
+
+### 5. 宪法修改神圣排他权与反夹带隐匿修改规程 (Constitutional Exclusivity & Anti-Subversive-Trojan Standard)
+- **宪法神圣不可侵犯**：`GEMINI.md`、`GLOBAL-RULES.md`、`AGENTS.md` 及系统顶级宪法级不变量享有最高司法豁免权，未经人类明确许可绝对严禁修改。
+- **零容忍特洛伊木马**：严禁在执行具体任务（如功能开发、BUG 修复、格式排版、性能优化等）的情境中夹带、隐匿或顺手修改宪法文件。
+- **合法修改唯一双通道**：宪法修改严格限定为两条合法路径：
+  ① 人类主动发出修改宪法的明确明文指令；
+  ② Agent 发现系统性重大冲突，作为最高级独立【宪法修订提案（Constitutional Amendment RFC）】单独呈报，等待人类专项专属授权。
+- **篡改致命拦截 (`CONSTITUTIONAL_TAMPERING_DETECTED`)**：凡在具体任务上下文或未经专属授权检测到触碰宪法文件的行为，系统底层安全守卫直接抛出 `CONSTITUTIONAL_TAMPERING_DETECTED` 致命熔断，立即执行原子回滚并上报人类。

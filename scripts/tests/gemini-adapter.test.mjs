@@ -577,6 +577,64 @@ test('gemini adapter enforces autonomous spec and audit gate co-evolution gate',
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
+test('gemini adapter enforces spec supremacy, invariant immunity, and constitutional amendment exclusivity gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Spec supremacy, invariant immunity & constitutional amendment exclusivity gate/, 'must document spec supremacy and constitutional gate');
+  assert.match(content, /SPEC_IMMUNITY_PROTECTED/, 'must specify SPEC_IMMUNITY_PROTECTED');
+  assert.match(content, /SPEC_INVERSION_FRAUD/, 'must specify SPEC_INVERSION_FRAUD');
+  assert.match(content, /Beyoncé Pinning & Mutation Tests/, 'must specify Beyoncé pinning tests');
+  assert.match(content, /Chesterton's Fences & Why-Not-Just Labels/, 'must specify Chesterton fences');
+  assert.match(content, /Monotonic Ratchet & Supersession RFC/, 'must specify Supersession RFC');
+  assert.match(content, /Constitutional Amendment Exclusivity & Anti-Subversive-Trojan Axiom/, 'must specify Constitutional Amendment Exclusivity');
+  assert.match(content, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /既有法定规范保护、反审计倒置与宪法修改神圣排他权公理/, 'GEMINI.md must contain Axiom 33');
+  assert.match(globalRules, /Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /SPEC_IMMUNITY_PROTECTED/, 'GEMINI.md must specify SPEC_IMMUNITY_PROTECTED');
+  assert.match(globalRules, /SPEC_INVERSION_FRAUD/, 'GEMINI.md must specify SPEC_INVERSION_FRAUD');
+  assert.match(globalRules, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'GEMINI.md must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /既有法定规范保护、反审计倒置与宪法修改神圣排他权公理/, 'pstack skill must contain Axiom 35');
+  assert.match(pstackSkill, /Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Axiom/, 'pstack skill must contain English title');
+  assert.match(pstackSkill, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'pstack skill must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /既有法定规范保护、反审计倒置与宪法修改神圣排他权公理/, 'ai-harness skill must contain Invariant 30');
+  assert.match(aiHarnessSkill, /Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Axiom/, 'ai-harness skill must contain English title');
+  assert.match(aiHarnessSkill, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'ai-harness skill must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /Spec Supremacy & Constitutional Inviolability Engine/, 'docs must document Section 21');
+  assert.match(docsContent, /SPEC_IMMUNITY_PROTECTED/, 'docs must specify SPEC_IMMUNITY_PROTECTED');
+  assert.match(docsContent, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'docs must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十一、 既有法定规范保护、反审计倒置与宪法修改排他权规程/, 'audit spec must document Section 11');
+  assert.match(specContent, /Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Standard/, 'audit spec must contain Section 11 English title');
+  assert.match(specContent, /SPEC_INVERSION_FRAUD/, 'audit spec must specify SPEC_INVERSION_FRAUD');
+  assert.match(specContent, /CONSTITUTIONAL_TAMPERING_DETECTED/, 'audit spec must specify CONSTITUTIONAL_TAMPERING_DETECTED');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十一、 既有法定规范保护、反审计倒置与宪法修改排他权规程/, 'ref audit spec must document Section 11');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

@@ -348,6 +348,18 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **后续审计永久基准继承 (Permanent Baseline Inheritance)**：
       所有增补的规范条款与审计门禁，经用户 VS Code Diff 终审通过并提交后，立即晋升为该项目代码库的永久法定基准；后续任意会话、任意派发的子智能体（Subagent）在执行涉及该模块的任务时，必须自动读取并执行该门禁，彻底杜绝同类问题在未来的隐蔽复发。
 
+30. **既有法定规范保护、反审计倒置与宪法修改神圣排他权公理 (Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Axiom - 规范高于审计与反特洛伊木马式改宪铁律)**：
+    - **规范高于审计与合规免审保护锁公理 (Spec Supremacy & SPEC_IMMUNITY_PROTECTED)**：
+      审计权能与立宪权在物理上绝对剥离。测试套件、静态检查工具与智能体认知审计官（Auditor）仅为规范的执行者与见证者，绝无立宪权或释宪权；凡代码实现显式遵循既有项目规范（Living Specification）、处于 `@ANTIGRAVITY_INVARIANT_LOCK` 源码级封印块内、或通过了与基准规范绑定的验收测试，系统立即激活合规免审保护锁（`SPEC_IMMUNITY_PROTECTED`）；任何审计智能体绝对严禁以“过度设计”、“写法冗余”、“不符合通用洁癖”或“主观代码异味”为由将法定规范实现归类为缺陷或错误；违者直接触发审计倒置欺诈熔断（`SPEC_INVERSION_FRAUD`），任务执行锁（`[-] lock`）一票否决；
+    - **碧昂丝反向变异守卫测试公理 (Beyoncé Pinning & Mutation Tests - 篡改必红灯原则)**：
+      针对系统历史明确规定为正确的业务逻辑、特殊校验与防御分支，必须建立碧昂丝黄金锁定测试（Google Beyoncé Rule: "If you liked it, then you shoulda put a test on it"）；该类测试必须具备反向变异杀伤力（Negative Mutation Kill Rate）：若将该特殊实现篡改为审计器推崇的“通用写法”、“简洁写法”或“直观套路”，自动化测试必须真实抛出 Exit Code 1（硬阻断红灯）；若变异后依然输出 Exit Code 0，直接判定为弱断言伪通并拒绝验收；
+    - **切斯特顿之栅因果标签公理 (Chesterton's Fences & Why-Not-Just Labels)**：
+      任何非通用、防御性或定制化的既有正确代码，在源码或规范中必须承载切斯特顿三要素标签：① `[Living Spec]` 法定契约编号；② `[Why-Not-Just]` 反向否定反思（阐明为何不能采用看似直观的常规写法，揭示常规写法在极端边界下的致命失效）；③ `[Origin Commit / PR]` 历史演进因果溯源；审计智能体在未能证明“该栅栏当初为何建立且当前环境已使其彻底失去存在价值”之前，绝对禁止提议拆除或简化该栅栏；
+    - **规范单调演进棘轮与正式废止议定书 (Monotonic Ratchet & Supersession RFC)**：
+      系统规范与质量门禁只允许单调递增演进，严禁静默回退；若确需调整或废止既有历史规范，必须遵循【正式废止议定书（Supersession RFC）】：显式标注已废止、废止根因、替代新规条目，并取得人类在 VS Code 原生 Diff 终审中的明文签署批准；严禁在任何日常业务开发或局部修补任务中隐式废除或绕过旧规；
+    - **宪法修改神圣排他权与反夹带隐匿修改公理 (Constitutional Amendment Exclusivity & Anti-Subversive-Trojan Axiom - 严禁特洛伊木马式改宪)**：
+      未经人类明确许可，绝对严禁修改宪法（包括 `GEMINI.md`、`GLOBAL-RULES.md`、`AGENTS.md` 及系统顶级宪法级不变量）；绝对禁止将可能对宪法产生的修改、弱化、豁免或变相调整隐匿在某个具体的任务情境中（特洛伊木马式夹带修改零容忍）；所有宪法修改必须严格二选一：① 由人类主动明确提出；② 由 Agent 作为独立最高级【宪法修订提案（Constitutional Amendment RFC）】单独提出并停等人类专属授权；凡在具体业务任务中检测到任何未经人类专属明文批准而触碰宪法文件的行为，系统底层直接触发 `CONSTITUTIONAL_TAMPERING_DETECTED` 致命熔断并原子回滚！
+
 ---
 
 ## 📚 附录与配套参考

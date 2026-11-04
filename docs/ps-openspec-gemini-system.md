@@ -320,6 +320,27 @@ To eradicate patch-and-forget remediation and ensure human-guided corrections pe
 4. **Permanent Baseline Elevation & Universal Swarm Inheritance**:
    - Once reviewed and merged via VS Code Diff review, augmented specifications and deterministic gates become non-negotiable baselines for all subsequent sessions and subagent swarms. Every future agent or subagent touching related modules automatically inherits and executes these gates, preventing regression cycles.
 
+### 21. Spec Supremacy & Constitutional Inviolability Engine
+
+To safeguard historical project specifications against invalid auditor regression and preserve the absolute exclusivity of constitutional changes:
+
+1. **Spec Supremacy & Protected Invariant Immunity (`SPEC_IMMUNITY_PROTECTED`)**:
+   - Verification suites, static linters, and auditor subagents are bound to execute and verify existing specifications; they hold zero constitutional or re-interpretation authority.
+   - Code that explicitly fulfills Living Specifications, is encapsulated by `@ANTIGRAVITY_INVARIANT_LOCK`, or is backed by passing baseline acceptance tests automatically acquires `SPEC_IMMUNITY_PROTECTED`.
+   - Auditors are strictly barred from reclassifying compliant code as defects or code smells under subjective pretexts ("redundancy", "over-engineering", "clean code style"). Violations immediately trigger `SPEC_INVERSION_FRAUD` and hard rejection.
+2. **Beyoncé Pinning & Mutation Tests**:
+   - Historical, non-standard, or specialized defensive code must be locked with high-fidelity pinning tests following Google's Beyoncé Rule ("If you liked it, then you shoulda put a test on it").
+   - Pinning tests require negative mutation kill efficacy: modifying specialized code to generic or standard conventions must trigger a deterministic non-zero exit code (Exit 1). Exit 0 under mutation is rejected as trivial assertion fraud.
+3. **Chesterton's Fences & Why-Not-Just Provenance**:
+   - Defensive implementations must be tagged with Chesterton's three-element labels: ① Living Spec contract ID; ② `[Why-Not-Just]` counter-reflection explaining why naive implementations fail; ③ `[Origin Commit / PR]` provenance trace.
+   - Auditors cannot propose removing or refactoring fences without establishing why the original constraint was created and verifying that environment conditions have completely obviated it.
+4. **Monotonic Ratchet & Supersession RFC Protocol**:
+   - Governance criteria and specifications evolve monotonically. Modifying or deprecating existing rules requires a formal Supersession RFC with explicit replacement clauses, root-cause evidence, and human signoff. Routine engineering tasks cannot implicitly supersede rules.
+5. **Constitutional Amendment Exclusivity & Anti-Subversive-Trojan Axiom**:
+   - Constitutional files (`GEMINI.md`, `GLOBAL-RULES.md`, `AGENTS.md`, and supreme system invariants) are strictly inviolable without explicit human instruction.
+   - Camouflaging constitutional adjustments, rule relaxations, or silent overrides inside task-specific changes is strictly prohibited (Zero Trojan amendments).
+   - Any constitutional amendment must be explicitly initiated by the user or submitted as an independent top-level Constitutional Amendment RFC. Unauthorized changes trigger `CONSTITUTIONAL_TAMPERING_DETECTED` and immediate atomic rollback.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:
