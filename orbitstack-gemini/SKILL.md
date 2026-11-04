@@ -266,6 +266,24 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Zero-Variance Invariance Across Scenarios:
    - Universal enhancements for one scenario must yield zero unintended behavioral or layout variance on all other scenarios ($\text{Var}_{\text{cross}} \equiv 0$). Any cross-scenario drift blocks signoff.
 
+## Pure universal engineering abstraction & anti-scenario-anchoring gate
+
+1. Absolute Anti-Scenario-Anchoring Mandatory Standard:
+   - All system rules, architectural designs, and review gates must be 100% formulated in pure computer science, software engineering, and statechart abstraction.
+   - Agents must never anchor onto task-specific business domains, ad-hoc file types, or proprietary formats. Introducing scenario-specific heuristics into universal governance triggers `SCENARIO_ANCHORING_POLLUTION`.
+2. Clean-Slate Zero-State Invariant:
+   - Any state container, buffer, or execution context entering a processing pipeline must be deterministically proven to be reset to initial zero state. Processing uncleaned containers triggers `UNCLEANED_CONTAINER_POLLUTION`.
+3. Anti-Coarse-Grained-Exemption:
+   - Protection and exemptions must follow the principle of least privilege. Bypassing validation or cleaning across entire containers, modules, or sections to protect sub-elements is strictly prohibited (`BROAD_SCOPE_EXEMPTION_BLOCKED`). Exemptions must strictly target discrete leaf identifiers.
+4. Closed Bipolar Invariant Assertion:
+   - Unilateral positive assertions are rejected as asymmetric bias (`ASYMMETRIC_POSITIVE_BIAS`). Verifications must establish a bipolar closure: positive assertion of required ground truth + negative exclusion of unauthorized residuals and dirty states.
+5. Zero-Synthetic-Fallback:
+   - Data absence must remain an explicit empty state (`Option::None`, `null`, `Empty`) or fail fast. Synthesizing plausible-sounding fallback prose or hardcoding domain assumptions inside generic pipelines triggers `PHANTOM_DEFAULT_FRAUD`.
+6. Container Compactness & Homomorphic Invariance:
+   - Containers must undergo active compaction/pruning to remove unallocated slots. Projections of identical source data across multiple targets must have zero structural topological variance ($\text{Var}_{\text{topology}} \equiv 0$).
+7. Popperian Adversarial Verification:
+   - The verifier must be physically separated from the implementer, with the sole objective of falsifying assumptions. Exit code 0 alone cannot authorize completion. Mutating output data must deterministically break test suites; failing to catch mutations triggers `META_AUDIT_FAILURE`.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

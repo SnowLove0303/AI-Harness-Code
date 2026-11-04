@@ -402,3 +402,18 @@
       涉及通用底层程序的修改，验证套件必须包含至少 2~3 组正交、极端或互斥的跨情境合法标本矩阵；严格执行跨场景零方差定律：为当前情境优化的底层通用程序，在输入其他正交场景数据时，既有输出必须具有严格的零退化与确定性（$\text{Var}_{\text{cross}} \equiv 0$）；若改动引发了非相关情境的微小行为漂移，判定为全局通用性破坏，单任务专注锁（`[-] lock`）坚决锁死；
     - **通用性泛化数学自证硬门禁 (Generality Invariant Self-Proof & TASK_SPECIFIC_POLLUTION_BLOCKED)**：
       在动工前呈报双清单时，拟变文件必须显式标注其因果角色；凡改动涉及通用机制核心，开发者与 Agent 必须出具“通用性泛化自证”：证明新增加的原语与参数具备通用正交性，适用于同构的所有输入拓扑；未能完成通用性自证或存在单任务特化污染嫌疑的，直接触发 `TASK_SPECIFIC_POLLUTION_BLOCKED` 阻断。
+35. **纯粹通用工程抽象与反具体情境锚定强制性总纲公理 (Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Axiom - 全系统禁止以局部情境污染全局总纲铁律)**：
+    - **反具体情境锚定最高宪制总纲 (Absolute Anti-Scenario-Anchoring Mandatory Standard)**：
+      全系统的所有规则、公理、架构设计与审查门禁，**必须（SHALL）100% 采用纯粹的计算机科学（Computer Science）、软件工程（Software Engineering）、状态机理论（Statechart Theory）与形式化验证抽象**；严禁 Agent 在理解规则、规划方案、编写代码、制定测试与审计门禁时锚定任何单一具体项目的业务情境（如特定文件格式、特定业务领域、特定文档排版）；凡在全系统总纲、通用技能或核心框架中夹带具体情境名词或以偏概全的特例逻辑，静态检查与审计流程直接触发 `SCENARIO_ANCHORING_POLLUTION` 致命阻断并一票否决；
+    - **状态容器白板态与纯净初始化公理 (Clean-Slate Zero-State Invariant & UNCLEANED_CONTAINER_POLLUTION)**：
+      任何具备状态承载能力的对象池、缓冲区（Buffer）、执行上下文（Context）与数据装配容器，在进入映射与组装流水线前，必须在状态机层通过洁净重置（Clean-Slate Wipe）证明其处于确定性初始零态（Zero State）；严禁未完成白板清零的容器句柄流入下游数据组装逻辑；违者底层管线直接抛出 `UNCLEANED_CONTAINER_POLLUTION` 致命异常；
+    - **最小特权作用域保护与粗粒度豁免禁令 (Anti-Coarse-Grained-Exemption & BROAD_SCOPE_EXEMPTION_BLOCKED)**：
+      豁免与保护必须严格遵循最小特权原则（Principle of Least Privilege）。严禁在模块、章节、容器等粗粒度范围使用免清空、免检查、免测试的宏观豁免（Blanket Exemption）；任何合法保护必须精准下沉到离散的叶子标识符（Atomic Leaf Identifier）；非保护范围强制执行全量管线检验，违者直接触发 `BROAD_SCOPE_EXEMPTION_BLOCKED` 阻断；
+    - **全封闭双极状态断言闭包公理 (Closed Bipolar Invariant Assertion & ASYMMETRIC_POSITIVE_BIAS)**：
+      单向正向存在性断言直接判定为非对称单向偏误欺诈（`ASYMMETRIC_POSITIVE_BIAS`）并一票否决；关键状态验证必须构建双极闭包断言：【正向契约（断言预期核心事实精确存在）+ 逆向排他门禁（断言已知非法状态、未初始化脏残留严格为 0）】；
+    - **零防御性数据拟造公理 (Zero-Synthetic-Fallback & PHANTOM_DEFAULT_FRAUD)**：
+      缺失必须显式建模，严禁合成无源事实。数据缺失必须在类型和状态层保持显式空态（`Option::None` / `null` / `Empty`）或立即快速失败（Fail-Fast）；通用转换管线中绝对禁止硬编码合成任何具有业务倾向性的假数据，违者直接触发 `PHANTOM_DEFAULT_FRAUD` 致命熔断；
+    - **容器致密紧凑性与同构投影零方差公理 (Container Compactness & Homomorphic Invariance)**：
+      数据集合填充完毕后必须包含紧凑化收敛（Pruning/Compacting），物理消除未消费的悬空槽位；由同一源数据生成的多种衍生投影，其核心拓扑几何方差必须严格为 0（$\text{Var}_{\text{topology}} \equiv 0$），杜绝同构断裂；
+    - **验证平面裁执隔离与波普尔敌手证伪公理 (Popperian Adversarial Verification & META_AUDIT_FAILURE)**：
+      审查者在物理上必须与施工者隔离，以推翻实现为唯一合法目的；严禁将 Exit Code 0 作为合格凭据，终审必须强制出具变异反例杀伤见证；若向产出物注入变异脏数据而测试套件依然返回 0，直接判定该测试套件自身失效（`META_AUDIT_FAILURE`），任务执行锁（`[-] lock`）坚决锁死。

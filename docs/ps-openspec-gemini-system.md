@@ -356,6 +356,26 @@ To prevent single-scenario fixes from polluting shared codebases and preserve ge
    - Universal engine adjustments must be verified against an orthogonal matrix of at least 2 to 3 distinct scenario fixtures.
    - Verifies cross-scenario zero-variance ($\text{Var}_{\text{cross}} \equiv 0$): improvements for one scenario must yield zero unintended behavioral or layout regressions across all other scenarios.
 
+### 23. Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Engine
+
+To establish absolute domain neutrality and prevent AI agents from contaminating universal governance with task-specific scenarios:
+
+1. **Absolute Anti-Scenario-Anchoring Mandatory Standard**:
+   - All system rules, architectural invariants, and verification gates must be 100% formulated in pure computer science, software engineering, statechart theory, and formal verification terms.
+   - Anchoring rules onto specific business domains, arbitrary file types, or ad-hoc formats triggers immediate `SCENARIO_ANCHORING_POLLUTION` blockage.
+2. **Clean-Slate Zero-State Invariant**:
+   - Reusable state containers, buffers, and assembly contexts entering a pipeline must be deterministically proven to be in an initial zero state. Processing uncleaned containers triggers `UNCLEANED_CONTAINER_POLLUTION`.
+3. **Anti-Coarse-Grained-Exemption**:
+   - Bypassing validations across entire containers or modules to protect sub-elements violates least privilege and triggers `BROAD_SCOPE_EXEMPTION_BLOCKED`. Protection scopes must strictly target discrete leaf identifiers.
+4. **Closed Bipolar Invariant Assertion**:
+   - Verifications must form a bipolar closure: positive assertion of required ground truth + negative exclusion of unauthorized residuals. Unilateral existence checks trigger `ASYMMETRIC_POSITIVE_BIAS`.
+5. **Zero-Synthetic-Fallback**:
+   - Missing data must remain an explicit empty state (`Option::None`, `null`, `Empty`) or fail fast. Synthesizing plausible-sounding fallback prose or hardcoding domain assumptions inside generic pipelines triggers `PHANTOM_DEFAULT_FRAUD`.
+6. **Container Compactness & Homomorphic Invariance**:
+   - Collections must undergo active compaction/pruning to remove unallocated slots. Projections of identical source data across multiple targets must have zero structural topological variance ($\text{Var}_{\text{topology}} \equiv 0$).
+7. **Popperian Adversarial Verification**:
+   - Verifiers must be physically separated from implementers, operating with the sole objective of falsification. Mutating output data must deterministically break test suites; failing to catch mutations triggers `META_AUDIT_FAILURE`.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

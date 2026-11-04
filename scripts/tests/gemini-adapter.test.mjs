@@ -693,6 +693,65 @@ test('gemini adapter enforces universal program purity, anti-scenario-pollution,
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
+test('gemini adapter enforces pure universal engineering abstraction and anti-scenario-anchoring gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Pure universal engineering abstraction & anti-scenario-anchoring gate/, 'must document universal abstraction gate');
+  assert.match(content, /SCENARIO_ANCHORING_POLLUTION/, 'must specify SCENARIO_ANCHORING_POLLUTION');
+  assert.match(content, /UNCLEANED_CONTAINER_POLLUTION/, 'must specify UNCLEANED_CONTAINER_POLLUTION');
+  assert.match(content, /BROAD_SCOPE_EXEMPTION_BLOCKED/, 'must specify BROAD_SCOPE_EXEMPTION_BLOCKED');
+  assert.match(content, /ASYMMETRIC_POSITIVE_BIAS/, 'must specify ASYMMETRIC_POSITIVE_BIAS');
+  assert.match(content, /PHANTOM_DEFAULT_FRAUD/, 'must specify PHANTOM_DEFAULT_FRAUD');
+  assert.match(content, /META_AUDIT_FAILURE/, 'must specify META_AUDIT_FAILURE');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /纯粹通用工程抽象与反具体情境锚定强制性总纲公理/, 'GEMINI.md must contain Axiom 35');
+  assert.match(globalRules, /Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /SCENARIO_ANCHORING_POLLUTION/, 'GEMINI.md must specify SCENARIO_ANCHORING_POLLUTION');
+  assert.match(globalRules, /UNCLEANED_CONTAINER_POLLUTION/, 'GEMINI.md must specify UNCLEANED_CONTAINER_POLLUTION');
+  assert.match(globalRules, /BROAD_SCOPE_EXEMPTION_BLOCKED/, 'GEMINI.md must specify BROAD_SCOPE_EXEMPTION_BLOCKED');
+  assert.match(globalRules, /ASYMMETRIC_POSITIVE_BIAS/, 'GEMINI.md must specify ASYMMETRIC_POSITIVE_BIAS');
+  assert.match(globalRules, /PHANTOM_DEFAULT_FRAUD/, 'GEMINI.md must specify PHANTOM_DEFAULT_FRAUD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /纯粹通用工程抽象与反具体情境锚定强制性总纲公理/, 'pstack skill must contain Axiom 37');
+  assert.match(pstackSkill, /Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Axiom/, 'pstack skill must contain English title');
+  assert.match(pstackSkill, /SCENARIO_ANCHORING_POLLUTION/, 'pstack skill must specify SCENARIO_ANCHORING_POLLUTION');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /纯粹通用工程抽象与反具体情境锚定强制性总纲公理/, 'ai-harness skill must contain Invariant 32');
+  assert.match(aiHarnessSkill, /Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Axiom/, 'ai-harness skill must contain English title');
+  assert.match(aiHarnessSkill, /SCENARIO_ANCHORING_POLLUTION/, 'ai-harness skill must specify SCENARIO_ANCHORING_POLLUTION');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Engine/, 'docs must document Section 23');
+  assert.match(docsContent, /SCENARIO_ANCHORING_POLLUTION/, 'docs must specify SCENARIO_ANCHORING_POLLUTION');
+  assert.match(docsContent, /UNCLEANED_CONTAINER_POLLUTION/, 'docs must specify UNCLEANED_CONTAINER_POLLUTION');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十三、 纯粹通用工程抽象、反具体情境锚定与六大通用元病理审计规程/, 'audit spec must document Section 13');
+  assert.match(specContent, /Pure Universal Engineering Abstraction Standard/, 'audit spec must contain Section 13 English title');
+  assert.match(specContent, /ASYMMETRIC_POSITIVE_BIAS/, 'audit spec must specify ASYMMETRIC_POSITIVE_BIAS');
+  assert.match(specContent, /META_AUDIT_FAILURE/, 'audit spec must specify META_AUDIT_FAILURE');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十三、 纯粹通用工程抽象、反具体情境锚定与六大通用元病理审计规程/, 'ref audit spec must document Section 13');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
