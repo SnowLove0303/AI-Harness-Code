@@ -251,6 +251,21 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - Stealthily embedding constitutional modifications or waivers inside routine task contexts is strictly prohibited (Zero tolerance for Trojan amendments).
    - Constitutional changes must be explicitly initiated by the human user, or submitted as a standalone top-level Constitutional Amendment RFC. Unauthorized modification attempts trigger `CONSTITUTIONAL_TAMPERING_DETECTED` and atomic rollback.
 
+## Universal program purity, anti-scenario-pollution & cross-scenario invariance gate
+
+1. Three-Tier Physical Isolation Architecture:
+   - Universal Mechanism Engine: Pure mathematical/geometric transformations, abstract AST rewrites, and stateless statechart operations. Zero scenario-specific vocabulary, zero caller-specific naming, and zero hardcoded exception branches.
+   - Anti-Corruption Ingestion Layer: Normalizes, cleanses, and converts scenario inputs into standard domain structures at the ingestion boundary. Prevents ad-hoc raw inputs from penetrating into core engines.
+   - Declarative Policies & Strategy Injection: Scenario variations (e.g. alignment styles, column policies, rule flags) must be injected as pure declarative configurations or strategy plugins. When introducing a new scenario, core engine code changes must strictly be 0.
+2. SCENARIO_POLLUTION_BLOCKED:
+   - The core pipeline and shared primitives are statically protected against caller leakage. Introducing hardcoded branches matching specific cases (`if (case === 'X')`), specific file names, or magic constants immediately triggers `SCENARIO_POLLUTION_BLOCKED` and hard rejection.
+3. SINK_POLLUTION_BLOCKED:
+   - Masking upstream defects inside consumer sinks or downstream formatting nodes with defensive branches is strictly barred. Faulty states must be back-traced to the root producer or normalized at the anti-corruption boundary. Violations trigger `SINK_POLLUTION_BLOCKED`.
+4. Cross-Scenario Orthogonal Regression Matrix:
+   - Modifications to universal primitives require validation across an orthogonal matrix of at least 2 to 3 distinct scenario fixtures (e.g. minimal, oversized, deeply nested).
+5. Zero-Variance Invariance Across Scenarios:
+   - Universal enhancements for one scenario must yield zero unintended behavioral or layout variance on all other scenarios ($\text{Var}_{\text{cross}} \equiv 0$). Any cross-scenario drift blocks signoff.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

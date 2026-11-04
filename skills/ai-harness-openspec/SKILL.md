@@ -360,6 +360,21 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **宪法修改神圣排他权与反夹带隐匿修改公理 (Constitutional Amendment Exclusivity & Anti-Subversive-Trojan Axiom - 严禁特洛伊木马式改宪)**：
       未经人类明确许可，绝对严禁修改宪法（包括 `GEMINI.md`、`GLOBAL-RULES.md`、`AGENTS.md` 及系统顶级宪法级不变量）；绝对禁止将可能对宪法产生的修改、弱化、豁免或变相调整隐匿在某个具体的任务情境中（特洛伊木马式夹带修改零容忍）；所有宪法修改必须严格二选一：① 由人类主动明确提出；② 由 Agent 作为独立最高级【宪法修订提案（Constitutional Amendment RFC）】单独提出并停等人类专属授权；凡在具体业务任务中检测到任何未经人类专属明文批准而触碰宪法文件的行为，系统底层直接触发 `CONSTITUTIONAL_TAMPERING_DETECTED` 致命熔断并原子回滚！
 
+31. **通用程序纯粹性、反情境污染与三层机制策略隔离公理 (Universal Program Purity, Anti-Scenario-Pollution & Three-Tier Mechanism-Policy Isolation Axiom - 严禁聚焦单一情境改核心通用代码)**：
+    - **三层机制策略物理隔离架构公理 (Three-Tier Physical Isolation Architecture)**：
+      全系统代码库必须严格划分为物理隔离的三层拓扑结构：
+      ① **纯粹通用机制引擎层 (Universal Mechanism Engine)**：仅接受正规化通用参数，处理纯数学几何变换、通用 AST 解析与无状态状态机跃迁；引擎核心严禁出现任何特定业务情境词汇、特定调用端命名或非参数化硬编码；
+      ② **边界规范防腐层 (Anti-Corruption Ingestion Layer - ACL)**：在输入网关与任务摄入边界，全面消化异构情境的数据杂质与格式脏噪，100% 归一化清洗映射为通用引擎认可的标准数据拓扑，严禁让脏输入直接穿透底层；
+      ③ **外部声明式策略配置 (Declarative Policies & Extension Injection)**：情境特异性（如特定场景的选项、度量权重、规则开闭）必须以纯声明式策略配置或遵循通用接口的策略插件形式注入；面对新情境，100% 仅新增或调整外部策略配置，通用机制引擎代码改动量严格为 0；
+    - **单情境代码污染机器硬阻断门禁 (`SCENARIO_POLLUTION_BLOCKED`)**：
+      通用底层程序与核心管线受到源码级 AST 监视与静态分析硬阻断。任何在底层通用核心中出现针对特定案例的特判插桩（如 `if (case === 'X')`、`if (filename.includes('xxx'))`）、特定常量分支或硬编码特例，静态分析与认知审计立即判定为严重抽象泄漏，抛出 `SCENARIO_POLLUTION_BLOCKED` 致命熔断并一票否决；
+    - **反局部掩盖与修 Sink 熔断门禁 (`SINK_POLLUTION_BLOCKED`)**：
+      严禁在消费端（Consumer Sink）、渲染末端或底层宿主函数中对非法状态做局部防御性兜底掩盖；异常与脏状态必须严格逆向穿透溯源至数据源头生产者（Producer）或边界防腐层；凡发现试图在通用 Sink 局部通过增加特判分支掩盖错误的，系统底层直接触发 `SINK_POLLUTION_BLOCKED` 致命熔断并强制回退；
+    - **跨情境正交回归矩阵与跨场景零方差定律 (Cross-Scenario Orthogonal Regression Matrix & Zero-Variance Invariance)**：
+      涉及通用底层程序的修改，验证套件必须包含至少 2~3 组正交、极端或互斥的跨情境合法标本矩阵；严格执行跨场景零方差定律：为当前情境优化的底层通用程序，在输入其他正交场景数据时，既有输出必须具有严格的零退化与确定性（$\text{Var}_{\text{cross}} \equiv 0$）；若改动引发了非相关情境的微小行为漂移，判定为全局通用性破坏，单任务专注锁（`[-] lock`）坚决锁死；
+    - **通用性泛化数学自证硬门禁 (Generality Invariant Self-Proof & TASK_SPECIFIC_POLLUTION_BLOCKED)**：
+      在动工前呈报双清单时，拟变文件必须显式标注其因果角色；凡改动涉及通用机制核心，开发者与 Agent 必须出具“通用性泛化自证”：证明新增加的原语与参数具备通用正交性，适用于同构的所有输入拓扑；未能完成通用性自证或存在单任务特化污染嫌疑的，直接触发 `TASK_SPECIFIC_POLLUTION_BLOCKED` 阻断。
+
 ---
 
 ## 📚 附录与配套参考

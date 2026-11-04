@@ -341,6 +341,21 @@ To safeguard historical project specifications against invalid auditor regressio
    - Camouflaging constitutional adjustments, rule relaxations, or silent overrides inside task-specific changes is strictly prohibited (Zero Trojan amendments).
    - Any constitutional amendment must be explicitly initiated by the user or submitted as an independent top-level Constitutional Amendment RFC. Unauthorized changes trigger `CONSTITUTIONAL_TAMPERING_DETECTED` and immediate atomic rollback.
 
+### 22. Universal Program Purity & Cross-Scenario Invariance Engine
+
+To prevent single-scenario fixes from polluting shared codebases and preserve generic architecture integrity:
+
+1. **Three-Tier Physical Isolation Architecture**:
+   - **Universal Mechanism Engine**: Executes pure mathematical, geometric, and AST transformations. Strictly contains zero scenario-specific vocabulary, zero caller naming, and zero ad-hoc special-case branching.
+   - **Anti-Corruption Ingestion Layer (ACL)**: Cleanses and converts raw scenario inputs into canonical domain structures at the ingestion boundary, isolating idiosyncratic noise from internal pipelines.
+   - **Declarative Policies & Extension Injection**: Scenario variations are modeled as declarative policies, schemas, or strategy plugins. Adding or modifying scenarios incurs zero modifications to core engine code.
+2. **Deterministic Anti-Pollution Gates**:
+   - `SCENARIO_POLLUTION_BLOCKED`: Introducing hardcoded case branching (`if (case === 'X')`), specific file names, or non-parameterized magic values into shared engines triggers immediate AST blockage.
+   - `SINK_POLLUTION_BLOCKED`: Masking upstream errors inside downstream consumer sinks or output formatting nodes is prohibited; anomalies must be back-traced to origin producers or normalized at the ACL boundary.
+3. **Cross-Scenario Orthogonal Regression Matrix & Zero-Variance Invariance**:
+   - Universal engine adjustments must be verified against an orthogonal matrix of at least 2 to 3 distinct scenario fixtures.
+   - Verifies cross-scenario zero-variance ($\text{Var}_{\text{cross}} \equiv 0$): improvements for one scenario must yield zero unintended behavioral or layout regressions across all other scenarios.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

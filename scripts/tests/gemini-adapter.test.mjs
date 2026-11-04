@@ -635,6 +635,64 @@ test('gemini adapter enforces spec supremacy, invariant immunity, and constituti
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
 });
 
+test('gemini adapter enforces universal program purity, anti-scenario-pollution, and cross-scenario invariance gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Universal program purity, anti-scenario-pollution & cross-scenario invariance gate/, 'must document universal purity gate');
+  assert.match(content, /SCENARIO_POLLUTION_BLOCKED/, 'must specify SCENARIO_POLLUTION_BLOCKED');
+  assert.match(content, /SINK_POLLUTION_BLOCKED/, 'must specify SINK_POLLUTION_BLOCKED');
+  assert.match(content, /Three-Tier Physical Isolation/, 'must specify Three-Tier Physical Isolation');
+  assert.match(content, /Universal Mechanism Engine/, 'must specify Universal Mechanism Engine');
+  assert.match(content, /Anti-Corruption Ingestion Layer/, 'must specify Anti-Corruption Ingestion Layer');
+  assert.match(content, /Declarative Policies/, 'must specify Declarative Policies');
+  assert.match(content, /Cross-Scenario Orthogonal Regression Matrix/, 'must specify Cross-Scenario Orthogonal Regression Matrix');
+  assert.match(content, /Zero-Variance Invariance Across Scenarios/, 'must specify cross-scenario zero-variance');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /通用程序纯粹性、反情境污染与三层机制策略隔离公理/, 'GEMINI.md must contain Axiom 34');
+  assert.match(globalRules, /Universal Program Purity, Anti-Scenario-Pollution & Three-Tier Mechanism-Policy Isolation Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /SCENARIO_POLLUTION_BLOCKED/, 'GEMINI.md must specify SCENARIO_POLLUTION_BLOCKED');
+  assert.match(globalRules, /SINK_POLLUTION_BLOCKED/, 'GEMINI.md must specify SINK_POLLUTION_BLOCKED');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /通用程序纯粹性、反情境污染与三层机制策略隔离公理/, 'pstack skill must contain Axiom 36');
+  assert.match(pstackSkill, /Universal Program Purity, Anti-Scenario-Pollution & Three-Tier Mechanism-Policy Isolation Axiom/, 'pstack skill must contain English title');
+  assert.match(pstackSkill, /SCENARIO_POLLUTION_BLOCKED/, 'pstack skill must specify SCENARIO_POLLUTION_BLOCKED');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /通用程序纯粹性、反情境污染与三层机制策略隔离公理/, 'ai-harness skill must contain Invariant 31');
+  assert.match(aiHarnessSkill, /Universal Program Purity, Anti-Scenario-Pollution & Three-Tier Mechanism-Policy Isolation Axiom/, 'ai-harness skill must contain English title');
+  assert.match(aiHarnessSkill, /SCENARIO_POLLUTION_BLOCKED/, 'ai-harness skill must specify SCENARIO_POLLUTION_BLOCKED');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /Universal Program Purity & Cross-Scenario Invariance Engine/, 'docs must document Section 22');
+  assert.match(docsContent, /SCENARIO_POLLUTION_BLOCKED/, 'docs must specify SCENARIO_POLLUTION_BLOCKED');
+  assert.match(docsContent, /Three-Tier Physical Isolation/, 'docs must specify Three-Tier Physical Isolation');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十二、 通用程序纯粹性、反情境污染与跨场景零方差审计规程/, 'audit spec must document Section 12');
+  assert.match(specContent, /Universal Program Purity & Cross-Scenario Invariance Standard/, 'audit spec must contain Section 12 English title');
+  assert.match(specContent, /SCENARIO_POLLUTION_BLOCKED/, 'audit spec must specify SCENARIO_POLLUTION_BLOCKED');
+  assert.match(specContent, /SINK_POLLUTION_BLOCKED/, 'audit spec must specify SINK_POLLUTION_BLOCKED');
+
+  // Verify references copy
+  const refSpecPath = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent = readFileSync(refSpecPath, 'utf8');
+  assert.match(refSpecContent, /十二、 通用程序纯粹性、反情境污染与跨场景零方差审计规程/, 'ref audit spec must document Section 12');
+
+  // Verify domain neutrality
+  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版|OS-9547/, 'GEMINI.md must remain strictly domain-neutral');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

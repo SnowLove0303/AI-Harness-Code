@@ -293,3 +293,24 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
   ① 人类主动发出修改宪法的明确明文指令；
   ② Agent 发现系统性重大冲突，作为最高级独立【宪法修订提案（Constitutional Amendment RFC）】单独呈报，等待人类专项专属授权。
 - **篡改致命拦截 (`CONSTITUTIONAL_TAMPERING_DETECTED`)**：凡在具体任务上下文或未经专属授权检测到触碰宪法文件的行为，系统底层安全守卫直接抛出 `CONSTITUTIONAL_TAMPERING_DETECTED` 致命熔断，立即执行原子回滚并上报人类。
+
+## 🌐 十二、 通用程序纯粹性、反情境污染与跨场景零方差审计规程 (Universal Program Purity & Cross-Scenario Invariance Standard)
+
+> **最高铁律**：严禁聚焦单一情境改核心通用代码。任何工程任务与 BUG 修复，必须做成通用型抽象，禁止在通用引擎层插桩特判（`SCENARIO_POLLUTION_BLOCKED`）；严禁在消费端（Sink）掩盖错误（`SINK_POLLUTION_BLOCKED`）；改动必须通过跨情境正交回归矩阵与跨场景零方差检验（$\text{Var}_{\text{cross}} \equiv 0$）。
+
+### 1. 三层机制策略物理隔离审计 (Three-Tier Physical Isolation Audit)
+- **通用机制纯粹性校验**：审计智能体必须穿透底层通用模块（Universal Mechanism Engine），严格审查是否存在特定调用端、特定业务系统、特定文件名或非参数化魔法特判；凡通用核心存在情境专有名词，直接判定为信息泄漏红牌。
+- **防腐层（ACL）正规化责任核实**：审查异构输入的清洗是否发生在边界防腐层；未在网关做正规化而导致脏数据穿透通用核心的，审计直接驳回。
+- **策略配置外置化检验**：新情境特异性必须以纯数据、声明式配置或策略插件注入；通用机制核心代码修改量必须严格为 0。
+
+### 2. 单情境代码污染硬阻断规程 (`SCENARIO_POLLUTION_BLOCKED`)
+- **AST 语法级特化特判扫描**：静态分析工具与敌手审讯官（Auditor）扫描变更代码，若发现 `if (scene === 'xxx')`、`if (filename.includes('xxx'))` 等将特定案例作为硬编码分支的代码，直接抛出 `SCENARIO_POLLUTION_BLOCKED` 致命阻断。
+- **通用性泛化数学自证**：开发者或 Agent 必须出具数学级自证，证明新原语具备通用正交性，对同构的所有合法输入均有效。
+
+### 3. 反局部掩盖与修 Sink 熔断规程 (`SINK_POLLUTION_BLOCKED`)
+- **消费端掩盖绝对禁令**：严禁在消费端（Consumer Sink）、渲染末端对上游非法状态做就地补丁或默认值吞没。
+- **逆向数据流穿透溯源**：发现异常必须逆向穿透溯源至数据源头生产者（Producer）或边界防腐层；在 Sink 打补丁者直接触发 `SINK_POLLUTION_BLOCKED` 熔断。
+
+### 4. 跨情境正交回归矩阵与跨场景零方差定律 ($\text{Var}_{\text{cross}} \equiv 0$)
+- **正交测试标本矩阵**：通用程序修改的验收，必须包含至少 2~3 组正交、极端或互斥的合法场景标本（极短、超长、复杂嵌套）。
+- **零方差严格断言**：在其他非相关正交场景运行时，其关键输出指标与拓扑结构方差必须严格为 0（$\text{Var}_{\text{cross}} \equiv 0$）；任何引发周边场景微小非预期漂移的行为，一律判定为通用性破坏并拒绝准出。
