@@ -483,6 +483,33 @@ To eliminate superficial problem resolution, enforce project audit baseline cont
 5. **Universal Pure Engineering Abstraction (`UNIVERSAL_AUDIT_ESCALATION_STANDARD`)**:
    - The engine operates strictly on pure software engineering primitives (AST, DAG, lint, mutation tests, exit codes) with zero scenario-specific keywords.
 
+### 29. Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Engine
+
+To eliminate scenario myopia, transform continuous production and troubleshooting friction into architectural evolutionary fuel, and proactively supply the human architect with durable project system improvements:
+
+1. **Anti-Scenario Myopia & Meta-Filter (`ANTI_SCENARIO_MYOPIA_AXIOM` & `SCENARIO_MYOPIA_BLOCKED`)**:
+   - Every agent across the swarm must apply a meta-abstraction filter to all business tasks and defects, stripping away scenario-specific vocabulary and local sample quirks.
+   - Problems must be elevated to computer science primitives: dataflow topology, state machine legitimacy, algebraic invariants, and boundary parsing contracts.
+   - Masking defects with ad-hoc business conditionals or local fallback data triggers immediate `SCENARIO_MYOPIA_BLOCKED` failure.
+2. **Production Friction as Evolutionary Fuel & Dual-Tier Evolution Rhythm (`PRODUCTION_FRICTION_AS_EVOLUTION_FUEL` & `DUAL_TIER_EVOLUTION_RHYTHM`)**:
+   - Every build failure, compiler error, and retry trace (`[Incident: Friction/Bug]`) is preserved as a live stress-test witness of the underlying system architecture.
+   - Dual-Tier Rhythm:
+     ① **Tier 1 (Micro-Reflection per Delivery)**: Every task signoff mandates a structured *Micro System Architecture Insight* in the delivery dossier; omission triggers `NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED`.
+     ② **Tier 2 (Major Evolution RFC on Recurrence)**: When identical architectural deficits recur $\ge 2$ times across tasks, the system automatically escalates to a formal *Major System Evolution RFC*.
+3. **Two-Levels-Up Reverse Interrogation (`TWO_LEVELS_UP_SYSTEMIC_INTERROGATION` & `PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT`)**:
+   - Agents must simultaneously execute three levels of causal analysis:
+     - Level 0 (Surface): Safe minimal-causal-set functional fix without polluting generic engines;
+     - Level 1 (Mechanism): Component-level parametric abstraction and orthogonal decoupling;
+     - Level 2 (Architecture): Root-cause systemic interrogation of the project architecture and governance framework.
+   - The proactive recommendation contract requires: ① Systemic Deficit Abstraction, ② Universal Architectural Blueprint, ③ Blast Radius & Trade-offs, and ④ Human Decision Gate Interface.
+4. **Audit Graph System Evolution Node & Cross-Agent Inheritance (`AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE` & `CROSS_AGENT_EVOLUTION_INHERITANCE`)**:
+   - All system evolution proposals are committed as first-class `SystemEvolutionProposal` DAG nodes in the canonical Audit Graph (Axiom 38).
+   - Governed by state machine: `PROPOSED_PENDING_HUMAN` ──[human approval]──> `HUMAN_APPROVED` / `HUMAN_REJECTED` ──> `EVOLVED_INTO_SPEC_OR_ENGINE`.
+   - New agents inherit all unmerged evolution proposals during Step 1 cold-start perception, eliminating cognitive drift across sessions.
+5. **Human Sovereignty Gate & Universal Engineering Abstraction (`HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE` & `UNIVERSAL_SYSTEM_EVOLUTION_STANDARD`)**:
+   - System evolution advice serves strictly as a proposal for the human architect. Autonomous large-scale core mutations without explicit human approval trigger `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED`.
+   - 100% formulated in formal statecharts, DAG topologies, RFC 2119 specs, and standard process exit codes, with zero business scenario keywords.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

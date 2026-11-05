@@ -1130,6 +1130,92 @@ test('gemini adapter enforces mandatory audit escalation proposal and human conf
   assert.match(refSpecContent2, /UNAUTHORIZED_AUDIT_MUTATION_BLOCKED/, 'ref audit spec 2 must specify UNAUTHORIZED_AUDIT_MUTATION_BLOCKED');
 });
 
+test('gemini adapter enforces production-driven proactive system evolution and anti-scenario myopia gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Production-driven proactive system evolution & anti-scenario myopia gate/, 'must document system evolution gate');
+  assert.match(content, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(content, /SCENARIO_MYOPIA_BLOCKED/, 'must specify SCENARIO_MYOPIA_BLOCKED');
+  assert.match(content, /PRODUCTION_FRICTION_AS_EVOLUTION_FUEL/, 'must specify PRODUCTION_FRICTION_AS_EVOLUTION_FUEL');
+  assert.match(content, /DUAL_TIER_EVOLUTION_RHYTHM/, 'must specify DUAL_TIER_EVOLUTION_RHYTHM');
+  assert.match(content, /NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED/, 'must specify NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED');
+  assert.match(content, /TWO_LEVELS_UP_SYSTEMIC_INTERROGATION/, 'must specify TWO_LEVELS_UP_SYSTEMIC_INTERROGATION');
+  assert.match(content, /PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT/, 'must specify PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT');
+  assert.match(content, /AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE/, 'must specify AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE');
+  assert.match(content, /CROSS_AGENT_EVOLUTION_INHERITANCE/, 'must specify CROSS_AGENT_EVOLUTION_INHERITANCE');
+  assert.match(content, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+  assert.match(content, /UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED/, 'must specify UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED');
+  assert.match(content, /UNIVERSAL_SYSTEM_EVOLUTION_STANDARD/, 'must specify UNIVERSAL_SYSTEM_EVOLUTION_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /生产驱动的主动系统演进与反情境蒙蔽公理/, 'GEMINI.md must contain Axiom 41');
+  assert.match(globalRules, /Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'GEMINI.md must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(globalRules, /SCENARIO_MYOPIA_BLOCKED/, 'GEMINI.md must specify SCENARIO_MYOPIA_BLOCKED');
+  assert.match(globalRules, /PRODUCTION_FRICTION_AS_EVOLUTION_FUEL/, 'GEMINI.md must specify PRODUCTION_FRICTION_AS_EVOLUTION_FUEL');
+  assert.match(globalRules, /DUAL_TIER_EVOLUTION_RHYTHM/, 'GEMINI.md must specify DUAL_TIER_EVOLUTION_RHYTHM');
+  assert.match(globalRules, /NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED/, 'GEMINI.md must specify NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED');
+  assert.match(globalRules, /TWO_LEVELS_UP_SYSTEMIC_INTERROGATION/, 'GEMINI.md must specify TWO_LEVELS_UP_SYSTEMIC_INTERROGATION');
+  assert.match(globalRules, /PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT/, 'GEMINI.md must specify PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT');
+  assert.match(globalRules, /AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE/, 'GEMINI.md must specify AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE');
+  assert.match(globalRules, /CROSS_AGENT_EVOLUTION_INHERITANCE/, 'GEMINI.md must specify CROSS_AGENT_EVOLUTION_INHERITANCE');
+  assert.match(globalRules, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'GEMINI.md must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+  assert.match(globalRules, /UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED/, 'GEMINI.md must specify UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED');
+  assert.match(globalRules, /UNIVERSAL_SYSTEM_EVOLUTION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_SYSTEM_EVOLUTION_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /生产驱动的主动系统演进与反情境蒙蔽公理/, 'pstack skill must contain Axiom 43');
+  assert.match(pstackSkill, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'pstack skill must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(pstackSkill, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'pstack skill must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /生产驱动的主动系统演进与反情境蒙蔽公理/, 'ai-harness skill must contain Invariant 38');
+  assert.match(aiHarnessSkill, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'ai-harness skill must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(aiHarnessSkill, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'ai-harness skill must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /29. Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Engine/, 'docs must document Section 29');
+  assert.match(docsContent, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'docs must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(docsContent, /SCENARIO_MYOPIA_BLOCKED/, 'docs must specify SCENARIO_MYOPIA_BLOCKED');
+  assert.match(docsContent, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'docs must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十九、 生产驱动的主动系统演进与反情境蒙蔽审计规程/, 'audit spec must document Section 19');
+  assert.match(specContent, /Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Protocol/, 'audit spec must contain Section 19 English title');
+  assert.match(specContent, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'audit spec must specify ANTI_SCENARIO_MYOPIA_AXIOM');
+  assert.match(specContent, /SCENARIO_MYOPIA_BLOCKED/, 'audit spec must specify SCENARIO_MYOPIA_BLOCKED');
+  assert.match(specContent, /PRODUCTION_FRICTION_AS_EVOLUTION_FUEL/, 'audit spec must specify PRODUCTION_FRICTION_AS_EVOLUTION_FUEL');
+  assert.match(specContent, /DUAL_TIER_EVOLUTION_RHYTHM/, 'audit spec must specify DUAL_TIER_EVOLUTION_RHYTHM');
+  assert.match(specContent, /NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED/, 'audit spec must specify NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED');
+  assert.match(specContent, /TWO_LEVELS_UP_SYSTEMIC_INTERROGATION/, 'audit spec must specify TWO_LEVELS_UP_SYSTEMIC_INTERROGATION');
+  assert.match(specContent, /PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT/, 'audit spec must specify PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT');
+  assert.match(specContent, /AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE/, 'audit spec must specify AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE');
+  assert.match(specContent, /CROSS_AGENT_EVOLUTION_INHERITANCE/, 'audit spec must specify CROSS_AGENT_EVOLUTION_INHERITANCE');
+  assert.match(specContent, /HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE/, 'audit spec must specify HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE');
+  assert.match(specContent, /UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED/, 'audit spec must specify UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED');
+  assert.match(specContent, /UNIVERSAL_SYSTEM_EVOLUTION_STANDARD/, 'audit spec must specify UNIVERSAL_SYSTEM_EVOLUTION_STANDARD');
+
+  // Verify references copies
+  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
+  assert.match(refSpecContent1, /十九、 生产驱动的主动系统演进与反情境蒙蔽审计规程/, 'ref audit spec 1 must document Section 19');
+  assert.match(refSpecContent1, /SCENARIO_MYOPIA_BLOCKED/, 'ref audit spec 1 must specify SCENARIO_MYOPIA_BLOCKED');
+
+  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
+  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
+  assert.match(refSpecContent2, /十九、 生产驱动的主动系统演进与反情境蒙蔽审计规程/, 'ref audit spec 2 must document Section 19');
+  assert.match(refSpecContent2, /UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED/, 'ref audit spec 2 must specify UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

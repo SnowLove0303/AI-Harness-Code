@@ -439,6 +439,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+38. **生产驱动的主动系统演进与反情境蒙蔽公理 (Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Axiom - 严禁被业务情境持续蒙蔽铁律)**：
+    - **全员反情境近视与业务脱敏元抽象规程 (ANTI_SCENARIO_MYOPIA_AXIOM & SCENARIO_MYOPIA_BLOCKED)**：全系统任何 Agent 在接收与排查任何业务问题时，绝对禁止被具体业务名词与局部样本持续蒙蔽；必须强制执行元抽象过滤，升维为数据流拓扑、状态机合法性、类型承重墙与边界解析契约模型；严禁将业务情境特判代码包装为伪修复（违者触发 `SCENARIO_MYOPIA_BLOCKED` 阻断）；
+    - **生产与排错摩擦演化燃料双层节拍规程 (PRODUCTION_FRICTION_AS_EVOLUTION_FUEL & DUAL_TIER_EVOLUTION_RHYTHM)**：开发排错中的重试与报错（`[Incident: Friction/Bug]`）是系统架构活体应力测试；执行双层演进节拍：单任务必带“微系统反思”（缺失触发 `NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED`），同类摩擦复现 $\ge 2$ 次强制升级为项目级《重大系统架构演化 RFC》；
+    - **向上穿透两层逆向架构审讯与法定建议契约 (TWO_LEVELS_UP_SYSTEMIC_INTERROGATION & PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT)**：强制执行 Level 0（局部止血）、Level 1（机制参数化）、Level 2（架构根治）三层审讯；终审交付物必须附带包含系统短板、演化蓝图、ROI与人类决策接口的结构化建议书；
+    - **Audit Graph 资产化持久化与跨 Agent 继承规程 (AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE & CROSS_AGENT_EVOLUTION_INHERITANCE)**：系统演化建议必须作为 `SystemEvolutionProposal` 节点原子持久化至项目唯一权威 Audit Graph 中，通过状态机受控流转，并在跨 Agent 交接中无损继承，彻底消灭认知漂移；
+    - **人类架构师最高裁决门禁与纯通用工程抽象 (HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE, UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED & UNIVERSAL_SYSTEM_EVOLUTION_STANDARD)**：系统级改进严禁 Agent 擅自越权大改（违者触发 `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED` 阻断）；获得人类明确批准后方可纳入下一阶段 OpenSpec 增量生命周期；全套规范 100% 采用通用工程语言，严禁掺杂业务场景词汇。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

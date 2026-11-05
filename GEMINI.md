@@ -500,3 +500,21 @@
       用户确认通过的审计增补方案，必须同步登记入项目版本演进历史与 `CHANGELOG.md`，沉淀其诱发背景、根因及对应的 Audit Graph 节点变更，确保持久可追溯；
     - **纯通用工程抽象与反业务情境锚定硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUDIT_ESCALATION_STANDARD)**：
       审计抽象提案与确认门禁的所有规约、节点定义与验证逻辑，**必须（SHALL）100% 采用状态机理论、DAG 拓扑、RFC 2119 规范与标准操作系统退出码等通用软件工程抽象**；严禁在审计提案与规约中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者系统静态检查直接判定为 `UNIVERSAL_AUDIT_ESCALATION_STANDARD` 违规并一票否决。
+
+41. **生产驱动的主动系统演进与反情境蒙蔽公理 (Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Axiom - 严禁被业务情境持续蒙蔽铁律)**：
+    - **全员反情境近视与业务脱敏元抽象规程 (Anti-Scenario Myopia & Meta-Filter - ANTI_SCENARIO_MYOPIA_AXIOM & SCENARIO_MYOPIA_BLOCKED)**：
+      全系统任何 Agent（主协调者、派发子 Agent 编组、跨会话继任者）在接收与排查任何业务缺陷或特性开发时，绝对禁止被具体场景语境（业务专有名词、局部特化数据、单一样本特征）持续蒙蔽；必须强制执行元抽象过滤，将其升维为计算机科学与系统工程层面的数据流拓扑、状态机合法性、类型承重墙与边界解析契约模型；严禁直接在业务词汇层打转，严禁将针对单一业务情境的硬编码特判或局部数据兜底伪装成系统级修复（违者系统静态检查直接判定为 `SCENARIO_MYOPIA_BLOCKED` 致命阻断并一票否决）；
+    - **生产与排错摩擦演化燃料双层节拍规程 (Production Friction as Evolution Fuel & Dual-Tier Evolution Rhythm - PRODUCTION_FRICTION_AS_EVOLUTION_FUEL & DUAL_TIER_EVOLUTION_RHYTHM)**：
+      代码生产与排障过程中的每一次断言失败、设计冲突与重试调试（`[Incident: Friction/Bug]`），均属于底层系统架构的高压活体应力测试，严禁静默掩盖或作为垃圾掩埋；执行双层演进节拍机制：
+      ① **Tier 1（单任务微反思）**：每次任务终审（Step 5）交付物中，强制单列《生产与排错摩擦提炼：项目系统架构演进建议》（微观架构洞察）；缺乏该建议直接判定为 `NO_SYSTEMIC_INSIGHT_DELIVERY_BLOCKED` 阻断；
+      ② **Tier 2（高频摩擦重大 RFC）**：当跨任务摩擦计数器监测到同一类架构短板或底层机制缺陷复现 $\ge 2$ 次，强制升级为项目级《重大系统架构演化 RFC（Major System Evolution RFC）》；
+    - **向上穿透两层逆向架构审讯与法定建议契约 (Two-Levels-Up Reverse Interrogation & Proactive Systemic Improvement Contract - TWO_LEVELS_UP_SYSTEMIC_INTERROGATION & PROACTIVE_SYSTEMIC_IMPROVEMENT_CONTRACT)**：
+      所有 Agent 在解决具体问题时，必须强制执行三层穿透审讯：Level 0（表象层·最小因果集止血）、Level 1（机制层·参数化与正交解耦修补）、Level 2（架构层·底层承重与治理漏洞根治）；交付时出具的《项目系统架构演进建议书》必须严格包含四大法定契约要素：
+      ① **系统性短板抽象 (Systemic Deficit Abstraction)**：跳出本次个案，指出架构、数据流或状态机的系统性隐患；
+      ② **通用化演进蓝图 (Universal Architectural Blueprint)**：提出面向通用的改造方案（引入声明式 DSL、提取通用工装、状态机彻底解耦等）；
+      ③ **架构 ROI 与爆炸半径评估 (Blast Radius & Trade-offs)**：明确改造所需的工程成本、兼容性影响及演进分期；
+      ④ **人类决策与分阶段演进路径 (Human Decision Gate Interface)**：提供明确的人类裁决入口与无侵入的下一阶段推进路线；
+    - **Audit Graph 资产化持久化与跨 Agent 继承规程 (Audit Graph System Evolution Node & Cross-Agent Inheritance - AUDIT_GRAPH_SYSTEM_EVOLUTION_NODE & CROSS_AGENT_EVOLUTION_INHERITANCE)**：
+      所有系统演进建议（微建议与重大 RFC）必须作为 `SystemEvolutionProposal` 节点原子持久化注册至项目唯一权威 Audit Graph（公理三十八）中；节点状态机严格遵循 `PROPOSED_PENDING_HUMAN` ──[人类架构师批准]──> `HUMAN_APPROVED` / `HUMAN_REJECTED` ──> `EVOLVED_INTO_SPEC_OR_ENGINE`；新 Agent 在 Step 1 底座感知时强制全量通读存量 `SystemEvolutionProposal` 节点，彻底消灭跨会话认知漂移与情境蒙蔽；
+    - **人类架构师最高裁决门禁与纯通用工程抽象 (Human Sovereignty Gate & Universal Engineering Abstraction - HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE, UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED & UNIVERSAL_SYSTEM_EVOLUTION_STANDARD)**：
+      系统级架构演进建议仅作为提案呈报人类架构师，严禁 Agent 擅自越权大改底层核心（违者触发 `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED` 阻断）；获得人类明确确认后，方可启动 OpenSpec 增量生命周期推进落地；本公理的所有规约与提案，**必须（SHALL）100% 采用状态机、DAG 拓扑、RFC 2119 规范与标准退出码等通用软件工程语言表述**，严禁掺杂业务场景词汇（违者判定为 `UNIVERSAL_SYSTEM_EVOLUTION_STANDARD` 违规并一票否决）。
