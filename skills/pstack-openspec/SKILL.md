@@ -471,6 +471,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+41. **认知反思对账三阶跃迁与后厨旅团工单调度公理 (Cognitive Triad Evolution & Kitchen-Brigade Scheduling Axiom - Poteto 记忆反刍与工单解耦铁律)**：
+    - **认知金库三阶自进化状态机 (COGNITIVE_TRIAD_EVOLUTION_ENGINE & UNREFLECTED_DELIVERY_BLOCKED)**：交付或纠偏后强制 `/reflect` 沉淀教训；冷启动或跨任务时 `/ruminate` 历史反刍；积累后 `/meditate` 对账剪枝并升阶规则。严禁未反思沉淀的代码交付；
+    - **后厨旅团工单调度与裁执物理隔离公理 (KITCHEN_BRIGADE_ORDER_PROTOCOL & ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED)**：主协调 Agent 负责 `Mise en place` 状态就绪与 `orders-next` 工单发布；严禁主协调 Agent 跳过工单直写业务代码；子 Agent 必须在隔离工作区（Branch/Worktree）单焦点施工；
+    - **扇出探索与多模型敌手找茬评测公理 (FANOUT_EXPLORATION_CRITIQUE_RUBRIC & TRIVIAL_SELF_AUDIT_FRAUD)**：Phase 1 支持 2~4 路并行扇出探索；终审必须挂载基于准则的敌手多角度找茬攻击，杜绝弱断言形式主义自审；
+    - **Audit Graph 与本地 Markdown 记忆双向互通契约 (AUDIT_GRAPH_OBSIDIAN_INTEROP)**：记忆金库与 Audit Graph 保持标准 Markdown 结构，人类可在 Obsidian 中直接检视与审计；
+    - **纯通用工程抽象与反业务情境锚定硬门禁 (UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD)**：100% 采用状态机、DAG 拓扑、RFC 2119 与标准进程退出码抽象，零具体场景词汇。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

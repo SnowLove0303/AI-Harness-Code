@@ -440,6 +440,27 @@ To prevent multiple fragmented audit standards across agents and ensure lossless
 5. **Universal Pure Engineering Abstraction (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`)**:
    - Audit Graph and rules are 100% specified using computer science and software engineering primitives (DAG, statecharts, exit codes), with zero scenario-specific keywords.
 
+### 27. Cognitive Triad Evolution & Kitchen-Brigade Scheduling Engine
+
+Absorbing Lauren Tan (@poteto)'s latest architectural breakthroughs (`brainmaxxing`, `noodle`, `how`) into the OrbitStack Ps-openspec system:
+
+1. **Cognitive Triad Evolution Engine (`COGNITIVE_TRIAD_EVOLUTION_ENGINE`)**:
+   - Implements a three-tier self-learning loop:
+     ① `/reflect`: Immediate lesson extraction after corrections or deliveries, written to `brain/` and Audit Graph (`UNREFLECTED_DELIVERY_BLOCKED`);
+     ② `/ruminate`: Periodic log crawling across historical sessions to unearth implicit preferences and recurrent failure patterns;
+     ③ `/meditate`: Bi-directional reconciliation between memory notes and living specs/lint rules, pruning dead rules and escalating repeated corrections to L1/L2 invariants.
+2. **Kitchen-Brigade Order Protocol (`KITCHEN_BRIGADE_ORDER_PROTOCOL`)**:
+   - `Mise en place`: Orchestrator agent aggregates system context, invariants, and backlog without editing business code;
+   - `Orders-next`: Orchestrator emits decoupled, atomic task orders. Direct business code modifications by orchestrators are strictly blocked (`ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`);
+   - Line Cooks: Dispatched worker agents execute tasks in isolated workspaces (`Workspace='branch'` or Git Worktree) with single-focus lock (`[-] lock`).
+3. **Fan-Out Exploration & Critique Rubric (`FANOUT_EXPLORATION_CRITIQUE_RUBRIC`)**:
+   - Phase 1 Explore supports 2–4 parallel fan-out subagent probes, synthesized into 5 standard dimensions (`Overview`, `Key Concepts`, `How It Works`, `Where Things Live`, `Gotchas`).
+   - Gate 5 delivery mandates adversarial critique under strict rubrics (`TRIVIAL_SELF_AUDIT_FRAUD`).
+4. **Audit Graph & Markdown Vault Interoperability (`AUDIT_GRAPH_OBSIDIAN_INTEROP`)**:
+   - Both Audit Graph and memory vault persist as clean, Obsidian-compatible Markdown for seamless human auditability.
+5. **Universal Pure Engineering Abstraction (`UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD`)**:
+   - 100% specified using formal statecharts, DAG topologies, and process exit codes, with zero business scenario keywords.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

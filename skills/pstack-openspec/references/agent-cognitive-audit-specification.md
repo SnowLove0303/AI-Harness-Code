@@ -423,3 +423,30 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 5. 纯通用工程抽象与反业务情境锚定硬门禁 (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`)
 - **100% 纯通用工程语言**：审计体系、Audit Graph 节点与验证逻辑必须 100% 采用图论（DAG）、状态机、RFC 2119 与操作系统退出码等通用计算机科学抽象；
 - **零业务情境污染**：严禁在审计规则或 Graph 拓扑中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者直接阻断并拒绝合流。
+
+
+## 🧠 十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程 (Cognitive Triad Evolution & Kitchen-Brigade Scheduling Protocol)
+
+> **最高铁律**：吸收 Lauren Tan (@poteto) 最近核心开源突破（`brainmaxxing`、`noodle`、`how`）的工程精髓，全系统严格执行认知金库三阶自进化状态机（`/reflect` 即时反思 → `/ruminate` 历史反刍 → `/meditate` 规则剪枝升阶）与后厨旅团工单调度规程（`Mise en place` 就绪台 → `Orders-next` 工单解耦 → Line Cooks 独立分支施工）。严禁未反思沉淀的代码交付（违者触发 `UNREFLECTED_DELIVERY_BLOCKED`），严禁主协调 Agent 跳过工单直接修改业务代码（违者触发 `ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`）。
+
+### 1. 认知金库三阶自进化状态机 (`COGNITIVE_TRIAD_EVOLUTION_ENGINE` & `UNREFLECTED_DELIVERY_BLOCKED`)
+- **阶梯一：`/reflect` 即时反思 (Immediate Reflection)**：任务交付或发生人机纠偏后，系统强制提取失效模式（Failure Mode）、避坑警示与防御策略，即刻沉淀至项目记忆金库（`brain/`）与 Audit Graph 中；严禁只有代码改动而缺乏反思沉淀的交付行为（`UNREFLECTED_DELIVERY_BLOCKED`）；
+- **阶梯二：`/ruminate` 历史反刍 (Deep Log Rumination)**：跨任务或冷启动底座感知（Step 1）时，Agent 自动穿透最近会话日志、历史提交与错误记录，挖掘被单次即时反思遗漏的重复性模式与隐性偏好；
+- **阶梯三：`/meditate` 规则对账与剪枝升阶 (Cognitive Harmonization & Pruning)**：定期对现有规范条款、Lint 规则与记忆库执行交叉审计，修剪过时、死锁与冲突规则，并将人工纠偏超过两次的经验自动升格提炼为系统不可变承重墙（L1 状态机）或通用 AST/Lint 门禁（L2）。
+
+### 2. 后厨旅团工单调度与裁执物理隔离规程 (`KITCHEN_BRIGADE_ORDER_PROTOCOL` & `ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`)
+- **Mise en Place 就绪感知**：主协调智能体（Head Chef）动工前必须汇聚工程全景状态、依赖承重墙与待办积压（Backlog），备齐全部输入与双清单；
+- **Orders-next 工单解耦与直接写码阻断**：主协调智能体专职负责需求拆解、状态机建模与原子任务工单发布（`orders-next`），严禁主协调智能体跳过工单直接在施工平面乱涂乱画写业务代码（`ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`）；
+- **Line Cooks 单线隔离施工**：派发的子智能体（Line Cooks / Subagent Swarm）必须在物理隔离的分支（`Workspace='branch'` 或 Git Worktree）中持有单焦点执行锁（`[-] lock`）逐项施工，测通后合并，实现裁执物理隔离。
+
+### 3. 扇出探索与多模型敌手找茬评测机制 (`FANOUT_EXPLORATION_CRITIQUE_RUBRIC` & `TRIVIAL_SELF_AUDIT_FRAUD`)
+- **五维结构化架构探索**：在 Phase 1 (Explore) 面对复杂跨系统问题时，支持 2~4 条并行扇出路径深入探查，由合成器产出标准五维结构报告：`Overview`、`Key Concepts`、`How It Works`、`Where Things Live`、`Gotchas`；
+- **多模型敌手批判与证伪攻击**：在 Step 5 终审时，引入严苛的批判评测准则（Critique Rubric），拉起独立敌手审查员从边界异常、回归隐患与过拟合等维度主动挑刺找茬，杜绝弱断言形式主义自审（`TRIVIAL_SELF_AUDIT_FRAUD`）。
+
+### 4. Audit Graph 与本地 Markdown 记忆双向互通契约 (`AUDIT_GRAPH_OBSIDIAN_INTEROP`)
+- **Obsidian 兼容纯 Markdown 表现**：Audit Graph 节点与本地记忆金库保持标准 Markdown 结构，无专有二进制格式；
+- **人类双向审计通道**：人类架构师可直接在 Obsidian 中查看记忆演进与审计 DAG 拓扑，并支持手动微调与版本管理，实现人类直觉与 Agent 记忆库的双向无缝对齐。
+
+### 5. 纯通用工程抽象与反业务情境锚定硬门禁 (`UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD`)
+- **100% 通用软件工程语言**：认知三阶环、后厨旅团工单制与敌手批判的所有定义、规约与实现，必须 100% 采用状态机理论、DAG 拓扑、RFC 2119 规范与标准操作系统退出码等通用计算机科学抽象；
+- **零业务情境污染**：严禁在审计规约中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者直接阻断并拒绝合流。

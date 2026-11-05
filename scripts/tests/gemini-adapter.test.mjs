@@ -987,6 +987,78 @@ test('gemini adapter enforces project-canonical single audit system and audit gr
   assert.match(refSpecContent, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'ref audit spec must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
 });
 
+test('gemini adapter enforces cognitive triad evolution and kitchen-brigade scheduling gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Cognitive triad evolution & kitchen-brigade scheduling gate/, 'must document cognitive triad gate');
+  assert.match(content, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(content, /UNREFLECTED_DELIVERY_BLOCKED/, 'must specify UNREFLECTED_DELIVERY_BLOCKED');
+  assert.match(content, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+  assert.match(content, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
+  assert.match(content, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
+  assert.match(content, /TRIVIAL_SELF_AUDIT_FRAUD/, 'must specify TRIVIAL_SELF_AUDIT_FRAUD');
+  assert.match(content, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'GEMINI.md must contain Axiom 39');
+  assert.match(globalRules, /Cognitive Triad Evolution & Kitchen-Brigade Scheduling Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'GEMINI.md must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(globalRules, /UNREFLECTED_DELIVERY_BLOCKED/, 'GEMINI.md must specify UNREFLECTED_DELIVERY_BLOCKED');
+  assert.match(globalRules, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'GEMINI.md must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+  assert.match(globalRules, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'GEMINI.md must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
+  assert.match(globalRules, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'GEMINI.md must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
+  assert.match(globalRules, /TRIVIAL_SELF_AUDIT_FRAUD/, 'GEMINI.md must specify TRIVIAL_SELF_AUDIT_FRAUD');
+  assert.match(globalRules, /AUDIT_GRAPH_OBSIDIAN_INTEROP/, 'GEMINI.md must specify AUDIT_GRAPH_OBSIDIAN_INTEROP');
+  assert.match(globalRules, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'pstack skill must contain Axiom 41');
+  assert.match(pstackSkill, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'pstack skill must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(pstackSkill, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'pstack skill must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'ai-harness skill must contain Invariant 36');
+  assert.match(aiHarnessSkill, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'ai-harness skill must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(aiHarnessSkill, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'ai-harness skill must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /27. Cognitive Triad Evolution & Kitchen-Brigade Scheduling Engine/, 'docs must document Section 27');
+  assert.match(docsContent, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'docs must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(docsContent, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'docs must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'audit spec must document Section 17');
+  assert.match(specContent, /Cognitive Triad Evolution & Kitchen-Brigade Scheduling Protocol/, 'audit spec must contain Section 17 English title');
+  assert.match(specContent, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'audit spec must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
+  assert.match(specContent, /UNREFLECTED_DELIVERY_BLOCKED/, 'audit spec must specify UNREFLECTED_DELIVERY_BLOCKED');
+  assert.match(specContent, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'audit spec must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
+  assert.match(specContent, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'audit spec must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
+  assert.match(specContent, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'audit spec must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
+  assert.match(specContent, /TRIVIAL_SELF_AUDIT_FRAUD/, 'audit spec must specify TRIVIAL_SELF_AUDIT_FRAUD');
+  assert.match(specContent, /AUDIT_GRAPH_OBSIDIAN_INTEROP/, 'audit spec must specify AUDIT_GRAPH_OBSIDIAN_INTEROP');
+  assert.match(specContent, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'audit spec must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
+
+  // Verify references copies
+  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
+  assert.match(refSpecContent1, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'ref audit spec 1 must document Section 17');
+  assert.match(refSpecContent1, /UNREFLECTED_DELIVERY_BLOCKED/, 'ref audit spec 1 must specify UNREFLECTED_DELIVERY_BLOCKED');
+
+  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
+  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
+  assert.match(refSpecContent2, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'ref audit spec 2 must document Section 17');
+  assert.match(refSpecContent2, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'ref audit spec 2 must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

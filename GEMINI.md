@@ -465,3 +465,23 @@
       在主智能体委派子智能体（Subagent Swarm）、跨会话任务接力或多 Agent 协同施工中，该项目唯一的审计体系与 Audit Graph 是全系统唯一合法的真理对账底座；四位一体任务交接胶囊（`pstack-handoff`）中强制注入 Audit Graph 拓扑快照与任务对应子图；接手智能体禁止重新推测或凭空捏造私有审计标准，必须严格遵循 Audit Graph 拓扑执行因果穿透与边界审查；任务打勾交付的充要条件必须且仅能以 Audit Graph 中所有挂接的真实退出码 0（[Measured] Evidence）凭证为依据，杜绝假通作弊与口水化放行；
     - **纯通用工程抽象与反业务情境锚定硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUDIT_ABSTRACTION_STANDARD)**：
       全系统针对审计体系、Audit Graph 节点与验证规则的所有定义与实现，**必须（SHALL）100% 采用纯粹的计算机科学有向无环图（DAG）、状态机理论、RFC 2119 规范与操作系统退出码等通用软件工程抽象**；严禁在审计规则或图谱结构中出现任何单一具体业务领域的专有名词、特定业务实体代码或特定场景格式文本；违者系统静态检查直接判定为 `UNIVERSAL_AUDIT_ABSTRACTION_STANDARD` 违规并一票否决。
+39. **认知反思对账三阶跃迁与后厨旅团工单调度公理 (Cognitive Triad Evolution & Kitchen-Brigade Scheduling Axiom - Poteto 记忆反刍与工单解耦铁律)**：
+    - **上游原生突破深度咬合 (Poteto Latest Innovations Grounding)**：
+      全系统深度咬合 Lauren Tan (@poteto) 最近核心开源突破：
+      ① `poteto/brainmaxxing` 认知金库三阶自进化状态机（`/reflect` 即时反思 → `/ruminate` 历史反刍 → `/meditate` 规则对账与剪枝升阶）；
+      ② `poteto/noodle` 后厨旅团式解耦调度架构（`Mise en place` 状态就绪台 + `Orders-next` 工单解耦 + Line Cooks 独立分支隔离施工）；
+      ③ `poteto/how` 扇出探索与多模型敌手批判机制（2~4 路并行探索 + Critique Rubric 准则盲审挑刺）；
+    - **认知金库三阶自进化状态机 (Cognitive Triad Evolution Engine - COGNITIVE_TRIAD_EVOLUTION_ENGINE & UNREFLECTED_DELIVERY_BLOCKED)**：
+      ① **`/reflect` 即时反思**：每次任务交付或发生人机纠偏后，系统强制提取失效模式（Failure Mode）、避坑警示与长效防御策略，沉淀至项目本地记忆金库（`brain/`）与 Audit Graph 中；严禁只有代码改动而缺乏反思沉淀的交付行为（`UNREFLECTED_DELIVERY_BLOCKED`）；
+      ② **`/ruminate` 历史反刍**：跨任务或冷启动底座感知（Step 1）时，Agent 自动穿透最近会话日志、历史提交与错误记录，深度挖掘被单次即时反思遗漏的重复性模式与隐性偏好；
+      ③ **`/meditate` 规则对账与剪枝升阶**：定期对现有规范条款、Lint 规则与记忆库执行交叉审计，修剪过时、死锁与冲突规则，并将人工纠偏超过两次的经验自动升格提炼为系统不可变承重墙（L1 状态机）或通用 AST/Lint 门禁（L2）；
+    - **后厨旅团工单调度与裁执物理隔离公理 (Kitchen-Brigade Order Protocol - KITCHEN_BRIGADE_ORDER_PROTOCOL & ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED)**：
+      ① **Mise en Place 就绪感知**：主协调智能体（Head Chef）动工前必须汇聚工程全景状态、依赖承重墙与待办积压（Backlog），备齐全部输入与双清单；
+      ② **Orders-next 工单解耦与直接写码阻断**：主协调智能体专职负责需求拆解、状态机建模与原子任务工单发布（`orders-next`），严禁主协调智能体跳过工单直接在施工平面乱涂乱画写业务代码（`ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`）；
+      ③ **Line Cooks 单线隔离施工**：派发的子智能体（Line Cooks / Subagent Swarm）必须在物理隔离的分支（`Workspace='branch'` 或 Git Worktree）中持有单焦点执行锁（`[-] lock`）逐项施工，测通后合并，实现裁执物理隔离；
+    - **扇出探索与多模型敌手找茬评测公理 (Fan-Out Exploration & Critique Rubric - FANOUT_EXPLORATION_CRITIQUE_RUBRIC & TRIVIAL_SELF_AUDIT_FRAUD)**：
+      在 Phase 1 (Explore) 面对复杂跨系统问题时，支持 2~4 条并行扇出路径深入探查，由合成器产出标准五维结构报告（`Overview`、`Key Concepts`、`How It Works`、`Where Things Live`、`Gotchas`）；在 Step 5 终审时，引入严苛的批判评测准则（Critique Rubric），拉起独立敌手审查员从边界异常、回归隐患与过拟合等维度主动挑刺找茬，杜绝弱断言形式主义自审（`TRIVIAL_SELF_AUDIT_FRAUD`）；
+    - **Audit Graph 与本地 Markdown 记忆双向互通契约 (Audit Graph & Markdown Vault Interop - AUDIT_GRAPH_OBSIDIAN_INTEROP)**：
+      Audit Graph 节点与本地记忆金库保持标准 Markdown 结构，无专有二进制格式；人类架构师可直接在 Obsidian 中查看记忆演进与审计 DAG 拓扑，并支持手动微调与版本管理，实现人类直觉与 Agent 记忆库的双向无缝对齐；
+    - **纯通用工程抽象与反业务情境锚定硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD)**：
+      认知三阶环、后厨旅团工单制与敌手批判的所有定义、规约与实现，**必须（SHALL）100% 采用状态机理论、DAG 拓扑、RFC 2119 规范与标准操作系统退出码等通用软件工程抽象**；严禁在审计规约中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者系统静态检查直接判定为 `UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD` 违规并一票否决。

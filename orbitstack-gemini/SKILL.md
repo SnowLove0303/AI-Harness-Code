@@ -342,6 +342,24 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Domain-Neutrality Standard:
    - All Audit Graph entities and rules must strictly adhere to pure computer science and software engineering primitives (`UNIVERSAL_AUDIT_ABSTRACTION_STANDARD`), with zero scenario-specific keywords.
 
+## Cognitive triad evolution & kitchen-brigade scheduling gate
+
+1. Upstream Poteto Innovations Grounding:
+   - Deeply couples with Lauren Tan (@poteto)'s latest open-source breakthroughs: `poteto/brainmaxxing` (3-tier learning loop), `poteto/noodle` (kitchen brigade task dispatch), and `poteto/how` (fan-out exploration & critique rubric).
+2. Cognitive Triad Evolution Engine (`COGNITIVE_TRIAD_EVOLUTION_ENGINE`):
+   - ① `/reflect`: Immediate extraction of failure modes and defense strategies into `brain/` and Audit Graph upon task delivery or correction (`UNREFLECTED_DELIVERY_BLOCKED`).
+   - ② `/ruminate`: Periodic crawling across session logs to surface latent user preferences and recurrent traps.
+   - ③ `/meditate`: Bidirectional reconciliation between memory notes and living specs, pruning dead rules and escalating repeated corrections to L1 statecharts or L2 Lint rules.
+3. Kitchen-Brigade Order Protocol (`KITCHEN_BRIGADE_ORDER_PROTOCOL`):
+   - `Mise en place`: Orchestrator agent aggregates system context, invariants, and backlog without editing business code.
+   - `Orders-next`: Emits decoupled atomic task orders. Direct business code modifications by orchestrators trigger `ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`.
+   - Line Cooks: Dispatched worker agents execute in isolated workspaces (`Workspace='branch'` or Git Worktree) holding single-focus lock (`[-] lock`).
+4. Fan-Out Exploration & Adversarial Critique (`FANOUT_EXPLORATION_CRITIQUE_RUBRIC`):
+   - Phase 1 Explore supports 2–4 parallel fan-out subagent probes, synthesized into 5 standard dimensions (`Overview`, `Key Concepts`, `How It Works`, `Where Things Live`, `Gotchas`).
+   - Gate 5 delivery mandates adversarial critique under strict rubrics (`TRIVIAL_SELF_AUDIT_FRAUD`).
+5. Domain-Neutrality Standard:
+   - 100% specified using formal statecharts, DAG topologies, and process exit codes (`UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD`), with zero business scenario keywords.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
