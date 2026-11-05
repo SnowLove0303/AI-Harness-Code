@@ -513,3 +513,42 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 5. 人类架构师最高裁决门禁与纯通用工程抽象 (`HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE` & `UNIVERSAL_SYSTEM_EVOLUTION_STANDARD`)
 - **人类主权神圣不可侵犯**：系统级改进建议仅作为提案呈报人类架构师，严禁 Agent 擅自就地越权大改底层核心（违者触发 `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED`）；获得人类明确批准后，方可启动 OpenSpec 增量生命周期推进落地；
 - **100% 通用软件工程语言**：系统演化建议与本规程的所有定义，必须 100% 采用状态机、DAG 拓扑、RFC 2119 规范与标准退出码等通用软件工程语言表述，严禁掺杂业务场景词汇。
+
+## 📋 二十、 子 Agent 全生命周期工单完备性与物理诊断物料审计规程 (Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Protocol)
+
+> **最高铁律**：全系统严禁任何主 Agent 向子 Agent 发送高阶概述、意念派发（Shallow Overview Dispatch）或在返工时进行无物理物料的懒惰呵斥（Lazy Rebuke）；派发新任务必须满足六法定要素工单（`MANDATORY_JOB_TICKET_COMPLETENESS`），返工排错必须提供六维闭环诊断物料（`REWORK_DIAGNOSTIC_CLOSURE_AXIOM`）；子 Agent 享有法定拒单权（`SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL`）与实测证伪权（`SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT`）。缺失要素直接触发 `SHALLOW_OVERVIEW_DISPATCH_BLOCKED` 或 `LAZY_REBUKE_DISPATCH_BLOCKED` 阻断。
+
+### 1. 反浅层概述派发公理与法定工单六要素 (`ANTI_SHALLOW_DISPATCH_AXIOM` & `MANDATORY_JOB_TICKET_COMPLETENESS`)
+- **禁止意念派发**：主 Agent 在派发子 Agent 任务时，严禁仅发送概述、目标设想、抽象功能描述或模糊指令。缺失具体物理文件路径、缺失逐字规范、缺失退出码验证命令的派发，系统判定为 `SHALLOW_OVERVIEW_DISPATCH_BLOCKED` 并阻断派发；
+- **派发工单六大法定要素**：每一份初始派发工单必须具备自包含性（Self-Contained），严格包含以下 6 项物理要素：
+  ① **`[Header & Unique Ticket ID]` (工单元数据)**：全局唯一工单 ID、任务原型标识、模型档位（`flash_lite`/`flash`/`pro`）与工作区模式（`branch`/`share`/`inherit`）；
+  ② **`[Atomic Mission Directive]` (单一原子任务目标)**：明确单一工作目标，严禁复合多任务混杂与模糊发散；
+  ③ **`[Verbatim 1:1 RTM Specifications & Contract]` (逐字规范契约)**：完整注入 Spec-Kit 1:1 RTM 条目，包含 RFC 2119 规范条文（SHALL/WHEN/THEN），严禁主观压缩或删减；
+  ④ **`[Explicit Target Files & Exact Line Anchor Ranges]` (明确物理文件与行号坐标)**：列出绝对/工作区相对路径以及精确行号区间（`file:///path/to/file#Lxx-Lyy`），杜绝子 Agent 盲猜漫游；
+  ⑤ **`[Exclusion Bounds & Non-Goals]` (排除范围与非目标清单)**：明确划定爆炸半径隔离边界，显式列出绝对不触碰的周边文件与既有逻辑；
+  ⑥ **`[Deterministic Exit Code 0 Verification Command]` (确定性退出码 0 验证命令)**：提供具备真实可执行性、带退出码 0 断言的单行自证命令行（包括编译、Lint、单元测试或变异测试）。
+
+### 2. 返工排错六维物理诊断闭环公理 (`REWORK_DIAGNOSTIC_CLOSURE_AXIOM` & `LAZY_REBUKE_DISPATCH_BLOCKED`)
+- **反懒惰呵斥与模糊排错**：主 Agent 让子 Agent 解决问题、纠正缺陷或返工重做时，严禁下达“修复某某bug”、“改得不对再改改”、“逻辑有问题”等泛化指令。未提供完整上下文与诊断材料的返工指令直接判定为 `LAZY_REBUKE_DISPATCH_BLOCKED` 致命阻断；
+- **返工诊断六维物理物料**：所有缺陷排查、纠偏、返工与会诊指令必须强制携带以下 6 维物理物料：
+  ① **`[Raw Uncut Stderr Stack Trace & Exit Code]` (原始未截断报错堆栈与退出码)**：完整保留原始 stderr/stdout 堆栈日志与真实非零退出码，严禁主观摘录或模糊转述；
+  ② **`[Deterministic One-Click CLI Reproduction Command]` (单行独立可复现 CLI 命令)**：具备开箱即用性的一键复现命令行，零依赖人工调试交互；
+  ③ **`[Bipolar Expected vs Observed Delta Table]` (双极对照表：期望输出 vs 观测实际输出)**：显式出具期望行为与实际观测行为的精确对比表格，量化偏差事实；
+  ④ **`[Target Code Slice & Coordinate Anchors]` (引发异常代码切片与坐标锚点)**：直接提取引发异常的具体代码切片与其物理行列区间；
+  ⑤ **`[Causal Hypothesis Tree & Known Invariants]` (根本原因推测树与已知不变量)**：提供主 Agent 审讯得出的因果推测树，并标明绝对不可破坏的系统不变量；
+  ⑥ **`[Spatial Blast Radius Whitelist]` (允许修改的代码范围白名单)**：严格圈定允许修复触碰的文件与函数边界，严防无节制发散修改。
+
+### 3. 四大生命周期工单法定原型规程 (`FOUR_LIFECYCLE_TICKET_ARCHETYPES` & `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED`)
+子 Agent 工单严格划分为四大法定原型，各原型必须遵循其特有物理约束，混杂或违背约束触发 `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED` 熔断：
+① **`PROBE_EXPLORE_TICKET` (只读探查工单)**：严格只读，禁止写代码；仅允许代码探索、依赖梳理、Mermaid 拓扑回传与静态分析；
+② **`CONSTRUCTION_TICKET` (施工单焦点锁工单)**：绑定 `[-]` lock，严格单任务/单模块改造，必须携带目标文件行号坐标与退出码 0 验证命令；
+③ **`INCIDENT_TRIAGE_TICKET` (排错会诊工单)**：必须注入六维诊断物料，执行最小因果集溯源与黑盒复现，严禁在宿主端做创可贴伪修复；
+④ **`VERIFICATION_REJECTION_TICKET` (验收驳回重做工单)**：必须出具 VS Code Diff 差异对账与未通过断言点，明确驳回原因与靶向修正要求。
+
+### 4. 子 Agent 法定拒单权与实测证伪权规程 (`SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL` & `SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT`)
+- **子 Agent 法定拒单权 (`TASK_DISPATCH_REJECTED`)**：当子 Agent 接收到的工单缺失六大要素、或接收到的返工指令缺少六维物理诊断物料时，子 Agent 必须行使最高法定拒单权，直接回传 `TASK_DISPATCH_REJECTED: <Missing Elements>` 拒绝开工，强制主 Agent 补齐物理材料；
+- **子 Agent 实测证伪权 (`SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT`)**：子 Agent 拥有依据实测退出码与物理执行日志，推翻主 Agent 虚假/错误根因假设的法定实测证伪权；若主 Agent 提供的因果假设被实测反例推翻，子 Agent 必须呈报 `HYPOTHESIS_FALSIFIED` 与真实证据，主 Agent 严禁强行压制或凭空指责。
+
+### 5. 纯通用工程抽象与反业务情境硬门禁 (`UNIVERSAL_DISPATCH_STANDARD`)
+- 工单派发、诊断物料及原型规程的所有定义与断言，**必须（SHALL）100% 采用进程管道、stderr/stdout、退出码、代码切片、DAG 拓扑与 RFC 2119 规范等纯通用软件工程原语**；
+- 严禁在工单规范中注入任何单一业务场景词汇或特定领域特例，违者静态检查直接判定为 `UNIVERSAL_DISPATCH_STANDARD` 违规并一票否决。

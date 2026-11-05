@@ -501,6 +501,16 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+
+44. **子 Agent 全生命周期工单完备性与物理诊断物料法定公理 (Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Axiom - 严禁概述意念派发与懒惰呵斥铁律)**：
+    - **反浅层概述派发公理与自包含工单六要素规程 (ANTI_SHALLOW_DISPATCH_AXIOM, SHALLOW_OVERVIEW_DISPATCH_BLOCKED & MANDATORY_JOB_TICKET_COMPLETENESS)**：主 Agent 派发子 Agent 任务绝对禁止仅发送概述、粗略方向或模糊指令；派发指令必须自包含且物理闭环，严格包含：① 工单元数据与唯一 ID；② 单一原子目标；③ 逐字 1:1 RTM 需求条文与 RFC 2119 契约；④ 物理文件绝对/相对路径与行号区间；⑤ 排除边界与非目标；⑥ 确定性退出码 0 验证命令行。缺失直接触发 `SHALLOW_OVERVIEW_DISPATCH_BLOCKED` 阻断；
+    - **返工排错六维物理诊断闭环规程 (REWORK_DIAGNOSTIC_CLOSURE_AXIOM & LAZY_REBUKE_DISPATCH_BLOCKED)**：主 Agent 让子 Agent 解决具体问题或返工时，绝对禁止泛化呵斥（“修复某bug”、“改得不对”）；必须强制携带六维物理物料：① 原始未截断 stderr/stdout 与非零退出码；② 单行独立 CLI 复现命令；③ 期望 vs 观测双极对照表；④ 引发异常代码切片与行列坐标；⑤ 因果假设树与系统不变量；⑥ 允许修改范围白名单。缺失直接触发 `LAZY_REBUKE_DISPATCH_BLOCKED` 阻断；
+    - **四大生命周期工单法定原型规程 (FOUR_LIFECYCLE_TICKET_ARCHETYPES & JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED)**：工单严格划分为：① `PROBE_EXPLORE_TICKET`（只读探查，禁改代码）；② `CONSTRUCTION_TICKET`（单焦点锁 `[-]` lock，退出码 0 验证）；③ `INCIDENT_TRIAGE_TICKET`（六维物料，根因穿透）；④ `VERIFICATION_REJECTION_TICKET`（Diff 对账与未通断言）。混杂或违背触发 `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED` 熔断；
+    - **子 Agent 法定拒单权与实测证伪权规程 (SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL, TASK_DISPATCH_REJECTED & SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT)**：子 Agent 遇缺失要素工单必须行使法定拒单权回传 `TASK_DISPATCH_REJECTED`；享有依据实测退出码推翻主 Agent 虚假推测的法定实测证伪权，严禁主 Agent 强行压制；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_DISPATCH_STANDARD)**：工单与诊断规范 100% 采用进程管道、退出码、代码切片、DAG 拓扑通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

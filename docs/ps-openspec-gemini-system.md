@@ -514,6 +514,42 @@ To eliminate scenario myopia, transform continuous production and troubleshootin
    - System evolution advice serves strictly as a proposal for the human architect. Autonomous large-scale core mutations without explicit human approval trigger `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED`.
    - 100% formulated in formal statecharts, DAG topologies, RFC 2119 specs, and standard process exit codes, with zero business scenario keywords.
 
+
+### 30. Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Engine
+
+To eliminate shallow overview dispatch and lazy rebuke across multi-agent swarms, enforce physical self-containment for task dispatch, and ensure full diagnostic closures for rework:
+
+1. **Anti-Shallow Dispatch & Mandatory Job Ticket Completeness (`ANTI_SHALLOW_DISPATCH_AXIOM` & `MANDATORY_JOB_TICKET_COMPLETENESS`)**:
+   - Orchestrator agents are strictly forbidden from dispatching vague summaries or abstract overviews to subagents (`SHALLOW_OVERVIEW_DISPATCH_BLOCKED`).
+   - Every initial dispatch ticket must be self-contained and provide 6 mandatory elements:
+     ① `[Header & Unique Ticket ID]` (metadata, model tier, workspace isolation mode);
+     ② `[Atomic Mission Directive]` (single atomic objective);
+     ③ `[Verbatim 1:1 RTM Specifications & Contract]` (uncompressed RFC 2119 clauses);
+     ④ `[Explicit Target Files & Exact Line Anchor Ranges]` (`file:///path#Lxx-Lyy` coordinates);
+     ⑤ `[Exclusion Bounds & Non-Goals]` (blast radius whitelist and preserved invariants);
+     ⑥ `[Deterministic Exit Code 0 Verification Command]` (executable CLI command asserting exit code 0).
+2. **Rework Diagnostic Closure Protocol (`REWORK_DIAGNOSTIC_CLOSURE_AXIOM` & `LAZY_REBUKE_DISPATCH_BLOCKED`)**:
+   - Vague admonitions ("fix this bug", "logic is wrong") are strictly banned as lazy rebuke (`LAZY_REBUKE_DISPATCH_BLOCKED`).
+   - All rework, bug-fixing, and triage directives must provide 6-dimensional physical diagnostic materials:
+     ① `[Raw Uncut Stderr Stack Trace & Exit Code]` (full stderr/stdout logs + non-zero exit code);
+     ② `[Deterministic One-Click CLI Reproduction Command]` (zero-dependency standalone repro command);
+     ③ `[Bipolar Expected vs Observed Delta Table]` (quantified gap between expected vs actual);
+     ④ `[Target Code Slice & Coordinate Anchors]` (offending code snippet with line numbers);
+     ⑤ `[Causal Hypothesis Tree & Known Invariants]` (orchestrator hypothesis + inviolable constraints);
+     ⑥ `[Spatial Blast Radius Whitelist]` (bounded file/function modification scope).
+3. **Four Lifecycle Ticket Archetypes (`FOUR_LIFECYCLE_TICKET_ARCHETYPES` & `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED`)**:
+   - Subagent tasks are classified into 4 strict archetypes:
+     ① `PROBE_EXPLORE_TICKET`: strictly readonly, zero code modification, Mermaid topology output;
+     ② `CONSTRUCTION_TICKET`: bound to `[-]` single-focus lock, targeted line ranges, exit code 0;
+     ③ `INCIDENT_TRIAGE_TICKET`: mandatory 6-dimensional diagnostic closure, minimal causal root-cause analysis;
+     ④ `VERIFICATION_REJECTION_TICKET`: VS Code diff delta alignment and exact failed assertion coordinates.
+   - Violating archetype boundaries triggers `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED`.
+4. **Subagent Pushback Right & Empirical Falsification (`SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL`, `TASK_DISPATCH_REJECTED` & `SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT`)**:
+   - Subagents possess the statutory right and duty to reject tickets missing the 6 ticket elements or 6 diagnostic items via `TASK_DISPATCH_REJECTED: <Missing Elements>`.
+   - Subagents have statutory empirical falsification rights to disprove orchestrator hypotheses via exit code 0/1 empirical runs and physical logs without being overruled.
+5. **Universal Engineering Abstraction (`UNIVERSAL_DISPATCH_STANDARD`)**:
+   - Operates 100% on universal computer science primitives (process pipes, exit codes, stderr/stdout, code slices, AST, RFC 2119) with zero scenario-specific keywords.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

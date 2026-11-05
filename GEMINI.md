@@ -523,3 +523,34 @@
       所有系统演进建议（微建议与重大 RFC）必须作为 `SystemEvolutionProposal` 节点原子持久化注册至项目唯一权威 Audit Graph（公理三十八）中；节点状态机严格遵循 `PROPOSED_PENDING_HUMAN` ──[人类架构师批准]──> `HUMAN_APPROVED` / `HUMAN_REJECTED` ──> `EVOLVED_INTO_SPEC_OR_ENGINE`；新 Agent 在 Step 1 底座感知时强制全量通读存量 `SystemEvolutionProposal` 节点，彻底消灭跨会话认知漂移与情境蒙蔽；
     - **人类架构师最高裁决门禁与纯通用工程抽象 (Human Sovereignty Gate & Universal Engineering Abstraction - HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE, UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED & UNIVERSAL_SYSTEM_EVOLUTION_STANDARD)**：
       系统级架构演进建议仅作为提案呈报人类架构师，严禁 Agent 擅自越权大改底层核心（违者触发 `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED` 阻断）；获得人类明确确认后，方可启动 OpenSpec 增量生命周期推进落地；本公理的所有规约与提案，**必须（SHALL）100% 采用状态机、DAG 拓扑、RFC 2119 规范与标准退出码等通用软件工程语言表述**，严禁掺杂业务场景词汇（违者判定为 `UNIVERSAL_SYSTEM_EVOLUTION_STANDARD` 违规并一票否决）。
+
+42. **子 Agent 全生命周期工单完备性与物理诊断物料法定公理 (Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Axiom - 严禁概述意念派发与懒惰呵斥铁律)**：
+    - **反浅层概述派发公理与自包含工单六要素规程 (Anti-Shallow Dispatch & Mandatory Job Ticket Completeness - ANTI_SHALLOW_DISPATCH_AXIOM, SHALLOW_OVERVIEW_DISPATCH_BLOCKED & MANDATORY_JOB_TICKET_COMPLETENESS)**：
+      全系统任何主 Agent 在向子 Agent（如 `research`, `self`, `image-generator` 等）派发任务时，绝对禁止仅发送概述、粗略方向、抽象功能构想或模糊指令；派发指令必须自包含且物理闭环，严格包含六大法定要素：
+      ① **`[Header & Unique Ticket ID]`**：全局唯一工单 ID、任务原型标识、模型算力档位与工作区隔离模式；
+      ② **`[Atomic Mission Directive]`**：单一原子任务目标，严禁复合多任务混杂与模糊发散；
+      ③ **`[Verbatim 1:1 RTM Specifications & Contract]`**：100% 逐字注入 Spec-Kit RTM 需求条文与 RFC 2119 行为契约，严禁主观意念缩略；
+      ④ **`[Explicit Target Files & Exact Line Anchor Ranges]`**：提供目标物理文件路径与目标行号区间（`file:///path#Lxx-Lyy`），杜绝子 Agent 盲猜漫游；
+      ⑤ **`[Exclusion Bounds & Non-Goals]`**：明确划定爆炸半径隔离边界与绝对不触碰的周边文件和既有逻辑；
+      ⑥ **`[Deterministic Exit Code 0 Verification Command]`**：提供具备真实可执行性、带退出码 0 断言的单行自证命令行；
+      缺失上述任何要素的派发，系统判定为 `SHALLOW_OVERVIEW_DISPATCH_BLOCKED` 致命阻断并一票否决；
+    - **返工排错六维物理诊断闭环规程 (Rework Diagnostic Closure Protocol - REWORK_DIAGNOSTIC_CLOSURE_AXIOM & LAZY_REBUKE_DISPATCH_BLOCKED)**：
+      主 Agent 让子 Agent 解决具体问题、纠正缺陷或返工重做时，绝对禁止下达“修复某某bug”、“改得不对再改改”、“逻辑有问题”等泛化指令（严禁懒惰呵斥）；所有缺陷排查、纠偏、返工与会诊指令必须强制携带六维物理物料：
+      ① **`[Raw Uncut Stderr Stack Trace & Exit Code]`**：原始未截断的 stderr/stdout 日志与非零退出码；
+      ② **`[Deterministic One-Click CLI Reproduction Command]`**：单行独立开箱即用的命令行复现命令；
+      ③ **`[Bipolar Expected vs Observed Delta Table]`**：双极对照表（期望输出 vs 观测实际输出），量化偏差事实；
+      ④ **`[Target Code Slice & Coordinate Anchors]`**：引发异常的具体代码片段及其物理行列坐标；
+      ⑤ **`[Causal Hypothesis Tree & Known Invariants]`**：主 Agent 因果推测树与绝对不可破坏的系统不变量；
+      ⑥ **`[Spatial Blast Radius Whitelist]`**：严格圈定允许修复触碰的代码范围白名单；
+      未提供完整六维物理诊断物料的返工指令，直接判定为 `LAZY_REBUKE_DISPATCH_BLOCKED` 阻断并一票否决；
+    - **四大生命周期工单法定原型规程 (Four Lifecycle Ticket Archetypes - FOUR_LIFECYCLE_TICKET_ARCHETYPES & JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED)**：
+      子 Agent 工单严格划分为四大法定原型：
+      ① `PROBE_EXPLORE_TICKET`（只读探查工单）：严格只读，物理禁止改动业务代码，仅允许 Mermaid 拓扑回传；
+      ② `CONSTRUCTION_TICKET`（施工单焦点锁工单）：绑定 `[-]` lock，严格单模块改造，必须携带目标文件行号坐标与退出码 0 验证命令；
+      ③ `INCIDENT_TRIAGE_TICKET`（排错会诊工单）：必须注入六维诊断物料，执行最小因果集溯源与黑盒复现；
+      ④ `VERIFICATION_REJECTION_TICKET`（验收驳回重做工单）：必须出具 VS Code Diff 差异对账与未通过断言点；
+      混杂原型或违背约束直接触发 `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED` 熔断；
+    - **子 Agent 法定拒单权与实测证伪权规程 (Subagent Pushback Right & Empirical Falsification Right - SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL, TASK_DISPATCH_REJECTED & SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT)**：
+      子 Agent 接收到缺失六大要素的工单或缺失六维诊断物料的返工指令时，拥有最高法定拒单权，直接回传 `TASK_DISPATCH_REJECTED: <Missing Elements>` 拒绝开工，强制主 Agent 补齐物料；子 Agent 享有依据实测退出码推翻主 Agent 虚假推测的法定实测证伪权，严禁主 Agent 凭空指责或强加未经验证的猜想；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_DISPATCH_STANDARD)**：
+      工单派发、诊断物料及原型规程的所有定义与断言，**必须（SHALL）100% 采用进程管道、stderr/stdout、退出码、代码切片、DAG 拓扑与 RFC 2119 规范等纯通用软件工程原语**；严禁在工单规范中注入任何单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_DISPATCH_STANDARD` 违规并一票否决。

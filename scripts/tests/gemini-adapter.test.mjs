@@ -1224,6 +1224,90 @@ test('gemini adapter enforces production-driven proactive system evolution and a
   assert.match(refSpecContent2, /UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED/, 'ref audit spec 2 must specify UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED');
 });
 
+
+test('gemini adapter enforces subagent full-lifecycle job ticket and diagnostic completeness gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Subagent full-lifecycle job ticket & diagnostic completeness gate/, 'must document subagent dispatch gate');
+  assert.match(content, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(content, /SHALLOW_OVERVIEW_DISPATCH_BLOCKED/, 'must specify SHALLOW_OVERVIEW_DISPATCH_BLOCKED');
+  assert.match(content, /MANDATORY_JOB_TICKET_COMPLETENESS/, 'must specify MANDATORY_JOB_TICKET_COMPLETENESS');
+  assert.match(content, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+  assert.match(content, /LAZY_REBUKE_DISPATCH_BLOCKED/, 'must specify LAZY_REBUKE_DISPATCH_BLOCKED');
+  assert.match(content, /FOUR_LIFECYCLE_TICKET_ARCHETYPES/, 'must specify FOUR_LIFECYCLE_TICKET_ARCHETYPES');
+  assert.match(content, /JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED/, 'must specify JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED');
+  assert.match(content, /SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL/, 'must specify SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL');
+  assert.match(content, /TASK_DISPATCH_REJECTED/, 'must specify TASK_DISPATCH_REJECTED');
+  assert.match(content, /SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT/, 'must specify SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT');
+  assert.match(content, /UNIVERSAL_DISPATCH_STANDARD/, 'must specify UNIVERSAL_DISPATCH_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /子 Agent 全生命周期工单完备性与物理诊断物料法定公理/, 'GEMINI.md must contain Axiom 42');
+  assert.match(globalRules, /Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'GEMINI.md must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(globalRules, /SHALLOW_OVERVIEW_DISPATCH_BLOCKED/, 'GEMINI.md must specify SHALLOW_OVERVIEW_DISPATCH_BLOCKED');
+  assert.match(globalRules, /MANDATORY_JOB_TICKET_COMPLETENESS/, 'GEMINI.md must specify MANDATORY_JOB_TICKET_COMPLETENESS');
+  assert.match(globalRules, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'GEMINI.md must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+  assert.match(globalRules, /LAZY_REBUKE_DISPATCH_BLOCKED/, 'GEMINI.md must specify LAZY_REBUKE_DISPATCH_BLOCKED');
+  assert.match(globalRules, /FOUR_LIFECYCLE_TICKET_ARCHETYPES/, 'GEMINI.md must specify FOUR_LIFECYCLE_TICKET_ARCHETYPES');
+  assert.match(globalRules, /JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED/, 'GEMINI.md must specify JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED');
+  assert.match(globalRules, /SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL/, 'GEMINI.md must specify SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL');
+  assert.match(globalRules, /TASK_DISPATCH_REJECTED/, 'GEMINI.md must specify TASK_DISPATCH_REJECTED');
+  assert.match(globalRules, /SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT/, 'GEMINI.md must specify SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT');
+  assert.match(globalRules, /UNIVERSAL_DISPATCH_STANDARD/, 'GEMINI.md must specify UNIVERSAL_DISPATCH_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /子 Agent 全生命周期工单完备性与物理诊断物料法定公理/, 'pstack skill must contain Axiom 44');
+  assert.match(pstackSkill, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'pstack skill must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(pstackSkill, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'pstack skill must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /子 Agent 全生命周期工单完备性与物理诊断物料法定公理/, 'ai-harness skill must contain Invariant 39');
+  assert.match(aiHarnessSkill, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'ai-harness skill must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(aiHarnessSkill, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'ai-harness skill must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /30. Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Engine/, 'docs must document Section 30');
+  assert.match(docsContent, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'docs must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(docsContent, /SHALLOW_OVERVIEW_DISPATCH_BLOCKED/, 'docs must specify SHALLOW_OVERVIEW_DISPATCH_BLOCKED');
+  assert.match(docsContent, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'docs must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /二十、 子 Agent 全生命周期工单完备性与物理诊断物料审计规程/, 'audit spec must document Section 20');
+  assert.match(specContent, /Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Protocol/, 'audit spec must contain Section 20 English title');
+  assert.match(specContent, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'audit spec must specify ANTI_SHALLOW_DISPATCH_AXIOM');
+  assert.match(specContent, /SHALLOW_OVERVIEW_DISPATCH_BLOCKED/, 'audit spec must specify SHALLOW_OVERVIEW_DISPATCH_BLOCKED');
+  assert.match(specContent, /MANDATORY_JOB_TICKET_COMPLETENESS/, 'audit spec must specify MANDATORY_JOB_TICKET_COMPLETENESS');
+  assert.match(specContent, /REWORK_DIAGNOSTIC_CLOSURE_AXIOM/, 'audit spec must specify REWORK_DIAGNOSTIC_CLOSURE_AXIOM');
+  assert.match(specContent, /LAZY_REBUKE_DISPATCH_BLOCKED/, 'audit spec must specify LAZY_REBUKE_DISPATCH_BLOCKED');
+  assert.match(specContent, /FOUR_LIFECYCLE_TICKET_ARCHETYPES/, 'audit spec must specify FOUR_LIFECYCLE_TICKET_ARCHETYPES');
+  assert.match(specContent, /JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED/, 'audit spec must specify JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED');
+  assert.match(specContent, /SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL/, 'audit spec must specify SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL');
+  assert.match(specContent, /TASK_DISPATCH_REJECTED/, 'audit spec must specify TASK_DISPATCH_REJECTED');
+  assert.match(specContent, /SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT/, 'audit spec must specify SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT');
+  assert.match(specContent, /UNIVERSAL_DISPATCH_STANDARD/, 'audit spec must specify UNIVERSAL_DISPATCH_STANDARD');
+
+  // Verify references copies
+  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
+  assert.match(refSpecContent1, /二十、 子 Agent 全生命周期工单完备性与物理诊断物料审计规程/, 'ref audit spec 1 must document Section 20');
+  assert.match(refSpecContent1, /SHALLOW_OVERVIEW_DISPATCH_BLOCKED/, 'ref audit spec 1 must specify SHALLOW_OVERVIEW_DISPATCH_BLOCKED');
+
+  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
+  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
+  assert.match(refSpecContent2, /二十、 子 Agent 全生命周期工单完备性与物理诊断物料审计规程/, 'ref audit spec 2 must document Section 20');
+  assert.match(refSpecContent2, /LAZY_REBUKE_DISPATCH_BLOCKED/, 'ref audit spec 2 must specify LAZY_REBUKE_DISPATCH_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

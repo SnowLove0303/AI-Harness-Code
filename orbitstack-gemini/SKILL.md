@@ -406,6 +406,23 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - System evolution advice serves strictly as a proposal for the human architect (`HUMAN_SYSTEM_EVOLUTION_CONFIRMATION_GATE`). Autonomous large-scale core mutations without explicit human approval trigger `UNAUTHORIZED_SYSTEM_MUTATION_BLOCKED`.
    - 100% formulated in formal statecharts, DAG topologies, RFC 2119 specs, and standard process exit codes (`UNIVERSAL_SYSTEM_EVOLUTION_STANDARD`), with zero business scenario keywords.
 
+
+## Subagent full-lifecycle job ticket & diagnostic completeness gate
+
+1. Anti-Shallow Dispatch & Mandatory Job Ticket Completeness:
+   - Orchestrator agents are strictly forbidden from dispatching vague summaries or abstract overviews to subagents (`ANTI_SHALLOW_DISPATCH_AXIOM`, `SHALLOW_OVERVIEW_DISPATCH_BLOCKED`).
+   - Every initial dispatch ticket must be self-contained and provide 6 mandatory elements (`MANDATORY_JOB_TICKET_COMPLETENESS`): ① Header & Ticket ID, ② Atomic Mission Directive, ③ Verbatim 1:1 RTM Specifications, ④ Explicit Target Files & Line Anchors (`file:///path#Lxx-Lyy`), ⑤ Exclusion Bounds & Non-Goals, ⑥ Deterministic Exit Code 0 Verification Command.
+2. Rework Diagnostic Closure Protocol:
+   - Vague admonitions ("fix bug", "logic wrong") are strictly banned as lazy rebuke (`REWORK_DIAGNOSTIC_CLOSURE_AXIOM`, `LAZY_REBUKE_DISPATCH_BLOCKED`).
+   - All rework, bug-fixing, and triage directives must provide 6-dimensional physical diagnostic materials: ① Raw Uncut Stderr Stack Trace & Exit Code, ② Deterministic One-Click CLI Reproduction Command, ③ Bipolar Expected vs Observed Delta Table, ④ Target Code Slice & Coordinate Anchors, ⑤ Causal Hypothesis Tree & Known Invariants, ⑥ Spatial Blast Radius Whitelist.
+3. Four Lifecycle Ticket Archetypes:
+   - Subagent tasks are classified into 4 strict archetypes (`FOUR_LIFECYCLE_TICKET_ARCHETYPES`): ① `PROBE_EXPLORE_TICKET` (strictly readonly, Mermaid output), ② `CONSTRUCTION_TICKET` (bound to `[-]` single-focus lock, exit code 0), ③ `INCIDENT_TRIAGE_TICKET` (mandatory 6-dim diagnostic closure, minimal causal root-cause analysis), ④ `VERIFICATION_REJECTION_TICKET` (VS Code diff delta alignment and failed assertion coordinates). Violations trigger `JOB_TICKET_ARCHETYPE_VIOLATION_BLOCKED`.
+4. Subagent Pushback Right & Empirical Falsification:
+   - Subagents possess the statutory right and duty to reject tickets missing elements via `TASK_DISPATCH_REJECTED` (`SUBAGENT_PUSHBACK_&_REFUSAL_PROTOCOL`).
+   - Subagents possess statutory empirical falsification rights (`SUBAGENT_EMPIRICAL_FALSIFICATION_RIGHT`) to disprove false hypotheses via measured runs and physical logs.
+5. Domain-Neutrality Standard:
+   - Operates 100% on universal computer science primitives (process pipes, exit codes, stderr/stdout, code slices, AST, RFC 2119) (`UNIVERSAL_DISPATCH_STANDARD`) with zero scenario-specific keywords.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.
