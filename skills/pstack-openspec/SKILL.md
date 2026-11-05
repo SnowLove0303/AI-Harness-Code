@@ -480,6 +480,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+42. **任务终审强制审计抽象提案与人机确认门禁公理 (Mandatory Audit System Escalation Proposal & Human Confirmation Gate Axiom - 严禁止步于局部修补与未经确认直改铁律)**：
+    - **全员强制问题逆向审计因果抽象 (MANDATORY_AUDIT_ESCALATION_ABSTRACTION & NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED)**：任何 Agent（主协调者、派发子 Agent 编组、跨会话接手者）在排查、修复或实现任何问题/功能时，绝不可止步于编写功能修复代码；必须强制执行逆向因果穿透（“为何现行审计体系未能在生命周期更早阶段有效拦截或即时暴露该失效模式？”），并抽象出旨在补充或优化该项目唯一权威审计体系（公理四十）的结构化提案契约；缺乏该提案的交付一律触发 `NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED` 物理熔断；
+    - **审计抽象提案四要素法定契约 (AUDIT_ESCALATION_PROPOSAL_CONTRACT)**：提案必须且仅包含四大法定工程要素：① 失效模式规格（Failure Mode Specification）；② 建议新增/调整的审计图谱不变量（Proposed Audit Graph Invariants，含 DAG 节点与因果连边）；③ 建议配套落地的机器级杠杆门禁（Proposed Machine Lever，含 AST/Lint 规则或变异测试断言）；④ 机器级实测阻断与放行凭据（Measured Verification Evidence，实测 Exit 1 与 Exit 0 对账）；
+    - **人类架构师终审确认前置硬门禁 (HUMAN_AUDIT_CONFIRMATION_GATE & UNAUTHORIZED_AUDIT_MUTATION_BLOCKED)**：抽象出的审计体系优化提案必须在交付时显式向用户呈报，清晰交代审计盲区根因与拟演进方案，严格等待人类用户明确确认；未经人类授权擅自直改、污染或增补项目审计体系与 Audit Graph 基座的行为，一律触发 `UNAUTHORIZED_AUDIT_MUTATION_BLOCKED` 阻断并原子回滚；
+    - **审计提案全生命周期归档与单调版本化公理 (AUDIT_PROPOSAL_LIFECYCLE_VERSIONING)**：用户确认通过的提案原子合流至项目唯一权威审计体系基座（`.orbitstack/audit/` 或 `audit-graph.json`）并单调自增版本号，形成持久化跨 Agent 免疫屏障；
+    - **纯通用工程抽象与反业务情境锚定硬门禁 (UNIVERSAL_AUDIT_ESCALATION_STANDARD)**：100% 采用图论（DAG）、状态机理论、AST、RFC 2119 规范与标准退出码通用工程语言，严禁业务专有名词污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

@@ -461,6 +461,28 @@ Absorbing Lauren Tan (@poteto)'s latest architectural breakthroughs (`brainmaxxi
 5. **Universal Pure Engineering Abstraction (`UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD`)**:
    - 100% specified using formal statecharts, DAG topologies, and process exit codes, with zero business scenario keywords.
 
+### 28. Mandatory Audit System Escalation Proposal & Human Confirmation Gate Engine
+
+To eliminate superficial problem resolution, enforce project audit baseline continuous immunization, and preserve human sovereignty over canonical verification topologies:
+
+1. **Mandatory Audit Escalation Abstraction (`MANDATORY_AUDIT_ESCALATION_ABSTRACTION`)**:
+   - Every agent (orchestrator, dispatched subagent, session successor), upon diagnosing, resolving, or implementing any fix or feature, MUST NOT terminate merely at functional code.
+   - The agent must perform reverse audit causality analysis ("Why did the canonical audit system fail to block or immediately expose this failure mode earlier in the lifecycle?"), abstracting root causes into a structured audit system escalation proposal (`AUDIT_ESCALATION_PROPOSAL_CONTRACT`).
+   - Delivery without an audit escalation proposal is physically blocked by `NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED`.
+2. **Audit Escalation Proposal Statutory Contract (`AUDIT_ESCALATION_PROPOSAL_CONTRACT`)**:
+   - The escalation proposal must strictly and exclusively contain four engineering elements:
+     ① **Failure Mode Specification**: Precise formal definition of the violated invariant, reproduction conditions, and blast radius;
+     ② **Proposed Audit Graph Invariants**: Concrete new DAG nodes (`Specification`, `Invariant`, `SourceAnchor`, `Evidence`) and causal edges (`governs`, `anchors_to`, `verified_by`) for the project canonical Audit Graph;
+     ③ **Proposed Machine Lever**: Concrete static analysis check, AST visitor rule, linter configuration, or mutation test suite providing hard blocking capability (`Exit 1`);
+     ④ **Measured Verification Evidence**: Empirical proof demonstrating detection and non-zero exit code (`Exit 1`) on the offending pattern, and clean zero exit code (`Exit 0`) on compliant implementations.
+3. **Human Audit Confirmation Gate (`HUMAN_AUDIT_CONFIRMATION_GATE`)**:
+   - The escalation proposal MUST be presented explicitly to the human user for review, scrutiny, and authorization.
+   - Directly mutating the project canonical audit system, baseline specs, or Audit Graph without explicit human confirmation is strictly blocked with `UNAUTHORIZED_AUDIT_MUTATION_BLOCKED`.
+4. **Audit Proposal Lifecycle & Monotonic Versioning (`AUDIT_PROPOSAL_LIFECYCLE_VERSIONING`)**:
+   - Approved audit proposals are committed into the project's canonical audit baseline (`.orbitstack/audit/` or `audit-graph.json`) with monotonic version increments, establishing permanent immunizations across all future agent swarms.
+5. **Universal Pure Engineering Abstraction (`UNIVERSAL_AUDIT_ESCALATION_STANDARD`)**:
+   - The engine operates strictly on pure software engineering primitives (AST, DAG, lint, mutation tests, exit codes) with zero scenario-specific keywords.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

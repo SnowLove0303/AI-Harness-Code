@@ -485,3 +485,18 @@
       Audit Graph 节点与本地记忆金库保持标准 Markdown 结构，无专有二进制格式；人类架构师可直接在 Obsidian 中查看记忆演进与审计 DAG 拓扑，并支持手动微调与版本管理，实现人类直觉与 Agent 记忆库的双向无缝对齐；
     - **纯通用工程抽象与反业务情境锚定硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD)**：
       认知三阶环、后厨旅团工单制与敌手批判的所有定义、规约与实现，**必须（SHALL）100% 采用状态机理论、DAG 拓扑、RFC 2119 规范与标准操作系统退出码等通用软件工程抽象**；严禁在审计规约中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者系统静态检查直接判定为 `UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD` 违规并一票否决。
+40. **任务终审强制审计抽象提案与人机确认门禁公理 (Mandatory Audit System Escalation Proposal & Human Confirmation Gate Axiom - 严禁止步就地修补铁律)**：
+    - **每任务强制审计抽象规程 (Mandatory Audit Escalation Abstraction - MANDATORY_AUDIT_ESCALATION_ABSTRACTION & NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED)**：
+      全系统任何 Agent（主协调 Agent、派发的子智能体、跨会话继任 Agent），在解决工程问题、排障、修改缺陷或交付功能时，绝对禁止止步于业务功能代码就地修补；必须强制站在项目全局审计的视角执行逆向穿透自问：“现有审计体系为何未能提前拦截或秒级暴露该问题？”；基于当前问题的失效机理与诱发边界，抽象出可用于优化或增补该项目唯一权威审计体系（Axiom 38 Canonical Audit Base）的具体方案；交付成果中若缺失《项目审计体系优化与增补提案》，系统在 Step 5 终审时直接触发 `NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED` 致命阻断并一票否决；
+    - **审计增补提案结构化四要素标准契约 (Audit Escalation Proposal Contract - AUDIT_ESCALATION_PROPOSAL_CONTRACT)**：
+      提案必须以标准结构化格式出具四要素，严禁空泛口水：
+      ① **失效模式形式化定义 (Failure Mode Specification)**：精准定义问题触发的状态机非法跃迁、边界条件缺失或未预期行为特征；
+      ② **拟增 Audit Graph 拓扑节点 (Proposed Graph Nodes)**：明确拟追加的 Specification（RFC 2119 规范）、Invariant（`@ANTIGRAVITY_INVARIANT_LOCK` 承重墙）与 SourceAnchor（物理源码区间）；
+      ③ **拟下沉机器门禁代码 (Proposed Machine Lever)**：提供可落地的 AST/ESLint 检查脚本、变异断言代码或静态守卫规则；
+      ④ **防范效能自证 (Verification Evidence)**：说明在未来代码发生同类变异或退化时，该审计节点如何实现秒级 Exit 1 拦截；
+    - **人类架构师最高裁决确认门禁规程 (Human Audit Confirmation Gate - HUMAN_AUDIT_CONFIRMATION_GATE & UNAUTHORIZED_AUDIT_MUTATION_BLOCKED)**：
+      抽象出的《项目审计体系优化与增补提案》必须作为独立审批事项显式呈报给人类用户；在获得人类用户明文确认（“执行”、“同意”、“确认”）之前，提案严格保持 `PROPOSED_PENDING_CONFIRMATION` 待裁决草案态；严禁任何 Agent 绕过用户确认私自修改项目法定审计基座或静默丢弃提案（违者直接判定为 `UNAUTHORIZED_AUDIT_MUTATION_BLOCKED` 违规阻断）；获得用户确认后，方可启动 OpenSpec 增量流程正式编译并合流至项目唯一审计体系；
+    - **审计提案生命周期版本化与 CHANGELOG 闭环 (Audit Proposal Lifecycle Versioning - AUDIT_PROPOSAL_LIFECYCLE_VERSIONING)**：
+      用户确认通过的审计增补方案，必须同步登记入项目版本演进历史与 `CHANGELOG.md`，沉淀其诱发背景、根因及对应的 Audit Graph 节点变更，确保持久可追溯；
+    - **纯通用工程抽象与反业务情境锚定硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUDIT_ESCALATION_STANDARD)**：
+      审计抽象提案与确认门禁的所有规约、节点定义与验证逻辑，**必须（SHALL）100% 采用状态机理论、DAG 拓扑、RFC 2119 规范与标准操作系统退出码等通用软件工程抽象**；严禁在审计提案与规约中夹带任何单一业务领域专有名词或特定场景特例逻辑，违者系统静态检查直接判定为 `UNIVERSAL_AUDIT_ESCALATION_STANDARD` 违规并一票否决。

@@ -1059,6 +1059,77 @@ test('gemini adapter enforces cognitive triad evolution and kitchen-brigade sche
   assert.match(refSpecContent2, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'ref audit spec 2 must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
 });
 
+test('gemini adapter enforces mandatory audit escalation proposal and human confirmation gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Mandatory audit escalation proposal & human confirmation gate/, 'must document mandatory audit escalation gate');
+  assert.match(content, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(content, /NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED/, 'must specify NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED');
+  assert.match(content, /AUDIT_ESCALATION_PROPOSAL_CONTRACT/, 'must specify AUDIT_ESCALATION_PROPOSAL_CONTRACT');
+  assert.match(content, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+  assert.match(content, /UNAUTHORIZED_AUDIT_MUTATION_BLOCKED/, 'must specify UNAUTHORIZED_AUDIT_MUTATION_BLOCKED');
+  assert.match(content, /AUDIT_PROPOSAL_LIFECYCLE_VERSIONING/, 'must specify AUDIT_PROPOSAL_LIFECYCLE_VERSIONING');
+  assert.match(content, /UNIVERSAL_AUDIT_ESCALATION_STANDARD/, 'must specify UNIVERSAL_AUDIT_ESCALATION_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /任务终审强制审计抽象提案与人机确认门禁公理/, 'GEMINI.md must contain Axiom 40');
+  assert.match(globalRules, /Mandatory Audit System Escalation Proposal & Human Confirmation Gate Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'GEMINI.md must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(globalRules, /NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED/, 'GEMINI.md must specify NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED');
+  assert.match(globalRules, /AUDIT_ESCALATION_PROPOSAL_CONTRACT/, 'GEMINI.md must specify AUDIT_ESCALATION_PROPOSAL_CONTRACT');
+  assert.match(globalRules, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'GEMINI.md must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+  assert.match(globalRules, /UNAUTHORIZED_AUDIT_MUTATION_BLOCKED/, 'GEMINI.md must specify UNAUTHORIZED_AUDIT_MUTATION_BLOCKED');
+  assert.match(globalRules, /AUDIT_PROPOSAL_LIFECYCLE_VERSIONING/, 'GEMINI.md must specify AUDIT_PROPOSAL_LIFECYCLE_VERSIONING');
+  assert.match(globalRules, /UNIVERSAL_AUDIT_ESCALATION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_AUDIT_ESCALATION_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /任务终审强制审计抽象提案与人机确认门禁公理/, 'pstack skill must contain Axiom 42');
+  assert.match(pstackSkill, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'pstack skill must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(pstackSkill, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'pstack skill must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /任务终审强制审计抽象提案与人机确认门禁公理/, 'ai-harness skill must contain Invariant 37');
+  assert.match(aiHarnessSkill, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'ai-harness skill must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(aiHarnessSkill, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'ai-harness skill must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /28. Mandatory Audit System Escalation Proposal & Human Confirmation Gate Engine/, 'docs must document Section 28');
+  assert.match(docsContent, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'docs must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(docsContent, /NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED/, 'docs must specify NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED');
+  assert.match(docsContent, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'docs must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /十八、 任务终审强制审计抽象提案与人机确认门禁审计规程/, 'audit spec must document Section 18');
+  assert.match(specContent, /Mandatory Audit System Escalation Proposal & Human Confirmation Gate Protocol/, 'audit spec must contain Section 18 English title');
+  assert.match(specContent, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'audit spec must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
+  assert.match(specContent, /NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED/, 'audit spec must specify NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED');
+  assert.match(specContent, /AUDIT_ESCALATION_PROPOSAL_CONTRACT/, 'audit spec must specify AUDIT_ESCALATION_PROPOSAL_CONTRACT');
+  assert.match(specContent, /HUMAN_AUDIT_CONFIRMATION_GATE/, 'audit spec must specify HUMAN_AUDIT_CONFIRMATION_GATE');
+  assert.match(specContent, /UNAUTHORIZED_AUDIT_MUTATION_BLOCKED/, 'audit spec must specify UNAUTHORIZED_AUDIT_MUTATION_BLOCKED');
+  assert.match(specContent, /AUDIT_PROPOSAL_LIFECYCLE_VERSIONING/, 'audit spec must specify AUDIT_PROPOSAL_LIFECYCLE_VERSIONING');
+  assert.match(specContent, /UNIVERSAL_AUDIT_ESCALATION_STANDARD/, 'audit spec must specify UNIVERSAL_AUDIT_ESCALATION_STANDARD');
+
+  // Verify references copies
+  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
+  assert.match(refSpecContent1, /十八、 任务终审强制审计抽象提案与人机确认门禁审计规程/, 'ref audit spec 1 must document Section 18');
+  assert.match(refSpecContent1, /NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED/, 'ref audit spec 1 must specify NO_AUDIT_PROPOSAL_DELIVERY_BLOCKED');
+
+  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
+  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
+  assert.match(refSpecContent2, /十八、 任务终审强制审计抽象提案与人机确认门禁审计规程/, 'ref audit spec 2 must document Section 18');
+  assert.match(refSpecContent2, /UNAUTHORIZED_AUDIT_MUTATION_BLOCKED/, 'ref audit spec 2 must specify UNAUTHORIZED_AUDIT_MUTATION_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
