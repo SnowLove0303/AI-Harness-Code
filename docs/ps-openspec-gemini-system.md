@@ -86,14 +86,18 @@ Antigravity natively structures Phase 1 (Explore) through tool-guided exploratio
 ### 7. Spec-Kit zero-loss ingestion & dual-gate workflow
 
 To prevent the multi-turn requirement evaporation defect ("1,2,3,4 -> 1,2,3 -> 1,2 -> 1"):
-1. Gate 1 (Spec-Kit Zero-Loss Ingestion):
+1. Gate 1 (Spec-Kit Zero-Loss Ingestion & Requirement Confirmation Gate):
+   - Statutory Purpose: Pure 100% confirmation of "What" needs to be done and verifiable Acceptance Criteria before any design work begins.
    - Constructs a 1:1 Requirement Traceability Matrix (RTM) from the raw user prompt.
    - Demands Count Parity ($N_{\text{raw}} \equiv N_{\text{matrix}}$).
+   - Absolute Prohibition: Strictly forbidden from discussing implementation details, code locations, or proposed file lists during Gate 1.
    - Reports an exhaustive, non-compressed requirement dossier and halts for user confirmation (Gate 1).
-2. Gate 2 (Ps-openspec Architectural Expansion):
-   - Embeds the RTM into `proposal.md`, maps requirements 1:1 to RFC 2119 specs, and binds tasks in `tasks.md` with explicit verification commands.
-   - Enforces Roo-Code single-focus execution (`[-]` lock: exactly one in-progress task at a time).
-   - Submits technical architecture and Dual-Checklist (Proposed Scope + Preserved Invariants) and halts for user authorization (Gate 2).
+2. Gate 2 (Ps-openspec OpenSpec Authoring & Specification Authorization Gate):
+   - Statutory Purpose: Formally write and present the OpenSpec change artifacts (`proposal.md`, `specs/`, `design.md`, `tasks.md`) under the Ps-openspec framework.
+   - Embeds the RTM into `proposal.md`, maps requirements 1:1 to RFC 2119 specs (SHALL/WHEN/THEN), designs architecture and causal topologies in `design.md`, and binds tasks in `tasks.md` with explicit verification commands and single-focus lock (`[-]` lock).
+   - Attaches the Dual-Checklist (Proposed Scope with causal self-proof + Preserved Invariants).
+   - Absolute Prohibition: Strictly forbidden from touching or modifying business implementation code before Gate 2 OpenSpec artifacts are explicitly authorized by the user.
+   - Halts for user authorization ("execute / approve") before moving to Phase 3 construction.
 3. 1:1 Bidirectional Delivery Checkoff:
    - Final report must verify every numbered requirement against passing command evidence (`[Measured]` exit code 0).
 

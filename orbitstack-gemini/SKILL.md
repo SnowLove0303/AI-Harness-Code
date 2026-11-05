@@ -18,15 +18,16 @@ This adapter connects Google Gemini and Antigravity to the pinned upstream PStac
 
 Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates as a subordinate requirement-ingestion protocol at Step 0, capturing user requirements without loss before handing off to Ps-openspec lifecycle:
 
-1. Phase 1 (Spec-Kit Zero-Loss Ingestion):
+1. Phase 1 (Spec-Kit Zero-Loss Ingestion & Gate 1):
    - Capture user raw input verbatim without over-summarization or scope decay.
    - Construct a 1:1 Requirement Traceability Matrix (RTM): map every user point (1, 2, 3, 4) to an atomic `REQ-01`, `REQ-02`... preserving Count Parity (N_raw == N_matrix).
    - Expand each requirement with Spec-Kit's triad: Scenario/Scope, detailed functional assertion, and verifiable Acceptance Criteria.
-   - Gate 1 (Detailed Brief): Present the comprehensive, uncompressed requirement dossier to the user. Do not proceed to OpenSpec drafting until the user gives explicit confirmation.
-2. Phase 2 (Ps-openspec Expansion & Gate 2):
+   - Gate 1 (Requirement Confirmation): Present the comprehensive, uncompressed requirement dossier to the user. Purely confirm "What" and Acceptance Criteria. Strictly forbidden from discussing implementation code, file changes, or premature solutions. Do not proceed to OpenSpec drafting until the user gives explicit confirmation.
+2. Phase 2 (Ps-openspec OpenSpec Authoring & Gate 2):
+   - Gate 2 Purpose: Formally write, author, and present the OpenSpec change artifacts under Ps-openspec.
    - Upon Gate 1 confirmation, inject the 1:1 RTM into `proposal.md` and generate RFC 2119 specs for each requirement.
    - Decompose into atomic tasks in `tasks.md`, each bound to a specific verification command. Enforce Roo-Code/Cline single-focus execution (`[-]` lock: exactly one active in-progress task at a time). Releasing the lock requires both behavioral test passes and strict compiler/lint zero-warning passes (`--max-warnings=0` with exit code 0). Anti-suppression is absolute: no `@ts-ignore`, `eslint-disable`, or `any` casts are permitted without explicit user signoff.
-   - Gate 2 (Plan & Dual-Checklist): Present the technical approach, architecture topology, and Dual-Checklist (Proposed Scope + Preserved Commitments). Await user explicit authorization before modifying source code.
+   - Gate 2 (OpenSpec Specification & Dual-Checklist): Present the formal OpenSpec specification dossier, architecture topology, and Dual-Checklist (Proposed Scope with causal self-proof + Preserved Commitments). Strictly forbidden from modifying business code before explicit user authorization. Await user explicit authorization ("execute / approve") before moving to implementation.
 3. Phase 3 (Bidirectional Delivery Checkoff):
    - In the final report, verify each original requirement (REQ-01...N) against measured command evidence with exit code 0.
 

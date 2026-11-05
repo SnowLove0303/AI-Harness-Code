@@ -49,11 +49,19 @@ test('gemini adapter enforces Spec-Kit zero-loss ingestion and dual-gate workflo
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /Spec-Kit zero-loss ingestion & dual-gate workflow/, 'must declare Spec-Kit dual-gate workflow');
   assert.match(content, /Requirement Traceability Matrix/, 'must reference RTM');
-  assert.match(content, /Gate 1 \(Detailed Brief\)/, 'must define Gate 1');
-  assert.match(content, /Gate 2 \(Plan & Dual-Checklist\)/, 'must define Gate 2');
+  assert.match(content, /Gate 1 \((Requirement Confirmation|Detailed Brief)/, 'must define Gate 1');
+  assert.match(content, /Gate 2 \((OpenSpec Specification & Dual-Checklist|Plan & Dual-Checklist)/, 'must define Gate 2');
   assert.match(content, /`?\[-\]`?\s*lock/, 'must enforce single-focus lock');
-});
 
+  // Verify GEMINI.md dual gate statutory definitions
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /门禁 1：需求全量确认门禁/, 'GEMINI.md must define Gate 1 statutory name');
+  assert.match(globalRules, /门禁 1 绝对物理绝缘禁令/, 'GEMINI.md must enforce Gate 1 insulation');
+  assert.match(globalRules, /门禁 2：Ps-openspec 规格立法门禁/, 'GEMINI.md must define Gate 2 statutory name');
+  assert.match(globalRules, /门禁 2 核心法定宗旨/, 'GEMINI.md must define Gate 2 statutory purpose');
+  assert.match(globalRules, /门禁 2 施工硬阻断禁令/, 'GEMINI.md must enforce Gate 2 construction block');
+});
 
 test('gemini adapter enforces strict lint and compiler zero-tolerance enforcement', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
