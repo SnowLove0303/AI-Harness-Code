@@ -511,6 +511,16 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+
+45. **主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理 (Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Axiom - 裁执物理隔离与全量交接铁律)**：
+    - **主 Agent 全局系统把握与 Ps-openspec 全量规格制定规程 (MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE & MASTER_AD_HOC_CODING_BLOCKED)**：主 Agent 必须全面把握项目全局上下文、系统规则与既有架构承重墙；围绕 Ps-openspec 体系完整编制四大增量资产与双清单；主 Agent 严禁在统筹模式下绕过 SubAgent 直接编写业务代码（违者系统判定为 `MASTER_AD_HOC_CODING_BLOCKED` 阻断）；
+    - **执行施工层面物理归口 SubAgent 施工平面规程 (SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE & SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED)**：具体代码落笔、文件修改与单步测试物理归口 SubAgent 施工平面；SubAgent 必须在单焦点锁 `[-]` lock 约束下专职攻坚，以 Exit 0 为充要条件；严禁越权改写主规格或白名单外发散修改（违者触发 `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED` 阻断）；
+    - **主向子无损移交完备规格资料法定交接协议 (MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL & SHALLOW_SPEC_HANDOFF_BLOCKED)**：主 Agent 向 SubAgent 派发任务时，必须将自身编写的详尽资料与全量 OpenSpec 规格信息 100% 无损交付（含 RFC 2119 规格、架构不变量、目标文件行号坐标 `file:///path#Lxx-Lyy`、Exit 0 自证命令与排除边界）；缺失直接触发 `SHALLOW_SPEC_HANDOFF_BLOCKED` 阻断；
+    - **裁执与筹执物理隔离双向硬门禁规程 (GOVERNANCE_EXECUTION_SEPARATION_GATE)**：主 Agent 专职“立法、规划、统筹、裁决、全局核销”，SubAgent 专职“接单、单焦点施工、实测自证、原子回传”；Step 3 施工必须派发 SubAgent 承接，确保审执绝对分离；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_BOUNDARY_HANDOFF_STANDARD)**：规约 100% 采用分布式多智能体、分层架构、状态机与标准退出码通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

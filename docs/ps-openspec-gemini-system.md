@@ -550,6 +550,27 @@ To eliminate shallow overview dispatch and lazy rebuke across multi-agent swarms
 5. **Universal Engineering Abstraction (`UNIVERSAL_DISPATCH_STANDARD`)**:
    - Operates 100% on universal computer science primitives (process pipes, exit codes, stderr/stdout, code slices, AST, RFC 2119) with zero scenario-specific keywords.
 
+
+### 31. Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Engine
+
+To strictly decouple governance/planning from execution, eliminate orchestrator ad-hoc coding, and ensure lossless delivery of complete specifications to subagents:
+
+1. **Master Agent Governance & Systemic Hold (`MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE` & `MASTER_AD_HOC_CODING_BLOCKED`)**:
+   - The Master Agent governs global project context, constitutional invariants (`GEMINI.md`, `AGENTS.md`), and authors full OpenSpec assets (`proposal.md`, `specs/`, `design.md`, `tasks.md`, dual-checklists).
+   - The Master Agent is strictly blocked from ad-hoc business code modifications in governance mode (`MASTER_AD_HOC_CODING_BLOCKED`).
+2. **Subagent Physical Execution Domain (`SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE` & `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`)**:
+   - Ground-level code execution, test passes, and local build debugging are physically quarantined to the Subagent execution layer.
+   - Subagents operate under single-focus lock `[-]` lock, releasing only upon Exit 0 verification.
+   - Subagents are strictly prohibited from mutating OpenSpec main specifications or modifying out-of-scope files (`SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`).
+3. **Mandatory Full-Specification Handoff Protocol (`MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL` & `SHALLOW_SPEC_HANDOFF_BLOCKED`)**:
+   - Orchestrator dispatches must be 100% self-contained, transmitting: ① Verbatim OpenSpec RFC 2119 specifications, ② Architectural design decisions and invariants, ③ Explicit file paths and line anchors (`file:///path#Lxx-Lyy`), ④ Deterministic Exit 0 commands, and ⑤ Bounded blast radius whitelists.
+   - Shallow or incomplete dispatches trigger immediate `SHALLOW_SPEC_HANDOFF_BLOCKED` failure.
+4. **Governance-Execution Separation Gate (`GOVERNANCE_EXECUTION_SEPARATION_GATE`)**:
+   - Enforces bidirectional physical separation: Master Agent adjudicates and merges; Subagents construct and attest.
+   - Step 3 (Apply) mandates dispatch to subagents rather than orchestrator self-coding.
+5. **Universal Boundary Handoff Standard (`UNIVERSAL_BOUNDARY_HANDOFF_STANDARD`)**:
+   - Operates 100% on distributed multi-agent architecture, state machine theory, process pipes, and standard exit codes with zero scenario-specific vocabulary.
+
 ## Installation and layout for Gemini
 
 When installed via `scripts/install-to-harness.ps1 -SkillLocation gemini`:

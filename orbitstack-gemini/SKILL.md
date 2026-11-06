@@ -423,6 +423,23 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Domain-Neutrality Standard:
    - Operates 100% on universal computer science primitives (process pipes, exit codes, stderr/stdout, code slices, AST, RFC 2119) (`UNIVERSAL_DISPATCH_STANDARD`) with zero scenario-specific keywords.
 
+
+## Master-subagent governance-execution boundary & full-specification handoff gate
+
+1. Master Agent Governance & Systemic Hold:
+   - The Master Agent governs global project context, constitutional invariants, and authors full OpenSpec assets (`MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE`).
+   - The Master Agent is strictly blocked from ad-hoc business code modifications in governance mode (`MASTER_AD_HOC_CODING_BLOCKED`).
+2. Subagent Physical Execution Domain:
+   - Ground-level code execution, test passes, and local build debugging are physically quarantined to the Subagent execution layer (`SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE`).
+   - Subagents operate under single-focus lock `[-]` lock, releasing only upon Exit 0 verification. Out-of-bounds file mutations trigger `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`.
+3. Mandatory Full-Specification Handoff Protocol:
+   - Orchestrator dispatches must be 100% self-contained (`MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL`), transmitting verbatim OpenSpec RFC 2119 specs, architectural invariants, file paths, line anchors (`file:///path#Lxx-Lyy`), deterministic Exit 0 commands, and bounded blast radius.
+   - Shallow dispatches trigger immediate `SHALLOW_SPEC_HANDOFF_BLOCKED` failure.
+4. Governance-Execution Separation Gate:
+   - Enforces bidirectional physical separation (`GOVERNANCE_EXECUTION_SEPARATION_GATE`): Master Agent adjudicates and merges; Subagents construct and attest.
+5. Domain-Neutrality Standard:
+   - Operates 100% on distributed multi-agent architecture, state machine theory, process pipes, and standard exit codes (`UNIVERSAL_BOUNDARY_HANDOFF_STANDARD`) with zero scenario-specific vocabulary.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

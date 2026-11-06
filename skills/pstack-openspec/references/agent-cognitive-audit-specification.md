@@ -552,3 +552,36 @@ $$\text{准出充要条件} = \underbrace{\text{机械确定性机检全绿 (Key
 ### 5. 纯通用工程抽象与反业务情境硬门禁 (`UNIVERSAL_DISPATCH_STANDARD`)
 - 工单派发、诊断物料及原型规程的所有定义与断言，**必须（SHALL）100% 采用进程管道、stderr/stdout、退出码、代码切片、DAG 拓扑与 RFC 2119 规范等纯通用软件工程原语**；
 - 严禁在工单规范中注入任何单一业务场景词汇或特定领域特例，违者静态检查直接判定为 `UNIVERSAL_DISPATCH_STANDARD` 违规并一票否决。
+
+## 📋 二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程 (Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Protocol)
+
+> **最高铁律**：主协调 Agent 与子 Agent 施工面必须维持不可逾越的物理隔离门禁（`GOVERNANCE_EXECUTION_SEPARATION_GATE`）；主 Agent 专职宏观系统把握、Ps-openspec 增量规格资产编制与全局裁决，严禁在统筹模式下绕过 SubAgent 下场进行散漫代码编写（`MASTER_AD_HOC_CODING_BLOCKED`）；代码修改与原子测试物理归口 SubAgent 施工平面，严禁 SubAgent 越权篡改主规格或发散重构（`SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`）；主 Agent 向 SubAgent 派发任务必须 100% 无损交付全量规格资料与物理文件坐标，缺失即时触发 `SHALLOW_SPEC_HANDOFF_BLOCKED` 阻断。
+
+### 1. 主 Agent 全局系统把握与 Ps-openspec 全量规格制定规程 (`MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE` & `MASTER_AD_HOC_CODING_BLOCKED`)
+- **统筹中枢宏观职责**：主 Agent 必须全面通读并掌握项目全局上下文、宪法规则（`GEMINI.md` / `AGENTS.md`）与既有架构不变量，负责系统全局因果图谱推演；
+- **增量规格资产编制**：主 Agent 必须严格围绕 Ps-openspec 体系完整编制四大法定增量资产（`proposal.md`、`specs/` 行为契约、`design.md` 因果拓扑、`tasks.md` 原子任务及双清单），严禁以非结构化口水聊天代替严谨规格资产；
+- **主 Agent 散漫编码硬拦截**：主 Agent 严禁在统筹规划模式下绕过子 Agent 派发机制擅自下场进行具体业务代码的编写与修改；统筹状态下的散漫即兴编码直接判定为 `MASTER_AD_HOC_CODING_BLOCKED` 致命阻断。
+
+### 2. 执行施工层面物理归口 SubAgent 施工平面规程 (`SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE` & `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`)
+- **执行平面职责正交锁定**：所有具体的源码落笔、文件创建/修改、局部单元测试执行与编译排错，必须物理归口至 SubAgent 施工平面；
+- **单焦点执行锁约束**：SubAgent 必须在单焦点锁（`[-]` lock）约束下专职攻坚单一原子任务，以真实进程退出码 0 与实测测试日志为解锁充要条件；
+- **反越界篡改防线**：SubAgent 严禁擅自改写主 OpenSpec 规格资产、严禁擅自修改白名单之外的架构文件，违者触发 `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED` 物理熔断。
+
+### 3. 主向子无损移交完备规格资料之法定交接协议 (`MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL` & `SHALLOW_SPEC_HANDOFF_BLOCKED`)
+- **禁止断层与浅层移交**：主 Agent 向 SubAgent 派发任务时，严禁使用“帮我做一下这个模块”或“把这个类改一下”等无完备规格上下文的概述指令。未携带完整 OpenSpec 信息的派发直接判定为 `SHALLOW_SPEC_HANDOFF_BLOCKED` 阻断；
+- **交接载荷五大自包含要素**：主 Agent 注入派发工单的物料必须 100% 包含：
+  ① **`[Verbatim OpenSpec RFC 2119 Specifications]` (对应规格条文)**：完整注入本任务关联的 RFC 2119 行为契约，严禁主观压缩；
+  ② **`[Architectural Context & Invariants]` (架构决策与不变量)**：明晰设计决策、因果拓扑与不可破坏的系统不变量；
+  ③ **`[Explicit Target Files & Exact Line Coordinates]` (目标物理文件与行号坐标)**：列出绝对/相对路径与精确行号区间（`file:///path#Lxx-Lyy`）；
+  ④ **`[Deterministic Exit Code 0 Verification Command]` (确定性自证命令)**：提供开箱即用、预期 Exit 0 的单行自测命令行；
+  ⑤ **`[Bounded Blast Radius & Non-Goals]` (隔离边界与非目标白名单)**：圈定明确的修改边界白名单与禁止触碰的代码区域。
+
+### 4. 裁执与筹执物理隔离双向硬门禁规程 (`GOVERNANCE_EXECUTION_SEPARATION_GATE`)
+- **权能分工法定界限**：
+  - 主 Agent 专职**“立法、规划、统筹、裁决、全局合流”**；
+  - SubAgent 专职**“接单、单焦点施工、实测自证、原子回传”**；
+- **Apply 阶段强制派发**：当项目在 Step 2（Gate 2）获得人类授权推进至 Step 3（Apply）施工阶段时，主 Agent 必须调用 SubAgent 编组派发接口将工单移交执行，主 Agent 自身专职作为验证平面终审裁判与最终合流者，确保审执绝对分离。
+
+### 5. 纯通用工程抽象与反业务情境硬门禁 (`UNIVERSAL_BOUNDARY_HANDOFF_STANDARD`)
+- 职责边界、工单交接协议与门禁判据的所有规约与断言，**必须（SHALL）100% 采用分布式多智能体系统、分层架构、状态机理论与操作系统进程退出码等通用软件工程语言**；
+- 严禁在边界规约中掺杂任何单一业务场景词汇，违者静态检查直接判定为 `UNIVERSAL_BOUNDARY_HANDOFF_STANDARD` 违规并一票否决。

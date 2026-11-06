@@ -554,3 +554,15 @@
       子 Agent 接收到缺失六大要素的工单或缺失六维诊断物料的返工指令时，拥有最高法定拒单权，直接回传 `TASK_DISPATCH_REJECTED: <Missing Elements>` 拒绝开工，强制主 Agent 补齐物料；子 Agent 享有依据实测退出码推翻主 Agent 虚假推测的法定实测证伪权，严禁主 Agent 凭空指责或强加未经验证的猜想；
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_DISPATCH_STANDARD)**：
       工单派发、诊断物料及原型规程的所有定义与断言，**必须（SHALL）100% 采用进程管道、stderr/stdout、退出码、代码切片、DAG 拓扑与 RFC 2119 规范等纯通用软件工程原语**；严禁在工单规范中注入任何单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_DISPATCH_STANDARD` 违规并一票否决。
+
+43. **主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理 (Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Axiom - 裁执物理隔离与全量交接铁律)**：
+    - **主 Agent 全局系统把握与 Ps-openspec 全量规格制定规程 (Master Agent Governance & Systemic Hold - MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE & MASTER_AD_HOC_CODING_BLOCKED)**：
+      主 Agent 必须全面把握项目全局上下文、系统规则（`GEMINI.md` / `AGENTS.md`）与既有架构承重墙；围绕 Ps-openspec 体系完整编制四大增量资产（`proposal.md`, `specs/`, `design.md`, `tasks.md`）与双清单；把控双门禁与多 Agent 编组派发协调；主 Agent 严禁在统筹模式下绕过 SubAgent 擅自下场直接进行微观即兴编码（违者系统静态检查直接判定为 `MASTER_AD_HOC_CODING_BLOCKED` 致命阻断并一票否决）；
+    - **执行施工层面物理归口 SubAgent 施工平面规程 (Subagent Physical Execution Domain - SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE & SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED)**：
+      具体的代码落笔、文件创建/修改、局部逻辑重构、单元测试运行与编译排错，必须物理归口至 SubAgent 施工平面；SubAgent 必须在单焦点执行锁（`[-]` lock）约束下专职攻坚，以真实进程退出码 0 与实测测试日志为交付充要条件；SubAgent 严禁越权改写主 OpenSpec 规划或进行白名单外的发散修改（违者判定为 `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED` 阻断）；
+    - **主向子无损移交完备规格资料法定交接协议 (Mandatory Full-Specification Handoff - MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL & SHALLOW_SPEC_HANDOFF_BLOCKED)**：
+      主 Agent 向 SubAgent 派发任务时，必须将自身编写的详尽资料与全量 OpenSpec 规格信息 100% 无损交付；派发载荷必须具备自包含性，强制携带：① 对应 OpenSpec RFC 2119 规格条文；② 关联设计决策与因果拓扑；③ 精确物理文件路径与行号坐标（`file:///path#Lxx-Lyy`）；④ 确定性 Exit 0 自证命令；⑤ 明确排除范围与非目标白名单；严禁向 SubAgent 发送缺乏具体规格或文件坐标的高阶概述（违者直接判定为 `SHALLOW_SPEC_HANDOFF_BLOCKED` 阻断）；
+    - **裁执与筹执物理隔离双向硬门禁规程 (Governance-Execution Separation Gate - GOVERNANCE_EXECUTION_SEPARATION_GATE)**：
+      全系统必须维护主子双向物理隔离门禁：主 Agent 专职“立法、规划、统筹、裁决、全局核销”，SubAgent 专职“接单、单焦点施工、实测自证、原子回传”；当任务进入 Step 3（Apply）施工阶段时，必须通过派发工单交由 SubAgent 承接执行，主 Agent 专职作为验收裁决方与合流方，确保审执绝对分离；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BOUNDARY_HANDOFF_STANDARD)**：
+      主子权责边界、交接协议与门禁断言，**必须（SHALL）100% 采用分布式多智能体系统、分层架构、状态机理论与标准退出码等通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_BOUNDARY_HANDOFF_STANDARD` 违规并一票否决。

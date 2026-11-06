@@ -1308,6 +1308,81 @@ test('gemini adapter enforces subagent full-lifecycle job ticket and diagnostic 
   assert.match(refSpecContent2, /LAZY_REBUKE_DISPATCH_BLOCKED/, 'ref audit spec 2 must specify LAZY_REBUKE_DISPATCH_BLOCKED');
 });
 
+
+test('gemini adapter enforces master-subagent governance-execution boundary and full-specification handoff gate', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Master-subagent governance-execution boundary & full-specification handoff gate/, 'must document boundary gate');
+  assert.match(content, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(content, /MASTER_AD_HOC_CODING_BLOCKED/, 'must specify MASTER_AD_HOC_CODING_BLOCKED');
+  assert.match(content, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
+  assert.match(content, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
+  assert.match(content, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
+  assert.match(content, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
+  assert.match(content, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
+  assert.match(content, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
+
+  // Verify GEMINI.md global rules
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'GEMINI.md must contain Axiom 43');
+  assert.match(globalRules, /Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Axiom/, 'GEMINI.md must contain English title');
+  assert.match(globalRules, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'GEMINI.md must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(globalRules, /MASTER_AD_HOC_CODING_BLOCKED/, 'GEMINI.md must specify MASTER_AD_HOC_CODING_BLOCKED');
+  assert.match(globalRules, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'GEMINI.md must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
+  assert.match(globalRules, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'GEMINI.md must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
+  assert.match(globalRules, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'GEMINI.md must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
+  assert.match(globalRules, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'GEMINI.md must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
+  assert.match(globalRules, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'GEMINI.md must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
+  assert.match(globalRules, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'GEMINI.md must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
+
+  // Verify skills/pstack-openspec/SKILL.md
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'pstack skill must contain Axiom 45');
+  assert.match(pstackSkill, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'pstack skill must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(pstackSkill, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'pstack skill must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
+
+  // Verify skills/ai-harness-openspec/SKILL.md
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'ai-harness skill must contain Invariant 40');
+  assert.match(aiHarnessSkill, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'ai-harness skill must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(aiHarnessSkill, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'ai-harness skill must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
+
+  // Verify docs/ps-openspec-gemini-system.md
+  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
+  const docsContent = readFileSync(docsPath, 'utf8');
+  assert.match(docsContent, /31. Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Engine/, 'docs must document Section 31');
+  assert.match(docsContent, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'docs must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(docsContent, /MASTER_AD_HOC_CODING_BLOCKED/, 'docs must specify MASTER_AD_HOC_CODING_BLOCKED');
+  assert.match(docsContent, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'docs must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
+
+  // Verify docs/agent-cognitive-audit-specification.md
+  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
+  const specContent = readFileSync(specPath, 'utf8');
+  assert.match(specContent, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'audit spec must document Section 21');
+  assert.match(specContent, /Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Protocol/, 'audit spec must contain Section 21 English title');
+  assert.match(specContent, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'audit spec must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
+  assert.match(specContent, /MASTER_AD_HOC_CODING_BLOCKED/, 'audit spec must specify MASTER_AD_HOC_CODING_BLOCKED');
+  assert.match(specContent, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'audit spec must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
+  assert.match(specContent, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'audit spec must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
+  assert.match(specContent, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'audit spec must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
+  assert.match(specContent, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'audit spec must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
+  assert.match(specContent, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'audit spec must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
+  assert.match(specContent, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'audit spec must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
+
+  // Verify references copies
+  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
+  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
+  assert.match(refSpecContent1, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'ref audit spec 1 must document Section 21');
+  assert.match(refSpecContent1, /MASTER_AD_HOC_CODING_BLOCKED/, 'ref audit spec 1 must specify MASTER_AD_HOC_CODING_BLOCKED');
+
+  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
+  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
+  assert.match(refSpecContent2, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'ref audit spec 2 must document Section 21');
+  assert.match(refSpecContent2, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'ref audit spec 2 must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
