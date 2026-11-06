@@ -1483,6 +1483,43 @@ test('gemini adapter enforces statutory dual-gate entry precondition and anti-pr
   assert.match(bugFixRoute.gate, /Dual-gate entry precondition/, 'bug-fix route gate must enforce dual-gate precondition');
 });
 
+test('gemini adapter enforces project dual blacklist-whitelist audit system and dual-specimen sanity gate', () => {
+  // 1. Verify GEMINI.md Axiom 45
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /45\.\s*\*\*项目级黑白名单双轨法定权威与双向标本自证公理/, 'GEMINI.md must contain Axiom 45 heading');
+  assert.match(globalRules, /PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM/, 'GEMINI.md must specify PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM');
+  assert.match(globalRules, /DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE/, 'GEMINI.md must specify DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE');
+  assert.match(globalRules, /WHITELIST_SUPREME_IMMUNITY_AXIOM/, 'GEMINI.md must specify WHITELIST_SUPREME_IMMUNITY_AXIOM');
+  assert.match(globalRules, /FALSE_POSITIVE_OVERHAUL_BLOCKED/, 'GEMINI.md must specify FALSE_POSITIVE_OVERHAUL_BLOCKED');
+  assert.match(globalRules, /BLACKLIST_MANDATORY_INTERCEPTION_AXIOM/, 'GEMINI.md must specify BLACKLIST_MANDATORY_INTERCEPTION_AXIOM');
+  assert.match(globalRules, /AUDIT_LEAKAGE_DETECTED/, 'GEMINI.md must specify AUDIT_LEAKAGE_DETECTED');
+  assert.match(globalRules, /DUAL_SPECIMEN_SANITY_GATE/, 'GEMINI.md must specify DUAL_SPECIMEN_SANITY_GATE');
+  assert.match(globalRules, /UNVERIFIED_RULE_MUTATION_BLOCKED/, 'GEMINI.md must specify UNVERIFIED_RULE_MUTATION_BLOCKED');
+  assert.match(globalRules, /UNIVERSAL_AUDIT_ACCURACY_STANDARD/, 'GEMINI.md must specify domain neutrality standard');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 47
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /47\.\s*\*\*项目级黑白名单双轨法定权威与双向标本自证公理/, 'pstack-openspec must define Axiom 47');
+  assert.match(pstackSkill, /PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM/, 'pstack-openspec must specify PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM');
+  assert.match(pstackSkill, /WHITELIST_SUPREME_IMMUNITY_AXIOM/, 'pstack-openspec must specify WHITELIST_SUPREME_IMMUNITY_AXIOM');
+  assert.match(pstackSkill, /FALSE_POSITIVE_OVERHAUL_BLOCKED/, 'pstack-openspec must specify FALSE_POSITIVE_OVERHAUL_BLOCKED');
+  assert.match(pstackSkill, /BLACKLIST_MANDATORY_INTERCEPTION_AXIOM/, 'pstack-openspec must specify BLACKLIST_MANDATORY_INTERCEPTION_AXIOM');
+  assert.match(pstackSkill, /AUDIT_LEAKAGE_DETECTED/, 'pstack-openspec must specify AUDIT_LEAKAGE_DETECTED');
+  assert.match(pstackSkill, /DUAL_SPECIMEN_SANITY_GATE/, 'pstack-openspec must specify DUAL_SPECIMEN_SANITY_GATE');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 42
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /42\.\s*\*\*项目级黑白名单双轨法定权威与双向标本自证公理/, 'ai-harness-openspec must define Axiom 42');
+  assert.match(aiHarnessSkill, /PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM/, 'ai-harness-openspec must specify PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM');
+  assert.match(aiHarnessSkill, /WHITELIST_SUPREME_IMMUNITY_AXIOM/, 'ai-harness-openspec must specify WHITELIST_SUPREME_IMMUNITY_AXIOM');
+  assert.match(aiHarnessSkill, /FALSE_POSITIVE_OVERHAUL_BLOCKED/, 'ai-harness-openspec must specify FALSE_POSITIVE_OVERHAUL_BLOCKED');
+  assert.match(aiHarnessSkill, /BLACKLIST_MANDATORY_INTERCEPTION_AXIOM/, 'ai-harness-openspec must specify BLACKLIST_MANDATORY_INTERCEPTION_AXIOM');
+  assert.match(aiHarnessSkill, /DUAL_SPECIMEN_SANITY_GATE/, 'ai-harness-openspec must specify DUAL_SPECIMEN_SANITY_GATE');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

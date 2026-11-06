@@ -582,6 +582,21 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_DUAL_GATE_STANDARD)**：
       双门禁公理的所有规约、时空矩阵与阻断定义，**必须（SHALL）100% 采用状态机前置条件（Precondition）、双阶段事务锁、RFC 2119 规范与标准退出码等纯通用软件工程语言**；严禁夹带单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_DUAL_GATE_STANDARD` 违规并一票否决。
 
+45. **项目级黑白名单双轨法定权威与双向标本自证公理 (Project-Canonical Dual Black-White Registry & Dual-Specimen Sanity Axiom - PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM - 严禁误伤正确做法与严禁违章缺漏铁律)**：
+    - **项目级双向权威注册表物理规程 (Project-Canonical Dual Registry Architecture - DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE)**：
+      全系统每个受管项目必须在其唯一权威审计体系（公理四十/Audit Graph）中维护显式、可机器求值的【白名单（Whitelist）】与【黑名单（Blacklist）】知识库；严禁依赖 Agent 飘忽不定的主观推测进行黑白定性；白名单专职收录人工确认的特殊业务结构、既有合法逻辑与官方黄金标本，黑名单专职收录历史踩坑缺陷、违规外生虚增与排版反模式；
+    - **反假阳性（误判）白名单最高豁免权规程 (Anti-False-Positive Shield & Whitelist Supreme Immunity - WHITELIST_SUPREME_IMMUNITY_AXIOM & FALSE_POSITIVE_OVERHAUL_BLOCKED)**：
+      彻底杜绝“明明正确的做法却被审计归纳为错误”的严重恶疾：凡命中项目白名单特征的代码模式或产出物结构，享有最高法定只读与合规豁免权；任何通用检测规则与启发式检查在白名单面前自动静默降级；严禁任何 Agent 凭借通用常识将白名单内的写法归纳为“代码坏味道”、“逻辑冗余”或“违章”；凡因审计误判（假阳性）擅自对正常代码展开破坏性重构者，系统静态检查直接判定为 `FALSE_POSITIVE_OVERHAUL_BLOCKED` 致命阻断并强制回滚；
+    - **反假阴性（漏网）黑名单穿透与必杀硬阻断规程 (Anti-False-Negative Net & Blacklist Mandatory Interception - BLACKLIST_MANDATORY_INTERCEPTION_AXIOM & AUDIT_LEAKAGE_DETECTED)**：
+      彻底杜绝“错误做法与历史违章审计缺漏”的放行漏洞：凡项目发生过的缺陷、踩坑事实或用户指正的违规模式，必须 100% 物理固化为黑名单反模式特征；黑名单必须转化为 AST、正则或值拓扑层面的机器级硬断言；在交付审计中，黑名单具备最高一票否决权（Exit 1）；凡黑名单已有反模式未被检出而逃逸至交付环节，直接判定为 `AUDIT_LEAKAGE_DETECTED` 质量事故并启动逆向问责；
+    - **审计规则双向标本自证准入硬门禁规程 (Dual-Specimen Sanity Gate for Audit Invariants - DUAL_SPECIMEN_SANITY_GATE & UNVERIFIED_RULE_MUTATION_BLOCKED)**：
+      全系统任何新增或修改的审计规则、Lint 规则或检查脚本，必须通过双向标本测试靶场检验：
+      ① **正向合法标本集（Positive Golden Specimens）**：执行审计必须 100% 给出 PASS 绿灯，达成 Zero False-Positives（0 误报）；
+      ② **负向故障变异标本集（Negative Fault Mutants）**：执行审计必须 100% 给出 FAIL 红灯（非零退出码），达成 Zero False-Negatives（0 漏报）；
+      缺失双向标本自证凭据的审计规则，一律判定为 `UNVERIFIED_RULE_MUTATION_BLOCKED` 并严禁合流；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUDIT_ACCURACY_STANDARD)**：
+      双轨黑白名单与双向标本门禁的所有规约与断言，**必须（SHALL）100% 采用集合论、编译器 AST、谓词逻辑、标本测试集与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_AUDIT_ACCURACY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

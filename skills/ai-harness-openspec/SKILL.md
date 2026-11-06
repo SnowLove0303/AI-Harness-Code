@@ -478,6 +478,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+42. **项目级黑白名单双轨法定权威与双向标本自证公理 (Project-Canonical Dual Black-White Registry & Dual-Specimen Sanity Axiom - PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM - 严禁误伤正确做法与严禁违章缺漏铁律)**：
+    - **项目级双向权威注册表物理规程 (DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE)**：全系统每个受管项目必须在其唯一权威审计体系（公理四十/Audit Graph）中维护显式、可机器求值的【白名单（Whitelist）】与【黑名单（Blacklist）】知识库；严禁依赖主观推测；白名单专职收录人工确认特殊结构、既有合法逻辑与官方黄金标本，黑名单专职收录历史踩坑缺陷、违规外生虚增与排版反模式；
+    - **反假阳性（误判）白名单最高豁免权规程 (WHITELIST_SUPREME_IMMUNITY_AXIOM & FALSE_POSITIVE_OVERHAUL_BLOCKED)**：彻底杜绝“明明正确的做法却被审计归纳为错误”的恶疾：凡命中项目白名单特征的代码或产出物结构，享有最高法定只读与合规豁免权；通用检查规则在白名单面前自动静默降级；严禁将白名单内写法归纳为“代码坏味道”或“违章”；凡因审计误判擅自对正常代码展开破坏性重构者，直接判定为 `FALSE_POSITIVE_OVERHAUL_BLOCKED` 阻断并强制回滚；
+    - **反假阴性（漏网）黑名单穿透与必杀硬阻断规程 (BLACKLIST_MANDATORY_INTERCEPTION_AXIOM & AUDIT_LEAKAGE_DETECTED)**：彻底杜绝“错误做法与历史违章审计缺漏”的放行漏洞：凡项目发生过的缺陷与踩坑事实，必须 100% 物理固化为黑名单反模式特征；黑名单必须转化为 AST、正则或值拓扑层面的机器级硬断言；黑名单具备最高一票否决权（Exit 1）；凡黑名单反模式未被检出而逃逸至交付环节，直接判定为 `AUDIT_LEAKAGE_DETECTED` 质量事故并启动逆向问责；
+    - **审计规则双向标本自证准入硬门禁规程 (DUAL_SPECIMEN_SANITY_GATE & UNVERIFIED_RULE_MUTATION_BLOCKED)**：全系统任何新增或修改的审计规则、Lint 规则或检查脚本，必须通过双向标本测试靶场检验：① 正向合法标本集（Positive Golden Specimens）必须 100% 给出 PASS 绿灯（Zero False-Positives，0 误报）；② 负向故障变异标本集（Negative Fault Mutants）必须 100% 给出 FAIL 红灯（Zero False-Negatives，0 漏报）；缺失双向标本自证凭据的规则一律判定为 `UNVERIFIED_RULE_MUTATION_BLOCKED` 并严禁合流；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_AUDIT_ACCURACY_STANDARD)**：双轨黑白名单与双向标本门禁规约 100% 采用集合论、AST、谓词逻辑、标本测试集与标准退出码通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)
