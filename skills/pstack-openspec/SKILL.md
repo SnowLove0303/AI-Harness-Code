@@ -521,6 +521,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+46. **双门禁绝对前置、首轮只读停机与反擅自执行公理 (Statutory Dual-Gate Entry Precondition & Anti-Premature Execution Axiom - STATUTORY_DUAL_GATE_ENTRY_PRECONDITION_AXIOM - 严禁未经确认与未充分理解需求擅自开工铁律)**：
+    - **首轮只读绝对停机与需求零损耗立案规程 (INITIAL_TURN_READ_ONLY_DIRECTIVE & PREMATURE_EXECUTION_BLOCKED)**：全系统任何 Agent 在接收到用户新任务、缺陷报告、重构指示或变更诉求的第一轮次（Turn 1），**必须严格停机在 Step 0 门禁 1**；首轮除只读探索、日志调取与指纹比对外，**绝对禁止调用任何改写文件、创建代码、修改配置或触发生产流水线的工具**（违者系统判定为 `PREMATURE_EXECUTION_BLOCKED` 阻断并一票否决）；必须 100% 逐字留存用户输入，建立 1:1 需求物理对账矩阵（RTM），输出详尽的《需求全量对账备忘录》，并在文末挂载明确的门禁 1 驻留声明，停止调用工具，严格等待用户确认回复；
+    - **PStack 自主权时空边界严格收敛规程 (AUTONOMY_SPATIOTEMPORAL_SCOPE_DISAMBIGUATION)**：严格限定 PStack 执行自主权（Autonomy）的时空生效域：PStack Autonomy 仅在 **Step 3（单步施工阶段）且持有单任务专注锁 `[-]` 及在已获批双清单爆炸半径内** 享有闭环排错、编译与自测权限；**在 Step 0（任务入口立案）与 Step 2（规格立法动工）阶段，Autonomy 权限为绝对 0**；严禁借口“PStack autonomy”或“排查探索”在任务入口处逃逸跳步，严禁先斩后奏；
+    - **先充分理解需求后动工准则与意图模糊熔断规程 (COMPREHENSION_BEFORE_EXECUTION_AXIOM & UNVERIFIED_INTENT_EXECUTION_BLOCKED)**：严惩“未充分理解需求就擅自开工”与“自以为是盲目推测”：Agent 必须在《需求全量对账备忘录》中向用户展现对核心痛点、场景边界与验收指标的穿透性理解；若对用户指令、专有名词、业务背景存在任何疑点，必须显式列出待确认事项并询问，严禁凭大模型通用概率盲目猜测并直接付诸代码；凡未经用户确认擅自假设并执行者，直接判定为 `UNVERIFIED_INTENT_EXECUTION_BLOCKED` 违规并要求立即回滚；
+    - **双门禁双钥匙物理合流门禁规程 (DUAL_GATE_ENTRY_PRECONDITION_GATE)**：全系统流水线推进严格受制于双门禁两把物理钥匙：① 钥匙 1（需求准入之钥）：Step 0《需求全量对账备忘录》获用户明文确认（“执行/确认”），解锁 Step 1/Step 2 规格草拟权限；② 钥匙 2（动工准入之钥）：Step 2 OpenSpec 增量规格与双清单获用户明文授权（“批准动工/执行/同意”），解锁 Step 3 施工写代码权限；缺少任何一把钥匙的代码修改或提交，一律判定为非法越权，禁止合流；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_DUAL_GATE_STANDARD)**：规约 100% 采用状态机前置条件、双阶段事务锁、RFC 2119 规范与标准退出码通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

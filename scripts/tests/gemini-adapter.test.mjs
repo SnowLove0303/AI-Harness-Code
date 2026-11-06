@@ -1441,6 +1441,48 @@ test('gemini adapter enforces UI Radical Text Economy invariant and microcopy mi
   assert.match(uiUxContent, /AI_SLOP_PROSE_VIOLATION/, 'must define AI_SLOP_PROSE_VIOLATION rejection gate');
 });
 
+test('gemini adapter enforces statutory dual-gate entry precondition and anti-premature execution gate', () => {
+  // 1. Verify GEMINI.md Axiom 44
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /44\.\s*\*\*双门禁绝对前置/, 'GEMINI.md must contain Axiom 44 number');
+  assert.match(globalRules, /双门禁绝对前置、首轮只读停机与反擅自执行公理/, 'GEMINI.md must contain Axiom 44 title');
+  assert.match(globalRules, /STATUTORY_DUAL_GATE_ENTRY_PRECONDITION_AXIOM/, 'GEMINI.md must contain English identifier');
+  assert.match(globalRules, /PREMATURE_EXECUTION_BLOCKED/, 'GEMINI.md must specify PREMATURE_EXECUTION_BLOCKED');
+  assert.match(globalRules, /AUTONOMY_SPATIOTEMPORAL_SCOPE_DISAMBIGUATION/, 'GEMINI.md must specify autonomy spatiotemporal scope disambiguation');
+  assert.match(globalRules, /COMPREHENSION_BEFORE_EXECUTION_AXIOM/, 'GEMINI.md must specify comprehension before execution');
+  assert.match(globalRules, /UNVERIFIED_INTENT_EXECUTION_BLOCKED/, 'GEMINI.md must specify UNVERIFIED_INTENT_EXECUTION_BLOCKED');
+  assert.match(globalRules, /DUAL_GATE_ENTRY_PRECONDITION_GATE/, 'GEMINI.md must specify dual-gate entry precondition gate');
+  assert.match(globalRules, /UNIVERSAL_DUAL_GATE_STANDARD/, 'GEMINI.md must specify domain neutrality standard');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 46
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /STATUTORY_DUAL_GATE_ENTRY_PRECONDITION_AXIOM/, 'pstack-openspec must define Axiom 46');
+  assert.match(pstackSkill, /PREMATURE_EXECUTION_BLOCKED/, 'pstack-openspec must specify PREMATURE_EXECUTION_BLOCKED');
+  assert.match(pstackSkill, /AUTONOMY_SPATIOTEMPORAL_SCOPE_DISAMBIGUATION/, 'pstack-openspec must specify autonomy scope disambiguation');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 41
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /STATUTORY_DUAL_GATE_ENTRY_PRECONDITION_AXIOM/, 'ai-harness-openspec must define Axiom 41');
+  assert.match(aiHarnessSkill, /PREMATURE_EXECUTION_BLOCKED/, 'ai-harness-openspec must specify PREMATURE_EXECUTION_BLOCKED');
+
+  // 4. Verify orbitstack-gemini/SKILL.md
+  const geminiSkillPath = path.join(repoRoot, 'orbitstack-gemini/SKILL.md');
+  const geminiSkill = readFileSync(geminiSkillPath, 'utf8');
+  assert.match(geminiSkill, /PREMATURE_EXECUTION_BLOCKED/, 'orbitstack-gemini must specify PREMATURE_EXECUTION_BLOCKED');
+  assert.match(geminiSkill, /Ps-openspec dual-gate entry preconditions/, 'orbitstack-gemini must specify dual-gate preconditions');
+
+  // 5. Verify docs/pstack-openspec-route-map.json
+  const routeMapPath = path.join(repoRoot, 'docs/pstack-openspec-route-map.json');
+  const routeMap = JSON.parse(readFileSync(routeMapPath, 'utf8'));
+  assert.match(routeMap.authorityPolicy, /dual-gate entry preconditions/, 'route map authority policy must declare dual-gate preconditions');
+  const bugFixRoute = routeMap.routes.find(r => r.id === 'bug-fix');
+  assert.ok(bugFixRoute, 'bug-fix route must exist');
+  assert.match(bugFixRoute.gate, /Dual-gate entry precondition/, 'bug-fix route gate must enforce dual-gate precondition');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
