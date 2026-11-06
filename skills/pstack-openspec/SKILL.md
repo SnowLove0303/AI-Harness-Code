@@ -575,6 +575,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+52. **Antigravity 全局全生命周期法定覆盖与零绕过公理 (Antigravity Universal Lifecycle Coverage & Zero-Bypass Axiom - ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM - 严禁绕过体系与严禁未纳管执行铁律)**：
+    - **全生命周期全任务强制纳管规程 (ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL)**：全系统任何会话、项目及任何任务类型（功能/缺陷/重构/探索/审计/文档/脚本配置），必须（SHALL）100% 纳入 Ps-openspec 轨道工程体系管辖；严禁借口任务微小擅自免除体系管辖；
+    - **零绕过物理熔断硬门禁 (BYPASS_PS_OPENSPEC_BLOCKED)**：严禁绕过 Ps-openspec 双阶段双门禁私自施工：未出具 Step 0 门禁 1 实体 Markdown 资产（`PHYSICAL_GATE_ASSET_MANDATORY_INGESTION`）、未经第一门禁确认或未经第二门禁双清单授权擅自改码动工，系统直接判定为 `BYPASS_PS_OPENSPEC_BLOCKED` 阻断并原子回滚；
+    - **全任务实体 Markdown 门禁资产强制沉淀规程 (PHYSICAL_GATE_ASSET_MANDATORY_INGESTION)**：所有任务在 Step 0 必须生成物理 `.md` 实体文档（原文镜像+深度反馈），并在 Step 2 无损注入 OpenSpec 资产；
+    - **全局宪章与多端同构统一确权公理 (GLOBAL_CONSTITUTIONAL_SUPREME_STATUS)**：Ps-openspec 享有最高法定治理效力，全蜂群主子智能体必须同构统一遵从；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD)**：规约 100% 采用分布式协同、编译器门禁与状态机通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

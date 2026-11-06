@@ -1661,6 +1661,42 @@ test('gemini adapter enforces Gate 1 Markdown materialization, zero goal loss, a
   assert.match(aiHarnessSkill, /GOAL_DEGRADATION_DETECTED/, 'ai-harness-openspec must specify GOAL_DEGRADATION_DETECTED');
 });
 
+
+test('gemini adapter enforces universal Ps-openspec coverage, zero-bypass blocking, and mandatory physical gate assets', () => {
+  // 1. Verify GEMINI.md Axiom 50
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /50\.\s*\*\*Antigravity 全局全生命周期法定覆盖与零绕过公理/, 'GEMINI.md must contain Axiom 50 heading');
+  assert.match(globalRules, /ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM/, 'GEMINI.md must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM');
+  assert.match(globalRules, /ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL/, 'GEMINI.md must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL');
+  assert.match(globalRules, /BYPASS_PS_OPENSPEC_BLOCKED/, 'GEMINI.md must specify BYPASS_PS_OPENSPEC_BLOCKED');
+  assert.match(globalRules, /PHYSICAL_GATE_ASSET_MANDATORY_INGESTION/, 'GEMINI.md must specify PHYSICAL_GATE_ASSET_MANDATORY_INGESTION');
+  assert.match(globalRules, /GLOBAL_CONSTITUTIONAL_SUPREME_STATUS/, 'GEMINI.md must specify GLOBAL_CONSTITUTIONAL_SUPREME_STATUS');
+  assert.match(globalRules, /UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD/, 'GEMINI.md must specify UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 52
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /52\.\s*\*\*Antigravity 全局全生命周期法定覆盖与零绕过公理/, 'pstack-openspec must define Axiom 52');
+  assert.match(pstackSkill, /ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM/, 'pstack-openspec must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM');
+  assert.match(pstackSkill, /ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL/, 'pstack-openspec must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL');
+  assert.match(pstackSkill, /BYPASS_PS_OPENSPEC_BLOCKED/, 'pstack-openspec must specify BYPASS_PS_OPENSPEC_BLOCKED');
+  assert.match(pstackSkill, /PHYSICAL_GATE_ASSET_MANDATORY_INGESTION/, 'pstack-openspec must specify PHYSICAL_GATE_ASSET_MANDATORY_INGESTION');
+  assert.match(pstackSkill, /GLOBAL_CONSTITUTIONAL_SUPREME_STATUS/, 'pstack-openspec must specify GLOBAL_CONSTITUTIONAL_SUPREME_STATUS');
+  assert.match(pstackSkill, /UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD/, 'pstack-openspec must specify UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 47
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /47\.\s*\*\*Antigravity 全局全生命周期法定覆盖与零绕过公理/, 'ai-harness-openspec must define Axiom 47');
+  assert.match(aiHarnessSkill, /ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM/, 'ai-harness-openspec must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM');
+  assert.match(aiHarnessSkill, /ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL/, 'ai-harness-openspec must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL');
+  assert.match(aiHarnessSkill, /BYPASS_PS_OPENSPEC_BLOCKED/, 'ai-harness-openspec must specify BYPASS_PS_OPENSPEC_BLOCKED');
+  assert.match(aiHarnessSkill, /PHYSICAL_GATE_ASSET_MANDATORY_INGESTION/, 'ai-harness-openspec must specify PHYSICAL_GATE_ASSET_MANDATORY_INGESTION');
+  assert.match(aiHarnessSkill, /GLOBAL_CONSTITUTIONAL_SUPREME_STATUS/, 'ai-harness-openspec must specify GLOBAL_CONSTITUTIONAL_SUPREME_STATUS');
+  assert.match(aiHarnessSkill, /UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

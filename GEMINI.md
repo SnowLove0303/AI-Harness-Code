@@ -661,6 +661,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GOAL_PRESERVATION_STANDARD)**：
       本公理的所有规约、判定拓扑与断路契约，**必须（SHALL）100% 采用信息守恒定理、全量胶囊交接、状态机前置条件与编译器退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GOAL_PRESERVATION_STANDARD` 违规并一票否决。
 
+50. **Antigravity 全局全生命周期法定覆盖与零绕过公理 (Antigravity Universal Lifecycle Coverage & Zero-Bypass Axiom - ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM - 严禁绕过体系与严禁未纳管执行铁律)**：
+    - **全生命周期全任务强制纳管规程 (Universal Ps-openspec Coverage Protocol - ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL)**：
+      全系统任何会话（Session）、任何线程（Thread）、任何项目及任何任务类型（包括但不限于：新功能开发 Feature、缺陷修复 Bug-fix、架构重构 Refactor、代码探索与研判 Explore、安全合规审计 Audit、文档与规范编写 Doc/Spec、环境与配置变更 Config/Script、以及日常运维与答疑），必须（SHALL）100% 纳入 Ps-openspec 轨道工程体系全生命周期闭环管辖；严禁以“任务微小”、“仅改一行”、“临时排查”、“非业务代码”或“纯属答疑”为由擅自免除体系管辖，所有行为必须纳入 Ps-openspec 状态机；
+    - **零绕过物理熔断硬门禁 (Zero-Bypass Static Circuit Breaker - BYPASS_PS_OPENSPEC_BLOCKED)**：
+      严禁任何 Agent 绕过 Ps-openspec 双阶段双门禁私自施工：凡未出具 Step 0 门禁 1 实体 Markdown 资产（`PHYSICAL_GATE_ASSET_MANDATORY_INGESTION`）、未获得用户第一门禁明文确认、未建立 Step 2 OpenSpec 规格与双清单施工图纸、或未获用户动工授权即调用任何写文件、改代码或执行变动命令工具的，系统底层工具拦截网直接触发 `BYPASS_PS_OPENSPEC_BLOCKED` 致命阻断，强制一票否决并立即回滚至干净状态；
+    - **全任务实体 Markdown 门禁资产强制沉淀与全链路绑定规程 (Physical Gate Asset Mandatory Ingestion - PHYSICAL_GATE_ASSET_MANDATORY_INGESTION)**：
+      所有任务在 Step 0 阶段必须且只能在磁盘实体化工件库沉淀物理 `.md` 实体文档（包含板块一：管理者的任务说明原文 100% 逐字镜像与 SHA-256 事实指纹；板块二：法医级第一门禁反馈与 1:1 RTM 对账矩阵）；进入 Step 2 时，OpenSpec 资产必须无损继承该 `.md` 实体文档中的每一项边界与验收指标；
+    - **全局宪章与多端同构统一确权公理 (Global Constitutional Supreme Status - GLOBAL_CONSTITUTIONAL_SUPREME_STATUS)**：
+      Ps-openspec 体系在 Antigravity 全系统中享有超越任何单一插件、工具或模型预训练习惯的最高法定统治地位；`GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md` 构成全蜂群同构统一的法定法典，所有主智能体、协调者及派发子智能体必须一体遵从，严禁子智能体执行任何非同构或降级的松散流程；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD)**：
+      本公理的所有规约、拦截状态机、断路器与自证矩阵**必须（SHALL）100% 采用分布式多智能体系统、编译器门禁、事务性状态机与形式化规范等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
