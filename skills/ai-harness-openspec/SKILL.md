@@ -532,6 +532,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+48. **项目级 OpenSpec 第一门禁专属物理目录规范公理 (Project-Canonical OpenSpec Gate 1 Dossier Directory Invariant - PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM - 严禁会话与项目脱节及项目内真理源法定归档铁律)**：
+    - **项目级 OpenSpec 第一门禁专属目录法定规程 (PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION)**：每个 Agent 负责的所有项目，其 `openspec/` 根目录下必须（SHALL）设立 `openspec/gate1-dossiers/` 专属目录并纳入 Git 版本控制；严禁仅保存在 Agent 私有会话目录中；
+    - **第一门禁资产项目内实体化双重沉淀契约 (GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT)**：Step 0 第一门禁 `.md` 实体文档必须写入项目 `openspec/gate1-dossiers/<YYYY-MM-DD-slug>-GATE1.md`，包含板块一（原文逐字+SHA-256）与板块二（深度反馈与 1:1 RTM）；
+    - **项目第一门禁目录缺失物理阻断门禁 (GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED)**：项目缺失该目录或未在项目内落盘第一门禁资产者，系统直接判定为 `GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED` 致命阻断并一票否决；
+    - **第二门禁对项目内第一门禁资产无损绑定规程 (GATE1_TO_OPENSPEC_PROJECT_INHERITANCE)**：Step 2 `proposal.md` 必须通过项目内相对路径链接该文档，因果链条代码库内闭环；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_GATE1_DIRECTORY_STANDARD)**：规约 100% 采用文件系统拓扑、状态机理论与标准退出码通用工程语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

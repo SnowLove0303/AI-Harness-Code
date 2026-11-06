@@ -673,6 +673,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD)**：
       本公理的所有规约、拦截状态机、断路器与自证矩阵**必须（SHALL）100% 采用分布式多智能体系统、编译器门禁、事务性状态机与形式化规范等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD` 违规并一票否决。
 
+51. **项目级 OpenSpec 第一门禁专属物理目录规范公理 (Project-Canonical OpenSpec Gate 1 Dossier Directory Invariant - PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM - 严禁会话与项目脱节及项目内真理源法定归档铁律)**：
+    - **项目级 OpenSpec 第一门禁专属目录法定规程 (Project Canonical Directory Specification - PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION)**：
+      全系统每个 Agent 负责的所有项目，其 `openspec/` 根目录下必须（SHALL）设立并纳入 Git 版本控制的标准化第一门禁专属目录（法定标准路径为 `openspec/gate1-dossiers/` 或 `openspec/gate1/`）；严禁将第一门禁仅保存在宿主机器或 Agent 私有会话临时目录中，必须使第一门禁资产与项目源码同生命周期、同分支、同提交持久化；
+    - **第一门禁资产项目内实体化双重沉淀与命名契约 (Gate 1 Dossier Project Physical Storage Contract - GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT)**：
+      所有任务在 Step 0 第一门禁阶段生成的 `.md` 实体文档，必须物理写入目标项目所属的 `openspec/gate1-dossiers/` 目录中（标准化命名格式：`openspec/gate1-dossiers/<YYYY-MM-DD-slug>-GATE1.md`），完整包含板块一（100% 逐字镜像与 SHA-256 事实指纹）与板块二（法医级反馈与 1:1 RTM 对账矩阵），作为项目内生且不可篡改的真理资产；
+    - **项目第一门禁目录缺失物理熔断硬门禁 (Missing Project Gate 1 Directory Circuit Breaker - GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED)**：
+      任何 Agent 在进入受管项目执行任务前，底层校验机制强制前置检查该项目 `openspec/` 根目录下是否存在法定专属目录；若项目缺失该目录，强制要求 Agent 依规首先建立该目录并落盘本轮第一门禁文档；凡缺失该目录或未在项目内落盘第一门禁资产即试图推进至 Step 2 规格草拟或 Step 3 施工的，系统静态检查直接判定为 `GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED` 致命阻断并一票否决；
+    - **第二门禁对项目内第一门禁资产全生命周期无损绑定规程 (Native Project Asset Inheritance - GATE1_TO_OPENSPEC_PROJECT_INHERITANCE)**：
+      Step 2 编制 OpenSpec 增量资产时，`proposal.md` 必须通过项目内相对路径（`openspec/gate1-dossiers/...`）显式引用与继承第一门禁文档，终审双向物理核销表必须精准溯源至该项目物理资产，确保全生命周期因果链条在代码库内部实现闭环内生；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GATE1_DIRECTORY_STANDARD)**：
+      本公理的所有规约、目录拓扑、断路器与自证矩阵**必须（SHALL）100% 采用操作系统文件系统拓扑、状态机理论、形式化规范与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GATE1_DIRECTORY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

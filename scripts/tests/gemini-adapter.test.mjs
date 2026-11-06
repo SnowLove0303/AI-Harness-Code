@@ -1697,6 +1697,46 @@ test('gemini adapter enforces universal Ps-openspec coverage, zero-bypass blocki
   assert.match(aiHarnessSkill, /UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_GLOBAL_ENFORCEMENT_STANDARD');
 });
 
+
+test('gemini adapter enforces project-canonical OpenSpec Gate 1 dossier directory invariant and blocking gate', () => {
+  // 1. Verify GEMINI.md Axiom 51
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /51\.\s*\*\*项目级 OpenSpec 第一门禁专属物理目录规范公理/, 'GEMINI.md must contain Axiom 51 heading');
+  assert.match(globalRules, /PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM/, 'GEMINI.md must specify PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM');
+  assert.match(globalRules, /PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION/, 'GEMINI.md must specify PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION');
+  assert.match(globalRules, /GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT/, 'GEMINI.md must specify GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT');
+  assert.match(globalRules, /GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED/, 'GEMINI.md must specify GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED');
+  assert.match(globalRules, /GATE1_TO_OPENSPEC_PROJECT_INHERITANCE/, 'GEMINI.md must specify GATE1_TO_OPENSPEC_PROJECT_INHERITANCE');
+  assert.match(globalRules, /UNIVERSAL_GATE1_DIRECTORY_STANDARD/, 'GEMINI.md must specify UNIVERSAL_GATE1_DIRECTORY_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 53
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /53\.\s*\*\*项目级 OpenSpec 第一门禁专属物理目录规范公理/, 'pstack-openspec must define Axiom 53');
+  assert.match(pstackSkill, /PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM/, 'pstack-openspec must specify PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM');
+  assert.match(pstackSkill, /PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION/, 'pstack-openspec must specify PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION');
+  assert.match(pstackSkill, /GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT/, 'pstack-openspec must specify GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT');
+  assert.match(pstackSkill, /GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED/, 'pstack-openspec must specify GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED');
+  assert.match(pstackSkill, /GATE1_TO_OPENSPEC_PROJECT_INHERITANCE/, 'pstack-openspec must specify GATE1_TO_OPENSPEC_PROJECT_INHERITANCE');
+  assert.match(pstackSkill, /UNIVERSAL_GATE1_DIRECTORY_STANDARD/, 'pstack-openspec must specify UNIVERSAL_GATE1_DIRECTORY_STANDARD');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 48
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /48\.\s*\*\*项目级 OpenSpec 第一门禁专属物理目录规范公理/, 'ai-harness-openspec must define Axiom 48');
+  assert.match(aiHarnessSkill, /PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM/, 'ai-harness-openspec must specify PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM');
+  assert.match(aiHarnessSkill, /PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION/, 'ai-harness-openspec must specify PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION');
+  assert.match(aiHarnessSkill, /GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT/, 'ai-harness-openspec must specify GATE1_DOSSIER_PROJECT_STORAGE_CONTRACT');
+  assert.match(aiHarnessSkill, /GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED/, 'ai-harness-openspec must specify GATE1_PROJECT_DIRECTORY_MISSING_BLOCKED');
+  assert.match(aiHarnessSkill, /GATE1_TO_OPENSPEC_PROJECT_INHERITANCE/, 'ai-harness-openspec must specify GATE1_TO_OPENSPEC_PROJECT_INHERITANCE');
+  assert.match(aiHarnessSkill, /UNIVERSAL_GATE1_DIRECTORY_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_GATE1_DIRECTORY_STANDARD');
+
+  // 4. Verify physical directory exists in repo root
+  const gate1Dir = path.join(repoRoot, 'openspec/gate1-dossiers');
+  assert.ok(existsSync(gate1Dir), 'openspec/gate1-dossiers directory must exist');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
