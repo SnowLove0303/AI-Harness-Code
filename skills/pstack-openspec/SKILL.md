@@ -557,6 +557,15 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 
 ---
 
+50. **用户明示规约最高法定豁免与治理体系纯通用抽象公理 (Human-Decreed Specification Supremacy & Governance Domain-Agnostic Purity Axiom - HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM - 严禁常识傲慢与严禁情境污染铁律)**：
+    - **用户明示设计与定制异常最高法定豁免规程 (HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM)**：人类用户的明文指示、专属业务设计与定制异常构成最高法定不变量；经用户明确声明或核准为“这是我要求的 / 保持现状 / 按此定制执行”的模式，自动享有项目级最高豁免权；严禁任何 Agent 推翻、质疑或将其重新判定为错误，违者直接判定为 `FALSE_POSITIVE_OVERHAUL_BLOCKED` 并强制回滚；
+    - **反大模型通用常识傲慢反噬用户设计硬门禁 (ANTI_COMMON_SENSE_ARROGANCE_BLOCKED)**：人工明文裁决严格高于大模型通用预训练常识与教科书规范；通用检测器在命中用户确认模式时强制短路静默输出 `IMMUNE_PASS`；凡将用户明示定制写法判定为“违背常识”而阻断流程的，直接判定为 `ANTI_COMMON_SENSE_ARROGANCE_BLOCKED` 违规；
+    - **治理体系纯通用抽象与反情境污染规程 (GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM & SCENARIO_ANCHORING_LINT_BLOCKED)**：对 Ps-openspec、AI-Harness 及全局宪法进行立法、优化与断言编写时，必须 100% 保持纯通用工程抽象；严禁注入特定业务实体、具体产品型号或特定文档章节代码；必须透过表象抽取通用状态机、AST 拓扑与智能体行为控制模型；夹带业务情境特化词汇直接判定为 `SCENARIO_ANCHORING_LINT_BLOCKED` 阻断；
+    - **假阳性拦截与真实渲染缺陷穿透聚焦门禁 (REAL_DEFECT_ATTENTION_PRIORITY_GATE)**：彻底拦截假阳性，将审计算力 100% 聚焦于真实生效的物理图元、排版样式（粗体 Flags、字阶断层）、几何完整性与数据保真度等真实客观缺陷；严禁假阳性喧宾夺主导致真实物理缺陷漏检；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD)**：规约 100% 采用集合论、编译器短路求值、形式化契约与标准退出码通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 五、 配套参考指南索引
 
 - 用户反馈质疑与否定第一时间根因归因与递归自改进协议：[`references/recursive-self-improvement-protocol.md`](file:///C:/Users/Administrator/.gemini/config/skills/pstack-openspec/references/recursive-self-improvement-protocol.md)

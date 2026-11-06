@@ -1591,6 +1591,38 @@ test('gemini adapter enforces lead agent recurrence prevention governance and an
   assert.match(aiHarnessSkill, /PREVENT_RECURRENCE_MECHANICAL_ESCALATION/, 'ai-harness-openspec must specify PREVENT_RECURRENCE_MECHANICAL_ESCALATION');
 });
 
+
+test('gemini adapter enforces human-decreed specification supremacy, domain-agnostic purity, and anti-common-sense arrogance gate', () => {
+  // 1. Verify GEMINI.md Axiom 48
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /48\.\s*\*\*用户明示规约最高法定豁免与治理体系纯通用抽象公理/, 'GEMINI.md must contain Axiom 48 heading');
+  assert.match(globalRules, /HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM/, 'GEMINI.md must specify HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM');
+  assert.match(globalRules, /ANTI_COMMON_SENSE_ARROGANCE_BLOCKED/, 'GEMINI.md must specify ANTI_COMMON_SENSE_ARROGANCE_BLOCKED');
+  assert.match(globalRules, /GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM/, 'GEMINI.md must specify GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM');
+  assert.match(globalRules, /SCENARIO_ANCHORING_LINT_BLOCKED/, 'GEMINI.md must specify SCENARIO_ANCHORING_LINT_BLOCKED');
+  assert.match(globalRules, /REAL_DEFECT_ATTENTION_PRIORITY_GATE/, 'GEMINI.md must specify REAL_DEFECT_ATTENTION_PRIORITY_GATE');
+  assert.match(globalRules, /UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD/, 'GEMINI.md must specify UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 50
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /50\.\s*\*\*用户明示规约最高法定豁免与治理体系纯通用抽象公理/, 'pstack-openspec must define Axiom 50');
+  assert.match(pstackSkill, /HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM/, 'pstack-openspec must specify HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM');
+  assert.match(pstackSkill, /ANTI_COMMON_SENSE_ARROGANCE_BLOCKED/, 'pstack-openspec must specify ANTI_COMMON_SENSE_ARROGANCE_BLOCKED');
+  assert.match(pstackSkill, /GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM/, 'pstack-openspec must specify GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM');
+  assert.match(pstackSkill, /REAL_DEFECT_ATTENTION_PRIORITY_GATE/, 'pstack-openspec must specify REAL_DEFECT_ATTENTION_PRIORITY_GATE');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 45
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /45\.\s*\*\*用户明示规约最高法定豁免与治理体系纯通用抽象公理/, 'ai-harness-openspec must define Axiom 45');
+  assert.match(aiHarnessSkill, /HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM/, 'ai-harness-openspec must specify HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM');
+  assert.match(aiHarnessSkill, /ANTI_COMMON_SENSE_ARROGANCE_BLOCKED/, 'ai-harness-openspec must specify ANTI_COMMON_SENSE_ARROGANCE_BLOCKED');
+  assert.match(aiHarnessSkill, /GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM/, 'ai-harness-openspec must specify GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM');
+  assert.match(aiHarnessSkill, /REAL_DEFECT_ATTENTION_PRIORITY_GATE/, 'ai-harness-openspec must specify REAL_DEFECT_ATTENTION_PRIORITY_GATE');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

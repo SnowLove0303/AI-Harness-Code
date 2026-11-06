@@ -631,6 +631,21 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_LEAD_GOVERNANCE_STANDARD)**：
       本公理的所有规约、定理证明与阻断判定，**必须（SHALL）100% 采用分布式系统、状态机不变量、形式化契约、编译器门禁与可靠性工程等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_LEAD_GOVERNANCE_STANDARD` 违规并一票否决。
 
+48. **用户明示规约最高法定豁免与治理体系纯通用抽象公理 (Human-Decreed Specification Supremacy & Governance Domain-Agnostic Purity Axiom - HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM - 严禁常识傲慢与严禁情境污染铁律)**：
+    - **用户明示设计与定制异常最高法定豁免规程 (Human-Decreed Specification Supremacy - HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM)**：
+      在人机协同工程体系中，人类用户的明文指示、专属业务设计、特殊结构定义与定制异常，构成全系统最高位阶的法定不变量；凡经用户在交互中明确声明或核准为“这是我要求的 / 保持现状 / 按此定制执行”的模式，自动享有项目级最高只读与合规豁免权；严禁任何 Agent（无论主 Agent 还是后台 Subagents）在后续轮次或审计中，推翻、质疑、或将其重新判定为“错误”、“代码坏味道”或“逻辑违章”；凡因违背用户明示规约擅自发起破坏性重构或反复报错者，系统静态检查直接判定为 `FALSE_POSITIVE_OVERHAUL_BLOCKED` 并强制回滚；
+    - **反大模型通用常识傲慢反噬用户设计硬门禁 (Anti-Common-Sense Arrogance Blocker - ANTI_COMMON_SENSE_ARROGANCE_BLOCKED)**：
+      彻底杜绝 Agent 凭借大模型通用预训练常识（如通用教科书标准、主流开源惯例、标准协议格式）反噬特定领域深思熟虑定制设计的恶疾：系统确立“人工明文裁决与项目白名单权威严格高于通用常识”原则；任何通用检测器、语法分析器或启发式检查逻辑在命中用户确认的模式时，强制无条件短路静默并输出 `IMMUNE_PASS`；凡将用户明确要求的定制写法判定为“违背通用常识”而阻断正常流程的，直接触发 `ANTI_COMMON_SENSE_ARROGANCE_BLOCKED` 违规并一票否决；
+    - **治理体系纯通用抽象与反情境污染规程 (Governance System Domain-Agnostic Purity - GOVERNANCE_SYSTEM_DOMAIN_AGNOSTIC_PURITY_AXIOM & SCENARIO_ANCHORING_LINT_BLOCKED)**：
+      全系统在对 Ps-openspec、AI-Harness、全局宪法及原子方法论技能库进行立法、重构、优化与断言编写时，**必须（SHALL）100% 保持纯通用工程抽象（Domain-Agnostic Purity）**：
+      ① 严禁在治理法典、规格要求与 Lint 脚本中注入任何特定业务领域的专有名词、特定业务实体标识、具体产品型号或特定文档章节代码；
+      ② 必须透过业务事故表象抽取纯粹的分布式系统契约、状态机不变量、AST 节点拓扑与智能体行为控制模型；
+      凡在元治理资产中夹带单一业务情境特化词汇的，系统静态中立性守卫直接判定为 `SCENARIO_ANCHORING_LINT_BLOCKED` 阻断并拒绝提交；
+    - **假阳性拦截与真实渲染缺陷穿透聚焦门禁 (Real-Defect Attention Priority Gate - REAL_DEFECT_ATTENTION_PRIORITY_GATE)**：
+      严禁审计与验证引擎陷入“虚假警报”的自嗨式过度挑刺：必须通过白名单与豁免机制彻底拦截假阳性，将有限的上下文窗口与审计算力 **100% 聚焦于真实生效的物理图元、排版样式（如粗体标志 Flags、字体尺寸、高低断层）、几何完整性与数据保真度等真实客观缺陷**；严禁假阳性喧宾夺主导致真正破坏视觉与业务的严重缺陷漏检；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD)**：
+      本公理的所有规约、定理证明与判定拓扑，**必须（SHALL）100% 采用集合论、编译器短路求值、形式化契约、状态机前置条件与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
