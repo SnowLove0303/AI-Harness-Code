@@ -514,6 +514,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+46. **第一门禁实体化与双门禁全链路目标零损耗传递公理 (Gate 1 Markdown Materialization & End-to-End Zero Goal Loss Axiom - GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM - 严禁层层目标丢失与严禁脱离第一门禁铁律)**：
+    - **第一门禁实体 Markdown 文档双板块强制沉淀规程 (GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL & GATE1_ASSET_MISSING)**：彻底终结第一门禁口水化；必须在磁盘物理生成 `.md` 实体资产，包含两大板块：① 来自于管理者的任务说明原文（RAW_INSTRUCTION_VERBATIM_MIRROR_AXIOM，100% 逐字保留+SHA-256 哈希）；② 第一门禁反馈（GATE1_DEEP_FORENSIC_FEEDBACK_CONTRACT，法医级溯源+对比凭据+验收指标）；缺少物理文件直接判定为 `GATE1_ASSET_MISSING` 阻断；
+    - **第二门禁承接第一门禁资产驱动 Ps-openspec 规程 (GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE)**：第二门禁必须且唯一以第一门禁 `.md` 文件为真理源；第一门禁确认的事项必须 1:1 守恒映射至 OpenSpec `proposal.md`、`specs/` 与 `tasks.md`，严禁擅自删减或稀释；
+    - **施工执行期目标不变量传递与胶囊锁死规程 (EXECUTION_PHASE_GOAL_INVARIANCE_LOCK)**：进入 Step 3 单步施工或派发 Subagents 时，必须将第一门禁 `.md` 资产与 OpenSpec 规格打包封装入四位一体交接胶囊；单任务专注锁（`[-]`）打勾必须满足第一门禁验收指标；
+    - **层层目标丢失物理熔断断路器 (GOAL_DEGRADATION_DETECTED & GATE1_GOAL_OMISSION_BLOCKED)**：全链路双向对账清算：第一门禁 $N$ 项诉求在终审必须 1:1 出具真实退出码 0 核销；凡出现跨阶段目标稀释或遗漏，直接触发 `GOAL_DEGRADATION_DETECTED` 阻断（`GATE1_GOAL_OMISSION_BLOCKED`）；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_GOAL_PRESERVATION_STANDARD)**：规约 100% 采用信息守恒、全量胶囊交接与状态机前置条件通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

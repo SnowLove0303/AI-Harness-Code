@@ -1623,6 +1623,44 @@ test('gemini adapter enforces human-decreed specification supremacy, domain-agno
   assert.match(aiHarnessSkill, /REAL_DEFECT_ATTENTION_PRIORITY_GATE/, 'ai-harness-openspec must specify REAL_DEFECT_ATTENTION_PRIORITY_GATE');
 });
 
+
+test('gemini adapter enforces Gate 1 Markdown materialization, zero goal loss, and layered degradation circuit breaker', () => {
+  // 1. Verify GEMINI.md Axiom 49
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /49\.\s*\*\*第一门禁实体化与双门禁全链路目标零损耗传递公理/, 'GEMINI.md must contain Axiom 49 heading');
+  assert.match(globalRules, /GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM/, 'GEMINI.md must specify GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM');
+  assert.match(globalRules, /GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL/, 'GEMINI.md must specify GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL');
+  assert.match(globalRules, /GATE1_ASSET_MISSING/, 'GEMINI.md must specify GATE1_ASSET_MISSING');
+  assert.match(globalRules, /RAW_INSTRUCTION_VERBATIM_MIRROR_AXIOM/, 'GEMINI.md must specify RAW_INSTRUCTION_VERBATIM_MIRROR_AXIOM');
+  assert.match(globalRules, /GATE1_DEEP_FORENSIC_FEEDBACK_CONTRACT/, 'GEMINI.md must specify GATE1_DEEP_FORENSIC_FEEDBACK_CONTRACT');
+  assert.match(globalRules, /GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE/, 'GEMINI.md must specify GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE');
+  assert.match(globalRules, /EXECUTION_PHASE_GOAL_INVARIANCE_LOCK/, 'GEMINI.md must specify EXECUTION_PHASE_GOAL_INVARIANCE_LOCK');
+  assert.match(globalRules, /GOAL_DEGRADATION_DETECTED/, 'GEMINI.md must specify GOAL_DEGRADATION_DETECTED');
+  assert.match(globalRules, /GATE1_GOAL_OMISSION_BLOCKED/, 'GEMINI.md must specify GATE1_GOAL_OMISSION_BLOCKED');
+  assert.match(globalRules, /UNIVERSAL_GOAL_PRESERVATION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_GOAL_PRESERVATION_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 51
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /51\.\s*\*\*第一门禁实体化与双门禁全链路目标零损耗传递公理/, 'pstack-openspec must define Axiom 51');
+  assert.match(pstackSkill, /GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM/, 'pstack-openspec must specify GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM');
+  assert.match(pstackSkill, /GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL/, 'pstack-openspec must specify GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL');
+  assert.match(pstackSkill, /GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE/, 'pstack-openspec must specify GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE');
+  assert.match(pstackSkill, /EXECUTION_PHASE_GOAL_INVARIANCE_LOCK/, 'pstack-openspec must specify EXECUTION_PHASE_GOAL_INVARIANCE_LOCK');
+  assert.match(pstackSkill, /GOAL_DEGRADATION_DETECTED/, 'pstack-openspec must specify GOAL_DEGRADATION_DETECTED');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 46
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /46\.\s*\*\*第一门禁实体化与双门禁全链路目标零损耗传递公理/, 'ai-harness-openspec must define Axiom 46');
+  assert.match(aiHarnessSkill, /GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM/, 'ai-harness-openspec must specify GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM');
+  assert.match(aiHarnessSkill, /GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL/, 'ai-harness-openspec must specify GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL');
+  assert.match(aiHarnessSkill, /GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE/, 'ai-harness-openspec must specify GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE');
+  assert.match(aiHarnessSkill, /EXECUTION_PHASE_GOAL_INVARIANCE_LOCK/, 'ai-harness-openspec must specify EXECUTION_PHASE_GOAL_INVARIANCE_LOCK');
+  assert.match(aiHarnessSkill, /GOAL_DEGRADATION_DETECTED/, 'ai-harness-openspec must specify GOAL_DEGRADATION_DETECTED');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

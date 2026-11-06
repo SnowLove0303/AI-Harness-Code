@@ -646,6 +646,21 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD)**：
       本公理的所有规约、定理证明与判定拓扑，**必须（SHALL）100% 采用集合论、编译器短路求值、形式化契约、状态机前置条件与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_BEHAVIORAL_GOVERNANCE_STANDARD` 违规并一票否决。
 
+49. **第一门禁实体化与双门禁全链路目标零损耗传递公理 (Gate 1 Markdown Materialization & End-to-End Zero Goal Loss Axiom - GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM - 严禁层层目标丢失与严禁脱离第一门禁铁律)**：
+    - **第一门禁实体 Markdown 文档双板块强制沉淀规程 (Gate 1 Markdown Materialization Protocol - GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL & GATE1_ASSET_MISSING)**：
+      全系统彻底终结第一门禁（Step 0 门禁 1）在对话流中“口水化与瞬态化”的严重恶疾：任何 Agent 在接收任务后，必须在磁盘工件库中物理生成正式的第一门禁实体文档（`.md`）；该文档必须（SHALL）包含两大法定板块：
+      ① **板块一：来自于管理者的任务说明原文（RAW_INSTRUCTION_VERBATIM_MIRROR_AXIOM）**：100% 逐字保留管理者的所有指令、背景与情绪强调，附加 SHA-256 实体指纹哈希，绝对禁止任何形式的总结、精简或裁剪；
+      ② **板块二：第一门禁反馈（GATE1_DEEP_FORENSIC_FEEDBACK_CONTRACT）**：深入阐述事实纠偏认定、底层缺陷代码法医级溯源、基准标本物理对比凭据与长效整改验收指标，极其详尽，杜绝偷工减料；
+      凡进入后续阶段但磁盘缺失第一门禁物理 `.md` 实体文件者，系统直接判定为 `GATE1_ASSET_MISSING` 致命阻断；
+    - **第二门禁承接第一门禁资产驱动 Ps-openspec 规程 (Gate 2 OpenSpec Zero Goal Loss Ingestion - GATE2_OPENSPEC_ZERO_GOAL_LOSS_INHERITANCE)**：
+      第二门禁（Step 2 门禁 2）严禁凭空臆测需求或随意发散：必须且唯一以第一门禁经用户确认的 `.md` 实体文件为法理真理源（Ground Truth Source）；在 OpenSpec 资产编制中，`proposal.md` 必须显式链接并继承该实体文件，第一门禁反馈中确认的每一项事实、边界与验收指标，**必须 1:1 守恒映射至 `specs/` 的 RFC 2119 行为契约及 `tasks.md` 的独立原子任务**，严禁擅自删减或稀释；
+    - **施工执行期目标不变量传递与胶囊锁死规程 (Execution-Phase Goal Invariance Lock - EXECUTION_PHASE_GOAL_INVARIANCE_LOCK)**：
+      彻底杜绝“动工写代码时脱离第一门禁共识”的执行端漂移：进入 Step 3 单步施工或派发后台 Subagents 时，必须将第一门禁 `.md` 实体文件与 OpenSpec 规格资产一同打包封装入四位一体交接胶囊（`pstack-handoff.mjs`）；执行端持单任务专注锁（`[-]`）施工时，任务打勾充要条件必须严格包含“满足第一门禁 `.md` 中对应的独立验收指标”，严禁仅凭单薄的任务标题盲目写码；
+    - **层层目标丢失物理熔断断路器 (Layered Goal Degradation Circuit Breaker - GOAL_DEGRADATION_DETECTED & GATE1_GOAL_OMISSION_BLOCKED)**：
+      在终审交付与归档节点，系统对全链路资产实施双向因果清算：提取第一门禁 `.md` 中锁定的 $N$ 项核心诉求，终审报告中必须出具严格对应的 $N$ 行闭环物理核销清算表；凡发现第一门禁讨论的结果在第二门禁被省略、或在第三步执行期被丢弃、或最终交付物未出具真实退出码 0 凭证核销的，系统静态检查直接判定为 `GOAL_DEGRADATION_DETECTED` 致命阻断并拒绝签发（`GATE1_GOAL_OMISSION_BLOCKED`）；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GOAL_PRESERVATION_STANDARD)**：
+      本公理的所有规约、判定拓扑与断路契约，**必须（SHALL）100% 采用信息守恒定理、全量胶囊交接、状态机前置条件与编译器退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GOAL_PRESERVATION_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
