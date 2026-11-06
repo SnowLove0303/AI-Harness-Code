@@ -1416,6 +1416,31 @@ test('gemini adapter validates high-star action skills desktop-exe-development a
   assert.match(syncMjsContent, /ui-ux-design-engineering/, 'sync-to-global must sync ui-ux-design-engineering');
 });
 
+test('gemini adapter enforces UI Radical Text Economy invariant and microcopy minimalism gate', () => {
+  const uiUxSkillPath = path.join(repoRoot, 'skills/ui-ux-design-engineering/SKILL.md');
+  assert(existsSync(uiUxSkillPath), 'skills/ui-ux-design-engineering/SKILL.md must exist');
+  const uiUxContent = readFileSync(uiUxSkillPath, 'utf8');
+
+  // Verify Radical Text Economy Axiom
+  assert.match(uiUxContent, /RADICAL_TEXT_ECONOMY_AXIOM/, 'must define RADICAL_TEXT_ECONOMY_AXIOM');
+  assert.match(uiUxContent, /少字原则与极致微文案法定防线/, 'must define Radical Text Economy section');
+  assert.match(uiUxContent, /宁可不写字，也要避免产生过多的文本说明影响视觉/, 'must embody the verbatim axiom');
+
+  // Verify Visual Affordance First
+  assert.match(uiUxContent, /视觉自明性优先准则/, 'must define Visual Affordance First');
+  assert.match(uiUxContent, /文字拐杖/, 'must forbid textual crutches');
+
+  // Verify Microcopy Minimalism & Operational Card Zero-Prose Rule
+  assert.match(uiUxContent, /极简微文案硬性指标/, 'must define microcopy limits');
+  assert.match(uiUxContent, /1~3\s*个汉字或英文单词/, 'must bound action labels to 1-3 words');
+  assert.match(uiUxContent, /业务卡片零废话公理/, 'must define Zero-Prose in Operational Cards');
+  assert.match(uiUxContent, /严禁默认嵌入说明性正文段落/, 'must forbid boilerplate descriptive paragraphs in cards');
+
+  // Verify Anti-Textual-AI-Slop Gate
+  assert.match(uiUxContent, /文本说明泛滥与卡片解释堆砌/, 'must ban explanatory bloat in Anti-AI-Slop');
+  assert.match(uiUxContent, /AI_SLOP_PROSE_VIOLATION/, 'must define AI_SLOP_PROSE_VIOLATION rejection gate');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
