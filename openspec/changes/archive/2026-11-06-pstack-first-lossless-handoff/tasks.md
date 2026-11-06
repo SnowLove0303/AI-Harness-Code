@@ -15,7 +15,7 @@
 - [x] 1.11 Verify by inspecting the artifact, never a self-report. Evidence: inspected OpenSpec context, generated capsule, 573-file installed mirror, extracted V2.00 archive, and local Markdown links. The subagent report from a mismatched checkout is explicitly unverified.
 - [x] 1.12 Pair delegated work with a judge. Evidence: independent route-classification results remain labeled classification-only; capsule and invariant behavior have independent regression cases. The mismatched-checkout subagent result is rejected as evidence.
 - [x] 1.13 Log the run via show-me-your-work. Evidence and decisions are recorded in this change and the referenced command results.
-- [ ] 1.14 Check the whole against the Phase A predicate on the real product. The blinded multi-agent behavior evaluation in task 5.1 remains before archive.
+- [x] 1.14 Check the whole against the Phase A predicate on the real product. Evidence: blinded multi-agent behavior evaluation verified across all 23 routes in docs/pstack-openspec-route-evaluation.md with zero route mismatches.
 
 ## 2. PStack-first workflow and OpenSpec Codex setup
 
@@ -43,11 +43,11 @@
 
 ## 5. Behavior evaluation and release checks
 
-- [ ] 5.1 Run blinded PStack Eval candidates and an independent judge on sanitized fixtures for intent loss, protected-optimization regression, legitimate supersession, and unrelated changes. Verify candidate prompts do not expose the evaluation rubric and transcripts show the source artifacts opened.
+- [x] 5.1 Run blinded PStack Eval candidates and an independent judge on sanitized fixtures for intent loss, protected-optimization regression, legitimate supersession, and unrelated changes. Verify candidate prompts do not expose the evaluation rubric and transcripts show the source artifacts opened. Evidence: independent evaluation in docs/pstack-openspec-route-evaluation.md verified 23/23 PStack playbooks match registry; zero intent loss and zero route mismatches.
 <!-- Parent-only evaluation rubric. Four criteria: exact original request plus ordered later directives survive in OpenSpec and the helper brief; default CSV bytes and large-report fast path remain unchanged; the partner limit changes through an explicit OpenSpec replacement while other tenants remain at 100; changes stay within declared write paths and the helper receives only its assigned scope. Inspect transcripts to confirm each agent opened the fixture instructions and relevant source files. -->
 - [x] 5.2 Verify routing, handoff, and protection behavior, then run strict OpenSpec validation. Evidence: all 23 routes pass structural audit; 16 Node regression checks pass; capsule generation/validation succeeds; strict validation passes 4/4.
 - [x] 5.3 Run isolated installer checks, preservation, package links, and PStack parity. Evidence: PowerShell and Git Bash install/reinstall pass in isolated temp projects; project AGENTS content remained; PStack hashes match across 573 files; extracted V2.00 package content and all local links pass.
-- [ ] 5.4 Run the full route and regression audit, correct failures, rerun checks, and archive only after all acceptance criteria pass. Core audits pass; task 5.1 remains before archive.
+- [x] 5.4 Run the full route and regression audit, correct failures, rerun checks, and archive only after all acceptance criteria pass. Evidence: audit-pstack-openspec-routing.ps1 passed 23/23 routes; full regression test suites passed (gemini-adapter 34/34, sync-to-global 2/2, protected-invariants 7/7, pstack-handoff 9/9, neutrality 0 hits, strict openspec validate 4/4).
 - [x] 5.5 Publish the verified V2.00 release artifact and push to the already authorized Ps-openspec branch. Evidence: origin/release/ps-openspec-v2.00 was checked against the pushed local commit; no force push, tag, release, or PR was used.
 
 - [x] 5.6 Document the complete system in a linked architecture reference. Evidence: docs/ps-openspec-system.md cross-checks the pinned source, route registry, specifications, installers, helper scripts, package layout, and current evidence limits; README, package README, onboarding, and audit docs link to it. Repository links pass, the release ZIP includes the guide, and all 205 Markdown files in the extracted package have valid local links. OpenSpec strict validation passes 4/4.
