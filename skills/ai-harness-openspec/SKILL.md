@@ -487,6 +487,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+43. **系统根本功能修改双门禁专项审批与系统通用性神圣不可牺牲公理 (System Core Mutation Dual-Gate Statutory Approval & Generality Preservation Axiom - SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM - 严禁情境化篡改系统与严禁牺牲通用性铁律)**：
+    - **系统根本功能与外围非核心两阶物理分级范畴规程 (SYSTEM_MUTATION_CLASSIFICATION_AXIOM)**：全系统任何 Agent 在规划与施工阶段，必须对拟变范围实施两阶物理正交定性：① 一阶：系统根本功能（System Core Mutation），涉及核心驱动引擎、生命周期管线、全局路由协议、核心状态机不变量、跨项目适配基底及底层通用代码；② 二阶：外围非核心与规则层（Peripheral Non-Core），涉及文档（`.md`）、项目特有单测集、项目级黑白名单知识库规则、局部应用配置；动工前呈报的【双清单】必须显式标注每个变更资产的所属层级，凡触碰一阶资产者强制进入核心审批轨；
+    - **系统根本功能修改强制双门禁专项呈报与重点说明规程 (SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE)**：任何涉及一阶系统根本功能的变更，必须在双门禁流程中专项呈报：① Step 0 门禁 1：《需求全量对账备忘录》中必须单列【系统核心机制拟变专项说明】，重点阐述为何外围层无法解决、拟变对全系统的潜在影响及替代方案权衡；② Step 2 门禁 2：OpenSpec Proposal 与 Design 中必须出具《系统泛用性保全自证凭据》，明确证明本次改动为纯参数化、正交扩展机制，绝非情境补丁，并严格等待用户明文专项批示授权后方可动笔写代码；
+    - **系统通用性神圣不可牺牲与严禁情境化篡改硬门禁 (GENERALITY_PRESERVATION_AXIOM & SCENARIO_SYSTEM_MUTATION_BLOCKED)**：全系统底座以高度泛用性与通用平台能力为立身之本，通用性神圣不可侵犯：① 严禁情境单一化，严禁因单一业务情境、特定项目排版、个别客户格式需求或偶发审计误判擅自篡改、弱化、剪裁系统核心机制；② 严禁特判硬编码，严禁在系统核心引擎中注入带有具体业务项目名称、特定文档类型标识或单一情境假特判的特化逻辑；凡因具体业务情境或审计假阳性导致系统核心被篡改而牺牲通用性者，系统静态检查直接判定为 `SCENARIO_SYSTEM_MUTATION_BLOCKED` 致命阻断并强制原子回滚；
+    - **底层通用机制与上层业务策略严格正交解耦规程 (MECHANISM_POLICY_ORTHOGONAL_DECOUPLING)**：系统核心只提供纯粹、参数化、可配置的底层通用机制（Mechanism），具体业务策略与格式规则（Policy）必须严格封闭在调用宿主、项目配置或项目黑白名单中；因审计误判引发的问题，必须通过维护项目级白名单/黑名单解决（公理四十二），严禁倒逼修改系统核心通用引擎；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SYSTEM_INTEGRITY_STANDARD)**：规约 100% 采用操作系统设计哲学（Mechanism vs. Policy）、状态机不变量、正交架构、参数化契约与编译器门禁通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

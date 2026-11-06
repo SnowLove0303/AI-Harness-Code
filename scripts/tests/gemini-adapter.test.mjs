@@ -1520,6 +1520,43 @@ test('gemini adapter enforces project dual blacklist-whitelist audit system and 
   assert.match(aiHarnessSkill, /DUAL_SPECIMEN_SANITY_GATE/, 'ai-harness-openspec must specify DUAL_SPECIMEN_SANITY_GATE');
 });
 
+
+test('gemini adapter enforces system core mutation dual-gate governance and generality preservation gate', () => {
+  // 1. Verify GEMINI.md Axiom 46
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /46\.\s*\*\*系统根本功能修改双门禁专项审批与系统通用性神圣不可牺牲公理/, 'GEMINI.md must contain Axiom 46 heading');
+  assert.match(globalRules, /SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM/, 'GEMINI.md must specify SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM');
+  assert.match(globalRules, /SYSTEM_MUTATION_CLASSIFICATION_AXIOM/, 'GEMINI.md must specify SYSTEM_MUTATION_CLASSIFICATION_AXIOM');
+  assert.match(globalRules, /SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE/, 'GEMINI.md must specify SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE');
+  assert.match(globalRules, /GENERALITY_PRESERVATION_AXIOM/, 'GEMINI.md must specify GENERALITY_PRESERVATION_AXIOM');
+  assert.match(globalRules, /SCENARIO_SYSTEM_MUTATION_BLOCKED/, 'GEMINI.md must specify SCENARIO_SYSTEM_MUTATION_BLOCKED');
+  assert.match(globalRules, /MECHANISM_POLICY_ORTHOGONAL_DECOUPLING/, 'GEMINI.md must specify MECHANISM_POLICY_ORTHOGONAL_DECOUPLING');
+  assert.match(globalRules, /UNIVERSAL_SYSTEM_INTEGRITY_STANDARD/, 'GEMINI.md must specify UNIVERSAL_SYSTEM_INTEGRITY_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 48
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /48\.\s*\*\*系统根本功能修改双门禁专项审批与系统通用性神圣不可牺牲公理/, 'pstack-openspec must define Axiom 48');
+  assert.match(pstackSkill, /SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM/, 'pstack-openspec must specify SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM');
+  assert.match(pstackSkill, /SYSTEM_MUTATION_CLASSIFICATION_AXIOM/, 'pstack-openspec must specify SYSTEM_MUTATION_CLASSIFICATION_AXIOM');
+  assert.match(pstackSkill, /SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE/, 'pstack-openspec must specify SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE');
+  assert.match(pstackSkill, /GENERALITY_PRESERVATION_AXIOM/, 'pstack-openspec must specify GENERALITY_PRESERVATION_AXIOM');
+  assert.match(pstackSkill, /SCENARIO_SYSTEM_MUTATION_BLOCKED/, 'pstack-openspec must specify SCENARIO_SYSTEM_MUTATION_BLOCKED');
+  assert.match(pstackSkill, /MECHANISM_POLICY_ORTHOGONAL_DECOUPLING/, 'pstack-openspec must specify MECHANISM_POLICY_ORTHOGONAL_DECOUPLING');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 43
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /43\.\s*\*\*系统根本功能修改双门禁专项审批与系统通用性神圣不可牺牲公理/, 'ai-harness-openspec must define Axiom 43');
+  assert.match(aiHarnessSkill, /SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM/, 'ai-harness-openspec must specify SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM');
+  assert.match(aiHarnessSkill, /SYSTEM_MUTATION_CLASSIFICATION_AXIOM/, 'ai-harness-openspec must specify SYSTEM_MUTATION_CLASSIFICATION_AXIOM');
+  assert.match(aiHarnessSkill, /SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE/, 'ai-harness-openspec must specify SYSTEM_CORE_MUTATION_SPECIAL_APPROVAL_GATE');
+  assert.match(aiHarnessSkill, /GENERALITY_PRESERVATION_AXIOM/, 'ai-harness-openspec must specify GENERALITY_PRESERVATION_AXIOM');
+  assert.match(aiHarnessSkill, /SCENARIO_SYSTEM_MUTATION_BLOCKED/, 'ai-harness-openspec must specify SCENARIO_SYSTEM_MUTATION_BLOCKED');
+  assert.match(aiHarnessSkill, /MECHANISM_POLICY_ORTHOGONAL_DECOUPLING/, 'ai-harness-openspec must specify MECHANISM_POLICY_ORTHOGONAL_DECOUPLING');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
