@@ -1557,6 +1557,40 @@ test('gemini adapter enforces system core mutation dual-gate governance and gene
   assert.match(aiHarnessSkill, /MECHANISM_POLICY_ORTHOGONAL_DECOUPLING/, 'ai-harness-openspec must specify MECHANISM_POLICY_ORTHOGONAL_DECOUPLING');
 });
 
+
+test('gemini adapter enforces lead agent recurrence prevention governance and anti-apology gate', () => {
+  // 1. Verify GEMINI.md Axiom 47
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /47\.\s*\*\*主智能体工程统领责任与避免重蹈覆辙高于道歉公理/, 'GEMINI.md must contain Axiom 47 heading');
+  assert.match(globalRules, /LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM/, 'GEMINI.md must specify LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM');
+  assert.match(globalRules, /LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE/, 'GEMINI.md must specify LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE');
+  assert.match(globalRules, /LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM/, 'GEMINI.md must specify LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM');
+  assert.match(globalRules, /SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE/, 'GEMINI.md must specify SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE');
+  assert.match(globalRules, /PREVENT_RECURRENCE_MECHANICAL_ESCALATION/, 'GEMINI.md must specify PREVENT_RECURRENCE_MECHANICAL_ESCALATION');
+  assert.match(globalRules, /UNIVERSAL_LEAD_GOVERNANCE_STANDARD/, 'GEMINI.md must specify UNIVERSAL_LEAD_GOVERNANCE_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 49
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /49\.\s*\*\*主智能体工程统领责任与避免重蹈覆辙高于道歉公理/, 'pstack-openspec must define Axiom 49');
+  assert.match(pstackSkill, /LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM/, 'pstack-openspec must specify LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM');
+  assert.match(pstackSkill, /LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE/, 'pstack-openspec must specify LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE');
+  assert.match(pstackSkill, /LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM/, 'pstack-openspec must specify LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM');
+  assert.match(pstackSkill, /SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE/, 'pstack-openspec must specify SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE');
+  assert.match(pstackSkill, /PREVENT_RECURRENCE_MECHANICAL_ESCALATION/, 'pstack-openspec must specify PREVENT_RECURRENCE_MECHANICAL_ESCALATION');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 44
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /44\.\s*\*\*主智能体工程统领责任与避免重蹈覆辙高于道歉公理/, 'ai-harness-openspec must define Axiom 44');
+  assert.match(aiHarnessSkill, /LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM/, 'ai-harness-openspec must specify LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM');
+  assert.match(aiHarnessSkill, /LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE/, 'ai-harness-openspec must specify LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE');
+  assert.match(aiHarnessSkill, /LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM/, 'ai-harness-openspec must specify LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM');
+  assert.match(aiHarnessSkill, /SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE/, 'ai-harness-openspec must specify SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE');
+  assert.match(aiHarnessSkill, /PREVENT_RECURRENCE_MECHANICAL_ESCALATION/, 'ai-harness-openspec must specify PREVENT_RECURRENCE_MECHANICAL_ESCALATION');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

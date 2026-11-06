@@ -496,6 +496,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+44. **主智能体工程统领责任与避免重蹈覆辙高于道歉公理 (Lead Agent Systemic Governance & Recurrence Prevention Over Apology Axiom - LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM - 严禁口头道歉与主犯必蜂群犯铁律)**：
+    - **主智能体工程统领责任确权规程 (LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE)**：全系统任何主智能体（Lead Agent / Orchestrator）或负责系统底座与项目体系修改管理的智能体，必须确立“系统总架构师与工程安全第一责任人”的法定角色；作为项目负责人，必须时刻以系统性视角审视决策失误的扩散效应，守护全系统架构不变量与多智能体协同秩序；
+    - **“主智能体犯错等同全体智能体必犯”等价性认知定理 (LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM)**：主智能体具备全局上下文与最高编排权，其一旦犯错或跳步，构成不可辩驳的物理铁证——证明当前防御网络存在结构性破口，任何上下文受限的子智能体（Subagents）在相同场景下必将百分之百重蹈覆辙；严禁将失误定性为偶发个案，必须定性为蜂群防御破口全面加固；
+    - **彻底杜绝口头道歉与虚假承诺绝对禁令 (SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE)**：允许犯错，但作为项目负责人绝不容忍口头道歉；道歉产生零防御力且污染上下文，凡检测到空洞道歉文本直接判定为 `SUPERFICIAL_APOLOGY_REJECTED` 违规；第一响应仅允许输出客观工程事实：① 缺陷失效模式；② 子智能体必犯因果分析；③ 拟构建的物理防复发机器杠杆；
+    - **“避免重蹈覆辙”机械化防线沉淀铁律 (PREVENT_RECURRENCE_MECHANICAL_ESCALATION)**：处置错误的全部核心与唯一重心，必须无条件聚焦于“想办法避免重蹈覆辙”：必须将教训下沉为 L1 状态机约束、L2 Exit 1 AST/ESLint 规则、L3 OpenSpec 规格不变量或 L4 变异测试靶场；沉淀的防线必须对全蜂群具备同等物理强制拦截力，彻底根绝复发；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_LEAD_GOVERNANCE_STANDARD)**：规约 100% 采用分布式系统、状态机不变量、形式化契约与编译器门禁通用语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

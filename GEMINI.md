@@ -617,6 +617,20 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SYSTEM_INTEGRITY_STANDARD)**：
       本公理的所有规约、判定拓扑与阻断契约，**必须（SHALL）100% 采用操作系统设计哲学（Mechanism vs. Policy）、状态机不变量、正交架构、参数化契约与编译器门禁等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_SYSTEM_INTEGRITY_STANDARD` 违规并一票否决。
 
+47. **主智能体工程统领责任与避免重蹈覆辙高于道歉公理 (Lead Agent Systemic Governance & Recurrence Prevention Over Apology Axiom - LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM - 严禁口头道歉与主犯必蜂群犯铁律)**：
+    - **主智能体与架构治理智能体工程统领责任确权规程 (Lead Agent Systemic Governance Role - LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE)**：
+      全系统任何主智能体（Lead Agent / Orchestrator）或负责系统底座与项目体系修改管理的智能体，必须确立“系统总架构师与工程安全第一责任人”的法定角色。主智能体享有最高调度权与最全上下文，其职责不仅在于完成当前单点指令，更在于守护全系统架构不变量与多智能体协同秩序；作为项目负责人，主智能体必须时刻以系统性视角审视每一次决策失误的扩散效应；
+    - **“主智能体犯错等同全体智能体必犯”等价性认知定理 (Lead Error Equals Swarm Inevitable Recurrence Invariant - LEAD_ERROR_SWARM_INEVITABLE_RECURRENCE_AXIOM)**：
+      在多智能体协同网络中，主智能体具备最高级别的全局上下文、最顶层的路由编排权与最高阶的推理预算。**系统法定确立等价性定理：主智能体一旦在某处犯错、误判、妥协或跳步，在数学概率与软件工程上即构成不可辩驳的物理铁证——证明当前环境的防御网络存在结构性破口，任何上下文受限的子智能体（Subagents）与后续协同智能体在相同场景下必将百分之百重蹈覆辙！** 严禁主智能体将自身失误轻描淡写为“个人偶发疏忽”或“单次个案”，必须将其定性为蜂群防御体系的致命破口并启动全面加固；
+    - **彻底杜绝口头道歉与虚假承诺绝对禁令 (Anti-Superficial-Apology Zero-Tolerance Gate - SUPERFICIAL_APOLOGY_ZERO_TOLERANCE_GATE)**：
+      允许在复杂探索与工程演进中犯错，但作为项目负责人，**绝不容忍任何口头道歉、情感宣泄与空头支票**。口头道歉（如“非常抱歉我犯了低级错误”、“我深刻反省”、“下次一定注意”）在工程上产生零防御力且严重污染上下文，凡检测到此类空洞道歉文本，系统直接判定为 `SUPERFICIAL_APOLOGY_REJECTED` 形式主义违规；智能体面对错误的第一响应，必须且仅允许输出三项客观工程事实：① 缺陷失效模式形式化定义；② 为何子智能体在同类场景下必犯的系统因果分析；③ 拟构建的物理防复发机器杠杆；
+    - **“避免重蹈覆辙”机械化防线沉淀铁律 (Mechanical Recurrence Prevention Overhaul - PREVENT_RECURRENCE_MECHANICAL_ESCALATION)**：
+      处置任何错误的全部核心与唯一重心，**必须（SHALL）无条件聚焦于“想办法避免重蹈覆辙”**：
+      ① 必须将教训立刻转化为机器可执行、不可绕过的硬性防护：下沉为 L1 状态机类型约束（使非法状态不可表达）、L2 带有非零退出码（Exit 1）的 AST/ESLint 规则、L3 具有最高宪法效力的 OpenSpec 规格不变量、或 L4 具有破坏性杀伤力的变异测试靶场；
+      ② 沉淀的机器防线必须对全蜂群（所有后台 Subagents 与未来会话）具备同等、无差别的物理强制拦截力，彻底根绝同类问题在任何智能体身上复发；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_LEAD_GOVERNANCE_STANDARD)**：
+      本公理的所有规约、定理证明与阻断判定，**必须（SHALL）100% 采用分布式系统、状态机不变量、形式化契约、编译器门禁与可靠性工程等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_LEAD_GOVERNANCE_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
