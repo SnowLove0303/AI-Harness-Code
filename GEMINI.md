@@ -566,3 +566,8 @@
       全系统必须维护主子双向物理隔离门禁：主 Agent 专职“立法、规划、统筹、裁决、全局核销”，SubAgent 专职“接单、单焦点施工、实测自证、原子回传”；当任务进入 Step 3（Apply）施工阶段时，必须通过派发工单交由 SubAgent 承接执行，主 Agent 专职作为验收裁决方与合流方，确保审执绝对分离；
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BOUNDARY_HANDOFF_STANDARD)**：
       主子权责边界、交接协议与门禁断言，**必须（SHALL）100% 采用分布式多智能体系统、分层架构、状态机理论与标准退出码等通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_BOUNDARY_HANDOFF_STANDARD` 违规并一票否决。
+
+### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
+系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
+- **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
+- **UI/UX 工业级设计工程技能**：[`skills/ui-ux-design-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/ui-ux-design-engineering/SKILL.md) —— 基于 Anthropic 官方 Frontend Design (10k+ ⭐) 与 VoltAgent (4.3k+ ⭐)，提供 Design Tokens 体系、WCAG 2.2 AA 无障碍对比度与 Anti-AI-Slop 界面工程硬防线。

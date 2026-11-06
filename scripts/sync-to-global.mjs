@@ -91,6 +91,20 @@ export function syncAllToGlobal() {
     updatedCount += syncDirectory(harnessSkillSrc, harnessSkillDest);
   }
 
+  // 4b. Sync skills/desktop-exe-development
+  const desktopExeSkillSrc = join(repoRoot, 'skills', 'desktop-exe-development');
+  const desktopExeSkillDest = join(globalGeminiRoot, 'config', 'skills', 'desktop-exe-development');
+  if (existsSync(desktopExeSkillSrc)) {
+    updatedCount += syncDirectory(desktopExeSkillSrc, desktopExeSkillDest);
+  }
+
+  // 4c. Sync skills/ui-ux-design-engineering
+  const uiUxSkillSrc = join(repoRoot, 'skills', 'ui-ux-design-engineering');
+  const uiUxSkillDest = join(globalGeminiRoot, 'config', 'skills', 'ui-ux-design-engineering');
+  if (existsSync(uiUxSkillSrc)) {
+    updatedCount += syncDirectory(uiUxSkillSrc, uiUxSkillDest);
+  }
+
   // 5. Sync route registry
   const routeMapSrc = join(repoRoot, 'docs', 'pstack-openspec-route-map.json');
   const routeMapDest = join(globalGeminiRoot, 'pstack-openspec-route-map.json');

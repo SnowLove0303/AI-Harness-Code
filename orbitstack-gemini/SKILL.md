@@ -440,6 +440,16 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 5. Domain-Neutrality Standard:
    - Operates 100% on distributed multi-agent architecture, state machine theory, process pipes, and standard exit codes (`UNIVERSAL_BOUNDARY_HANDOFF_STANDARD`) with zero scenario-specific vocabulary.
 
+
+## Action skill layer and methodology catalog
+
+1. Desktop Executable Application Engineering (`desktop-exe-development`):
+   - Provenance: Tauri v2 production architecture (85,000+ ⭐).
+   - Scope: Lightweight WebView2 frontend rendering, Rust native IPC commands, single-file `.exe` compilation, NSIS/MSI installer bundling, asset embedding, and build self-healing.
+2. Modern UI/UX Design Engineering (`ui-ux-design-engineering`):
+   - Provenance: Anthropic official frontend-design standard (10,000+ ⭐) & VoltAgent design tokens (4,300+ ⭐).
+   - Scope: Anti-AI-slop design guardrails, semantic design tokens (colors, typography, spacing), WCAG 2.2 AA accessibility, layout geometry, and responsive ergonomics.
+
 ## OpenSpec lifecycle
 
 1. Resolve the target project root, run `openspec context --json` there, and verify the returned path.

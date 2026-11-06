@@ -1383,6 +1383,39 @@ test('gemini adapter enforces master-subagent governance-execution boundary and 
   assert.match(refSpecContent2, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'ref audit spec 2 must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
 });
 
+
+test('gemini adapter validates high-star action skills desktop-exe-development and ui-ux-design-engineering', () => {
+  const content = readFileSync(geminiAdapterPath, 'utf8');
+  assert.match(content, /Action skill layer and methodology catalog/, 'must document action skill catalog');
+  assert.match(content, /desktop-exe-development/, 'must register desktop-exe-development');
+  assert.match(content, /ui-ux-design-engineering/, 'must register ui-ux-design-engineering');
+
+  // Verify skills/desktop-exe-development/SKILL.md exists and is valid
+  const desktopExeSkillPath = path.join(repoRoot, 'skills/desktop-exe-development/SKILL.md');
+  assert(existsSync(desktopExeSkillPath), 'skills/desktop-exe-development/SKILL.md must exist');
+  const desktopExeContent = readFileSync(desktopExeSkillPath, 'utf8');
+  assert.match(desktopExeContent, /name: desktop-exe-development/, 'must define correct name');
+  assert.match(desktopExeContent, /85,000\+\s*⭐/, 'must document 85k+ stars');
+  assert.match(desktopExeContent, /tauri\.conf\.json/, 'must document tauri config');
+  assert.match(desktopExeContent, /NSIS/, 'must document NSIS bundling');
+
+  // Verify skills/ui-ux-design-engineering/SKILL.md exists and is valid
+  const uiUxSkillPath = path.join(repoRoot, 'skills/ui-ux-design-engineering/SKILL.md');
+  assert(existsSync(uiUxSkillPath), 'skills/ui-ux-design-engineering/SKILL.md must exist');
+  const uiUxContent = readFileSync(uiUxSkillPath, 'utf8');
+  assert.match(uiUxContent, /name: ui-ux-design-engineering/, 'must define correct name');
+  assert.match(uiUxContent, /10,000\+\s*⭐/, 'must document 10k+ stars');
+  assert.match(uiUxContent, /Design Tokens/, 'must document Design Tokens');
+  assert.match(uiUxContent, /Anti-AI-Slop/, 'must document Anti-AI-Slop');
+  assert.match(uiUxContent, /WCAG 2\.2 AA/, 'must document WCAG 2.2 AA');
+
+  // Verify sync-to-global includes new skills
+  const syncMjsPath = path.join(repoRoot, 'scripts/sync-to-global.mjs');
+  const syncMjsContent = readFileSync(syncMjsPath, 'utf8');
+  assert.match(syncMjsContent, /desktop-exe-development/, 'sync-to-global must sync desktop-exe-development');
+  assert.match(syncMjsContent, /ui-ux-design-engineering/, 'sync-to-global must sync ui-ux-design-engineering');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
