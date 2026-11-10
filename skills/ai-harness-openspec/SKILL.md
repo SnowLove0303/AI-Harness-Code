@@ -550,6 +550,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+50. **流水线任务程序底层通用型保全与反单一任务硬编码公理 (Pipeline Core Generality & Anti-Single-Task Hardcoding Axiom - PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM - 严禁单情境底层硬编码与全景协同回归铁律)**：
+    - **流水线底层通用型与多情境保全铁律 (PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM)**：流水线底层程序严禁为特定单一任务特化修改；但凡修改底层必须以满足多情境通用输入为充要准入前提；
+    - **系统底座与治理文档零业务情境污染公理 (ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM & SINGLE_TASK_HARDCODING_BLOCKED)**：系统核心代码、模板及说明中绝对禁止出现任何单一任务特定名称、型号或情境特化说明，违者触发阻断并原子回滚；
+    - **流水线多情境协同回归与全景自证硬门禁 (MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE)**：底层修改必须通过当前任务与至少 2 个以上其他规格黄金标本的协同回归，任一标本退化直接回滚；
+    - **业务事实参数化与底层引擎正交解耦规程 (TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM)**：任务事实完全隔离在外部输入数据中，底层引擎保持纯参数化解释，严禁型号分支硬编码；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_PIPELINE_GENERALITY_STANDARD)**：规约 100% 采用数据流管线、渲染引擎与标准退出码通用工程语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

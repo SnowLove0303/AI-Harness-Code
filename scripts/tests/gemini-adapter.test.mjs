@@ -1773,6 +1773,53 @@ test('gemini adapter enforces tri-phase global task execution strategy, triage r
   assert.match(aiHarnessSkill, /UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD');
 });
 
+test('gemini adapter enforces pipeline core generality, multi-scenario collaborative regression, and anti-hardcoding blocking mechanisms', () => {
+  // 1. Verify GEMINI.md Axiom 53
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /53\.\s*\*\*流水线任务程序底层通用型保全与反单一任务硬编码公理/, 'GEMINI.md must contain Axiom 53 heading');
+  assert.match(globalRules, /PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM/, 'GEMINI.md must specify PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM');
+  assert.match(globalRules, /PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM/, 'GEMINI.md must specify PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM');
+  assert.match(globalRules, /ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM/, 'GEMINI.md must specify ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM');
+  assert.match(globalRules, /SINGLE_TASK_HARDCODING_BLOCKED/, 'GEMINI.md must specify SINGLE_TASK_HARDCODING_BLOCKED');
+  assert.match(globalRules, /MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE/, 'GEMINI.md must specify MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE');
+  assert.match(globalRules, /TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM/, 'GEMINI.md must specify TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM');
+  assert.match(globalRules, /UNIVERSAL_PIPELINE_GENERALITY_STANDARD/, 'GEMINI.md must specify UNIVERSAL_PIPELINE_GENERALITY_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 55
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /55\.\s*\*\*流水线任务程序底层通用型保全与反单一任务硬编码公理/, 'pstack-openspec must define Axiom 55');
+  assert.match(pstackSkill, /PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM/, 'pstack-openspec must specify PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM');
+  assert.match(pstackSkill, /PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM/, 'pstack-openspec must specify PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM');
+  assert.match(pstackSkill, /ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM/, 'pstack-openspec must specify ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM');
+  assert.match(pstackSkill, /SINGLE_TASK_HARDCODING_BLOCKED/, 'pstack-openspec must specify SINGLE_TASK_HARDCODING_BLOCKED');
+  assert.match(pstackSkill, /MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE/, 'pstack-openspec must specify MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE');
+  assert.match(pstackSkill, /TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM/, 'pstack-openspec must specify TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM');
+  assert.match(pstackSkill, /UNIVERSAL_PIPELINE_GENERALITY_STANDARD/, 'pstack-openspec must specify UNIVERSAL_PIPELINE_GENERALITY_STANDARD');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 50
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /50\.\s*\*\*流水线任务程序底层通用型保全与反单一任务硬编码公理/, 'ai-harness-openspec must define Axiom 50');
+  assert.match(aiHarnessSkill, /PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM/, 'ai-harness-openspec must specify PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM');
+  assert.match(aiHarnessSkill, /PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM/, 'ai-harness-openspec must specify PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM');
+  assert.match(aiHarnessSkill, /ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM/, 'ai-harness-openspec must specify ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM');
+  assert.match(aiHarnessSkill, /SINGLE_TASK_HARDCODING_BLOCKED/, 'ai-harness-openspec must specify SINGLE_TASK_HARDCODING_BLOCKED');
+  assert.match(aiHarnessSkill, /MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE/, 'ai-harness-openspec must specify MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE');
+  assert.match(aiHarnessSkill, /TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM/, 'ai-harness-openspec must specify TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM');
+  assert.match(aiHarnessSkill, /UNIVERSAL_PIPELINE_GENERALITY_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_PIPELINE_GENERALITY_STANDARD');
+
+  // 4. Verify openspec/specs/orbitstack-pstack-routing/spec.md delta requirements
+  const specContentPath = path.join(repoRoot, 'openspec/specs/orbitstack-pstack-routing/spec.md');
+  const specContent = readFileSync(specContentPath, 'utf8');
+  assert.match(specContent, /PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM/, 'spec.md must specify PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM');
+  assert.match(specContent, /ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM/, 'spec.md must specify ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM');
+  assert.match(specContent, /SINGLE_TASK_HARDCODING_BLOCKED/, 'spec.md must specify SINGLE_TASK_HARDCODING_BLOCKED');
+  assert.match(specContent, /MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE/, 'spec.md must specify MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE');
+  assert.match(specContent, /TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM/, 'spec.md must specify TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

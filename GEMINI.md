@@ -702,6 +702,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD)**：
       本公理的所有规约、分流拓扑、断路器与自证矩阵**必须（SHALL）100% 采用分层架构（Mechanism vs. Policy）、状态机理论、形式化规范与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD` 违规并一票否决。
 
+53. **流水线任务程序底层通用型保全与反单一任务硬编码公理 (Pipeline Core Generality & Anti-Single-Task Hardcoding Axiom - PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM - 严禁单情境底层硬编码与全景协同回归铁律)**：
+    - **流水线底层通用型与多情境保全铁律 (Pipeline Core Generality Invariant - PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM)**：
+      全系统所有流水线任务程序（批量数据处理、多格式模板编译、自动化交付流水线等）的底层通用引擎，受最高泛用性不变量保护：严禁为了满足特定单一任务情境而修改底层程序；任何对流水线底层程序的修改，必须（SHALL）以同时满足并通用适配多个任务情境（多规格、多品类输入）为法定准入充要条件；严禁针对单一特定任务出具专有底层补丁；
+    - **系统底座与治理文档零业务情境污染公理 (Zero Scenario-Pollution in Core & Docs - ZERO_SCENARIO_POLLUTION_IN_SYSTEM_CORE_&_DOCS_AXIOM & SINGLE_TASK_HARDCODING_BLOCKED)**：
+      绝对禁止在系统底座、核心代码、通用模板及任何系统级说明文档（规则、公理、规范、提交日志）中出现任何具体到单个流水线任务的特化改动、硬编码或情境说明；系统核心严禁植入具体业务型号代码或特定情境标识，违者系统静态检查直接判定为 `SINGLE_TASK_HARDCODING_BLOCKED` 致命阻断并强制原子回滚；
+    - **流水线多情境协同回归与全景自证硬门禁 (Multi-Scenario Collaborative Regression Gate - MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE)**：
+      修改流水线通用底层后，验证平面必须挂载多情境协同测试靶场：除验证当前目标任务的退出码 0 外，必须同时拉取至少 2 种以上其他不同规格的流水线黄金标本进行协同回归验证；若任一其他规格标本发生排版偏移、解析失败或数据退化，系统直接判定为破坏通用性并强制原子回滚；
+    - **业务事实参数化与底层引擎正交解耦规程 (Task Fact Parameterization & Engine Decoupling - TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM)**：
+      具体任务的特定属性、定制数值与专有数据必须（SHALL）100% 物理隔离在外部输入数据源（Payload / Config / Fixture）中；底层引擎只提供数据驱动的通用布局、参数化计算与流水线编译机制，严禁在底层引擎中出现针对特定任务标识的分支特判逻辑；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PIPELINE_GENERALITY_STANDARD)**：
+      本公理的所有规约、流式管线拓扑、断路器与自证矩阵**必须（SHALL）100% 采用数据流管线、参数化渲染引擎、AST 语法树与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_PIPELINE_GENERALITY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
