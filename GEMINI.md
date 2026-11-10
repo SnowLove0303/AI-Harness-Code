@@ -685,6 +685,23 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_GATE1_DIRECTORY_STANDARD)**：
       本公理的所有规约、目录拓扑、断路器与自证矩阵**必须（SHALL）100% 采用操作系统文件系统拓扑、状态机理论、形式化规范与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_GATE1_DIRECTORY_STANDARD` 违规并一票否决。
 
+52. **全局任务执行三阶闭环与底层修改分流公理 (Tri-Phase Global Task Execution Strategy & System Mutation vs Scenario Triage Axiom - TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM - 严禁局部创可贴与严禁情境化窄化底层铁律)**：
+    - **全局任务执行三阶闭环法定规程 (Tri-Phase Global Task Execution Strategy - TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY)**：
+      全系统任何 Agent 在执行任何任务（新需求、缺陷排查、系统重构、专项优化）时，必须（SHALL）无条件遵循三阶闭环节拍：
+      ① **第一阶：排出具体存在的业务问题 (Phase 1: Enumerate Concrete Business Problems)**：彻底排查并冻结具象业务失效事实、输入标本、复现命令与非零退出码，形成客观法医级档案；
+      ② **第二阶：通用问题抽象与系统底层根治 (Phase 2: Universal Abstraction & System Core Resolution)**：绝不止步于单个任务情境；必须向上穿透抽象出该问题背后的通用工程缺陷（如状态机破口、AST 缺失、调度盲区），并在系统底层构建通用、参数化、可配置机制解决，确保整个系统在所有情境下均获得免疫；
+      ③ **第三阶：通用修改解决具体问题与实测闭环 (Phase 3: Concrete Problem Resolution via General Capability & Verification)**：通过系统底层通用机制解决最初具体的业务问题，出具真实退出码 0 凭证，并通过正反标本靶场（Dual-Specimen Sanity）验证未破坏任何其他情境；
+    - **通用机制适配全景与跨情境免疫公理 (Universal Abstraction & Cross-Scenario Immunity - UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL)**：
+      系统核心层面的改动必须以“适配全情境、跨情境免疫同类失效”为唯一宗旨；严禁编写仅针对单个任务情境的局部特判代码，所有核心能力修改必须经过参数化抽象，使全蜂群在未来任意情境下天然避开同类陷阱；
+    - **系统底层机制 vs 情境局部策略法定分流准则 (System Mutation vs Scenario Policy Triage - SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM)**：
+      全系统必须维护清晰严密的二分决策红线，精确区分何种情况改底层系统、何种情况仅针对情境解决：
+      • **准入改底层（System Core Mutation）**：仅当问题根因属于通用机制缺失、基础状态机合法性漏洞、通用管线断路器缺失或跨情境共性摩擦，且改动必须是 100% 正交解耦、纯参数化、不掺杂业务标识的底层机制（Mechanism）；
+      • **封闭在情境（Scenario Policy Resolution）**：凡属于特定客户格式规则、单一场景专用参数、用户明示定制异常或局部业务策略（Policy），必须严格封闭在调用端配置、项目白名单/黑名单或局部策略层中，绝对禁止倒逼修改通用系统底座；
+    - **反情境化系统窄化与通用性保全硬门禁 (Anti-Scenario System Narrowing Blocker - ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED)**：
+      全系统底层引擎以高度泛用性为最高立法准则：严禁以“解决特定业务”为借口在系统底层硬编码业务标识、特定文档结构标识或单一情境假特判；凡因满足单一情境导致系统底层接口被窄化、通用能力受限或误伤其他合法情境的，系统静态检查直接判定为 `ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED` 致命阻断并强制原子回滚；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD)**：
+      本公理的所有规约、分流拓扑、断路器与自证矩阵**必须（SHALL）100% 采用分层架构（Mechanism vs. Policy）、状态机理论、形式化规范与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

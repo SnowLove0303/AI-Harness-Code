@@ -541,6 +541,15 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 
 ---
 
+49. **全局任务执行三阶闭环与底层修改分流公理 (Tri-Phase Global Task Execution Strategy & System Mutation vs Scenario Triage Axiom - TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM - 严禁局部创可贴与严禁情境化窄化底层铁律)**：
+    - **全局任务执行三阶闭环法定规程 (TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY)**：所有任务严格按三阶推进：① 具象业务问题排查冻结；② 通用问题抽象并于底层机制根治，确保系统适配所有情境；③ 运用底层通用能力解决具体问题并完成实测闭环；
+    - **通用机制适配全景与跨情境免疫公理 (UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL)**：底层改动必须以跨情境免疫为目标，严禁单个情境的局部特判；
+    - **系统底层机制 vs 情境局部策略分流准则 (SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM)**：精确区分二者边界：普遍机制缺失/状态机破口/跨情境摩擦准入改底层（纯参数化机制）；特定格式/定制异常/单场景策略必须封闭在调用端或项目黑白名单中（外围策略）；
+    - **反情境化系统窄化与通用性保全硬门禁 (ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED)**：严禁在系统底层注入单一业务假特判或窄化底层通用能力，违者直接触发阻断并原子回滚；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD)**：规约 100% 采用分层架构、状态机理论与标准退出码通用工程语言，严禁单一业务场景词汇污染。
+
+---
+
 ## 📚 附录与配套参考
 
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)

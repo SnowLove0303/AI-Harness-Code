@@ -1737,6 +1737,42 @@ test('gemini adapter enforces project-canonical OpenSpec Gate 1 dossier director
   assert.ok(existsSync(gate1Dir), 'openspec/gate1-dossiers directory must exist');
 });
 
+
+test('gemini adapter enforces tri-phase global task execution strategy, triage rules, and anti-narrowing blocking mechanisms', () => {
+  // 1. Verify GEMINI.md Axiom 52
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /52\.\s*\*\*全局任务执行三阶闭环与底层修改分流公理/, 'GEMINI.md must contain Axiom 52 heading');
+  assert.match(globalRules, /TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM/, 'GEMINI.md must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM');
+  assert.match(globalRules, /TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY/, 'GEMINI.md must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY');
+  assert.match(globalRules, /UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL/, 'GEMINI.md must specify UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL');
+  assert.match(globalRules, /SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM/, 'GEMINI.md must specify SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM');
+  assert.match(globalRules, /ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED/, 'GEMINI.md must specify ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED');
+  assert.match(globalRules, /UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD/, 'GEMINI.md must specify UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 54
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /54\.\s*\*\*全局任务执行三阶闭环与底层修改分流公理/, 'pstack-openspec must define Axiom 54');
+  assert.match(pstackSkill, /TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM/, 'pstack-openspec must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM');
+  assert.match(pstackSkill, /TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY/, 'pstack-openspec must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY');
+  assert.match(pstackSkill, /UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL/, 'pstack-openspec must specify UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL');
+  assert.match(pstackSkill, /SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM/, 'pstack-openspec must specify SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM');
+  assert.match(pstackSkill, /ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED/, 'pstack-openspec must specify ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED');
+  assert.match(pstackSkill, /UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD/, 'pstack-openspec must specify UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 49
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /49\.\s*\*\*全局任务执行三阶闭环与底层修改分流公理/, 'ai-harness-openspec must define Axiom 49');
+  assert.match(aiHarnessSkill, /TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM/, 'ai-harness-openspec must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM');
+  assert.match(aiHarnessSkill, /TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY/, 'ai-harness-openspec must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY');
+  assert.match(aiHarnessSkill, /UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL/, 'ai-harness-openspec must specify UNIVERSAL_ABSTRACTION_&_CROSS_SCENARIO_IMMUNITY_PROTOCOL');
+  assert.match(aiHarnessSkill, /SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM/, 'ai-harness-openspec must specify SYSTEM_MUTATION_VS_SCENARIO_POLICY_TRIAGE_AXIOM');
+  assert.match(aiHarnessSkill, /ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED/, 'ai-harness-openspec must specify ANTI_SCENARIO_SYSTEM_NARROWING_BLOCKED');
+  assert.match(aiHarnessSkill, /UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_TASK_STRATEGY_GOVERNANCE_STANDARD');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');
