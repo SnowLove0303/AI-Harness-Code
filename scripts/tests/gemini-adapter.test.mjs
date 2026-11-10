@@ -1820,6 +1820,54 @@ test('gemini adapter enforces pipeline core generality, multi-scenario collabora
   assert.match(specContent, /TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM/, 'spec.md must specify TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM');
 });
 
+test('gemini adapter enforces concrete issue priority, dual-scope decoupling, and phased systemic consolidation gate', () => {
+  // 1. Verify GEMINI.md Axiom 54
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /54\.\s*\*\*具体问题靶向优先闭环与系统底层双阶固化公理/, 'GEMINI.md must contain Axiom 54 heading');
+  assert.match(globalRules, /CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM/, 'GEMINI.md must specify CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM');
+  assert.match(globalRules, /GATE1_DUAL_SCOPE_DECOUPLING_RULE/, 'GEMINI.md must specify GATE1_DUAL_SCOPE_DECOUPLING_RULE');
+  assert.match(globalRules, /PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK/, 'GEMINI.md must specify PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK');
+  assert.match(globalRules, /SYSTEM_CORE_READONLY_LOCK/, 'GEMINI.md must specify SYSTEM_CORE_READONLY_LOCK');
+  assert.match(globalRules, /HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE/, 'GEMINI.md must specify HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE');
+  assert.match(globalRules, /PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET/, 'GEMINI.md must specify PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET');
+  assert.match(globalRules, /UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Axiom 56
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /56\.\s*\*\*具体问题靶向优先闭环与系统底层双阶固化公理/, 'pstack-openspec must define Axiom 56');
+  assert.match(pstackSkill, /CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM/, 'pstack-openspec must specify CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM');
+  assert.match(pstackSkill, /GATE1_DUAL_SCOPE_DECOUPLING_RULE/, 'pstack-openspec must specify GATE1_DUAL_SCOPE_DECOUPLING_RULE');
+  assert.match(pstackSkill, /PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK/, 'pstack-openspec must specify PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK');
+  assert.match(pstackSkill, /SYSTEM_CORE_READONLY_LOCK/, 'pstack-openspec must specify SYSTEM_CORE_READONLY_LOCK');
+  assert.match(pstackSkill, /HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE/, 'pstack-openspec must specify HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE');
+  assert.match(pstackSkill, /PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET/, 'pstack-openspec must specify PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET');
+  assert.match(pstackSkill, /UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD/, 'pstack-openspec must specify UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD');
+
+  // 3. Verify skills/ai-harness-openspec/SKILL.md Axiom 51
+  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
+  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
+  assert.match(aiHarnessSkill, /51\.\s*\*\*具体问题靶向优先闭环与系统底层双阶固化公理/, 'ai-harness-openspec must define Axiom 51');
+  assert.match(aiHarnessSkill, /CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM/, 'ai-harness-openspec must specify CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM');
+  assert.match(aiHarnessSkill, /GATE1_DUAL_SCOPE_DECOUPLING_RULE/, 'ai-harness-openspec must specify GATE1_DUAL_SCOPE_DECOUPLING_RULE');
+  assert.match(aiHarnessSkill, /PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK/, 'ai-harness-openspec must specify PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK');
+  assert.match(aiHarnessSkill, /SYSTEM_CORE_READONLY_LOCK/, 'ai-harness-openspec must specify SYSTEM_CORE_READONLY_LOCK');
+  assert.match(aiHarnessSkill, /HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE/, 'ai-harness-openspec must specify HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE');
+  assert.match(aiHarnessSkill, /PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET/, 'ai-harness-openspec must specify PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET');
+  assert.match(aiHarnessSkill, /UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD/, 'ai-harness-openspec must specify UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD');
+
+  // 4. Verify openspec/specs/orbitstack-pstack-routing/spec.md delta requirements
+  const specContentPath = path.join(repoRoot, 'openspec/specs/orbitstack-pstack-routing/spec.md');
+  const specContent = readFileSync(specContentPath, 'utf8');
+  assert.match(specContent, /GATE1_DUAL_SCOPE_DECOUPLING_RULE/, 'spec.md must specify GATE1_DUAL_SCOPE_DECOUPLING_RULE');
+  assert.match(specContent, /PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK/, 'spec.md must specify PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK');
+  assert.match(specContent, /SYSTEM_CORE_READONLY_LOCK/, 'spec.md must specify SYSTEM_CORE_READONLY_LOCK');
+  assert.match(specContent, /HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE/, 'spec.md must specify HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE');
+  assert.match(specContent, /PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET/, 'spec.md must specify PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET');
+  assert.match(specContent, /UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD/, 'spec.md must specify UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

@@ -557,6 +557,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **业务事实参数化与底层引擎正交解耦规程 (TASK_FACT_PARAMETERIZATION_&_ENGINE_DECOUPLING_AXIOM)**：任务事实完全隔离在外部输入数据中，底层引擎保持纯参数化解释，严禁型号分支硬编码；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_PIPELINE_GENERALITY_STANDARD)**：规约 100% 采用数据流管线、渲染引擎与标准退出码通用工程语言，严禁单一业务场景词汇污染。
 
+51. **具体问题靶向优先闭环与系统底层双阶固化公理 (Concrete Issue Priority & Phased Systemic Consolidation Axiom - CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM - 严禁跳过针对性解决直接改底层与双阶见证固化铁律)**：
+    - **门禁 1 与门禁 2 二元作用域显式解耦准则 (GATE1_DUAL_SCOPE_DECOUPLING_RULE)**：门禁 1 与门禁 2 必须显式区分具体问题与底层假说，具体问题必须具备独立复现与验收指标，严禁将底层改动置于具体问题之上；
+    - **Phase 1 靶向解决优先与底座只读保护锁 (PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK & SYSTEM_CORE_READONLY_LOCK)**：任务强制双阶执行，Phase 1 锁定最小爆炸半径解决具体问题，底层引擎实施只读锁，必须出具具体问题实测退出码 0 凭据；
+    - **人机阶段性确认协同门禁 (HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE)**：Phase 1 完成后呈报实测凭证，严格等待用户对具体问题解决结论确认后方可开启 Phase 2；
+    - **Phase 2 实测事实驱动的系统底层固化与防退化回滚安全网 (PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET)**：底层修改必须由 Phase 1 验证通过的物理事实推演，强制多情境协同回归（$\ge 2$ 异质黄金标本通过），任一标本退化立即原子回滚至 Phase 1 状态；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD)**：全规约 100% 采用纯软件工程语言，严禁单一业务特化词汇污染。
+
 ---
 
 ## 📚 附录与配套参考

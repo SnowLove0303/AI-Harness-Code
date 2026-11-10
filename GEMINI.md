@@ -714,6 +714,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PIPELINE_GENERALITY_STANDARD)**：
       本公理的所有规约、流式管线拓扑、断路器与自证矩阵**必须（SHALL）100% 采用数据流管线、参数化渲染引擎、AST 语法树与标准退出码等纯通用软件工程语言**；严禁掺杂单一业务场景词汇，违者系统静态检查直接判定为 `UNIVERSAL_PIPELINE_GENERALITY_STANDARD` 违规并一票否决。
 
+54. **具体问题靶向优先闭环与系统底层双阶固化公理 (Concrete Issue Priority & Phased Systemic Consolidation Axiom - CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM - 严禁跳过针对性解决直接改底层与双阶见证固化铁律)**：
+    - **门禁 1 与门禁 2 二元作用域显式解耦准则 (Gate 1 & Gate 2 Dual-Scope Decoupling Rule - GATE1_DUAL_SCOPE_DECOUPLING_RULE)**：
+      在需求立案（门禁 1）与规格立法（门禁 2）的确认过程中，必须（SHALL）显式区分【具体故障问题事实 (`[Concrete Issue]`）】与【系统底层通用改动假说 (`[Systemic Hypothesis]`）】；具体问题必须具备明确的复现步骤、失败现象与独立的靶向验收指标；任何对系统底层引擎或元文档的改动构想在 Gate 1 严格标记为待验证假说，绝对禁止（FORBIDDEN）用抽象的底层重构替代或置于具体问题的解决之上；
+    - **Phase 1 靶向解决优先与底座只读保护锁 (Phase 1 Targeted Resolution & Core Read-Only Lock - PHASE1_TARGETED_RESOLUTION_&_CORE_IMMUNITY_LOCK & SYSTEM_CORE_READONLY_LOCK)**：
+      当存在具体问题时，任务执行必须强制分阶（Two-Phase Execution）：Phase 1 聚焦于在最小爆炸半径内靶向解决具体问题；在 Phase 1 期间，通用底层引擎、公共基类与全局元治理资料实施强制只读锁（`SYSTEM_CORE_READONLY_LOCK`），严禁在具体问题未复现、未跑通前修改系统底层；Phase 1 的完成必须以出具具体问题针对性修复后的真实退出码 0（`[Measured] Exit Code 0`）为充要准入门禁；
+    - **人机阶段性确认协同门禁 (Human Stage Confirmation Collaborative Gate - HUMAN_STAGE_CONFIRMATION_COLLABORATIVE_GATE)**：
+      Phase 1 具体问题验证通过后，系统必须设立显式的人机阶段性确认断点，向用户呈报具体问题的实测闭环凭证与阶段性成果；严格等待用户对具体问题解决结论进行确认并授权开启 Phase 2；在未经用户确认前，严禁自作主张进入系统底层通用化改造；
+    - **Phase 2 实测事实驱动的系统底层固化与防退化回滚安全网 (Phase 2 Ground-Truth-Driven Systemic Consolidation & Regression Net - PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET)**：
+      Phase 2 对系统底层的通用性抽象与防线下沉，必须（SHALL）以 Phase 1 验证通过的物理事实（Ground Truth）为推演依据，严禁基于凭空猜想修改底座；底层改动必须强制挂载多情境协同回归门禁（`MULTI_SCENARIO_COLLABORATIVE_REGRESSION_GATE`），必须同时协同通过目标任务与至少 2 个以上异质黄金标本的实测（退出码 0）；若任何既有标本发生回归退化，系统必须立即执行原子回滚退守至 Phase 1 状态，确保具体问题成果不被破坏且杜绝次生灾害雪崩；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD)**：
+      本公理的全部规则、流式时序、断路器与自证矩阵必须（SHALL）100% 采用测试驱动开发 (TDD)、最小因果集、只读锁、退出码与黄金标本协同回归等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品标识，违者系统静态检查直接判定为 `UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
