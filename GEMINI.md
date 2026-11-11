@@ -729,4 +729,5 @@
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
-- **UI/UX 工业级设计工程技能**：[`skills/ui-ux-design-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/ui-ux-design-engineering/SKILL.md) —— 基于 Anthropic 官方 Frontend Design (10k+ ⭐) 与 VoltAgent (4.3k+ ⭐)，提供 Design Tokens 体系、WCAG 2.2 AA 无障碍对比度与 Anti-AI-Slop 界面工程硬防线。
+- **UI/UX 工业级设计工程技能**：[`skills/ui-ux-design-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/ui-ux-design-engineering/SKILL.md) —— 基于 Anthropic 官方 Frontend Design (10k+ ⭐) 与 VoltAgent (4.3k+ ⭐)，提供 Design Tokens 体系、WCAG 2.2 AA 无障碍对比度与 Anti-AI-Slop 界面工程硬防线；
+- **REA 逆向工程与闭源还原技能**：[`skills/rea-reverse-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/rea-reverse-engineering/SKILL.md) —— 基于 REA (Reverse Engineer Anything) 官方规范与原生 MCP 协议（200+ 原子工具），提供原生二进制静态反编译 (Ghidra/Hopper/IDA/Rizin)、Electron/JS 应用源码还原、Android APK 解包与 Evidence 事实证据链自证。

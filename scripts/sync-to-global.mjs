@@ -105,6 +105,13 @@ export function syncAllToGlobal() {
     updatedCount += syncDirectory(uiUxSkillSrc, uiUxSkillDest);
   }
 
+  // 4d. Sync skills/rea-reverse-engineering
+  const reaSkillSrc = join(repoRoot, 'skills', 'rea-reverse-engineering');
+  const reaSkillDest = join(globalGeminiRoot, 'config', 'skills', 'rea-reverse-engineering');
+  if (existsSync(reaSkillSrc)) {
+    updatedCount += syncDirectory(reaSkillSrc, reaSkillDest);
+  }
+
   // 5. Sync route registry
   const routeMapSrc = join(repoRoot, 'docs', 'pstack-openspec-route-map.json');
   const routeMapDest = join(globalGeminiRoot, 'pstack-openspec-route-map.json');

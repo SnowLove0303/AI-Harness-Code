@@ -1868,6 +1868,43 @@ test('gemini adapter enforces concrete issue priority, dual-scope decoupling, an
   assert.match(specContent, /UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD/, 'spec.md must specify UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD');
 });
 
+test('gemini adapter enforces REA action skill governance, MCP server registration, and constitutional indexing', () => {
+  // 1. Verify GEMINI.md Section 3.1 Index
+  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
+  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  assert.match(globalRules, /REA 逆向工程与闭源还原技能/, 'GEMINI.md must index REA skill');
+  assert.match(globalRules, /skills\/rea-reverse-engineering\/SKILL\.md/, 'GEMINI.md must link to REA skill path');
+
+  // 2. Verify skills/pstack-openspec/SKILL.md Section 4.1 Index
+  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
+  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
+  assert.match(pstackSkill, /REA 逆向工程与闭源还原技能/, 'pstack-openspec must index REA skill');
+  assert.match(pstackSkill, /skills\/rea-reverse-engineering\/SKILL\.md/, 'pstack-openspec must link to REA skill path');
+
+  // 3. Verify skills/rea-reverse-engineering/SKILL.md content & invariants
+  const reaSkillPath = path.join(repoRoot, 'skills/rea-reverse-engineering/SKILL.md');
+  assert.ok(existsSync(reaSkillPath), 'REA skill must exist');
+  const reaSkill = readFileSync(reaSkillPath, 'utf8');
+  assert.match(reaSkill, /name:\s*rea-reverse-engineering/, 'REA skill must have name: rea-reverse-engineering');
+  assert.match(reaSkill, /Evidence/, 'REA skill must specify Evidence');
+  assert.match(reaSkill, /analyze/, 'REA skill must document analyze tool');
+  assert.match(reaSkill, /decompile/, 'REA skill must document decompile tool');
+
+  // 4. Verify mcp_config.json contains rea server
+  const mcpConfigPath = 'C:/Users/Administrator/.gemini/config/mcp_config.json';
+  assert.ok(existsSync(mcpConfigPath), 'mcp_config.json must exist');
+  const mcpConfig = JSON.parse(readFileSync(mcpConfigPath, 'utf8'));
+  assert.ok(mcpConfig.mcpServers?.rea, 'mcp_config.json must contain rea server');
+  assert.ok(mcpConfig.mcpServers.rea.args?.includes('--mcp'), 'rea server args must include --mcp');
+
+  // 5. Verify openspec/specs/orbitstack-pstack-routing/spec.md delta requirements
+  const specContentPath = path.join(repoRoot, 'openspec/specs/orbitstack-pstack-routing/spec.md');
+  const specContent = readFileSync(specContentPath, 'utf8');
+  assert.match(specContent, /Requirement: REA Reverse Engineering MCP Server Integration/, 'spec.md must include REA MCP integration requirement');
+  assert.match(specContent, /Requirement: REA Action Skill Governance Standard/, 'spec.md must include REA action skill requirement');
+  assert.match(specContent, /Requirement: Action Skill Layer Constitutional Indexing for Reverse Engineering/, 'spec.md must include REA indexing requirement');
+});
+
 test('gemini adapter specifies OpenSpec Explore mode tooling and specification dependencies', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
   assert.match(content, /OpenSpec Explore mode tooling/, 'must document Explore mode tooling');

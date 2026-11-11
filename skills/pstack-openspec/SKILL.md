@@ -616,6 +616,12 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **Phase 2 实测事实驱动的系统底层固化与防退化回滚安全网 (PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET)**：底层修改必须由 Phase 1 验证通过的物理事实推演，强制多情境协同回归（$\ge 2$ 异质黄金标本通过），任一标本退化立即原子回滚至 Phase 1 状态；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD)**：全规约 100% 采用纯软件工程语言，严禁单一业务特化词汇污染。
 
+### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
+系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
+- **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
+- **UI/UX 工业级设计工程技能**：[`skills/ui-ux-design-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/ui-ux-design-engineering/SKILL.md) —— 基于 Anthropic 官方 Frontend Design (10k+ ⭐) 与 VoltAgent (4.3k+ ⭐)，提供 Design Tokens 体系、WCAG 2.2 AA 无障碍对比度与 Anti-AI-Slop 界面工程硬防线；
+- **REA 逆向工程与闭源还原技能**：[`skills/rea-reverse-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/rea-reverse-engineering/SKILL.md) —— 基于 REA (Reverse Engineer Anything) 官方规范与原生 MCP 协议（200+ 原子工具），提供原生二进制静态反编译 (Ghidra/Hopper/IDA/Rizin)、Electron/JS 应用源码还原、Android APK 解包与 Evidence 事实证据链自证。
+
 ---
 
 ## 📚 五、 配套参考指南索引
