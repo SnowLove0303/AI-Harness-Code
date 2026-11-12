@@ -616,6 +616,13 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **Phase 2 实测事实驱动的系统底层固化与防退化回滚安全网 (PHASE2_GROUND_TRUTH_SYSTEMIC_CONSOLIDATION_&_REGRESSION_NET)**：底层修改必须由 Phase 1 验证通过的物理事实推演，强制多情境协同回归（$\ge 2$ 异质黄金标本通过），任一标本退化立即原子回滚至 Phase 1 状态；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_CONCRETE_FIRST_CONSOLIDATION_STANDARD)**：全规约 100% 采用纯软件工程语言，严禁单一业务特化词汇污染。
 
+57. **统一法定执行路径与临时脚本禁绝收敛公理 (Canonical Entrypoint Invariance & Anti-Script Proliferation Axiom - CANONICAL_ENTRYPOINT_&_ANTI_SCRIPT_PROLIFERATION_AXIOM - 严禁绕过统一入口与零散临时脚本物理禁绝铁律)**：
+    - **统一法定入口独占性与反绕道走硬门禁 (Canonical Entrypoint Exclusivity & Anti-Bypass Guardrail - CANONICAL_ENTRYPOINT_EXCLUSIVITY_GUARDRAIL & BYPASS_CANONICAL_ENTRYPOINT_BLOCKED)**：全系统任何通用型工作流、流水线程序、编译套件或任务调度器，在架构上必须（SHALL）定义且仅允许定义唯一的法定统一入口（Canonical Gateway / CLI Dispatcher / MCP Entrypoint）；任何 Agent 执行任务、排查缺陷或回归验证时，必须 100% 穿透该统一入口；严禁私自调用内部深层未公开脚本、拼接临时旁路命令或直调底层私有子模块，违者静态与动态审计直接触发 `BYPASS_CANONICAL_ENTRYPOINT_BLOCKED` 致命阻断；
+    - **散落临时脚本零容忍禁令与沙盒隔离/结晶闭环规程 (Throwaway Script Quarantine & Mandatory Crystallization / Purge Lifecycle - THROWAWAY_SCRIPT_QUARANTINE_&_CRYSTALLIZE_LIFECYCLE & LOOSE_SCRIPTS_PROLIFERATION_BLOCKED)**：全系统严禁在工作区根目录、业务源码目录及生产管线中生成无归属、一次性的散乱临时脚本；探索性实验代码必须（SHALL）严格物理隔离在唯一的受控沙盒空间（如 `scratch/`），绝对禁止侵入生产施工平面；交付前沙盒临时脚本必须结晶固化（Crystallize）融入主干命令/测试套件或彻底物理销毁（Clean Purge），根目录或源码区残留散落脚本直接触发 `LOOSE_SCRIPTS_PROLIFERATION_BLOCKED` 阻断发布；
+    - **工作流核心就地加固与反外部创可贴准则 (In-Place Core Hardening vs External Wrapper Anti-Pattern - IN_PLACE_CORE_HARDENING_CONVERGENCE_RULE)**：面对新增参数、边缘异常格式或下游故障，所有修复与优化必须（SHALL）就地作用于统一入口及核心执行引擎自身，直接加固核心管线的数据归一化、容错解析与状态机流转；严禁在外部包裹创可贴式的“外挂预处理脚本”或“外挂补丁转换器”来掩盖底层核心的脆弱性；
+    - **基于统一入口的全链路真实凭据打勾门禁 (Canonical Entrypoint Empirical Witness Gate - CANONICAL_ENTRYPOINT_EMPIRICAL_WITNESS_GATE)**：所有任务打勾、阶段验收与交付确认的充要条件，必须是以“通过统一法定入口发起调用”所产出的真实退出码 0（`[Measured] Exit Code 0`）与标准审计日志为唯一合法凭据，脱离统一入口的虚假打勾直接触发 `ISLAND_PSEUDO_PASS_BLOCKED` 熔断；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_CANONICAL_ENTRYPOINT_STANDARD)**：全规约 100% 采用门面模式、调度分发器、状态机沙盒隔离、形式化契约与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
