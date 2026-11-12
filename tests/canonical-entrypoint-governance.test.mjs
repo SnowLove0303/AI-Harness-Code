@@ -12,7 +12,9 @@ test('L2 Suite: Canonical Entrypoint Invariance & Anti-Script Proliferation Gove
   const geminiMdPath = path.join(REPO_ROOT, 'GEMINI.md');
   const pstackSkillPath = path.join(REPO_ROOT, 'skills', 'pstack-openspec', 'SKILL.md');
   const harnessSkillPath = path.join(REPO_ROOT, 'skills', 'ai-harness-openspec', 'SKILL.md');
-  const changeSpecPath = path.join(REPO_ROOT, 'openspec', 'changes', 'canonical-entrypoint-governance', 'specs', 'orbitstack-pstack-routing', 'spec.md');
+  const changeSpecPath = fs.existsSync(path.join(REPO_ROOT, 'openspec', 'changes', 'canonical-entrypoint-governance', 'specs', 'orbitstack-pstack-routing', 'spec.md'))
+    ? path.join(REPO_ROOT, 'openspec', 'changes', 'canonical-entrypoint-governance', 'specs', 'orbitstack-pstack-routing', 'spec.md')
+    : path.join(REPO_ROOT, 'openspec', 'specs', 'orbitstack-pstack-routing', 'spec.md');
 
   await t.test('1. Loose script audit: Zero unmanaged temporary scripts in root and src', () => {
     const rootFiles = fs.readdirSync(REPO_ROOT);

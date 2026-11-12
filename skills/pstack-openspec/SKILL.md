@@ -623,6 +623,13 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **基于统一入口的全链路真实凭据打勾门禁 (Canonical Entrypoint Empirical Witness Gate - CANONICAL_ENTRYPOINT_EMPIRICAL_WITNESS_GATE)**：所有任务打勾、阶段验收与交付确认的充要条件，必须是以“通过统一法定入口发起调用”所产出的真实退出码 0（`[Measured] Exit Code 0`）与标准审计日志为唯一合法凭据，脱离统一入口的虚假打勾直接触发 `ISLAND_PSEUDO_PASS_BLOCKED` 熔断；
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_CANONICAL_ENTRYPOINT_STANDARD)**：全规约 100% 采用门面模式、调度分发器、状态机沙盒隔离、形式化契约与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
 
+58. **主 Agent 统领对客与 Swarm 施工执行物理隔离公理 (Lead Agent Orchestration & Swarm Execution Decoupling Axiom - LEAD_AGENT_ORCHESTRATION_&_SWARM_EXECUTION_DECOUPLING_AXIOM - 严禁主 Agent 躬行施工与蜂群自治承接铁律)**：
+    - **主 Agent 统领与对客专属权界定 (LEAD_AGENT_GOVERNANCE_EXCLUSIVITY)**：主 Agent 作为总架构师，职责严格收敛于 Step 0 摄入、Step 1 底座感知、Step 2 规格立法与双清单施工图纸编制、Swarm 蜂群派发调度及 Step 5 终审 1:1 双向物理核销；
+    - **主 Agent 施工行为绝对禁令与强制委托 Swarm 机制 (LEAD_DIRECT_EXECUTION_FORBIDDEN & MANDATORY_SWARM_DELEGATION_RULE)**：严禁主 Agent 亲自执行 Step 3 施工阶段的代码编写、排错或测试；所有原子任务必须通过结构化 Brief 发布至 Swarm 共享看板，由 Swarm Subagent Workers 在隔离工作区中承接实施；
+    - **双重上下文屏蔽盾与主 Agent 多任务高并发可用性架构 (DOUBLE_CONTEXT_SHIELD_&_HIGH_CONCURRENCY_PROTOCOL)**：施工期海量排错与构建日志封印在 Worker 会话中，主 Agent 保持超轻量上下文，派发任务后立即释放线程焦点，支持无缝并发接收、规划与流转多任务；
+    - **OpenSpec 专注锁与 Swarm 共享看板接力双向绑定规程 (OPENSPEC_SWARM_BIDIRECTIONAL_BINDING_PROTOCOL)**：Swarm 施工严格以 `tasks.md` 为依据持有专注锁（`[-]`）施工，任务打勾充要条件为 Worker 回传至 `@coordinator` 的真实退出码 0（`[Measured] Exit Code 0`）凭据；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：全规约 100% 采用分布式多智能体系统、状态机事件流与退出码通用工程语言，严禁单一业务场景专有词汇污染。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

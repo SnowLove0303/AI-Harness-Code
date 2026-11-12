@@ -741,6 +741,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_CANONICAL_ENTRYPOINT_STANDARD)**：
       本公理的全部规约、调度拓扑、生命周期状态机与断路器必须（SHALL）100% 采用门面模式（Facade）、调度分发器（Dispatcher）、状态机沙盒隔离、形式化契约与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_CANONICAL_ENTRYPOINT_STANDARD` 违规并一票否决。
 
+56. **主 Agent 统领对客与 Swarm 施工执行物理隔离公理 (Lead Agent Orchestration & Swarm Execution Decoupling Axiom - LEAD_AGENT_ORCHESTRATION_&_SWARM_EXECUTION_DECOUPLING_AXIOM - 严禁主 Agent 躬行施工与蜂群自治承接铁律)**：
+    - **主 Agent 统领与对客专属权界定 (Lead Agent Governance Exclusivity - LEAD_AGENT_GOVERNANCE_EXCLUSIVITY)**：
+      在多智能体协同工程体系中，主 Agent（Lead Agent / Coordinator）作为系统的总架构师与第一把关人，其法定职责必须（SHALL）严格收敛于：Step 0 需求 1:1 零损耗摄入与门禁 1 备忘录呈报、Step 1 架构底座感知、Step 2 OpenSpec 增量规格立法与门禁 2 双清单施工图纸呈报、Swarm 蜂群派发调度、以及 Step 5 终审 1:1 双向物理核销与人机交付；主 Agent 必须始终守护系统宏观架构不变量与人机契约对齐；
+    - **主 Agent 施工行为绝对禁令与强制委托 Swarm 机制 (Lead Agent Direct Implementation Forbidden & Mandatory Swarm Delegation - LEAD_DIRECT_EXECUTION_FORBIDDEN & MANDATORY_SWARM_DELEGATION_RULE)**：
+      全系统确立“主 Agent 施工物理隔离禁令”：严禁主 Agent 亲自下场执行 Step 3 施工阶段的业务代码编写、手工调试、改码修 bug 或长时重度测试循环；Step 3 单步施工的所有原子任务，必须（SHALL）无条件委托给 Swarm 蜂群成员（Swarm Subagent Workers）；主 Agent 仅通过结构化 Brief 向 Swarm 共享公告板发布原子任务，并由命名 Worker 在隔离工作区中承接实施；
+    - **双重上下文屏蔽盾与主 Agent 多任务高并发可用性架构 (Double Context Shield & Maximum Lead Concurrency Architecture - DOUBLE_CONTEXT_SHIELD_&_HIGH_CONCURRENCY_PROTOCOL)**：
+      为了确保主 Agent 随时能够响应用户的新增任务与突发插队，全系统设立双重上下文屏蔽盾：施工期巨量的局部排错日志、构建输出与临时堆栈追踪，必须完全封印在 Swarm Worker 独立会话与本地沙盒工件中，严禁倾倒污染主 Agent 上下文；主 Agent 向 Swarm 派发出任务后立即释放执行线程焦点，支持无缝并发接收、规划与流转后续任务；
+    - **OpenSpec 专注锁与 Swarm 共享看板接力双向绑定规程 (OpenSpec Tasks & Swarm Board Bidirectional Binding - OPENSPEC_SWARM_BIDIRECTIONAL_BINDING_PROTOCOL)**：
+      Swarm 蜂群的施工必须且只能以 OpenSpec `tasks.md` 为唯一法定依据：Worker 必须绑定单任务专注锁（`[-]`）施工，Worker 之间在共享看板通过 `@mentions` 链式接力协同；任务打勾的充要条件必须且只能是 Worker 回传至公告板 `@coordinator` 的真实退出码 0（`[Measured] Exit Code 0`）与标准审计凭证；主 Agent 严格凭证验收，严禁无凭据形式主义打勾；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：
+      本公理的全部规约、调度拓扑、看板交互与生命周期状态机必须（SHALL）100% 采用分布式多智能体拓扑、双重隔离沙盒、状态机事件流、契约式交接胶囊与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SWARM_DECOUPLING_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
