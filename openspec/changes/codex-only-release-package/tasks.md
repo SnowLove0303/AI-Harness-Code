@@ -32,5 +32,5 @@
 - [x] 3.5 Build Codex and Gemini archives in isolated temporary directories. Verify required adapter, PStack source, route map, and installers in the Codex ZIP, and verify Gemini-specific assets stay in the Gemini ZIP.
 - [x] 3.6 Review `git diff`, Code Review Graph change/flow analysis or its fallback, OpenSpec strict validation, and the final branch status. Record the compared commit and command results.
 - [x] 3.7 Open the relevant code diff in VS Code if available, or report the editor fallback accurately.
-- [ ] 3.8 Push the completed changes to the new `codex-adaptation` branch. Verify the remote head matches the final local SHA and that the release and main branches remain unchanged.
+- [x] 3.8 Push the completed changes to the new `codex-adaptation` branch. Verify the remote head matches the final local SHA and that the release and main branches remain unchanged.
 - [x] 3.9 Skip PR creation. The user asked for a branch push, and PR creation is outside that authorization.

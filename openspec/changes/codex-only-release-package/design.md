@@ -61,3 +61,9 @@ The architecture review compared the existing target-aware builder with a new Co
 - Measured: `code --reuse-window` opened the project and `code --reuse-window --diff` opened the `scripts/package-bundle.ps1` change against the release base.
 - Measured: the Gemini build invoked the existing global synchronization hook, which reported `Total files updated: 0`.
 - Measured: an initial build into a longer temporary path failed during staging copy. Re-running in the shorter `C:\cc075f5` temporary directory built both archives successfully.
+
+## Branch delivery
+
+- Measured: the new `codex-adaptation` branch was pushed to `origin` at `c7319f31033079b9773efc036d16147b6ef3c9f8`.
+- Measured: `origin/codex-adaptation` resolves to the same SHA. `origin/main` remains `fac43a5411781f6a12a7511472dbf0255a42eae4` and `origin/release/ps-openspec-v2.00` remains `dbfec446f4ab980d55413fd872aece2e8138ba8c`.
+- The user requested a branch push only. No pull request, tag, or release was created.
