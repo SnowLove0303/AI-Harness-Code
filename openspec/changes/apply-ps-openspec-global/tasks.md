@@ -32,5 +32,5 @@
 - [x] 3.5 Move the legacy `pstack-openspec`, `ai-harness-openspec`, and `spec-driven-workflow` directories out of active global skill discovery into the backup. Keep the `openspec-*` action skills active. Verify legacy names are absent from the active skills directory.
 - [x] 3.6 Verify the PStack tree, Codex adapter, `AGENTS.md`, and `Agent.md` still match repository sources; verify all OpenSpec action skills remain installed.
 - [x] 3.7 Run `openspec validate --all --strict` and record the result.
-- [ ] 3.8 Commit and push the global-application evidence to `codex-adaptation`; verify `main` and the release branch remain unchanged.
+- [x] 3.8 Commit and push the global-application evidence to `codex-adaptation`; verify `main` and the release branch remain unchanged.
 - [x] 3.9 Skip PR creation. The user authorized global installation and a branch push, not a PR.

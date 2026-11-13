@@ -59,3 +59,9 @@ A read-only worker on detached commit `8660863` scanned nine global instruction 
 - The global route map matches the repository source exactly. Old hash: `458250CBFC603CEB33128413832F01E443F564553D6647E98A943AC5502A92A7`. New hash: `5DAF25EB6C46C596DC54681318B97687A7229590D56E2D284A2D7AEEB8F84D3E`.
 - The global `pstack-openspec`, `ai-harness-openspec`, and `spec-driven-workflow` directories are out of active skill discovery and preserved in the backup. Six `openspec-*` action skills remain active.
 - The 573-file PStack tree, Codex adapter, `AGENTS.md`, and `Agent.md` remain byte-identical to repository source. No repository source files, upstream release branches, or main branch were modified by the global installation.
+
+## Branch delivery
+
+- The global application and its OpenSpec evidence are committed on `codex-adaptation` at `d73bb86e2fe4d620c243f359a9dfb1b3d26db707` and pushed to `origin`.
+- `origin/main` remains `fac43a5411781f6a12a7511472dbf0255a42eae4`. `origin/release/ps-openspec-v2.00` is `ca221a88351caf406b849047a39c315d211f366f`; this release branch advanced independently and was not modified by the global application.
+- No pull request, tag, or release was created.
