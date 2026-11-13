@@ -753,6 +753,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：
       本公理的全部规约、调度拓扑、看板交互与生命周期状态机必须（SHALL）100% 采用分布式多智能体拓扑、双重隔离沙盒、状态机事件流、契约式交接胶囊与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SWARM_DECOUPLING_STANDARD` 违规并一票否决。
 
+57. **执行层技能主动感知匹配与强制应用公理 (Action Skill Proactive Discovery & Mandatory Adoption Axiom - ACTION_SKILL_PROACTIVE_DISCOVERY_&_MANDATORY_ADOPTION_AXIOM - 严禁技能盲区与强制专业工具手脚铁律)**：
+    - **任务接收期技能感知扫描规程 (Task-Time Action Skill Discovery & Semantic Matching - TASK_TIME_ACTION_SKILL_SCAN_PROTOCOL & ACTION_SKILL_DISCOVERY_RULE)**：
+      任何智能体接收到用户任务时，在 Step 0 摄入阶段与 Step 1 架构底座感知阶段，必须（SHALL）基于任务描述深度提取领域语义特征关键词，主动对 Ps-openspec 执行层技能库（`skills/` 与 `GEMINI.md` 第 3.1 节核心方法论原子技能库）进行全局自动化语义扫描与触发词匹配；智能体必须主动辨识当前任务是否属于既有专业 Action Skill（如桌面 EXE 开发、UI/UX 工业设计、REA 逆向工程、Xmind 云端导图、合规查询等）的能力范畴，坚决杜绝因“不知道有现成技能”而盲目徒手从零编写脆弱临时逻辑；
+    - **门禁 1 与门禁 2 显式技能匹配声明栏 (Statutory Skill Match Declaration in Gate 1 & Gate 2 - STATUTORY_SKILL_MATCH_DECLARATION_BLOCK & EXPLICIT_SKILL_MATCH_DECLARATION_RULE)**：
+      在呈报《门禁 1 需求全量对账备忘录》（`GATE1.md`）与《门禁 2 OpenSpec 增量规格》（`proposal.md`）时，必须（SHALL）设立专门的法定章节 `## Action Skill Match Declaration`；该章节必须明文声明当前任务命中的执行层技能标识符（Skill ID）、技能文件路径及其赋予的专业核心能力；若经过全量扫描确认无任何专属技能匹配，必须明文声明 `[None - Standard Engineering Playbook]`，以自证完成前置扫描；严禁在门禁文件中静默略过技能匹配声明，静默缺漏直接判定为门禁前置条件不满足；
+    - **命中技能强制主动应用与规约注入机制 (Mandatory Active Adoption & Constraint Injection Gate - MANDATORY_ACTION_SKILL_ADOPTION_GATE & SKILL_BYPASS_BLOCKED)**：
+      一旦语义扫描判定命中某个专业 Action Skill，智能体必须（SHALL）强制主动应用该技能，将其全面绑定至任务执行拓扑中；智能体必须将该技能的标准作业规程（SOP 阶段）、专属 MCP 工具链（如 REA 原生反编译工具集、Tauri 打包流水线等）以及特定质量断言无缝注入到 OpenSpec `tasks.md` 施工步骤中；严禁智能体在明明具备专业执行层技能的前提下，绕开技能规约私自编写临时脆弱代码或采取低效替代方案，任何绕过专属技能的行为直接触发 `SKILL_BYPASS_BLOCKED` 阻断；
+    - **Swarm 派发 Brief 技能契约继承规程 (Swarm Worker Brief Skill Inheritance - SWARM_BRIEF_SKILL_INHERITANCE_PROTOCOL & SWARM_BRIEF_SKILL_INHERITANCE_RULE)**：
+      在遵循主 Agent 与 Swarm 施工物理隔离（公理 56）的前提下，当主 Agent 向 Swarm 共享看板派发施工任务时，派发的任务 Brief 中必须（SHALL）显式继承当前任务绑定的 Action Skill 指令，明文附带 `🚨 [MANDATORY ACTION SKILL: <name>]` 约束标牌；承接任务的 Swarm Worker 必须基于该 Action Skill 的规约展开施工与验证，并在回传给 `@coordinator` 的结果胶囊中出具符合该技能验收标准的真实凭证；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SKILL_DISCOVERY_STANDARD)**：
+      本公理的全部规约、调度拓扑、技能匹配状态机与门禁断路器必须（SHALL）100% 采用能力发现（Capability Discovery）、语义扫描（Semantic Scanning）、SOP 规约注入（Protocol Injection）、契约继承与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SKILL_DISCOVERY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

@@ -630,6 +630,13 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **OpenSpec 专注锁与 Swarm 共享看板接力双向绑定规程 (OPENSPEC_SWARM_BIDIRECTIONAL_BINDING_PROTOCOL)**：Swarm 施工严格以 `tasks.md` 为依据持有专注锁（`[-]`）施工，任务打勾充要条件为 Worker 回传至 `@coordinator` 的真实退出码 0（`[Measured] Exit Code 0`）凭据；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：全规约 100% 采用分布式多智能体系统、状态机事件流与退出码通用工程语言，严禁单一业务场景专有词汇污染。
 
+59. **执行层技能主动感知匹配与强制应用公理 (Action Skill Proactive Discovery & Mandatory Adoption Axiom - ACTION_SKILL_PROACTIVE_DISCOVERY_&_MANDATORY_ADOPTION_AXIOM - 严禁技能盲区与强制专业工具手脚铁律)**：
+    - **任务接收期技能感知扫描规程 (TASK_TIME_ACTION_SKILL_SCAN_PROTOCOL & ACTION_SKILL_DISCOVERY_RULE)**：智能体在 Step 0 摄入与 Step 1 底座感知阶段，必须基于任务描述深度提取领域语义特征关键词，对 Ps-openspec 执行层技能库（`skills/` 与核心方法论原子技能库索引）进行全局自动化语义扫描与触发词匹配，主动辨识是否属于既有专业 Action Skill 范畴，坚决杜绝因盲区而编写脆弱临时逻辑；
+    - **门禁 1 与门禁 2 显式技能匹配声明栏 (STATUTORY_SKILL_MATCH_DECLARATION_BLOCK & EXPLICIT_SKILL_MATCH_DECLARATION_RULE)**：在呈报《门禁 1 需求全量对账备忘录》与《门禁 2 OpenSpec 增量规格》时，必须设立专门的法定章节 `## Action Skill Match Declaration`，明文声明命中的技能 ID、路径与赋予能力；若无匹配必须声明 `[None - Standard Engineering Playbook]`，严禁静默缺漏；
+    - **命中技能强制主动应用与规约注入机制 (MANDATORY_ACTION_SKILL_ADOPTION_GATE & SKILL_BYPASS_BLOCKED)**：命中 Action Skill 后必须强制主动应用，将其 SOP 阶段、专属 MCP 工具链及特定质量断言无缝注入到 OpenSpec `tasks.md` 施工步骤中，严禁绕开技能规约私写替代方案，绕行直接触发 `SKILL_BYPASS_BLOCKED` 阻断；
+    - **Swarm 派发 Brief 技能契约继承规程 (SWARM_BRIEF_SKILL_INHERITANCE_PROTOCOL & SWARM_BRIEF_SKILL_INHERITANCE_RULE)**：主 Agent 向 Swarm 看板派发施工 Brief 时，必须显式继承 Action Skill 指令并附带 `🚨 [MANDATORY ACTION SKILL: <name>]` 约束标牌，Swarm Worker 必须基于该技能规约施工并回传符合技能验收标准的真实凭证；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SKILL_DISCOVERY_STANDARD)**：全规约 100% 采用能力发现、语义扫描、SOP 规约注入、契约继承与标准退出码纯通用工程语言，严禁单一业务场景专有词汇污染。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
