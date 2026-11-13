@@ -13,6 +13,7 @@
     "version-packages": "changeset version",
     "release": "changeset publish",
     "pack:bundle": "powershell -ExecutionPolicy Bypass -File scripts/package-bundle.ps1",
+    "pack:codex": "powershell -ExecutionPolicy Bypass -File scripts/package-bundle.ps1 -TargetHarness codex",
     "guard:neutrality": "node scripts/check-packaged-docs-neutrality.mjs"
   },
   "packageManager": "pnpm@11.7.0"

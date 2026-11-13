@@ -49,8 +49,25 @@ Linux / macOS:
 在根目录下运行：
 ```powershell
 pnpm pack:bundle
-# 生成输出：`dist/Ps-openspec-V2.10.zip`
+# 默认生成 Gemini 包：`dist/Ps-openspec-V2.10-Gemini.zip`
 ```
+
+### 3. 打包 Codex 专用归档
+
+Codex 归档包含完整的 PStack 上游、Codex 适配器、路由表和安装器，不包含 Gemini 专用适配文档。运行：
+
+```powershell
+pnpm pack:codex
+# 生成输出：dist/Ps-openspec-V2.10.zip
+```
+
+打包器不会覆盖已存在的同版本归档。需要验证或生成到其他目录时，可传入临时输出目录：
+
+```powershell
+pnpm pack:codex -- -OutDir "$env:TEMP\Ps-openspec-Codex"
+```
+
+覆盖同版本归档需要显式传入 `-Force`。
 
 ### 手动初始化 Codex OpenSpec
 

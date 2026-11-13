@@ -19,7 +19,7 @@ The V2.10 release already contains the full pinned PStack source, Codex adapter,
 
 ## Impact
 
-Changes `package.json`, `scripts/package-bundle.ps1`, the root README, the Changesets queue, and the `ps-openspec-distribution` spec. The pinned PStack mirror, shared Codex adapter, route registry, and existing V2.10 archives remain unchanged.
+Changes `package.json`, `scripts/package-bundle.ps1`, the root README, and the `ps-openspec-distribution` spec. The pinned PStack mirror, shared Codex adapter, route registry, and existing V2.10 archives remain unchanged.
 
 ## Request Record
 
