@@ -13,20 +13,20 @@
 - [ ] 1.5 Verify on the matching surface. "Inconclusive" or wrong-surface is not a pass. Flag it. Verify global hashes and the active Codex skills.
 - [ ] 1.6 Rebase into small, ordered commits. Stack follow-ups.
   Use the **sequence-verifiable-units** principle, building, verifying, and committing each small unit before the next. Verify ordered commits on `codex-adaptation` and a clean final status.
-- [ ] 1.7 If the design is contested, `interrogate` before shipping. Verify from the design review record whether a contested choice remains; if none, record `n/a: one PStack entry point with OpenSpec action skills is already established`.
-- [ ] 1.8 Run **Opening a PR**. Verify the global application commit is pushed; skip PR creation because the user requested global application and a branch push only.
+- [x] 1.7 If the design is contested, `interrogate` before shipping. Verify from the design review record whether a contested choice remains; if none, record `n/a: one PStack entry point with OpenSpec action skills is already established`.
+- [x] 1.8 Run **Opening a PR**. Skip PR creation because the user authorized global application and a branch push only.
 
 ## 2. Throughput Checkpoint
 
 - [x] 2.1 **Blocking first steps.** Gates run before fan-out. Verify the repository root, release branch, global file inventory, hashes, and OpenSpec context before writing.
-- [ ] 2.2 **Independent workstreams.** Disjoint files, services, or layers parallelize. Shared writes serialize. Use one isolated read-only audit of legacy skill references; the parent owns all global writes.
-- [ ] 2.3 **Shared mutable state.** Default to splitting the target (the **separate-before-serializing-shared-state** principle skill). Global Codex settings are one shared target, so use one writer and backup before mutation.
+- [x] 2.2 **Independent workstreams.** Disjoint files, services, or layers parallelize. Shared writes serialize. Use one isolated read-only audit of legacy skill references; the parent owns all global writes.
+- [x] 2.3 **Shared mutable state.** Default to splitting the target (the **separate-before-serializing-shared-state** principle skill). Global Codex settings are one shared target, so use one writer and backup before mutation.
 - [x] 2.4 **Smallest safe decomposition.** If one worker is best, name why. One writer is safest because Codex may load these global skills while this task runs.
 
 ## 3. Global application
 
 - [x] 3.1 Record both user requests, repository branch and base, global writable/protected paths, backup path, and acceptance commands in OpenSpec.
-- [ ] 3.2 Have a read-only agent audit that active PStack instructions and OpenSpec action skills do not depend on the three legacy broad skills. Verify with an audit report.
+- [x] 3.2 Have a read-only agent audit that active PStack instructions and OpenSpec action skills do not depend on the three legacy broad skills. Verify with an audit report.
 - [ ] 3.3 Create a timestamped backup of the current global route map and the three legacy broad skill directories. Verify the backup contains each original path.
 - [ ] 3.4 Copy the repository route map to the global Codex route-map path. Verify SHA-256 equality with `docs/pstack-openspec-route-map.json`.
 - [ ] 3.5 Move the legacy `pstack-openspec`, `ai-harness-openspec`, and `spec-driven-workflow` directories out of active global skill discovery into the backup. Keep the `openspec-*` action skills active. Verify legacy names are absent from the active skills directory.

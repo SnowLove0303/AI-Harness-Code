@@ -46,3 +46,14 @@ A second OpenSpec-led workflow would remain available by skill-name discovery an
 - Initial measurements: PStack global tree 573 files with 0 missing, 0 different, and 0 extra. Codex adapter tree 1 file with 0 missing, 0 different, and 0 extra. Global `AGENTS.md` and `Agent.md` both match repository source. Global route-map SHA-256 was `458250CBFC603CEB33128413832F01E443F564553D6647E98A943AC5502A92A7`; repository source SHA-256 was `5DAF25EB6C46C596DC54681318B97687A7229590D56E2D284A2D7AEEB8F84D3E`.
 - Global legacy skill directories: `pstack-openspec`, `ai-harness-openspec`, and `spec-driven-workflow`. The active global AGENTS, Codex adapter, and OpenSpec action skills contain no references to these legacy skill paths. The OpenSpec action skills remain required by the adapter's lifecycle section.
 - The global route map and the three legacy skill directories will be backed up before any write.
+
+## Legacy-skill dependency audit
+
+A read-only worker on detached commit `8660863` scanned nine global instruction and skill files. Exact searches found no references to the legacy `pstack-openspec`, `ai-harness-openspec`, or `spec-driven-workflow` paths in the global entry instructions, Codex adapter, or six `openspec-*` action skills. The active PStack entry routes through upstream `poteto-mode`; the Codex adapter calls the OpenSpec action skills for proposal, apply, sync, update, archive, and explore. The audit found no dependency that blocks moving the three broad legacy skills out of active discovery. This is static evidence; it does not prove routing in a fresh Codex process.
+
+## Global-write blocker
+
+- Attempted operation: create a backup of `C:\Users\Administrator\.codex\pstack-openspec-route-map.json`, move the three legacy global workflow skill directories into it, and copy the repository route map into the global Codex path.
+- The host's automatic command review rejected the PowerShell process with `Rejected: blocked by policy` before the command executed. No global file or skill directory changed, and no backup directory was created.
+- Read-only verification after the rejection confirmed the global route-map hash remains `458250CBFC603CEB33128413832F01E443F564553D6647E98A943AC5502A92A7`, all three legacy skill directories remain active, and no `ps-openspec-global-*` backup exists.
+- The active global Codex adapter and PStack-first instructions already match the repository source. The required route-map and legacy-skill changes remain pending because no supported global skill-management tool is available in this session.
