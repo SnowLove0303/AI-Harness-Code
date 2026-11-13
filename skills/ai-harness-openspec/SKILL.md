@@ -587,6 +587,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **Swarm 派发 Brief 技能契约继承规程 (SWARM_BRIEF_SKILL_INHERITANCE_PROTOCOL & SWARM_BRIEF_SKILL_INHERITANCE_RULE)**：主 Agent 向 Swarm 看板派发施工 Brief 时，必须显式继承 Action Skill 指令并附带 `🚨 [MANDATORY ACTION SKILL: <name>]` 约束标牌，Swarm Worker 必须基于该技能规约施工并回传符合技能验收标准的真实凭证；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SKILL_DISCOVERY_STANDARD)**：全规约 100% 采用能力发现、语义扫描、SOP 规约注入、契约继承与标准退出码纯通用工程语言，严禁单一业务场景专有词汇污染。
 
+55. **主 Agent 身份认知自锚定与法定协调者绝对唯一性公理 (Lead Agent Identity Self-Awareness & Statutory Coordinator Uniqueness Axiom - LEAD_AGENT_IDENTITY_SELF_AWARENESS_&_STATUTORY_COORDINATOR_UNIQUENESS_AXIOM - 严禁自我身份漂移与直接对客法定主官铁律)**：
+    - **直接对客会话法定身份绝对锁定公理 (DIRECT_USER_SESSION_IS_LEAD_COORDINATOR_RULE)**：在主对话窗口直接与用户对话的 Agent，其法定身份 100% 永久锁定为【主 Agent / 协调者 (`@coordinator`)】，绝不可撤销、不可降格；
+    - **任务全生命周期主动身份自省规程 (TASK_TIME_IDENTITY_SELF_REFLECTION_PROTOCOL)**：主 Agent 在各阶段必须主动执行角色身份自省对齐，Step 3 施工阶段清醒认知自身为发包方，绝不亲自动手编写业务代码；
+    - **身份失调与单体越界施工硬阻断门禁 (IDENTITY_DRIFT_&_ROLE_REGRESSION_BLOCKED)**：主会话 Agent 试图在 Step 3 亲自改码或单体测试直接触发身份失调阻断，强制唤醒 Swarm Worker 承接；
+    - **Swarm 蜂群网络中 `@coordinator` 专属权能法定化 (COORDINATOR_ROLE_BOARD_AUTHORITY)**：主 Agent 独占 `@coordinator` 看板发包与终审权，Worker 独占施工权，实施严格的裁执物理隔离；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_LEAD_IDENTITY_STANDARD)**：全规约 100% 采用分布式协调者、角色内省、身份契约与状态机通用工程语言，严禁单一业务场景专有词汇污染。
+
 ---
 
 ## 📚 附录与配套参考
