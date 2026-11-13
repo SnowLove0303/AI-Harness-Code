@@ -100,7 +100,7 @@ function Build-PackageArchive {
         Copy-Item -LiteralPath $routeMap -Destination (Join-Path $stageDir "docs\pstack-openspec-route-map.json")
         Copy-Item -LiteralPath $routeEvaluation -Destination (Join-Path $stageDir "docs\pstack-openspec-route-evaluation.md")
         Copy-Item -LiteralPath $systemReference -Destination (Join-Path $stageDir "docs\ps-openspec-system.md")
-        if (Test-Path -LiteralPath $geminiSystemReference) {
+        if ($HarnessName -eq 'gemini' -and (Test-Path -LiteralPath $geminiSystemReference)) {
             Copy-Item -LiteralPath $geminiSystemReference -Destination (Join-Path $stageDir "docs\ps-openspec-gemini-system.md")
         }
 
