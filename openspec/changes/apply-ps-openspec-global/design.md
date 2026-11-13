@@ -57,3 +57,10 @@ A read-only worker on detached commit `8660863` scanned nine global instruction 
 - The host's automatic command review rejected the PowerShell process with `Rejected: blocked by policy` before the command executed. No global file or skill directory changed, and no backup directory was created.
 - Read-only verification after the rejection confirmed the global route-map hash remains `458250CBFC603CEB33128413832F01E443F564553D6647E98A943AC5502A92A7`, all three legacy skill directories remain active, and no `ps-openspec-global-*` backup exists.
 - The active global Codex adapter and PStack-first instructions already match the repository source. The required route-map and legacy-skill changes remain pending because no supported global skill-management tool is available in this session.
+
+## Global-write blocker
+
+- Attempted operation: back up `C:\Users\Administrator\.codex\pstack-openspec-route-map.json`, move the three legacy global workflow skill directories into the timestamped backup, and copy the repository route map into the global Codex path.
+- The host's automatic command review rejected process creation twice with `Rejected: blocked by policy`, including after the user explicitly authorized the global write. The PowerShell process never executed. No global file or skill directory changed, and no backup directory was created.
+- Read-only verification after the rejection confirmed the global route-map hash remains `458250CBFC603CEB33128413832F01E443F564553D6647E98A943AC5502A92A7`, all three legacy skill directories remain active, and no `ps-openspec-global-*` backup exists. The upstream tree, Codex adapter, global `AGENTS.md` and `Agent.md` remain byte-identical to repository source. Six `openspec-*` action skills remain installed.
+- The available Codex tools provide no global-skill management operation. The global route-map update and legacy skill backup remain pending under the current host policy.
