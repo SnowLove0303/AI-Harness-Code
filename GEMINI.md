@@ -750,7 +750,11 @@
       为了确保主 Agent 随时能够响应用户的新增任务与突发插队，全系统设立双重上下文屏蔽盾：施工期巨量的局部排错日志、构建输出与临时堆栈追踪，必须完全封印在 Swarm Worker 独立会话与本地沙盒工件中，严禁倾倒污染主 Agent 上下文；主 Agent 向 Swarm 派发出任务后立即释放执行线程焦点，支持无缝并发接收、规划与流转后续任务；
     - **OpenSpec 专注锁与 Swarm 共享看板接力双向绑定规程 (OpenSpec Tasks & Swarm Board Bidirectional Binding - OPENSPEC_SWARM_BIDIRECTIONAL_BINDING_PROTOCOL)**：
       Swarm 蜂群的施工必须且只能以 OpenSpec `tasks.md` 为唯一法定依据：Worker 必须绑定单任务专注锁（`[-]`）施工，Worker 之间在共享看板通过 `@mentions` 链式接力协同；任务打勾的充要条件必须且只能是 Worker 回传至公告板 `@coordinator` 的真实退出码 0（`[Measured] Exit Code 0`）与标准审计凭证；主 Agent 严格凭证验收，严禁无凭据形式主义打勾；
-    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：
+    - **零提示词隐式自激活与默认全自动 Swarm 派发规程 (Zero-Prompt Implicit Self-Activation & Default Autonomous Swarm Dispatch - DEFAULT_AUTONOMOUS_SWARM_DISPATCH_RULE & ZERO_PROMPT_SWARM_AUTO_DISPATCH_RULE)**：
+      主 Agent 在接收到用户任何任务后，无论用户在指令或确认回复中是否显式提及“Swarm”或“蜂群”等关键词，一旦任务通过 Gate 2 并进入 Step 3 单步施工阶段，系统必须（SHALL）默认且全自动激活 Swarm 蜂群调度机制；Swarm 协作被确立为 Step 3 施工执行阶段的内生法定唯一执行通道，严禁等待或依赖用户显式声明关键词；
+    - **反退化单体施工硬阻断门禁与默认建模规程 (Anti-Monolithic Execution Degradation Gate & Default Swarm Task Modeling - ANTI_MONOLITHIC_EXECUTION_BLOCKED & DEFAULT_SWARM_TASK_MODELING_RULE & TRANSPARENT_SWARM_UX_PROTOCOL)**：
+      全系统严禁任何因“用户未明说”或“任务微小”而使 Lead Agent 亲自在主上下文改码或运行测试的单体倒退行为；任何试图绕过 Swarm 派发的单体施工行为直接触发 `ANTI_MONOLITHIC_EXECUTION_BLOCKED` 致命阻断；在 Step 2 编写 `tasks.md` 时，所有施工任务天然默认建模为 Swarm 派发模式；底层看板调度对用户透明，用户仅需在 Step 0、Step 2 与 Step 5 实施宏观授权与验收；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SWARM_DECOUPLING_STANDARD & UNIVERSAL_SWARM_AUTO_ACTIVATION_STANDARD)**：
       本公理的全部规约、调度拓扑、看板交互与生命周期状态机必须（SHALL）100% 采用分布式多智能体拓扑、双重隔离沙盒、状态机事件流、契约式交接胶囊与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SWARM_DECOUPLING_STANDARD` 违规并一票否决。
 
 57. **执行层技能主动感知匹配与强制应用公理 (Action Skill Proactive Discovery & Mandatory Adoption Axiom - ACTION_SKILL_PROACTIVE_DISCOVERY_&_MANDATORY_ADOPTION_AXIOM - 严禁技能盲区与强制专业工具手脚铁律)**：

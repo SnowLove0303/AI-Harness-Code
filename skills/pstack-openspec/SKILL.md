@@ -628,7 +628,9 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **主 Agent 施工行为绝对禁令与强制委托 Swarm 机制 (LEAD_DIRECT_EXECUTION_FORBIDDEN & MANDATORY_SWARM_DELEGATION_RULE)**：严禁主 Agent 亲自执行 Step 3 施工阶段的代码编写、排错或测试；所有原子任务必须通过结构化 Brief 发布至 Swarm 共享看板，由 Swarm Subagent Workers 在隔离工作区中承接实施；
     - **双重上下文屏蔽盾与主 Agent 多任务高并发可用性架构 (DOUBLE_CONTEXT_SHIELD_&_HIGH_CONCURRENCY_PROTOCOL)**：施工期海量排错与构建日志封印在 Worker 会话中，主 Agent 保持超轻量上下文，派发任务后立即释放线程焦点，支持无缝并发接收、规划与流转多任务；
     - **OpenSpec 专注锁与 Swarm 共享看板接力双向绑定规程 (OPENSPEC_SWARM_BIDIRECTIONAL_BINDING_PROTOCOL)**：Swarm 施工严格以 `tasks.md` 为依据持有专注锁（`[-]`）施工，任务打勾充要条件为 Worker 回传至 `@coordinator` 的真实退出码 0（`[Measured] Exit Code 0`）凭据；
-    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SWARM_DECOUPLING_STANDARD)**：全规约 100% 采用分布式多智能体系统、状态机事件流与退出码通用工程语言，严禁单一业务场景专有词汇污染。
+    - **零提示词隐式自激活与默认全自动 Swarm 派发规程 (DEFAULT_AUTONOMOUS_SWARM_DISPATCH_RULE & ZERO_PROMPT_SWARM_AUTO_DISPATCH_RULE)**：主 Agent 无论用户是否显式提及“Swarm”，进入 Step 3 单步施工阶段必须默认且自动激活 Swarm 蜂群调度，将其作为唯一法定执行通道；
+    - **反退化单体施工硬阻断门禁与默认建模规程 (ANTI_MONOLITHIC_EXECUTION_BLOCKED & DEFAULT_SWARM_TASK_MODELING_RULE & TRANSPARENT_SWARM_UX_PROTOCOL)**：严禁以任何理由单体施工，违者直接触发 `ANTI_MONOLITHIC_EXECUTION_BLOCKED` 阻断；`tasks.md` 施工任务默认建模为 Swarm 派发模式，调度过程对用户透明；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_SWARM_DECOUPLING_STANDARD & UNIVERSAL_SWARM_AUTO_ACTIVATION_STANDARD)**：全规约 100% 采用分布式多智能体系统、状态机事件流与退出码通用工程语言，严禁单一业务场景专有词汇污染。
 
 59. **执行层技能主动感知匹配与强制应用公理 (Action Skill Proactive Discovery & Mandatory Adoption Axiom - ACTION_SKILL_PROACTIVE_DISCOVERY_&_MANDATORY_ADOPTION_AXIOM - 严禁技能盲区与强制专业工具手脚铁律)**：
     - **任务接收期技能感知扫描规程 (TASK_TIME_ACTION_SKILL_SCAN_PROTOCOL & ACTION_SKILL_DISCOVERY_RULE)**：智能体在 Step 0 摄入与 Step 1 底座感知阶段，必须基于任务描述深度提取领域语义特征关键词，对 Ps-openspec 执行层技能库（`skills/` 与核心方法论原子技能库索引）进行全局自动化语义扫描与触发词匹配，主动辨识是否属于既有专业 Action Skill 范畴，坚决杜绝因盲区而编写脆弱临时逻辑；
