@@ -2057,3 +2057,27 @@ test('gemini adapter enforces problem iceberg probe, 5-whys penetration, and sys
   assert.match(harnessRules, /SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE/, 'ai-harness-openspec must enforce hardening gate');
   assert.match(harnessRules, /UNIVERSAL_ICEBERG_PROBE_STANDARD/, 'ai-harness-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces user-centric behavioral emulation and interaction reproduction gate (Axiom 60)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /USER_CENTRIC_BEHAVIORAL_EMULATION_&_INTERACTION_REPRODUCTION_GATE_AXIOM/, 'GEMINI.md must contain Axiom 60 identifier');
+  assert.match(geminiRules, /USER_OBSERVATIONAL_VANTAGE_RULE/, 'GEMINI.md must enforce user observational vantage rule');
+  assert.match(geminiRules, /BEHAVIORAL_EMULATION_REPRODUCTION_FIRST_PROTOCOL/, 'GEMINI.md must enforce behavioral emulation reproduction first protocol');
+  assert.match(geminiRules, /HEADLESS_IN_MEMORY_ZERO_INTRUSION_STANDARD/, 'GEMINI.md must enforce headless in-memory zero-intrusion standard');
+  assert.match(geminiRules, /MULTI_TIERED_COEXISTENT_VERIFICATION_GATE/, 'GEMINI.md must enforce multi-tiered coexistent verification gate');
+  assert.match(geminiRules, /UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /USER_CENTRIC_BEHAVIORAL_EMULATION_&_INTERACTION_REPRODUCTION_GATE_AXIOM/, 'ai-harness-openspec must contain Axiom 60 identifier');
+  assert.match(harnessRules, /USER_OBSERVATIONAL_VANTAGE_RULE/, 'ai-harness-openspec must enforce user observational vantage rule');
+  assert.match(harnessRules, /BEHAVIORAL_EMULATION_REPRODUCTION_FIRST_PROTOCOL/, 'ai-harness-openspec must enforce reproduction first protocol');
+  assert.match(harnessRules, /HEADLESS_IN_MEMORY_ZERO_INTRUSION_STANDARD/, 'ai-harness-openspec must enforce headless zero-intrusion standard');
+  assert.match(harnessRules, /MULTI_TIERED_COEXISTENT_VERIFICATION_GATE/, 'ai-harness-openspec must enforce multi-tiered verification gate');
+  assert.match(harnessRules, /UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+});

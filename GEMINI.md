@@ -793,6 +793,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_ICEBERG_PROBE_STANDARD)**：
       本公理的全部规约、调度拓扑、因果推演状态机与门禁断路器必须（SHALL）100% 采用故障模式（Failure Pattern）、因果链条（Causal Progression）、同构排查（Homologous Surface Sweep）、防线下沉（Defense Escalation）、静态断言与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_ICEBERG_PROBE_STANDARD` 违规并一票否决。
 
+60. **用户交互拟态与行为复现硬门禁公理 (User-Centric Behavioral Emulation & Interaction Reproduction Gate Axiom - USER_CENTRIC_BEHAVIORAL_EMULATION_&_INTERACTION_REPRODUCTION_GATE_AXIOM - 严禁纯代码自圆其说与交互拟态先行铁律)**：
+    - **用户可见视角核心化规程 (User-Centric Behavioral Vantage Point Rule - USER_OBSERVATIONAL_VANTAGE_RULE)**：
+      全系统确立“用户可见视角最高裁判铁律”：当调查、处理或验证涉及面向用户交互、UI 控件、操作工作流或前端界面要素的缺陷与需求时，系统与智能体必须（SHALL）严格站在终端用户外部可观察视角与行为感知链路（Observational & Behavioral Vantage Point）进行有效性判定；严禁智能体仅凭源码实现细节、语法有效性或未渲染的代码逻辑声明（如“组件已声明 onClick”、“状态变量已更新”、“代码逻辑完全闭环无误”）即单方面宣称缺陷不存在或已解决；只要在用户可见交互层面该功能、按键、弹窗或响应链路仍处于不可见、不可点击、被遮挡、被禁用或响应断裂状态，智能体必须判定为“交互致命缺陷（Interactive Defect）”，绝不允许用纯代码逻辑自圆其说；
+    - **交互拟态复现先行规程 (Behavioral Emulation Pre-Repair Reproduction Protocol - BEHAVIORAL_EMULATION_REPRODUCTION_FIRST_PROTOCOL)**：
+      针对任何用户报告或交互审计发现的交互缺陷，系统强制实施“未复现严禁改动业务代码（Reproduction-First）”铁律；智能体在修改生产业务代码之前，必须（MUST）首先构建一段能够稳定复现该交互缺陷的最小交互拟态用例（Interaction Reproduction Case）或录制形式化复现工单；该拟态用例在当前故障代码上执行时必须出现真实退出码非 0（Exit Code != 0）或可观测断言红灯，以此锁定故障现场与因果链条；未完成交互拟态复现前，严禁凭直觉直接修改业务代码或添加局部防御性遮盖；在完成代码修复后，必须重新运行同一拟态测试并取得 Exit Code 0 作为验收与解锁的核心前置凭据；
+    - **内存无头零打扰执行标准 (Headless In-Memory Zero-Intrusion Standard - HEADLESS_IN_MEMORY_ZERO_INTRUSION_STANDARD)**：
+      交互拟态测试与用户行为模拟必须（SHALL）完全基于内存中无头虚拟 DOM（In-Memory Virtual DOM）与 AST 语义查询树（Accessibility & Semantic Tree）执行，严禁在执行过程中弹出可见浏览器窗口、抢占操作系统焦点或产生桌面视觉弹窗干扰用户正常工作；交互拟态必须在内存中完整模拟真实用户的事件级联（Event Cascade，包含 hover、focus、pointerdown、click、input 及 DOM Mutation），并在毫秒级完成执行；在保持零干扰、低摩擦的前提下，精准还原真实交互链路；
+    - **多维并行共存硬门禁 (Multi-Tiered Coexistent Verification Gate - MULTI_TIERED_COEXISTENT_VERIFICATION_GATE)**：
+      全系统确立“交互拟态测试属于增量必选门禁（Additive Mandatory Gate）而非替代性独占门禁”铁律；交互拟态测试绝不可弱化、跳过或取代既有的静态编译器检查（TypeScript strict）、静态 Lint 门禁（`--max-warnings=0`）、核心领域单元测试与状态机单测、以及 VS Code 两栏原生 Diff 人机触觉终审门禁；任何变更必须满足四维防线并行且独立全部通过（All Green）：(1) 编译器与 Lint 零警告零错误、(2) 核心领域逻辑与状态机单测退出码 0、(3) 内存无头用户交互拟态测试退出码 0、(4) 人工 VS Code Diff 触觉终审确认；任一维度红灯直接阻断合流；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD)**：
+      本公理的全部规约、调度拓扑、事件级联状态机与门禁断路器必须（SHALL）100% 采用用户交互拟态（Behavioral Emulation）、事件级联（Event Cascade）、无障碍语义树（Accessibility Tree）、虚拟 DOM（Virtual DOM）、多维门禁（Multi-Tiered Verification）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

@@ -601,6 +601,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **单点故障系统性防线下沉门禁 (SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE)**：严禁单点修复即放行；解决的故障必须沉淀为 Layer 1 架构与类型承重墙、Layer 2 自动化测试（退出码 0）或 Layer 3 宪法规范，缺少持久性防线下沉直接阻断；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_ICEBERG_PROBE_STANDARD)**：全规约 100% 采用故障模式、因果推进、同构排查、防线下沉与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
 
+57. **用户交互拟态与行为复现硬门禁公理 (User-Centric Behavioral Emulation & Interaction Reproduction Gate Axiom - USER_CENTRIC_BEHAVIORAL_EMULATION_&_INTERACTION_REPRODUCTION_GATE_AXIOM - Axiom 60 - 严禁纯代码自圆其说与交互拟态先行铁律)**：
+    - **用户可见视角核心化规程 (USER_OBSERVATIONAL_VANTAGE_RULE)**：面向用户交互与界面要素的缺陷必须站在用户外部可观察视角与行为感知链路判定；严禁仅凭源码实现或逻辑声明判定无误；只要用户可见层面存在不可见、不可点、遮挡、禁用或响应断裂，一律判定为交互缺陷，绝不允许纯代码自圆其说；
+    - **交互拟态复现先行规程 (BEHAVIORAL_EMULATION_REPRODUCTION_FIRST_PROTOCOL)**：面对交互缺陷，改动业务代码前必须首先构建最小交互拟态用例，在故障代码上实测红灯复现（Exit Code != 0）；未完成交互拟态复现严禁动笔修改业务代码；修复后同一拟态实测退出码 0 作为解锁凭证；
+    - **内存无头零打扰执行标准 (HEADLESS_IN_MEMORY_ZERO_INTRUSION_STANDARD)**：交互拟态测试必须完全在内存中基于虚拟 DOM 与语义树无头执行，毫秒级模拟完整真实事件级联（hover/focus/pointerdown/click/mutation），严禁弹窗与抢占桌面焦点，保持零打扰与低摩擦；
+    - **多维并行共存硬门禁 (MULTI_TIERED_COEXISTENT_VERIFICATION_GATE)**：交互拟态测试为增量必选门禁，绝不取代或弱化编译器检查、静态 Lint（零告警）、领域单测与 VS Code Diff 触觉终审；四维防线并行独立全绿为合流通行充要条件；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD)**：全规约 100% 采用用户交互拟态、事件级联、语义树、虚拟 DOM、多维门禁与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
+
 ---
 
 ## 📚 附录与配套参考
