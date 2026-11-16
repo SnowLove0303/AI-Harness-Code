@@ -594,6 +594,13 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **Swarm 蜂群网络中 `@coordinator` 专属权能法定化 (COORDINATOR_ROLE_BOARD_AUTHORITY)**：主 Agent 独占 `@coordinator` 看板发包与终审权，Worker 独占施工权，实施严格的裁执物理隔离；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_LEAD_IDENTITY_STANDARD)**：全规约 100% 采用分布式协调者、角色内省、身份契约与状态机通用工程语言，严禁单一业务场景专有词汇污染。
 
+56. **问题冰山探针与全景系统性穿透公理 (Problem Iceberg Probe & Panoramic Systemic Penetration Axiom - PROBLEM_ICEBERG_PROBE_&_PANORAMIC_SYSTEMIC_PENETRATION_AXIOM - Axiom 59 - 严禁就事论事局部打地鼠与全景系统性穿透铁律)**：
+    - **显式问题冰山探针公理 (EXPLICIT_ISSUE_ICEBERG_PROBE_RULE)**：用户指出的具体缺陷或异常绝对禁止视为孤立偶发个案；智能体必须确立“不止如此且也不只有此处有问题”的探针认知，将其作为深层结构盲区的显式哨兵探针，全面拒绝单点症状表面打地鼠与局部创可贴；
+    - **纵向 5-Whys 深度根因穿透规程 (DEPTH_BEYOND_SURFACE_5WHYS_PROTOCOL)**：对指出的缺陷必须执行形式化 5-Whys 深度追溯，从直接症状穿透至逻辑缺失、类型盲区、流程门禁失效及架构宪法漏洞，并完整记录五层因果链条，证据不足标注未知，严禁末端防御性遮盖；
+    - **横向全景同构兄弟扩散排查规程 (HORIZONTAL_EXHAUSTIVE_SIBLING_SWEEP_PROTOCOL)**：从具体缺陷中提取抽象故障模式，横向排查所有同构模块、Step 0-5 全生命周期各阶段及规范镜像；形成兄弟缺陷排查清算清单（Sibling Inventory）并分类处置，在当前授权作用域内同步根治，超出作用域呈报授权，与公理 54 深度咬合；
+    - **单点故障系统性防线下沉门禁 (SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE)**：严禁单点修复即放行；解决的故障必须沉淀为 Layer 1 架构与类型承重墙、Layer 2 自动化测试（退出码 0）或 Layer 3 宪法规范，缺少持久性防线下沉直接阻断；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_ICEBERG_PROBE_STANDARD)**：全规约 100% 采用故障模式、因果推进、同构排查、防线下沉与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
+
 ---
 
 ## 📚 附录与配套参考

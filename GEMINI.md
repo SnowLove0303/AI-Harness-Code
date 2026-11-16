@@ -781,6 +781,18 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_LEAD_IDENTITY_STANDARD)**：
       本公理的全部规约、调度拓扑、身份自省回路与门禁断路器必须（SHALL）100% 采用分布式协调者（Distributed Coordinator）、角色内省（Role Introspection）、身份契约（Identity Contract）、状态机围栏与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_LEAD_IDENTITY_STANDARD` 违规并一票否决。
 
+59. **问题冰山探针与全景系统性穿透公理 (Problem Iceberg Probe & Panoramic Systemic Penetration Axiom - PROBLEM_ICEBERG_PROBE_&_PANORAMIC_SYSTEMIC_PENETRATION_AXIOM - 严禁就事论事局部打地鼠与全景系统性穿透铁律)**：
+    - **显式问题冰山探针公理 (Explicit Issue as Tip of Iceberg Rule - EXPLICIT_ISSUE_ICEBERG_PROBE_RULE)**：
+      全系统确立“问题冰山探针铁律”：任何时候当用户指出系统中的某一个具体缺陷、报错、行为异常或规范遗漏时，系统与智能体必须（SHALL）无条件将该显式指出的问题判定为“问题冰山之一角（Iceberg Probe）”，严禁将其视为孤立偶发个案；智能体必须确立“不止如此（Far Deeper）且也不只有此处有问题（Far Wider）”的主动反思认知：用户指出的显式缺陷往往是深层系统性、结构性设计盲区或同构漏洞的哨兵探针；严禁就事论事停留在单点症状表面打地鼠（Whack-a-Mole）或做局部创可贴式修补，必须同时强制启动纵向深度根因穿透与横向全景兄弟扩散排查；
+    - **纵向 5-Whys 深度根因穿透规程 (Vertical Depth 5-Whys Penetration Protocol - DEPTH_BEYOND_SURFACE_5WHYS_PROTOCOL)**：
+      智能体面对任何被指出的缺陷，必须（MUST）无条件执行形式化 5-Whys 深度根因穿透分析，顺着因果链条纵向追溯：第一层运行时症状（Symptom）、第二层逻辑盲区（Logic & Contract Gap）、第三层类型与断言防御盲区（Type & Assertion Blindspot）、第四层规划与门禁失效（Gate & Process Failure）、第五层宪法架构与公理不变量漏洞（Constitutional Invariant Gap）；智能体必须完整记录五层因果推演链条；若外部环境证据链不足，必须显式标注证据断点为“未知待查（Unknown）”，严禁主观凭空捏造根因；根治方案必须靶向深层结构与架构层，严禁仅在末端添加 `if-else` 条件做防御性遮盖；
+    - **横向全景同构兄弟扩散排查规程 (Horizontal Exhaustive Sibling Sweep Protocol - HORIZONTAL_EXHAUSTIVE_SIBLING_SWEEP_PROTOCOL)**：
+      一旦从显式缺陷中提炼出抽象故障特征模式（Defect Pattern），智能体必须（MUST）执行横向全景兄弟排查（Sibling Sweep）：全面扫荡模块同构面（所有同类或结构相似的代码模块与管线）、生命周期同构面（Step 0 需求对账、Step 1 底座感知、Step 2 规格立法、Step 3 施工专注锁、Step 4 触觉审计与 Step 5 终审核销）以及规范镜像同构面（宪法规则、Living Spec 规范镜像及测试套件）；智能体必须建立明细的《兄弟缺陷排查清算清单（Sibling Inventory）》，并按照因果角色划分为三类：(a) 确认同构且在当前已批准施工作用域内（In-Scope），必须在本变更周期内同步实施彻底根治；(b) 疑似同构但尚未确凿验证（Unconfirmed），显式记录为未决项，保持现状；(c) 确认同构但超出当前任务授权爆炸半径（Out-of-Scope），完整记录事实证据并向用户主动呈报以申请专项变更授权，严禁静默扩散篡改；与公理 54 深度咬合，严守授权边界；
+    - **单点故障系统性防线下沉门禁 (Single-Point Failure Triggers Systemic Hardening Gate - SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE)**：
+      严禁“修好当前单点即告完工”的轻率放行；每个已解决的故障模式必须强制下沉至不可逆的机器防御金字塔中：Layer 1 架构与类型承重墙（将非法状态通过类型系统显式建模为不可表达）、Layer 2 静态检查与自动化回归门禁（强制新增具备真实杀伤力的 L2 自动化回归测试套件与静态断言，真实进程退出码必须为 0，覆盖正向防御与负向变异反欺诈验证）、Layer 3 宪法规范与不变量契约（将通用规则沉淀至不可变宪章，严禁任何同类缺陷再次潜入）；缺少永久性系统防线下沉措施的修复方案，门禁直接阻断并判定为不合规；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_ICEBERG_PROBE_STANDARD)**：
+      本公理的全部规约、调度拓扑、因果推演状态机与门禁断路器必须（SHALL）100% 采用故障模式（Failure Pattern）、因果链条（Causal Progression）、同构排查（Homologous Surface Sweep）、防线下沉（Defense Escalation）、静态断言与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_ICEBERG_PROBE_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

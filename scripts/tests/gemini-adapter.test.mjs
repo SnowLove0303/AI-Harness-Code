@@ -2033,3 +2033,27 @@ test('powershell installer deploys orbitstack-gemini adapter and writes GEMINI.m
     }
   }
 });
+
+test('gemini adapter enforces problem iceberg probe, 5-whys penetration, and systemic hardening (Axiom 59)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PROBLEM_ICEBERG_PROBE_&_PANORAMIC_SYSTEMIC_PENETRATION_AXIOM/, 'GEMINI.md must contain Axiom 59 identifier');
+  assert.match(geminiRules, /EXPLICIT_ISSUE_ICEBERG_PROBE_RULE/, 'GEMINI.md must enforce iceberg probe rule');
+  assert.match(geminiRules, /DEPTH_BEYOND_SURFACE_5WHYS_PROTOCOL/, 'GEMINI.md must enforce 5-Whys causal progression');
+  assert.match(geminiRules, /HORIZONTAL_EXHAUSTIVE_SIBLING_SWEEP_PROTOCOL/, 'GEMINI.md must enforce horizontal sibling sweep');
+  assert.match(geminiRules, /SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE/, 'GEMINI.md must enforce single-point failure hardening gate');
+  assert.match(geminiRules, /UNIVERSAL_ICEBERG_PROBE_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PROBLEM_ICEBERG_PROBE_&_PANORAMIC_SYSTEMIC_PENETRATION_AXIOM/, 'ai-harness-openspec must contain Axiom 59 identifier');
+  assert.match(harnessRules, /EXPLICIT_ISSUE_ICEBERG_PROBE_RULE/, 'ai-harness-openspec must enforce iceberg probe rule');
+  assert.match(harnessRules, /DEPTH_BEYOND_SURFACE_5WHYS_PROTOCOL/, 'ai-harness-openspec must enforce 5-Whys causal progression');
+  assert.match(harnessRules, /HORIZONTAL_EXHAUSTIVE_SIBLING_SWEEP_PROTOCOL/, 'ai-harness-openspec must enforce sibling sweep');
+  assert.match(harnessRules, /SINGLE_FAILURE_SYSTEMIC_HARDENING_GATE/, 'ai-harness-openspec must enforce hardening gate');
+  assert.match(harnessRules, /UNIVERSAL_ICEBERG_PROBE_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+});
