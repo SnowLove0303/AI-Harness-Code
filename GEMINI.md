@@ -819,8 +819,21 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD)**：
       本公理的全部规约、调度拓扑、双引擎路由状态机、委派工单与门禁断路器必须（SHALL）100% 采用分布式多智能体系统（Distributed Multi-Agent System）、双引擎路由分流（Dual-Engine Routing）、任务工单（Task Ticketing）、参数基线（Parameter Baseline）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD` 违规并一票否决。
 
+62. **成熟应用逆向工程与深度解构体系公理 (Mature Application Reverse Engineering & Deep Deconstruction Axiom - `MATURE_APP_REVERSE_ENGINEERING_&_DECONSTRUCTION_AXIOM` - 严禁浅层盲目抄袭与双轨解构实证铁律)**：
+    - **双轨解构引擎标准规程 (Dual-Track Deconstruction Engine Standard - DUAL_TRACK_DECONSTRUCTION_ENGINE_STANDARD)**：
+      全系统确立双轨逆向解构工程标准，严禁仅凭单一截图或表面 CSS 进行盲目抄袭：(1) 动态黑盒行为追踪（Dynamic Black-Box Behavioral Tracing）：通过运行时探针、CDP 或拟态会话捕获完整用户事件级联（Event Cascade）、无障碍语义树交互、DOM 变异树（Mutation Observer）及底层网络/通信协议荷载增量（Payload Deltas）；(2) 静态白盒架构建模（Static White-Box Architectural Modeling）：深度还原抽象语法树（AST）节点模式、类型契约、事务转移状态机（Transaction Statecharts）及数据持久化模型；双轨数据互为印证，单一维度分析系统直接判定为不合规并拒绝放行；
+    - **文档应用五层深度解构基准规程 (Document Application Deconstruction Benchmark - DOCUMENT_APP_DECONSTRUCTION_BENCHMARK)**：
+      面向富文本、块级（Block-based）与协同文档类成熟应用，系统强制执行五层全要素解构基准，严禁遗漏关键交互状态机：(1) 块级模式与层级（Block Hierarchy & Node Schema）：全量解构块节点类型、父子嵌套拓扑、分数索引（Fractional Indexing）与属性规约；(2) 选区与光标状态机（Selection & Caret State Machine）：精确建模光标坐标、跨块级多选、边界穿越与焦点锚定；(3) 事务与不可变步骤引擎（Transaction & Immutable Step Engine）：解构原子步骤演进、逆向操作对冲（Undo/Redo Inverses）与状态不可变快照；(4) 交互指令与快捷表面（Command & Interaction Surface）：解构斜杠 `/` 菜单注册表、行内 Markdown 语法解析、全局快捷键映射与拖拽手柄；(5) 协同与持久化协议（Collaboration & Persistence Protocol）：解构 CRDT / Yjs 增量序列化、本地离线持久化与多端冲突合并规则；缺少任一核心层级的解构分析直接阻断；
+    - **动作技能层法定化规程 (Action Skill Reverse Deconstruction Invariant - ACTION_SKILL_REVERSE_DECONSTRUCTION_INVARIANT)**：
+      全系统正式确立 `skills/app-reverse-deconstruction/SKILL.md` 为 Ps-openspec 动作技能层法定技能；全面打通 REA MCP 工具链（如 `analyze-javascript-application`、`recover-javascript-sources`、`evidence-export`）与拟态浏览器探针，提供标准作业规程（SOP）、触发词与结构化输入输出规范，供全蜂群智能体按需调用；
+    - **净室规格书与不可变证据链门禁规程 (Clean-Room Specification & Immutable Evidence Gate - CLEAN_ROOM_SPECIFICATION_&_EVIDENCE_GATE)**：
+      所有逆向解构活动必须终止于标准化净室工程设计规格书（`DECONSTRUCT_SPEC.md`）与防篡改证据链图谱（Evidence Graph）；净室规格书必须实现业务行为、数据契约与状态机规约与专有源码的物理隔离，支撑合规净室重新实现；未经净室规格书与实测证据闭环而直接进入代码编写者，门禁系统一票否决；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD)**：
+      本公理的全部规约、双轨引擎拓扑、五层基准状态机、动作技能与净室门禁断路器必须（SHALL）100% 采用逆向工程（Reverse Engineering）、净室规格（Clean-Room Specification）、抽象语法树（AST）、状态机模型（Statecharts）、证据图谱（Evidence Graph）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
 - **UI/UX 工业级设计工程技能**：[`skills/ui-ux-design-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/ui-ux-design-engineering/SKILL.md) —— 基于 Anthropic 官方 Frontend Design (10k+ ⭐) 与 VoltAgent (4.3k+ ⭐)，提供 Design Tokens 体系、WCAG 2.2 AA 无障碍对比度与 Anti-AI-Slop 界面工程硬防线；
-- **REA 逆向工程与闭源还原技能**：[`skills/rea-reverse-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/rea-reverse-engineering/SKILL.md) —— 基于 REA (Reverse Engineer Anything) 官方规范与原生 MCP 协议（200+ 原子工具），提供原生二进制静态反编译 (Ghidra/Hopper/IDA/Rizin)、Electron/JS 应用源码还原、Android APK 解包与 Evidence 事实证据链自证。
+- **REA 逆向工程与闭源还原技能**：[`skills/rea-reverse-engineering/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/rea-reverse-engineering/SKILL.md) —— 基于 REA (Reverse Engineer Anything) 官方规范与原生 MCP 协议（200+ 原子工具），提供原生二进制静态反编译 (Ghidra/Hopper/IDA/Rizin)、Electron/JS 应用源码还原、Android APK 解包与 Evidence 事实证据链自证；
+- **成熟应用逆向解构工程技能**：[`skills/app-reverse-deconstruction/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/app-reverse-deconstruction/SKILL.md) —— 基于双轨逆向解构引擎与文档五层基准，深度整合 REA MCP 工具链，提供动态行为追踪、静态架构还原、Clean-Room 净室规格书 (`DECONSTRUCT_SPEC.md`) 编制与 Evidence 事实证据链闭环。

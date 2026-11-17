@@ -2119,3 +2119,38 @@ test('gemini adapter enforces autonomous swarm and subagent proactive dispatch g
   assert.match(pstackRules, /ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE/, 'pstack-openspec must enforce anti-monolithic pre-execution hook gate');
   assert.match(pstackRules, /UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD/, 'pstack-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces mature app reverse engineering and deep deconstruction governance (Axiom 62)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /MATURE_APP_REVERSE_ENGINEERING_&_DECONSTRUCTION_AXIOM/, 'GEMINI.md must contain Axiom 62 identifier');
+  assert.match(geminiRules, /DUAL_TRACK_DECONSTRUCTION_ENGINE_STANDARD/, 'GEMINI.md must enforce dual-track deconstruction engine standard');
+  assert.match(geminiRules, /DOCUMENT_APP_DECONSTRUCTION_BENCHMARK/, 'GEMINI.md must enforce document app deconstruction benchmark');
+  assert.match(geminiRules, /ACTION_SKILL_REVERSE_DECONSTRUCTION_INVARIANT/, 'GEMINI.md must enforce action skill reverse deconstruction invariant');
+  assert.match(geminiRules, /CLEAN_ROOM_SPECIFICATION_&_EVIDENCE_GATE/, 'GEMINI.md must enforce clean-room specification and evidence gate');
+  assert.match(geminiRules, /UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /MATURE_APP_REVERSE_ENGINEERING_&_DECONSTRUCTION_AXIOM/, 'ai-harness-openspec must contain Axiom 62 identifier');
+  assert.match(harnessRules, /DUAL_TRACK_DECONSTRUCTION_ENGINE_STANDARD/, 'ai-harness-openspec must enforce dual-track deconstruction engine standard');
+  assert.match(harnessRules, /DOCUMENT_APP_DECONSTRUCTION_BENCHMARK/, 'ai-harness-openspec must enforce document app deconstruction benchmark');
+  assert.match(harnessRules, /ACTION_SKILL_REVERSE_DECONSTRUCTION_INVARIANT/, 'ai-harness-openspec must enforce action skill invariant');
+  assert.match(harnessRules, /CLEAN_ROOM_SPECIFICATION_&_EVIDENCE_GATE/, 'ai-harness-openspec must enforce clean-room specification and evidence gate');
+  assert.match(harnessRules, /UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /MATURE_APP_REVERSE_ENGINEERING_&_DECONSTRUCTION_AXIOM/, 'pstack-openspec must contain Axiom 62 identifier');
+  assert.match(pstackRules, /DUAL_TRACK_DECONSTRUCTION_ENGINE_STANDARD/, 'pstack-openspec must enforce dual-track engine standard');
+  assert.match(pstackRules, /DOCUMENT_APP_DECONSTRUCTION_BENCHMARK/, 'pstack-openspec must enforce document app deconstruction benchmark');
+  assert.match(pstackRules, /ACTION_SKILL_REVERSE_DECONSTRUCTION_INVARIANT/, 'pstack-openspec must enforce action skill invariant');
+  assert.match(pstackRules, /CLEAN_ROOM_SPECIFICATION_&_EVIDENCE_GATE/, 'pstack-openspec must enforce clean-room specification and evidence gate');
+  assert.match(pstackRules, /UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD/, 'pstack-openspec must enforce universal standard');
+});

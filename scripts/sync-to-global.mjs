@@ -112,6 +112,13 @@ export function syncAllToGlobal() {
     updatedCount += syncDirectory(reaSkillSrc, reaSkillDest);
   }
 
+  // 4e. Sync skills/app-reverse-deconstruction
+  const appReverseSkillSrc = join(repoRoot, 'skills', 'app-reverse-deconstruction');
+  const appReverseSkillDest = join(globalGeminiRoot, 'config', 'skills', 'app-reverse-deconstruction');
+  if (existsSync(appReverseSkillSrc)) {
+    updatedCount += syncDirectory(appReverseSkillSrc, appReverseSkillDest);
+  }
+
   // 5. Sync route registry
   const routeMapSrc = join(repoRoot, 'docs', 'pstack-openspec-route-map.json');
   const routeMapDest = join(globalGeminiRoot, 'pstack-openspec-route-map.json');
