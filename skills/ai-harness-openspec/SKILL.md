@@ -608,6 +608,14 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **多维并行共存硬门禁 (MULTI_TIERED_COEXISTENT_VERIFICATION_GATE)**：交互拟态测试为增量必选门禁，绝不取代或弱化编译器检查、静态 Lint（零告警）、领域单测与 VS Code Diff 触觉终审；四维防线并行独立全绿为合流通行充要条件；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD)**：全规约 100% 采用用户交互拟态、事件级联、语义树、虚拟 DOM、多维门禁与标准退出码等纯通用软件工程语言，严禁单一业务场景专有词汇污染。
 
+58. **主 Agent 主动化利用 Swarm 与 Subagent 治理公理 (Autonomous Swarm & Subagent Proactive Dispatch Axiom - AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM - Axiom 61 - 严禁单体施工退化与双引擎主动调度铁律)**：
+    - **主动自动化委派铁律 (PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT)**：主 Agent 作为最高协调者（`@coordinator`），进入 Step 3 必须无条件主动全自动委派任务至 Swarm Workers 或 Subagents，无需用户提醒，严禁单体直接改码；
+    - **双引擎确定性路由规程 (DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL)**：严格执行双引擎分流：UI交互/DOM视觉/浏览器复现强制路由至 `invoke_subagent(TypeName="browser")`；代码施工/多文件重构/测试/审计强制路由至 `swarm`；
+    - **零摩擦默认参数标准 (ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD)**：Swarm 派发默认 `workspace="inherit"` 消除 VCS 分支克隆摩擦；默认省略 `model` 自动继承协调者档位消除选择纠结；严格采用四要素 Brief；
+    - **施工图纸任务委派工单锁定规程 (MANDATORY_DELEGATION_TICKETING_INVARIANT)**：Step 2 `tasks.md` 施工项必须显式格式化为 `[-] [Swarm: <worker>]` 或 `[-] [Subagent: <type>]` 委派工单，未标注目标直接拒绝放行；
+    - **反单体越界预执行硬门禁 (ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE)**：主 Agent 在 Step 3 试图直接调用 `edit_file` / `write_file` 改动生产代码立即触发拦截阻断并强制切换委派；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD)**：全规约 100% 采用分布式多智能体、双引擎路由、工单分流与标准退出码通用工程语言，严禁单一业务场景专有词汇污染。
+
 ---
 
 ## 📚 附录与配套参考

@@ -646,6 +646,14 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **Swarm 蜂群网络中 `@coordinator` 专属权能法定化 (COORDINATOR_ROLE_BOARD_AUTHORITY)**：主 Agent 独占 `@coordinator` 看板发包与终审权，Worker 独占施工权，实施严格的裁执物理隔离；
     - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_LEAD_IDENTITY_STANDARD)**：全规约 100% 采用分布式协调者、角色内省、身份契约与状态机通用工程语言，严禁单一业务场景专有词汇污染。
 
+61. **主 Agent 主动化利用 Swarm 与 Subagent 治理公理 (Autonomous Swarm & Subagent Proactive Dispatch Axiom - AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM - 严禁单体施工退化与双引擎主动调度铁律)**：
+    - **主动自动化委派铁律 (PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT)**：主 Agent 作为最高协调者（`@coordinator`），进入 Step 3 必须无条件主动全自动委派任务至 Swarm Workers 或 Subagents，无需用户提醒，严禁单体直接改码；
+    - **双引擎确定性路由规程 (DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL)**：严格执行双引擎分流：UI交互/DOM视觉/浏览器复现强制路由至 `invoke_subagent(TypeName="browser")`；代码施工/多文件重构/测试/审计强制路由至 `swarm`；
+    - **零摩擦默认参数标准 (ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD)**：Swarm 派发默认 `workspace="inherit"` 消除 VCS 分支克隆摩擦；默认省略 `model` 自动继承协调者档位消除选择纠结；严格采用四要素 Brief；
+    - **施工图纸任务委派工单锁定规程 (MANDATORY_DELEGATION_TICKETING_INVARIANT)**：Step 2 `tasks.md` 施工项必须显式格式化为 `[-] [Swarm: <worker>]` 或 `[-] [Subagent: <type>]` 委派工单，未标注目标直接拒绝放行；
+    - **反单体越界预执行硬门禁 (ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE)**：主 Agent 在 Step 3 试图直接调用 `edit_file` / `write_file` 改动生产代码立即触发拦截阻断并强制切换委派；
+    - **纯通用工程抽象与反业务情境硬门禁 (UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD)**：全规约 100% 采用分布式多智能体、双引擎路由、工单分流与标准退出码通用工程语言，严禁单一业务场景专有词汇污染。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

@@ -805,6 +805,20 @@
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD)**：
       本公理的全部规约、调度拓扑、事件级联状态机与门禁断路器必须（SHALL）100% 采用用户交互拟态（Behavioral Emulation）、事件级联（Event Cascade）、无障碍语义树（Accessibility Tree）、虚拟 DOM（Virtual DOM）、多维门禁（Multi-Tiered Verification）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD` 违规并一票否决。
 
+61. **主 Agent 主动化利用 Swarm 与 Subagent 治理公理 (Autonomous Swarm & Subagent Proactive Dispatch Axiom - AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM - 严禁单体施工退化与双引擎主动调度铁律)**：
+    - **主动自动化委派铁律 (Proactive Autonomous Delegation Invariant - PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT)**：
+      全系统确立“主 Agent 施工期零单体主动委派铁律”：主 Agent 作为法定架构师与最高协调者（`@coordinator`），在进入 Step 3 单步施工阶段时，必须（SHALL）无条件主动、全自动将代码编写、多文件重构、自动化测试与对抗审计任务委派给 Swarm Workers 或专用 Subagents；绝对禁止等待或依赖用户显式提醒（如“请使用 Swarm”、“派发 Worker”）；严禁主 Agent 退化为单体执行者亲自在主会话中编写业务代码或直接运行长时测试，单体施工行为直接触发角色退化违规；
+    - **双引擎确定性路由规程 (Dual-Engine Deterministic Dispatch Routing Protocol - DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL)**：
+      系统强制实施清晰无歧义的双引擎分流路由矩阵，严禁工具调用重叠与认知瘫痪：(1) 交互浏览器与视觉验证引擎（Visual / UI Interaction Engine）：凡涉及浏览器交互、真实 DOM 渲染、UI 界面缺陷复现与客户端视觉验证的任务，必须且只能路由至 `invoke_subagent` 调用 `browser` 专用子智能体；(2) 代码施工与工程蜂群引擎（Engineering Swarm Engine）：凡涉及业务代码修改、多文件重构、单元测试与 L2 测试套件编写、以及红队证伪审计的任务，必须且只能路由至 `swarm` 派发命名 Worker（如 `worker-impl`、`worker-test`、`worker-audit`）；严禁在主会话中混用或单体执行；
+    - **零摩擦默认参数标准 (Zero-Friction Default Dispatch Standard - ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD)**：
+      主 Agent 在通过 `swarm` 派发 Worker 时，必须遵循零摩擦默认基线配置以彻底消除参数纠结与环境报错：(1) 工作区模式默认基线：代码修改类任务默认强制指定 `workspace="inherit"`，直接在当前工作区实施变更，彻底消除非标准版本控制系统下的工作区克隆与分支摩擦；仅在用户显式要求物理隔离时方可启用；(2) 模型继承默认基线：派发请求默认省略 `model` 参数以自动继承协调者当前模型档位，消除模型选择犹豫与配额阻碍；(3) 四位一体结构化 Brief：派发 Brief 必须严格包含“所属文件、参考上下文、退出验收标准、`@coordinator` 唤醒标签”四要素；
+    - **施工图纸任务委派工单锁定规程 (Mandatory Delegation Ticketing Invariant - MANDATORY_DELEGATION_TICKETING_INVARIANT)**：
+      系统确立“施工图纸任务工单显式锁定铁律”：在 Step 2 编写 OpenSpec `tasks.md` 施工图纸时，所有实现、重构与验证任务项必须（MUST）显式格式化为带有委派引擎与目标身份的委派工单（如 `[-] [Swarm: <worker-name>] <task-description>` 或 `[-] [Subagent: <type>] <task-description>`）；任何缺乏委派目标、呈现为无归属单体描述的任务项（如仅写 `- [ ] 实现某功能`），静态门禁检查直接判定为结构性不合规并拒绝放行进入 Step 3；
+    - **反单体越界预执行硬门禁 (Anti-Monolithic Pre-Execution Hook Gate - ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE)**：
+      系统强制部署反单体越界预执行拦截钩子：在 Step 3 施工阶段，若主 Agent 试图在未派发 Swarm Worker 或 Subagent 的情况下，直接调用文件修改工具（`edit_file` / `write_file`）改动受管代码资产，预执行门禁必须立即拦截该调用并触发 `ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE` 阻断，向上下文发出强制中断警告并要求立即切换为 `swarm` 或 `invoke_subagent` 委派调度；
+    - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD)**：
+      本公理的全部规约、调度拓扑、双引擎路由状态机、委派工单与门禁断路器必须（SHALL）100% 采用分布式多智能体系统（Distributed Multi-Agent System）、双引擎路由分流（Dual-Engine Routing）、任务工单（Task Ticketing）、参数基线（Parameter Baseline）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

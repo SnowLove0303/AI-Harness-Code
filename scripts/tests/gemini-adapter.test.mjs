@@ -2081,3 +2081,41 @@ test('gemini adapter enforces user-centric behavioral emulation and interaction 
   assert.match(harnessRules, /MULTI_TIERED_COEXISTENT_VERIFICATION_GATE/, 'ai-harness-openspec must enforce multi-tiered verification gate');
   assert.match(harnessRules, /UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD/, 'ai-harness-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces autonomous swarm and subagent proactive dispatch governance (Axiom 61)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM/, 'GEMINI.md must contain Axiom 61 identifier');
+  assert.match(geminiRules, /PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT/, 'GEMINI.md must enforce proactive autonomous delegation invariant');
+  assert.match(geminiRules, /DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL/, 'GEMINI.md must enforce dual-engine deterministic dispatch routing protocol');
+  assert.match(geminiRules, /ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD/, 'GEMINI.md must enforce zero-friction default dispatch standard');
+  assert.match(geminiRules, /MANDATORY_DELEGATION_TICKETING_INVARIANT/, 'GEMINI.md must enforce mandatory delegation ticketing invariant');
+  assert.match(geminiRules, /ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE/, 'GEMINI.md must enforce anti-monolithic pre-execution hook gate');
+  assert.match(geminiRules, /UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM/, 'ai-harness-openspec must contain Axiom 61 identifier');
+  assert.match(harnessRules, /PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT/, 'ai-harness-openspec must enforce proactive autonomous delegation invariant');
+  assert.match(harnessRules, /DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL/, 'ai-harness-openspec must enforce dual-engine routing protocol');
+  assert.match(harnessRules, /ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD/, 'ai-harness-openspec must enforce zero-friction default dispatch standard');
+  assert.match(harnessRules, /MANDATORY_DELEGATION_TICKETING_INVARIANT/, 'ai-harness-openspec must enforce mandatory delegation ticketing invariant');
+  assert.match(harnessRules, /ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE/, 'ai-harness-openspec must enforce anti-monolithic pre-execution hook gate');
+  assert.match(harnessRules, /UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM/, 'pstack-openspec must contain Axiom 61 identifier');
+  assert.match(pstackRules, /PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT/, 'pstack-openspec must enforce proactive autonomous delegation invariant');
+  assert.match(pstackRules, /DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL/, 'pstack-openspec must enforce dual-engine routing protocol');
+  assert.match(pstackRules, /ZERO_FRICTION_DEFAULT_DISPATCH_STANDARD/, 'pstack-openspec must enforce zero-friction default dispatch standard');
+  assert.match(pstackRules, /MANDATORY_DELEGATION_TICKETING_INVARIANT/, 'pstack-openspec must enforce mandatory delegation ticketing invariant');
+  assert.match(pstackRules, /ANTI_MONOLITHIC_PRE_EXECUTION_HOOK_GATE/, 'pstack-openspec must enforce anti-monolithic pre-execution hook gate');
+  assert.match(pstackRules, /UNIVERSAL_AUTONOMOUS_DISPATCH_STANDARD/, 'pstack-openspec must enforce universal standard');
+});
