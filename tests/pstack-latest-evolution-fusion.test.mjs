@@ -22,15 +22,27 @@ test('L2 Suite: Pstack Latest Evolution Deep Fusion & Subagent Autonomous Rigor 
   const workerMdPath = path.join(REPO_ROOT, 'worker.md');
   const unslopScriptPath = path.join(REPO_ROOT, 'scripts', 'check-unslop-purity.mjs');
   const packageJsonPath = path.join(REPO_ROOT, 'package.json');
-  const deltaSpecPath = path.join(
-    REPO_ROOT,
-    'openspec',
-    'changes',
-    'pstack-latest-evolution-fusion',
-    'specs',
-    'orbitstack-pstack-routing',
-    'spec.md'
-  );
+  const deltaSpecPath = fs.existsSync(
+    path.join(
+      REPO_ROOT,
+      'openspec',
+      'changes',
+      'pstack-latest-evolution-fusion',
+      'specs',
+      'orbitstack-pstack-routing',
+      'spec.md'
+    )
+  )
+    ? path.join(
+        REPO_ROOT,
+        'openspec',
+        'changes',
+        'pstack-latest-evolution-fusion',
+        'specs',
+        'orbitstack-pstack-routing',
+        'spec.md'
+      )
+    : path.join(REPO_ROOT, 'openspec', 'specs', 'orbitstack-pstack-routing', 'spec.md');
 
   await t.test('1. Constitutional codification in GEMINI.md: Axiom 63 contains all required invariants', () => {
     assert.ok(fs.existsSync(geminiMdPath), 'GEMINI.md must exist');
