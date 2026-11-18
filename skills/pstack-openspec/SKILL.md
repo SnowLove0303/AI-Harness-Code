@@ -666,6 +666,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **纯通用工程抽象与反业务情境硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD)**：
       本公理的全部规约、双轨引擎拓扑、五层基准状态机、动作技能与净室门禁断路器必须（SHALL）100% 采用逆向工程（Reverse Engineering）、净室规格（Clean-Room Specification）、抽象语法树（AST）、状态机模型（Statecharts）、证据图谱（Evidence Graph）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD` 违规并一票否决。
 
+63. **Pstack 最新演进全面深度融合与子智能体自治严密性公理 (Pstack Evolution Deep Fusion & Subagent Autonomous Rigor Axiom - `PSTACK_EVOLUTION_FUSION_&_SUBAGENT_AUTONOMOUS_RIGOR_AXIOM` - 严禁口水废话与子智能体自治铁律)**：
+    - **根目录独立 Worker 施工法典标准规程 (Standalone Worker Execution Constitution Standard - STANDALONE_WORKER_CONSTITUTION_STANDARD)**：
+      全系统在项目根目录确立并维护标准子智能体施工法典（`worker.md`），作为所有派发 Worker 与异步执行子智能体的法定行为宪法：(1) 可逆决策自治权（Autonomous Reversible Decisions）：Worker 承担专注于代码落地的执行者（Line Cook）角色，在派发作用域内对局部可逆实现细节享有完全自治权，严禁在琐碎选择上停机反问阻断协调者；(2) 退出码 0 机械化基线（Mechanical Exit Code 0 Baseline）：Worker 报告完工的充要前提必须是相关静态检查（Linter）、编译与自动化测试在真实环境中取得退出码 0（`[Measured] Exit Code 0`），红灯状态下一律禁止声称完成；(3) 生产级无废话交付标准（PR-Ready Clean Deliverable Standard）：产出代码与提交说明严禁包含未经核验的口水猜测、调试断言或客套寒暄，必须达到开箱即合流的 PR 级交付标准；派发 Brief 头部必须强制指引阅读 `worker.md`；
+    - **机械化 L2 反口水词静态守卫门禁规程 (Mechanical Layer 2 Unslop Assertion Gate - MECHANICAL_L2_UNSLOP_ASSERTION_GATE)**：
+      全系统强制将反口水词与去 AI 浮夸语言从提示词建议下沉为机械化 Layer 2 静态守卫脚本（`scripts/check-unslop-purity.mjs`，并通过 `package.json` 注册为 `npm run guard:unslop`）；静态守卫机械拦截并一票否决两类违规：(1) 无事实依托的悬空分词从句（Ungrounded Trailing Participles，如 trailing `, ensuring ...`、`, highlighting ...`、`, reflecting ...`、`, showcasing ...`、`, fostering ...`）；(2) 高频 AI 抽象套话与口水词库（AI Buzzwords，如 `delve`、`crucial`、`landscape`、`pivotal`、`testament`、`underscore`、`vibrant`、`foster`、`enhance`、`showcase` 等）；任何在交付文档、规范或提交信息中命中违规模式者，守卫脚本强制输出 Exit Code 1 阻断 CI 与合流；
+    - **形式化状态机验证与最短报错路径规程 (Formal Statechart Verification & Shortest Violation Path Protocol - FORMAL_STATECHART_SHORTEST_PATH_PROTOCOL)**：
+      面向涉及多状态转移、并发时序或复杂事务管线的核心系统与业务逻辑，强制实施形式化状态机验证规程：智能体必须将状态转移显式抽象为形式化状态模型（Statechart / TLA+ Invariant Model），明确定义各状态不变量（State Invariants）；在系统演进或故障排查时，必须计算并输出触碰不变量违规或死锁的最短可达故障路径（Shortest Violation Path Trace），以反向形式化反例证伪系统设计的完备性，严禁仅凭单一流转分支脑补系统健壮性；
+    - **全景同源缺陷排查与清算规程 (All-Sites Defect Remediation Mandate - ALL_SITES_DEFECT_REMEDIATION_MANDATE)**：
+      全系统将公理 59 横向兄弟排查进一步升维为全景同源缺陷必清算规程：当在代码库中诊断并根治某特定缺陷模式（Defect Pattern）时，智能体严禁止步于修复已暴露的单一缺陷点，必须强制针对抽象特征模式在全工作区代码文件、各阶段生命周期资产以及规范镜像中展开地毯式搜索排查，出具全景清算对账单（Defect Remediation Ledger），并在同一个变更周期内彻底同步消除所有同源隐患；
+    - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PSTACK_FUSION_STANDARD)**：
+      本公理的全部规约、独立施工法典、反口水词静态规则库、形式化状态机拓扑与同源清算状态机必须（SHALL）100% 采用分布式子智能体（Distributed Subagents）、静态代码分析（Static AST Linter）、形式化状态图（Formal Statecharts）、同源缺陷排查（Defect Remediation Sweep）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_PSTACK_FUSION_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

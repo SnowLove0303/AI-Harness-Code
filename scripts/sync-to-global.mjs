@@ -72,6 +72,13 @@ export function syncAllToGlobal() {
     syncFile(globalGeminiMd, repoGeminiMd);
   }
 
+  // 1b. Sync worker.md to global Gemini root
+  const repoWorkerMd = join(repoRoot, 'worker.md');
+  const globalWorkerMd = join(globalGeminiRoot, 'worker.md');
+  if (existsSync(repoWorkerMd)) {
+    if (syncFile(repoWorkerMd, globalWorkerMd)) updatedCount++;
+  }
+
   // 2. Sync orbitstack-gemini adapter to both global skills
   const adapterDir = join(repoRoot, 'orbitstack-gemini');
   updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini'));
@@ -128,7 +135,8 @@ export function syncAllToGlobal() {
   const scriptsToSync = [
     'pstack-handoff.mjs',
     'audit-protected-invariants.mjs',
-    'audit-pstack-openspec-routing.ps1'
+    'audit-pstack-openspec-routing.ps1',
+    'check-unslop-purity.mjs'
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);

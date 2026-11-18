@@ -2154,3 +2154,38 @@ test('gemini adapter enforces mature app reverse engineering and deep deconstruc
   assert.match(pstackRules, /CLEAN_ROOM_SPECIFICATION_&_EVIDENCE_GATE/, 'pstack-openspec must enforce clean-room specification and evidence gate');
   assert.match(pstackRules, /UNIVERSAL_REVERSE_DECONSTRUCTION_STANDARD/, 'pstack-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces pstack evolution deep fusion and subagent autonomous rigor (Axiom 63)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PSTACK_EVOLUTION_FUSION_&_SUBAGENT_AUTONOMOUS_RIGOR_AXIOM/, 'GEMINI.md must contain Axiom 63 identifier');
+  assert.match(geminiRules, /STANDALONE_WORKER_CONSTITUTION_STANDARD/, 'GEMINI.md must enforce standalone worker constitution standard');
+  assert.match(geminiRules, /MECHANICAL_L2_UNSLOP_ASSERTION_GATE/, 'GEMINI.md must enforce mechanical L2 unslop assertion gate');
+  assert.match(geminiRules, /FORMAL_STATECHART_SHORTEST_PATH_PROTOCOL/, 'GEMINI.md must enforce formal statechart shortest path protocol');
+  assert.match(geminiRules, /ALL_SITES_DEFECT_REMEDIATION_MANDATE/, 'GEMINI.md must enforce all-sites defect remediation mandate');
+  assert.match(geminiRules, /UNIVERSAL_PSTACK_FUSION_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PSTACK_EVOLUTION_FUSION_&_SUBAGENT_AUTONOMOUS_RIGOR_AXIOM/, 'ai-harness-openspec must contain Axiom 63 identifier');
+  assert.match(harnessRules, /STANDALONE_WORKER_CONSTITUTION_STANDARD/, 'ai-harness-openspec must enforce standalone worker constitution standard');
+  assert.match(harnessRules, /MECHANICAL_L2_UNSLOP_ASSERTION_GATE/, 'ai-harness-openspec must enforce mechanical L2 unslop assertion gate');
+  assert.match(harnessRules, /FORMAL_STATECHART_SHORTEST_PATH_PROTOCOL/, 'ai-harness-openspec must enforce formal statechart shortest path protocol');
+  assert.match(harnessRules, /ALL_SITES_DEFECT_REMEDIATION_MANDATE/, 'ai-harness-openspec must enforce all-sites defect remediation mandate');
+  assert.match(harnessRules, /UNIVERSAL_PSTACK_FUSION_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /PSTACK_EVOLUTION_FUSION_&_SUBAGENT_AUTONOMOUS_RIGOR_AXIOM/, 'pstack-openspec must contain Axiom 63 identifier');
+  assert.match(pstackRules, /STANDALONE_WORKER_CONSTITUTION_STANDARD/, 'pstack-openspec must enforce standalone worker constitution standard');
+  assert.match(pstackRules, /MECHANICAL_L2_UNSLOP_ASSERTION_GATE/, 'pstack-openspec must enforce mechanical L2 unslop assertion gate');
+  assert.match(pstackRules, /FORMAL_STATECHART_SHORTEST_PATH_PROTOCOL/, 'pstack-openspec must enforce formal statechart shortest path protocol');
+  assert.match(pstackRules, /ALL_SITES_DEFECT_REMEDIATION_MANDATE/, 'pstack-openspec must enforce all-sites defect remediation mandate');
+  assert.match(pstackRules, /UNIVERSAL_PSTACK_FUSION_STANDARD/, 'pstack-openspec must enforce universal standard');
+});
