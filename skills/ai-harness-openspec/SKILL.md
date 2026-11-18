@@ -640,6 +640,20 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PSTACK_FUSION_STANDARD)**：
       本公理的全部规约、独立施工法典、反口水词静态规则库、形式化状态机拓扑与同源清算状态机必须（SHALL）100% 采用分布式子智能体（Distributed Subagents）、静态代码分析（Static AST Linter）、形式化状态图（Formal Statecharts）、同源缺陷排查（Defect Remediation Sweep）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_PSTACK_FUSION_STANDARD` 违规并一票否决。
 
+61. **问题清单全量账本化与零遗漏深度根治公理 (Problem Ledger Ingestion & Zero-Omission Deep Remediation Axiom - PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM - Axiom 64 - 严禁粗放打包与零遗漏深度根治铁律)**：
+    - **问题型任务判定与《问题清单总账本》全量切片规程 (Master Problem Ledger Ingestion Protocol - MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL)**：
+      当任务诉求指向外部缺陷文档、审计清单或问题报告时，系统在 Step 0 强制自动判定为“问题型任务（Problem/Issue Remediation Task）”，并对外部输入展开原子化无损全量切片，建立不可篡改的《问题清单总账本》（Master Problem Ledger），项数严格满足 $N_{\text{Ledger}} \equiv K$ 守恒：(1) 独立标识：每一缺陷赋予唯一规范标识 `[ISSUE-01]` ~ `[ISSUE-K]`；(2) 五要素具象化定义：必须完整冻结【缺陷标识】、【现状与代码锚点（`file:///path#Lxx`）】、【初始失败复现命令/报错证据（Witness）】、【涉及链路因果角色（`[Root Source]` 或 `[Consumer Sink]`）】及【独立验收判据】；(3) 零压缩断路器：严禁擅自合并、删减或将多项问题粗放概括为单一泛化条目，少于 $K$ 项直接触发 `PROBLEM_INGESTION_COMPRESSION_BLOCKED` 阻断立案；
+    - **问题与原子任务 1:1 双射法定公理与严禁任务打包门禁 (Issue-to-Task Bijective Invariant - ISSUE_TO_TASK_BIJECTIVE_INVARIANT)**：
+      系统在 Step 2 编写 `tasks.md` 施工任务清单时，必须严格落实问题账本条目与原子施工任务组的 1:1 双射拓扑（Bijective Mapping），严禁多 Issue 打包合并（`BUNDLED_ISSUE_TASK_FORBIDDEN`）：(1) 专属任务单元：每一个 `[ISSUE-xx]` 必须拥有专属且独立的顶级或原子任务块，任务块数量必须满足 $N_{\text{Task}} \ge K$；(2) 五阶微循环闭环：每个 Issue 任务块内部必须包含失败复现单测（RED）、源头根治实现（ROOT）、结构免疫防护（IMMUNITY）、单测通过验证（GREEN）及全景同源兄弟排查（SWEEP）；(3) 门禁 2 审查一票否决：任何试图将两项及以上不同缺陷合并在同一任务头下混合处理的提案，门禁 2 审查强制一票否决；
+    - **四阶深度根治阶梯规程 (Four-Tier Deep Remediation Ladder - FOUR_TIER_DEEP_REMEDIATION_LADDER)**：
+      系统在 Step 3 针对账本中的每一个 `[ISSUE-xx]` 实施施工时，必须严格按阶梯推进四阶深度根治，坚决根除浮于表面的创可贴式防御：(1) Tier 1 见证红灯（Red Witness）：动工修改业务代码前，必须先编写或运行失败反例测试用例，取得真实退出码非 0（Exit Code $\ne 0$）的失败见证，无红灯测试见证前严禁改码；(2) Tier 2 源头根治（Origin Remediation）：必须穿透逆向数据流至缺陷产生的 Origin Producer 根源处予以彻底修复，严禁在消费端调用宿主（Consumer Sink）简单添加 `if (!val) return;` 或 try-catch 等局部掩盖式兜底，违者触发 `SINK_PATCHING_BLOCKED` 阻断；(3) Tier 3 结构免疫（Structural Immunity）：必须通过显式状态机转移、类型系统收窄（Make Illegal States Unrepresentable）或新增静态检查规则，从架构层面使该缺陷状态在编译期或类型期物理不可表达；(4) Tier 4 全景同源清算（All-Sites Sweep）：必须在全代码库与规范镜像中检索同源设计坏味道与相同反模式，出具全景清算对账单并同步拔除；
+    - **单问题串行专注锁与子智能体无遗漏派发规程 (Single-Issue Focus Lock Standard - SINGLE_ISSUE_FOCUS_LOCK_STANDARD)**：
+      系统在 Step 3 单步施工期，必须将单任务专注锁（`[-] lock`）的粒度严格收敛并绑定至单 Issue 级别，实施严格的串行加锁与解锁纪律：(1) 串行专注锁：任意时刻严格只允许一个 `[ISSUE-xx]` 处于施工中（`[-]`）状态，防止智能体在长程执行中因上下文膨胀或注意力衰减导致后续问题遗漏或提前满足退出；(2) 解锁充要门禁：当前 Issue 的独立测试用例在真实环境中取得退出码 0（`[Measured] Exit Code 0`）且同源排查无残留前，绝对禁止解锁当前任务（转为 `[x]`），更严禁跳步开启下一项 Issue；(3) 蜂群派发作用域单义性：主协调者向 Swarm Worker 派发任务时，每个 Brief 必须严格封装单 Issue 封闭作用域（Single-Issue Handoff），严禁将全量问题一次性倾倒给单一 Worker；
+    - **零遗漏机械清算断路器与终审绝对守恒门禁 (Zero-Omission Problem Circuit Breaker - ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER)**：
+      全系统强制将问题清算核销从人工主观声明下沉为机械化 Layer 2 静态守卫脚本（`scripts/check-issue-clearance.mjs`，并通过 `package.json` 注册为 `npm run guard:issue-clearance`）：(1) 账本自动提取：守卫脚本自动解析 Step 0 Gate 1 备忘录提取全部 $K$ 项 `[ISSUE-xx]` 唯一标识；(2) 物理测试断言双射核验：守卫脚本自动扫描 `tests/` 目录与测试执行日志，核验每一项 `[ISSUE-xx]` 是否均绑定有专属独立的自动化测试用例与断言代码；(3) 终审绝对守恒门禁：若经机器核实的有效解决项数 $N_{\text{verified}} < K$，守卫脚本直接输出 Exit Code 1 阻断，抛出 `PROBLEM_OMISSION_CIRCUIT_BREAKER` 错误，强制阻断发布、合流与归档；变异注入故意删除任一 Issue 测试断言时，脚本必须稳定红灯；
+    - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PROBLEM_REMEDIATION_STANDARD)**：
+      本公理的全部规约、问题切片账本模型、双射任务拓扑、四阶根治阶梯、专注锁状态机与零遗漏清算断路器必须（SHALL）100% 采用问题账本（Problem Ledger）、双射任务（Bijective Tasks）、源头生产者（Origin Producer）、消费宿主（Consumer Sink）、状态机不变式（Statechart Invariants）、形式化测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_PROBLEM_REMEDIATION_STANDARD` 违规并一票否决。
+
 ---
 
 ## 📚 附录与配套参考

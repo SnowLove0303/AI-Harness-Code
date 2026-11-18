@@ -136,7 +136,8 @@ export function syncAllToGlobal() {
     'pstack-handoff.mjs',
     'audit-protected-invariants.mjs',
     'audit-pstack-openspec-routing.ps1',
-    'check-unslop-purity.mjs'
+    'check-unslop-purity.mjs',
+    'check-issue-clearance.mjs'
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);
