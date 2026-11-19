@@ -668,6 +668,20 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SPEC_ENFORCEMENT_STANDARD)**：
       本公理的全部规约、原子结构化格式、完工拦截钩子、AST 机器下沉拓扑、单焦点状态图与规范守卫断路器必须（SHALL）100% 采用原子规范（Atomic Specifications）、完工钩子（Stop Hook）、状态图不变式（Statechart Invariants）、AST 语法规则（AST Rules）、测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SPEC_ENFORCEMENT_STANDARD` 违规并一票否决。
 
+63. **被调用程序不可变与调用纯净度公理 (Called Program Immutability & Invocation Purity Axiom - CALLED_PROGRAM_IMMUTABILITY_&_INVOCATION_PURITY_AXIOM - Axiom 66 - 严禁为单次任务权宜篡改底座与消费端适配优先铁律)**：
+    - **调用任务分类与被调用程序只读锁定规程 (Invocation Task Classification & Called Program Read-Only Lock - INVOCATION_TASK_CLASSIFICATION_&_CALLED_PROGRAM_READONLY_LOCK)**：
+      当工程任务涉及调用、运行、执行或调度已有程序、工具、服务、管线或 CLI 以产出业务结果时，系统在 Step 0 强制将其判定为调用专属任务（Invocation-Only Task）；针对任何被判定为调用专属任务的工程执行，被调用程序的源代码、内部模块、共享库与核心引擎统一进入不可变只读锁定状态（`CALLED_PROGRAM_READONLY_LOCK`）；系统工具屏障对任何针对被调用程序源文件的写入、编辑或删除操作实施强制拦截与致命违规判定：`UNAUTHORIZED_ENGINE_TAMPERING_BLOCKED`；
+    - **反权宜篡改与调用端适配优先规程 (Anti-Expediency Mutation & Caller Adaptation Mandate - ANTI_EXPEDIENCY_MUTATION_&_CALLER_ADAPTATION_MANDATE)**：
+      调用任务执行期间，错误、异常或超时发生时，问题求解作用域严格限定在调用端平面（Caller Plane）；合规的调用端干预包括：（1）输入数据文件的清洗、验证与格式化；（2）调用参数、配置标志或环境变量的调整；（3）调用端适配器脚本的编写或精化；任务权宜性入侵被调用程序内部（如注释掉断言、放宽公差阈值、硬编码返回值或修改默认行为）构成严格禁止的违规行为；
+    - **上游缺陷隔离与上报规程 (Upstream Defect Isolation & Escalation Protocol - UPSTREAM_DEFECT_ISOLATION_&_ESCALATION_PROTOCOL)**：
+      若调用失败经取证诊断证实由被调用程序内部的真实缺陷引起，而非调用端数据或调用参数问题，当前调用任务不得对该程序实施任何补丁；必须执行：（1）记录不可篡改的取证事件：`[Incident: Upstream Engine Defect]`，包含复现命令、调用栈与根因诊断；（2）维持被调用程序只读状态；（3）暂停执行并向用户上报以获得授权；修复上游缺陷须在独立的专属缺陷修复变更生命周期（内含多场景回归测试）下进行；
+    - **门禁 2 调用端作用域物理围栏规程 (Gate 2 Caller Scope Physical Fence - GATE2_CALLER_SCOPE_PHYSICAL_FENCE)**：
+      调用任务的 Step 2 门禁 2 提案中，拟变路径清单必须执行物理围栏校验；门禁 2 中声明的可写路径须 100% 限定于调用端文件（调用端脚本、输入数据集、任务配置文件、输出目的地）；被调用程序的源代码、核心引擎或共享依赖项出现在可写作用域中将立即触发拒绝：`ENGINE_FILE_IN_CALLER_SCOPE_BLOCKED`；
+    - **自动化 L2 调用纯净度守卫标准 (Invocation Purity Guard Standard - INVOCATION_PURITY_GUARD_STANDARD)**：
+      系统提供独立的静态守卫脚本（`scripts/check-invocation-purity.mjs`，通过 `package.json` 注册为 `guard:invocation-purity`）；守卫检查活跃 Git diff 与任务元数据，若任务被指定为调用专属任务，守卫核验引擎与共享程序目录中不存在任何变更、所有修改严格限定于调用端脚本与数据文件；检测到任何禁止修改时，脚本以状态码 1 退出并输出 `CALLED_PROGRAM_TAMPERING_DETECTED`；
+    - **通用调用纯净度标准 (Universal Invocation Purity Standard - UNIVERSAL_INVOCATION_PURITY_STANDARD)**：
+      被调用程序不可变与调用纯净度的全部规则必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md` 三处宪法镜像中以 Axiom 66 形式编码；所有编码规则、守卫脚本、测试套件与文档必须保持 100% 通用软件工程抽象，零领域情境词汇泄漏，违者系统静态检查直接判定为 `UNIVERSAL_INVOCATION_PURITY_STANDARD` 违规并一票否决。
+
 ---
 
 ## 📚 附录与配套参考

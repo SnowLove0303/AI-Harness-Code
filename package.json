@@ -16,7 +16,8 @@
     "guard:neutrality": "node scripts/check-packaged-docs-neutrality.mjs",
     "guard:unslop": "node scripts/check-unslop-purity.mjs",
     "guard:issue-clearance": "node scripts/check-issue-clearance.mjs",
-    "guard:workflow-spec": "node scripts/check-workflow-spec-compliance.mjs"
+    "guard:workflow-spec": "node scripts/check-workflow-spec-compliance.mjs",
+    "guard:invocation-purity": "node scripts/check-invocation-purity.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

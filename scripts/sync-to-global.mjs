@@ -138,7 +138,8 @@ export function syncAllToGlobal() {
     'audit-pstack-openspec-routing.ps1',
     'check-unslop-purity.mjs',
     'check-issue-clearance.mjs',
-    'check-workflow-spec-compliance.mjs'
+    'check-workflow-spec-compliance.mjs',
+    'check-invocation-purity.mjs'
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);

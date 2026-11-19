@@ -2265,3 +2265,41 @@ test('gemini adapter enforces markdown spec deterministic enforcement and comple
   assert.match(pstackRules, /WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD/, 'pstack-openspec must enforce workflow spec compliance guard standard');
   assert.match(pstackRules, /UNIVERSAL_SPEC_ENFORCEMENT_STANDARD/, 'pstack-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces called program immutability and invocation purity governance (Axiom 66)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /CALLED_PROGRAM_IMMUTABILITY_&_INVOCATION_PURITY_AXIOM/, 'GEMINI.md must contain Axiom 66 identifier');
+  assert.match(geminiRules, /INVOCATION_TASK_CLASSIFICATION_&_CALLED_PROGRAM_READONLY_LOCK/, 'GEMINI.md must enforce invocation task classification and readonly lock');
+  assert.match(geminiRules, /ANTI_EXPEDIENCY_MUTATION_&_CALLER_ADAPTATION_MANDATE/, 'GEMINI.md must enforce anti-expediency mutation mandate');
+  assert.match(geminiRules, /UPSTREAM_DEFECT_ISOLATION_&_ESCALATION_PROTOCOL/, 'GEMINI.md must enforce upstream defect isolation protocol');
+  assert.match(geminiRules, /GATE2_CALLER_SCOPE_PHYSICAL_FENCE/, 'GEMINI.md must enforce gate2 caller scope physical fence');
+  assert.match(geminiRules, /INVOCATION_PURITY_GUARD_STANDARD/, 'GEMINI.md must enforce invocation purity guard standard');
+  assert.match(geminiRules, /UNIVERSAL_INVOCATION_PURITY_STANDARD/, 'GEMINI.md must enforce universal invocation purity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /CALLED_PROGRAM_IMMUTABILITY_&_INVOCATION_PURITY_AXIOM/, 'ai-harness-openspec must contain Axiom 66 identifier');
+  assert.match(harnessRules, /INVOCATION_TASK_CLASSIFICATION_&_CALLED_PROGRAM_READONLY_LOCK/, 'ai-harness-openspec must enforce invocation task classification and readonly lock');
+  assert.match(harnessRules, /ANTI_EXPEDIENCY_MUTATION_&_CALLER_ADAPTATION_MANDATE/, 'ai-harness-openspec must enforce anti-expediency mutation mandate');
+  assert.match(harnessRules, /UPSTREAM_DEFECT_ISOLATION_&_ESCALATION_PROTOCOL/, 'ai-harness-openspec must enforce upstream defect isolation protocol');
+  assert.match(harnessRules, /GATE2_CALLER_SCOPE_PHYSICAL_FENCE/, 'ai-harness-openspec must enforce gate2 caller scope physical fence');
+  assert.match(harnessRules, /INVOCATION_PURITY_GUARD_STANDARD/, 'ai-harness-openspec must enforce invocation purity guard standard');
+  assert.match(harnessRules, /UNIVERSAL_INVOCATION_PURITY_STANDARD/, 'ai-harness-openspec must enforce universal invocation purity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /CALLED_PROGRAM_IMMUTABILITY_&_INVOCATION_PURITY_AXIOM/, 'pstack-openspec must contain Axiom 66 identifier');
+  assert.match(pstackRules, /INVOCATION_TASK_CLASSIFICATION_&_CALLED_PROGRAM_READONLY_LOCK/, 'pstack-openspec must enforce invocation task classification and readonly lock');
+  assert.match(pstackRules, /ANTI_EXPEDIENCY_MUTATION_&_CALLER_ADAPTATION_MANDATE/, 'pstack-openspec must enforce anti-expediency mutation mandate');
+  assert.match(pstackRules, /UPSTREAM_DEFECT_ISOLATION_&_ESCALATION_PROTOCOL/, 'pstack-openspec must enforce upstream defect isolation protocol');
+  assert.match(pstackRules, /GATE2_CALLER_SCOPE_PHYSICAL_FENCE/, 'pstack-openspec must enforce gate2 caller scope physical fence');
+  assert.match(pstackRules, /INVOCATION_PURITY_GUARD_STANDARD/, 'pstack-openspec must enforce invocation purity guard standard');
+  assert.match(pstackRules, /UNIVERSAL_INVOCATION_PURITY_STANDARD/, 'pstack-openspec must enforce universal invocation purity standard');
+});
