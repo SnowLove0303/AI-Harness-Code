@@ -24,6 +24,13 @@
 - **Two-Tier Orthogonal Data Segregation**: Physically separate immutable/read-only system default assets (shipped templates, baseline presets) from mutable user data overlays. Software updates must replace defaults without modifying user data; user resets must purge only user data overlays without damaging baseline templates.
 - **Portable Data Export & Restore**: Ensure persistent state can be exported in structured portable formats (clean JSON, SQL dump) free of host-bound machine tokens, and can be reconstituted on a different machine with integrity validation.
 
+## 1d. Dual Audit Tooling & Agent Proactive Intervention Standard (`DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM`)
+- **Mechanical Audit Entry Baseline**: Ensure all deterministic compilers, linters (`--max-warnings=0`), static guards, and pre-existing test suites exit cleanly with Exit Code 0 before requesting cognitive audit. Never excuse mechanical failures with conversational rationalizations.
+- **Agent Proactive Code Inspection**: Actively inspect physical source code line intervals (`file:///path#Lxx-Lyy`), trace data flows, and verify architectural invariants. Do not assume correctness without reading lines.
+- **Agent Proactive Dynamic Testing**: Actively author and execute exploratory boundary test probes, extreme-value parameters, and adversarial payloads to observe real runtime responses and telemetry. Passive repetition of canned unit tests is prohibited.
+- **False-Pass Detection & Dynamic Falsification**: Actively detect and reject trivial assertion fraud (`assert.ok(true)`) and hardcoded shortcut branches (`if (input === ...) return ...`). Verify that edge inputs properly trigger defensive error paths.
+- **Pure Universal Engineering Abstraction**: Formulate all audit assertions, test records, and reconciliation matrices in 100% domain-neutral software engineering terms with zero scenario vocabulary leakage.
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

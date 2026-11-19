@@ -899,6 +899,20 @@
     - **通用便携性与数据隔离立法同构标准 (Universal Portability Legislation Parity Standard - UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD)**：
       通用便携性、数据库迁移韧性与正交数据隔离的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 64 项）三处宪法镜像中以 Axiom 67 形式同构固化；所有编码规则、守卫脚本、测试套件与文档必须保持 100% 通用软件工程抽象，零单一业务情境词汇泄漏，违者系统静态检查直接判定为 `UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD` 违规并一票否决。
 
+68. **纯通用机械审计与 Agent 主动介入审计双工具体系公理 (Dual Audit Tooling: Mechanical Audit & Agent Proactive Intervention Axiom - DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM - 机器客观准入与智能体主动证伪两阶双钥匙铁律)**：
+    - **机械审计工具纯通用标准定义与判定规程 (Mechanical Audit Tool Generic Standard - MECHANICAL_AUDIT_TOOL_GENERIC_STANDARD)**：
+      在任何系统、Web 应用、底层库、脚本或工作流工程交付流水线中，机械审计工具作为第一道客观门禁；其判定 100% 依赖确定性代码规则、静态语法检查、类型完整性与操作系统真实进程退出码（Exit Code 0 vs 非 0）；绝对禁止引入大模型主观推理与文本解释；代码编译与静态检查强制零告警零错误（`--max-warnings=0`）；任何非零退出码或告警直接触发硬阻断：`MECHANICAL_AUDIT_BLOCKER`；
+    - **Agent 介入审计工具主动探查与动态测试规程 (Agent Proactive Intervention Audit Tool Standard - AGENT_PROACTIVE_INTERVENTION_AUDIT_TOOL_STANDARD)**：
+      当系统满足机械准入底座后，系统调用 Agent 介入审计工具；智能体必须展现主动能动性，执行五项主动操作：（1）主动物理查阅：深入源码底层行号区间（`file:///path#Lxx-Lyy`）查看实现逻辑与因果链路；（2）主动动态测试：自主构造边界探针、极值用例与异常荷载驱动系统运行；（3）主动状态观测：捕获并分析运行时日志与状态机转移是否合法；（4）主动差异审阅：逐行审阅版本变更 Diff，排查逻辑退化与冗余代码；（5）主动反向证伪：主动寻找潜在设计缺陷与漏洞；严禁被动等待与口水形式主义打勾；发现逻辑漏洞或缺少实测证据直接判定为：`AGENT_SEMANTIC_AUDIT_REJECTED`；
+    - **两阶双钥匙正交协同与递进流水线契约 (Dual-Key Sequential Orchestration Contract - DUAL_KEY_SEQUENTIAL_ORCHESTRATION_CONTRACT)**：
+      全系统审计必须实施严格串联递进门禁：机械审计为第一钥匙（准入底座/必要条件），机械未全绿前严禁调用 Agent 介入审计；Agent 主动介入审计为第二钥匙（逻辑与行为证伪/充分条件）；两把钥匙均出具实测 Exit Code 0 与物理行号凭证后，方可触发 VS Code 原生差异检阅呈报最终交付；企图越级放行直接阻断：`DUAL_KEY_AUDIT_BYPASS_BLOCKED`；
+    - **伪通特判主动检测与反欺诈测试规程 (False-Pass Detection & Dynamic Falsification Standard - FALSE_PASS_DETECTION_&_DYNAMIC_FALSIFICATION_STANDARD)**：
+      Agent 介入审计必须主动针对系统实现进行反欺诈扫描；审查是否存在针对特定测试用例硬编码返回值的局部假特判（如 `if (input === 'x') return 'y'`）、弱断言空跑（如 `assert.ok(true)`）或缺少防御性分支；通过主动注入非常规探针参数与异常荷载，验证系统底层机制的通用鲁棒性；检出假特判或弱断言欺诈直接触发致命违规阻断：`FALSE_PASS_FRAUD_DETECTED`；
+    - **全系统纯通用软件工程抽象与情境彻底解耦门禁 (Pure Universal Software Engineering Abstraction Standard - PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD)**：
+      双审计工具体系的全部定义、规则、脚本、用例与文档，必须（SHALL）100% 采用组件、接口、输入/输出契约、状态机、数据流、动静态断言与进程退出码等纯通用软件工程语言；绝对禁止掺杂任何特定业务领域、行业规则或单一产品专有词汇；违者静态检查直接判定为 `DOMAIN_SCENARIO_POLLUTION_BLOCKED` 违规并一票否决；
+    - **双审计工具体系宪法立法同构标准 (Dual Audit Tooling Parity Standard - DUAL_AUDIT_TOOLING_PARITY_STANDARD)**：
+      双审计工具体系的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 65 项）三处宪法镜像中以 Axiom 68 形式同构固化；所有编码规则、测试套件与工作规程必须保持 100% 通用软件工程抽象，零单一情境词汇泄漏，违者静态检查直接判定为 `DUAL_AUDIT_TOOLING_PARITY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

@@ -2353,3 +2353,41 @@ test('gemini adapter enforces universal portability, database migration resilien
   assert.match(pstackRules, /UNIVERSAL_PORTABILITY_GUARD_STANDARD/, 'pstack-openspec must enforce universal portability guard standard');
   assert.match(pstackRules, /UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD/, 'pstack-openspec must enforce universal portability legislation parity standard');
 });
+
+test('gemini adapter enforces dual audit tooling: mechanical audit and agent proactive intervention (Axiom 68)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM/, 'GEMINI.md must contain Axiom 68 identifier');
+  assert.match(geminiRules, /MECHANICAL_AUDIT_TOOL_GENERIC_STANDARD/, 'GEMINI.md must enforce mechanical audit tool standard');
+  assert.match(geminiRules, /AGENT_PROACTIVE_INTERVENTION_AUDIT_TOOL_STANDARD/, 'GEMINI.md must enforce agent proactive intervention audit standard');
+  assert.match(geminiRules, /DUAL_KEY_SEQUENTIAL_ORCHESTRATION_CONTRACT/, 'GEMINI.md must enforce dual-key sequential orchestration contract');
+  assert.match(geminiRules, /FALSE_PASS_DETECTION_&_DYNAMIC_FALSIFICATION_STANDARD/, 'GEMINI.md must enforce false-pass detection standard');
+  assert.match(geminiRules, /PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce pure universal software engineering abstraction standard');
+  assert.match(geminiRules, /DUAL_AUDIT_TOOLING_PARITY_STANDARD/, 'GEMINI.md must enforce dual audit tooling parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM/, 'ai-harness-openspec must contain Axiom 68 identifier');
+  assert.match(harnessRules, /MECHANICAL_AUDIT_TOOL_GENERIC_STANDARD/, 'ai-harness-openspec must enforce mechanical audit tool standard');
+  assert.match(harnessRules, /AGENT_PROACTIVE_INTERVENTION_AUDIT_TOOL_STANDARD/, 'ai-harness-openspec must enforce agent proactive intervention audit standard');
+  assert.match(harnessRules, /DUAL_KEY_SEQUENTIAL_ORCHESTRATION_CONTRACT/, 'ai-harness-openspec must enforce dual-key sequential orchestration contract');
+  assert.match(harnessRules, /FALSE_PASS_DETECTION_&_DYNAMIC_FALSIFICATION_STANDARD/, 'ai-harness-openspec must enforce false-pass detection standard');
+  assert.match(harnessRules, /PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce pure universal software engineering abstraction standard');
+  assert.match(harnessRules, /DUAL_AUDIT_TOOLING_PARITY_STANDARD/, 'ai-harness-openspec must enforce dual audit tooling parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM/, 'pstack-openspec must contain Axiom 68 identifier');
+  assert.match(pstackRules, /MECHANICAL_AUDIT_TOOL_GENERIC_STANDARD/, 'pstack-openspec must enforce mechanical audit tool standard');
+  assert.match(pstackRules, /AGENT_PROACTIVE_INTERVENTION_AUDIT_TOOL_STANDARD/, 'pstack-openspec must enforce agent proactive intervention audit standard');
+  assert.match(pstackRules, /DUAL_KEY_SEQUENTIAL_ORCHESTRATION_CONTRACT/, 'pstack-openspec must enforce dual-key sequential orchestration contract');
+  assert.match(pstackRules, /FALSE_PASS_DETECTION_&_DYNAMIC_FALSIFICATION_STANDARD/, 'pstack-openspec must enforce false-pass detection standard');
+  assert.match(pstackRules, /PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce pure universal software engineering abstraction standard');
+  assert.match(pstackRules, /DUAL_AUDIT_TOOLING_PARITY_STANDARD/, 'pstack-openspec must enforce dual audit tooling parity standard');
+});
