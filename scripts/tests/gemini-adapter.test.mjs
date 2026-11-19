@@ -2196,11 +2196,15 @@ test('gemini adapter enforces problem ledger ingestion and zero-omission deep re
   const geminiRules = readFileSync(geminiRulesPath, 'utf8');
 
   assert.match(geminiRules, /PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM/, 'GEMINI.md must contain Axiom 64 identifier');
+  assert.match(geminiRules, /PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL/, 'GEMINI.md must enforce problem task boundary classification protocol');
   assert.match(geminiRules, /MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL/, 'GEMINI.md must enforce master problem ledger ingestion protocol');
   assert.match(geminiRules, /ISSUE_TO_TASK_BIJECTIVE_INVARIANT/, 'GEMINI.md must enforce issue to task bijective invariant');
   assert.match(geminiRules, /FOUR_TIER_DEEP_REMEDIATION_LADDER/, 'GEMINI.md must enforce four tier deep remediation ladder');
   assert.match(geminiRules, /SINGLE_ISSUE_FOCUS_LOCK_STANDARD/, 'GEMINI.md must enforce single issue focus lock standard');
+  assert.match(geminiRules, /POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL/, 'GEMINI.md must enforce post execution problem reconciliation audit protocol');
   assert.match(geminiRules, /ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER/, 'GEMINI.md must enforce zero omission problem circuit breaker');
+  assert.match(geminiRules, /PROBLEM_RECONCILIATION_DEFICIT_BLOCKED/, 'GEMINI.md must enforce reconciliation deficit blocker');
+  assert.match(geminiRules, /PROBLEM_RECONCILIATION_OMISSION_BLOCKED/, 'GEMINI.md must enforce reconciliation omission blocker');
   assert.match(geminiRules, /UNIVERSAL_PROBLEM_REMEDIATION_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
 
   const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
@@ -2208,11 +2212,15 @@ test('gemini adapter enforces problem ledger ingestion and zero-omission deep re
   const harnessRules = readFileSync(harnessSkillPath, 'utf8');
 
   assert.match(harnessRules, /PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM/, 'ai-harness-openspec must contain Axiom 64 identifier');
+  assert.match(harnessRules, /PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL/, 'ai-harness-openspec must enforce problem task boundary classification protocol');
   assert.match(harnessRules, /MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL/, 'ai-harness-openspec must enforce master problem ledger ingestion protocol');
   assert.match(harnessRules, /ISSUE_TO_TASK_BIJECTIVE_INVARIANT/, 'ai-harness-openspec must enforce issue to task bijective invariant');
   assert.match(harnessRules, /FOUR_TIER_DEEP_REMEDIATION_LADDER/, 'ai-harness-openspec must enforce four tier deep remediation ladder');
   assert.match(harnessRules, /SINGLE_ISSUE_FOCUS_LOCK_STANDARD/, 'ai-harness-openspec must enforce single issue focus lock standard');
+  assert.match(harnessRules, /POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL/, 'ai-harness-openspec must enforce post execution problem reconciliation audit protocol');
   assert.match(harnessRules, /ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER/, 'ai-harness-openspec must enforce zero omission problem circuit breaker');
+  assert.match(harnessRules, /PROBLEM_RECONCILIATION_DEFICIT_BLOCKED/, 'ai-harness-openspec must enforce reconciliation deficit blocker');
+  assert.match(harnessRules, /PROBLEM_RECONCILIATION_OMISSION_BLOCKED/, 'ai-harness-openspec must enforce reconciliation omission blocker');
   assert.match(harnessRules, /UNIVERSAL_PROBLEM_REMEDIATION_STANDARD/, 'ai-harness-openspec must enforce universal standard');
 
   const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
@@ -2220,11 +2228,15 @@ test('gemini adapter enforces problem ledger ingestion and zero-omission deep re
   const pstackRules = readFileSync(pstackSkillPath, 'utf8');
 
   assert.match(pstackRules, /PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM/, 'pstack-openspec must contain Axiom 64 identifier');
+  assert.match(pstackRules, /PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL/, 'pstack-openspec must enforce problem task boundary classification protocol');
   assert.match(pstackRules, /MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL/, 'pstack-openspec must enforce master problem ledger ingestion protocol');
   assert.match(pstackRules, /ISSUE_TO_TASK_BIJECTIVE_INVARIANT/, 'pstack-openspec must enforce issue to task bijective invariant');
   assert.match(pstackRules, /FOUR_TIER_DEEP_REMEDIATION_LADDER/, 'pstack-openspec must enforce four tier deep remediation ladder');
   assert.match(pstackRules, /SINGLE_ISSUE_FOCUS_LOCK_STANDARD/, 'pstack-openspec must enforce single issue focus lock standard');
+  assert.match(pstackRules, /POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL/, 'pstack-openspec must enforce post execution problem reconciliation audit protocol');
   assert.match(pstackRules, /ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER/, 'pstack-openspec must enforce zero omission problem circuit breaker');
+  assert.match(pstackRules, /PROBLEM_RECONCILIATION_DEFICIT_BLOCKED/, 'pstack-openspec must enforce reconciliation deficit blocker');
+  assert.match(pstackRules, /PROBLEM_RECONCILIATION_OMISSION_BLOCKED/, 'pstack-openspec must enforce reconciliation omission blocker');
   assert.match(pstackRules, /UNIVERSAL_PROBLEM_REMEDIATION_STANDARD/, 'pstack-openspec must enforce universal standard');
 });
 

@@ -9,6 +9,7 @@
 - Your sole responsibility is executing the assigned scope defined in your brief.
 - You operate with minimal coordination overhead, producing verifiable, clean code and documentation.
 - **Single-Issue Focus Lock & Anti-Bundle Discipline (`SINGLE_ISSUE_FOCUS_LOCK_STANDARD`)**: You execute strictly one canonical issue or atomic task block at a time under the single-focus lock `[-]`. Bundling multiple issues into a single execution pass is prohibited (`BUNDLED_ISSUE_TASK_FORBIDDEN`).
+- **Problem Task Boundary Classification & Post-Execution Reconciliation Mandate (`PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL`, `POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL`)**: Identify problem tasks from diagnostic signatures (error logs, stack traces, failing tests, issue tickets). In problem tasks, final delivery must produce a 1:1 Problem-to-Result Reconciliation Matrix matching all $K$ items in the Master Problem Ledger (`[ISSUE-01]` ~ `[ISSUE-K]`) to code modification anchors and measured Exit Code 0 evidence. Any missing or unsubstantiated resolution triggers `PROBLEM_RECONCILIATION_DEFICIT_BLOCKED`.
 - **Atomic Spec Compliance & Statechart Progression (`MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL`, `WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD`)**: All workflow rules and checklist items must follow atomic canonical identifiers (`[SPEC-RULE-xx]`, `[AUDIT-CHECK-xx]`) and transition strictly through `[ ]` -> `[-]` -> `[x]` under single-focus lock.
 
 ## 1b. Invocation Task Classification & Called Program Read-Only Lock (`CALLED_PROGRAM_READONLY_LOCK`)

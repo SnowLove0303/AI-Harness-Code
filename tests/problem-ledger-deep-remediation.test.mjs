@@ -9,6 +9,9 @@ import {
   findTestFiles,
   loadTestFilesMap,
   runClearanceGuard,
+  isProblemTask,
+  extractReconciliationEntries,
+  verifyReconciliation,
 } from '../scripts/check-issue-clearance.mjs';
 import { checkContent } from '../scripts/check-unslop-purity.mjs';
 
@@ -28,7 +31,7 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
       REPO_ROOT,
       'openspec',
       'changes',
-      'problem-ledger-deep-remediation',
+      'problem-task-taxonomy-and-post-reconciliation',
       'specs',
       'orbitstack-pstack-routing',
       'spec.md'
@@ -38,7 +41,29 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
         REPO_ROOT,
         'openspec',
         'changes',
-        'problem-ledger-deep-remediation',
+        'problem-task-taxonomy-and-post-reconciliation',
+        'specs',
+        'orbitstack-pstack-routing',
+        'spec.md'
+      )
+    : fs.existsSync(
+        path.join(
+          REPO_ROOT,
+          'openspec',
+          'changes',
+          'archive',
+          '2026-11-18-problem-ledger-deep-remediation',
+          'specs',
+          'orbitstack-pstack-routing',
+          'spec.md'
+        )
+      )
+    ? path.join(
+        REPO_ROOT,
+        'openspec',
+        'changes',
+        'archive',
+        '2026-11-18-problem-ledger-deep-remediation',
         'specs',
         'orbitstack-pstack-routing',
         'spec.md'
@@ -52,6 +77,10 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     assert.ok(
       content.includes('PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM'),
       'Must contain Axiom 64 identifier'
+    );
+    assert.ok(
+      content.includes('PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'),
+      'Must contain PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'
     );
     assert.ok(
       content.includes('MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL'),
@@ -70,8 +99,20 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
       'Must contain SINGLE_ISSUE_FOCUS_LOCK_STANDARD'
     );
     assert.ok(
+      content.includes('POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'),
+      'Must contain POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'
+    );
+    assert.ok(
       content.includes('ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'),
       'Must contain ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'
+    );
+    assert.ok(
+      content.includes('PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'),
+      'Must contain PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'
+    );
+    assert.ok(
+      content.includes('PROBLEM_RECONCILIATION_OMISSION_BLOCKED'),
+      'Must contain PROBLEM_RECONCILIATION_OMISSION_BLOCKED'
     );
     assert.ok(
       content.includes('UNIVERSAL_PROBLEM_REMEDIATION_STANDARD'),
@@ -79,11 +120,11 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     );
 
     assert.ok(content.includes('问题清单全量账本化与零遗漏深度根治公理'), 'Must contain Chinese title for Axiom 64');
-    assert.ok(content.includes('问题型任务判定与《问题清单总账本》全量切片规程'), 'Must contain Chinese title for ledger ingestion');
+    assert.ok(content.includes('问题型任务界定消歧与《问题清单总账本》全量切片规程'), 'Must contain Chinese title for taxonomy & ledger ingestion');
     assert.ok(content.includes('问题与原子任务 1:1 双射法定公理与严禁任务打包门禁'), 'Must contain Chinese title for bijective invariant');
     assert.ok(content.includes('四阶深度根治阶梯规程'), 'Must contain Chinese title for 4-tier ladder');
     assert.ok(content.includes('单问题串行专注锁与子智能体无遗漏派发规程'), 'Must contain Chinese title for single-issue lock');
-    assert.ok(content.includes('零遗漏机械清算断路器与终审绝对守恒门禁'), 'Must contain Chinese title for circuit breaker');
+    assert.ok(content.includes('完工后 1:1 对照审计、事实核查与零遗漏断路器规程'), 'Must contain Chinese title for reconciliation & circuit breaker');
     assert.ok(content.includes('纯通用工程抽象硬门禁'), 'Must contain Chinese title for domain neutrality');
   });
 
@@ -96,28 +137,20 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
       'pstack-openspec must contain Axiom 64 identifier'
     );
     assert.ok(
-      pstackContent.includes('MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL'),
-      'pstack-openspec must contain MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL'
+      pstackContent.includes('PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'),
+      'pstack-openspec must contain PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'
     );
     assert.ok(
-      pstackContent.includes('ISSUE_TO_TASK_BIJECTIVE_INVARIANT'),
-      'pstack-openspec must contain ISSUE_TO_TASK_BIJECTIVE_INVARIANT'
+      pstackContent.includes('POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'),
+      'pstack-openspec must contain POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'
     );
     assert.ok(
-      pstackContent.includes('FOUR_TIER_DEEP_REMEDIATION_LADDER'),
-      'pstack-openspec must contain FOUR_TIER_DEEP_REMEDIATION_LADDER'
+      pstackContent.includes('PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'),
+      'pstack-openspec must contain PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'
     );
     assert.ok(
-      pstackContent.includes('SINGLE_ISSUE_FOCUS_LOCK_STANDARD'),
-      'pstack-openspec must contain SINGLE_ISSUE_FOCUS_LOCK_STANDARD'
-    );
-    assert.ok(
-      pstackContent.includes('ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'),
-      'pstack-openspec must contain ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'
-    );
-    assert.ok(
-      pstackContent.includes('UNIVERSAL_PROBLEM_REMEDIATION_STANDARD'),
-      'pstack-openspec must contain UNIVERSAL_PROBLEM_REMEDIATION_STANDARD'
+      pstackContent.includes('PROBLEM_RECONCILIATION_OMISSION_BLOCKED'),
+      'pstack-openspec must contain PROBLEM_RECONCILIATION_OMISSION_BLOCKED'
     );
 
     assert.ok(fs.existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
@@ -128,28 +161,20 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
       'ai-harness-openspec must contain Axiom 64 identifier'
     );
     assert.ok(
-      harnessContent.includes('MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL'),
-      'ai-harness-openspec must contain MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL'
+      harnessContent.includes('PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'),
+      'ai-harness-openspec must contain PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'
     );
     assert.ok(
-      harnessContent.includes('ISSUE_TO_TASK_BIJECTIVE_INVARIANT'),
-      'ai-harness-openspec must contain ISSUE_TO_TASK_BIJECTIVE_INVARIANT'
+      harnessContent.includes('POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'),
+      'ai-harness-openspec must contain POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'
     );
     assert.ok(
-      harnessContent.includes('FOUR_TIER_DEEP_REMEDIATION_LADDER'),
-      'ai-harness-openspec must contain FOUR_TIER_DEEP_REMEDIATION_LADDER'
+      harnessContent.includes('PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'),
+      'ai-harness-openspec must contain PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'
     );
     assert.ok(
-      harnessContent.includes('SINGLE_ISSUE_FOCUS_LOCK_STANDARD'),
-      'ai-harness-openspec must contain SINGLE_ISSUE_FOCUS_LOCK_STANDARD'
-    );
-    assert.ok(
-      harnessContent.includes('ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'),
-      'ai-harness-openspec must contain ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER'
-    );
-    assert.ok(
-      harnessContent.includes('UNIVERSAL_PROBLEM_REMEDIATION_STANDARD'),
-      'ai-harness-openspec must contain UNIVERSAL_PROBLEM_REMEDIATION_STANDARD'
+      harnessContent.includes('PROBLEM_RECONCILIATION_OMISSION_BLOCKED'),
+      'ai-harness-openspec must contain PROBLEM_RECONCILIATION_OMISSION_BLOCKED'
     );
   });
 
@@ -176,13 +201,10 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     const issues = extractIssueIds(sampleGate1);
     assert.equal(issues.length, 3, 'Must extract exactly 3 distinct issues');
     assert.deepEqual(issues, ['[ISSUE-01]', '[ISSUE-02]', '[ISSUE-03]'], 'Must preserve canonical IDs');
-
-    // Verification of [ISSUE-01] assertion anchoring
     assert.ok(issues.includes('[ISSUE-01]'), 'Master Problem Ledger must verify [ISSUE-01]');
   });
 
   await t.test('4. Issue-to-Task Bijective Invariant and anti-bundling enforcement', () => {
-    // Bijective task validator simulation
     function validateTasksBijectivity(issueIds, tasksContent) {
       const violations = [];
       for (const id of issueIds) {
@@ -193,7 +215,6 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
         }
       }
 
-      // Check for forbidden bundling e.g. "Fix [ISSUE-01] and [ISSUE-02]"
       const bundledRegex = /\[ISSUE-\d{2}\].*?and.*?\[ISSUE-\d{2}\]/i;
       if (bundledRegex.test(tasksContent)) {
         violations.push({ error: 'BUNDLED_ISSUE_TASK_FORBIDDEN' });
@@ -221,7 +242,6 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
   });
 
   await t.test('5. Four-Tier Deep Remediation Ladder state transitions & anti-sink-patching', () => {
-    // Validate that proposing only consumer sink modification triggers SINK_PATCHING_BLOCKED
     function evaluateProposedScope(proposedFiles) {
       const hasRootFix = proposedFiles.some((f) => f.role === '[Root Source]');
       const hasSinkFix = proposedFiles.some((f) => f.role === '[Consumer Sink]');
@@ -248,7 +268,7 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     assert.equal(deepResult.error, null);
   });
 
-  await t.test('6. Single-Issue Focus Lock in worker.md and workflow execution', () => {
+  await t.test('6. Single-Issue Focus Lock and Reconciliation Mandate in worker.md', () => {
     assert.ok(fs.existsSync(workerMdPath), 'worker.md must exist at root');
     const workerContent = fs.readFileSync(workerMdPath, 'utf8');
 
@@ -257,16 +277,16 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
       'worker.md must cite SINGLE_ISSUE_FOCUS_LOCK_STANDARD'
     );
     assert.ok(
-      workerContent.includes('BUNDLED_ISSUE_TASK_FORBIDDEN'),
-      'worker.md must cite BUNDLED_ISSUE_TASK_FORBIDDEN'
+      workerContent.includes('PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'),
+      'worker.md must cite PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL'
     );
     assert.ok(
-      workerContent.includes('FOUR_TIER_DEEP_REMEDIATION_LADDER'),
-      'worker.md must cite FOUR_TIER_DEEP_REMEDIATION_LADDER'
+      workerContent.includes('POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'),
+      'worker.md must cite POST_EXECUTION_PROBLEM_RECONCILIATION_AUDIT_PROTOCOL'
     );
     assert.ok(
-      workerContent.includes('SINK_PATCHING_BLOCKED'),
-      'worker.md must cite SINK_PATCHING_BLOCKED'
+      workerContent.includes('PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'),
+      'worker.md must cite PROBLEM_RECONCILIATION_DEFICIT_BLOCKED'
     );
   });
 
@@ -300,7 +320,6 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     assert.equal(passResult.verified.length, 4);
     assert.equal(passResult.missing.length, 0);
 
-    // Mutation: Omit [ISSUE-04]
     const mutatedTestContent = `
       test('reproduce and verify [ISSUE-01]', () => assert.ok(true));
       test('reproduce and verify [ISSUE-02]', () => assert.ok(true));
@@ -311,19 +330,63 @@ test('L2 Suite: Problem Ledger Ingestion & Zero-Omission Deep Remediation (Axiom
     assert.deepEqual(failResult.missing, ['[ISSUE-04]'], 'Must isolate missing issue');
   });
 
-  await t.test('9. Delta specification consistency with change proposal and Gate 1', () => {
-    assert.ok(fs.existsSync(deltaSpecPath), 'Delta spec file must exist');
-    const specContent = fs.readFileSync(deltaSpecPath, 'utf8');
+  await t.test('9. Problem Task Boundary Taxonomy: isProblemTask input signature detection', () => {
+    const errorTraceInput = 'Error: Cannot read property "name" of undefined at render (view.js:12)';
+    const res1 = isProblemTask(errorTraceInput);
+    assert.equal(res1.isProblem, true);
+    assert.equal(res1.classification, 'Problem-Type Task');
 
-    assert.ok(specContent.includes('Master Problem Ledger Ingestion Protocol'), 'Spec must define Ingestion Protocol');
-    assert.ok(specContent.includes('Issue-to-Task Bijective Invariant'), 'Spec must define Bijective Invariant');
-    assert.ok(specContent.includes('Four-Tier Deep Remediation Ladder'), 'Spec must define Deep Remediation Ladder');
-    assert.ok(specContent.includes('Single-Issue Focus Lock Standard'), 'Spec must define Focus Lock Standard');
-    assert.ok(specContent.includes('Zero-Omission Problem Circuit Breaker'), 'Spec must define Clearance Circuit Breaker');
-    assert.ok(specContent.includes('Axiom 64 Constitutional Legislation'), 'Spec must define Axiom 64 Requirement');
+    const chineseReportInput = '系统在导出PDF时报错并且抛出异常，请排查并修复该缺陷';
+    const res2 = isProblemTask(chineseReportInput);
+    assert.equal(res2.isProblem, true);
+    assert.equal(res2.classification, 'Problem-Type Task');
+
+    const auditDiscrepancyInput = 'Security audit finding: Discrepancy detected in password hash validation';
+    const res3 = isProblemTask(auditDiscrepancyInput);
+    assert.equal(res3.isProblem, true);
+    assert.equal(res3.classification, 'Problem-Type Task');
+
+    const pureFeatureInput = 'Add a new dark mode toggle component to the navigation bar';
+    const res4 = isProblemTask(pureFeatureInput);
+    assert.equal(res4.isProblem, false);
+    assert.equal(res4.classification, 'Feature-Type Task');
   });
 
-  await t.test('10. Domain Neutrality and Anti-Slop validation', () => {
+  await t.test('10. Post-Execution Reconciliation & Fact-Checking: verifyReconciliation', () => {
+    const issues = ['[ISSUE-01]', '[ISSUE-02]'];
+
+    const validReport = `
+# Delivery Report
+| Issue ID | Root Anchor | Proof | Status |
+| :--- | :--- | :--- | :---: |
+| [ISSUE-01] | file:///src/parser.js#L42 | [Measured] Exit Code 0 | [x] RESOLVED |
+| [ISSUE-02] | file:///src/worker.js#L88 | [Measured] Exit Code 0 | [x] RESOLVED |
+`;
+    const passRecon = verifyReconciliation(issues, validReport);
+    assert.equal(passRecon.pass, true, 'Valid 1:1 reconciliation must pass');
+    assert.equal(passRecon.verified.length, 2);
+
+    // Omission failure: [ISSUE-02] missing
+    const omittedReport = `
+# Delivery Report
+| [ISSUE-01] | file:///src/parser.js#L42 | [Measured] Exit Code 0 | [x] RESOLVED |
+`;
+    const omitRecon = verifyReconciliation(issues, omittedReport);
+    assert.equal(omitRecon.pass, false, 'Must fail when issue is missing from reconciliation');
+    assert.deepEqual(omitRecon.missing, ['[ISSUE-02]']);
+
+    // Deficit failure: lacks empirical [Measured] proof or line anchor
+    const unprovedReport = `
+# Delivery Report
+| [ISSUE-01] | file:///src/parser.js#L42 | [Measured] Exit Code 0 | [x] RESOLVED |
+| [ISSUE-02] | modified worker | fixed manually without proof | [x] RESOLVED |
+`;
+    const unprovedRecon = verifyReconciliation(issues, unprovedReport);
+    assert.equal(unprovedRecon.pass, false, 'Must fail when issue lacks proof or code anchor');
+    assert.deepEqual(unprovedRecon.unproved, ['[ISSUE-02]']);
+  });
+
+  await t.test('11. Domain Neutrality and Anti-Slop validation', () => {
     const filesToCheck = [
       geminiMdPath,
       pstackSkillPath,
