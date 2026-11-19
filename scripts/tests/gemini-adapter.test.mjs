@@ -2227,3 +2227,41 @@ test('gemini adapter enforces problem ledger ingestion and zero-omission deep re
   assert.match(pstackRules, /ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER/, 'pstack-openspec must enforce zero omission problem circuit breaker');
   assert.match(pstackRules, /UNIVERSAL_PROBLEM_REMEDIATION_STANDARD/, 'pstack-openspec must enforce universal standard');
 });
+
+test('gemini adapter enforces markdown spec deterministic enforcement and completion hook governance (Axiom 65)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM/, 'GEMINI.md must contain Axiom 65 identifier');
+  assert.match(geminiRules, /MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL/, 'GEMINI.md must enforce markdown spec atomic structuring protocol');
+  assert.match(geminiRules, /AGENT_LIFECYCLE_COMPLETION_HOOK_GATE/, 'GEMINI.md must enforce agent lifecycle completion hook gate');
+  assert.match(geminiRules, /TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE/, 'GEMINI.md must enforce two strike ast machine escalation mandate');
+  assert.match(geminiRules, /WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD/, 'GEMINI.md must enforce workflow step single focus statechart standard');
+  assert.match(geminiRules, /WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD/, 'GEMINI.md must enforce workflow spec compliance guard standard');
+  assert.match(geminiRules, /UNIVERSAL_SPEC_ENFORCEMENT_STANDARD/, 'GEMINI.md must enforce universal domain-neutral standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM/, 'ai-harness-openspec must contain Axiom 65 identifier');
+  assert.match(harnessRules, /MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL/, 'ai-harness-openspec must enforce markdown spec atomic structuring protocol');
+  assert.match(harnessRules, /AGENT_LIFECYCLE_COMPLETION_HOOK_GATE/, 'ai-harness-openspec must enforce agent lifecycle completion hook gate');
+  assert.match(harnessRules, /TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE/, 'ai-harness-openspec must enforce two strike ast machine escalation mandate');
+  assert.match(harnessRules, /WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD/, 'ai-harness-openspec must enforce workflow step single focus statechart standard');
+  assert.match(harnessRules, /WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD/, 'ai-harness-openspec must enforce workflow spec compliance guard standard');
+  assert.match(harnessRules, /UNIVERSAL_SPEC_ENFORCEMENT_STANDARD/, 'ai-harness-openspec must enforce universal standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM/, 'pstack-openspec must contain Axiom 65 identifier');
+  assert.match(pstackRules, /MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL/, 'pstack-openspec must enforce markdown spec atomic structuring protocol');
+  assert.match(pstackRules, /AGENT_LIFECYCLE_COMPLETION_HOOK_GATE/, 'pstack-openspec must enforce agent lifecycle completion hook gate');
+  assert.match(pstackRules, /TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE/, 'pstack-openspec must enforce two strike ast machine escalation mandate');
+  assert.match(pstackRules, /WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD/, 'pstack-openspec must enforce workflow step single focus statechart standard');
+  assert.match(pstackRules, /WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD/, 'pstack-openspec must enforce workflow spec compliance guard standard');
+  assert.match(pstackRules, /UNIVERSAL_SPEC_ENFORCEMENT_STANDARD/, 'pstack-openspec must enforce universal standard');
+});

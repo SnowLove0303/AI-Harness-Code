@@ -15,7 +15,8 @@
     "pack:bundle": "powershell -ExecutionPolicy Bypass -File scripts/package-bundle.ps1",
     "guard:neutrality": "node scripts/check-packaged-docs-neutrality.mjs",
     "guard:unslop": "node scripts/check-unslop-purity.mjs",
-    "guard:issue-clearance": "node scripts/check-issue-clearance.mjs"
+    "guard:issue-clearance": "node scripts/check-issue-clearance.mjs",
+    "guard:workflow-spec": "node scripts/check-workflow-spec-compliance.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

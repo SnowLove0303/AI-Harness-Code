@@ -95,6 +95,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 用户正确做法与审计方案全量通读：若用户提供了规范、正确做法或审计方案，动工前必须 100% 逐字全量通读并建立基准，严禁凭模型常识脑补或略读；
    - 严禁擅自合并、删减或口水化精简；三要素结构展开（业务场景/边界、详尽功能断言、验收指标）；
    - **问题型任务判定与《问题清单总账本》全量切片规程 (MASTER_PROBLEM_LEDGER_INGESTION_PROTOCOL)**：若用户任务诉求指向外部缺陷 MD、审计报告或问题清单，Step 0 自动将任务标记为问题型任务，强制将外部问题无损全量切片为 `[ISSUE-01]` ~ `[ISSUE-K]` 独立条目建立《问题清单总账本》，项数严格满足 $N_{\text{Ledger}} \equiv K$ 守恒；每项严密定义【标识】、【现状与代码锚点】、【初始复现命令/Witness】、【涉及链路因果角色】及【独立验收判据】；严禁合并或截断丢弃，少于 $K$ 项触发 `PROBLEM_INGESTION_COMPRESSION_BLOCKED` 阻断立案；
+   - **Markdown 规范与审计细节原子结构化规程 (MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL)**：所有工作流/程序规范与审计要求必须（SHALL）全面原子结构化，强制分配唯一规则标识（`[SPEC-RULE-xx]` / `[AUDIT-CHECK-xx]`），明确定义前置域、RFC 2119 行为契约及实测自验证方法，严禁以长段落散文隐匿关键技术约束；
 2. **🛑 门禁 1：需求全量确认门禁 (Human Confirmation Gate 1)**：
    - **核心宗旨**：纯粹 100% 确认“做什么与验收标准 (What & Acceptance Criteria)”。
    - **绝对禁令**：绝对禁止在门禁 1 呈报中夹带具体技术实现细节、拟变文件清单或代码落点规划！
@@ -130,6 +131,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 在 `design.md` 中输出技术架构与因果拓扑设计；
    - 在 `tasks.md` 中分解为细粒度原子任务，绑定具体实测验证命令与单焦点专注锁；
    - **问题与原子任务 1:1 双射法定公理与严禁任务打包门禁 (ISSUE_TO_TASK_BIJECTIVE_INVARIANT)**：在 `tasks.md` 编制中，每一个 `[ISSUE-xx]` 必须拥有专属独立的任务单元，任务组数量必须 $N_{\text{Task}} \ge K$；严禁将不同 Issue 混合打包为粗放任务（`BUNDLED_ISSUE_TASK_FORBIDDEN`）；每个 Issue 任务块内部闭环包含失败复现（RED）、源头根治（ROOT）、结构免疫（IMMUNITY）、单测通过（GREEN）与兄弟排查（SWEEP）；在门禁 2 拟变清单中强制自证 `[Root Source]` 源头修改，严禁仅改 `[Consumer Sink]` 兜底（`SINK_PATCHING_BLOCKED`）；
+   - **Markdown 规范原子结构化与单焦点状态机任务映射 (WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD)**：在 `specs/` 中落实 RFC 2119 原子契约条目（`[SPEC-RULE-xx]` / `[AUDIT-CHECK-xx]`）；在 `tasks.md` 编制中，将原子规则映射为串行状态机任务，每一个规范检查点绑定专属实测退出码 0 验证命令；
 3. **🛑 门禁 2：Ps-openspec 规格立法与双清单前置授权门禁 (Human Authorization Gate 2)**：
    - 在动工前，向用户显式呈报完整的【Ps-openspec OpenSpec 规格立法与双清单施工提案】，并**严格停等用户明确确认指令（如“批准动工/执行/同意”）**：
    ```markdown
@@ -172,7 +174,8 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
 6. **证据分级与真实退出码**：任务打勾 `- [x]` 必须以测试命令终端真实退出码 `0`、变异反欺诈杀伤凭证以及标注为 `[Measured / 实测]` 的绿灯日志为充要依据，杜绝虚假打勾；
 7. **施工期摩擦动态存证**：单步任务凡触发测试报错、环境断裂或经历排错重试，必须实时记录 `[Incident: Friction/Bug]` 存证，严禁静默掩盖调试痕迹；
 8. **四阶深度根治阶梯规程 (FOUR_TIER_DEEP_REMEDIATION_LADDER)**：针对账本中的每一个 `[ISSUE-xx]` 施工必须严格历经：Tier 1 见证红灯（Exit Code != 0） -> Tier 2 源头根治（Origin Producer 修复，严禁在 Consumer Sink 局部掩盖 SINK_PATCHING_BLOCKED） -> Tier 3 结构免疫（类型/状态机硬约束） -> Tier 4 全景同源清算（All-Sites Sweep）；
-9. **单问题串行专注锁与子智能体无遗漏派发规程 (SINGLE_ISSUE_FOCUS_LOCK_STANDARD)**：单任务专注锁 `[-] lock` 粒度严格收敛至单 Issue 级别，按 Issue 串行推进，前一 Issue 取得真实退出码 0 验证前严禁解锁或开启下一项；派发子智能体时单 Brief 单 Issue 封闭作用域，杜绝粗放打包全量问题导致注意力衰减。
+9. **单问题串行专注锁与子智能体无遗漏派发规程 (SINGLE_ISSUE_FOCUS_LOCK_STANDARD)**：单任务专注锁 `[-] lock` 粒度严格收敛至单 Issue 级别，按 Issue 串行推进，前一 Issue 取得真实退出码 0 验证前严禁解锁或开启下一项；派发子智能体时单 Brief 单 Issue 封闭作用域，杜绝粗放打包全量问题导致注意力衰减；
+10. **工作流单焦点状态机锁定与完工断路器自检规程 (WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD & AGENT_LIFECYCLE_COMPLETION_HOOK_GATE)**：工作流细节执行强制单焦点加锁（`[-]`），单项取得真实退出码 0 凭据前严禁跳步解锁；在宣布完工或释放控制权前，必须主动触发完工断路器自检，核验所有 `[SPEC-RULE-xx]` 与 `[AUDIT-CHECK-xx]` 规则均已在测试套件中取得实测 Exit Code 0 凭据，存在任何未测项严禁收工。
 
 ### Step 4: 触觉审计与高频存档 (Audit & Commit)
 1. **高频原子存档**：跑通一个可验证的小节点，立即执行一次 `git commit`。一旦后续发生逻辑漂移，一键 `git reset` 回退，杜绝大爆炸式改动；
@@ -208,6 +211,9 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 增补资产提交后晋升为后续任务的永久法定基准。
 9. **零遗漏机械清算断路器与终审绝对守恒门禁 (ZERO_OMISSION_PROBLEM_CIRCUIT_BREAKER)**：
    - 终审验证必须机械执行 `npm run guard:issue-clearance`（`node scripts/check-issue-clearance.mjs`），自动比对 Step 0 问题账本中的全部 $K$ 项 Issue 与测试套件/交付核销表；若经过独立实测证明的项数 $N_{\text{verified}} < K$，脚本直接输出 Exit Code 1 阻断，抛出 `PROBLEM_OMISSION_CIRCUIT_BREAKER`，死锁发布与归档。
+10. **工作流规范清算断路器与两碰 AST 机器下沉门禁 (WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD & TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE)**：
+   - 终审归档前必须强制运行 `npm run guard:workflow-spec`（`node scripts/check-workflow-spec-compliance.mjs`），静态核验规范规则 100% 具备自动化测试断言；少一项直接触发 `WORKFLOW_SPEC_OMISSION_CIRCUIT_BREAKER` 阻断合流；
+   - 凡在 Markdown 中明确规定但 Agent 遗漏达 2 次的细节规则，严禁继续仅停留于散文提醒，必须强制下沉为具备真实 Exit Code 1 阻断力的 AST 语法规则或静态校验脚本。
 
 ---
 
@@ -697,6 +703,20 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
       全系统强制将问题清算核销从人工主观声明下沉为机械化 Layer 2 静态守卫脚本（`scripts/check-issue-clearance.mjs`，并通过 `package.json` 注册为 `npm run guard:issue-clearance`）：(1) 账本自动提取：守卫脚本自动解析 Step 0 Gate 1 备忘录提取全部 $K$ 项 `[ISSUE-xx]` 唯一标识；(2) 物理测试断言双射核验：守卫脚本自动扫描 `tests/` 目录与测试执行日志，核验每一项 `[ISSUE-xx]` 是否均绑定有专属独立的自动化测试用例与断言代码；(3) 终审绝对守恒门禁：若经机器核实的有效解决项数 $N_{\text{verified}} < K$，守卫脚本直接输出 Exit Code 1 阻断，抛出 `PROBLEM_OMISSION_CIRCUIT_BREAKER` 错误，强制阻断发布、合流与归档；变异注入故意删除任一 Issue 测试断言时，脚本必须稳定红灯；
     - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PROBLEM_REMEDIATION_STANDARD)**：
       本公理的全部规约、问题切片账本模型、双射任务拓扑、四阶根治阶梯、专注锁状态机与零遗漏清算断路器必须（SHALL）100% 采用问题账本（Problem Ledger）、双射任务（Bijective Tasks）、源头生产者（Origin Producer）、消费宿主（Consumer Sink）、状态机不变式（Statechart Invariants）、形式化测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_PROBLEM_REMEDIATION_STANDARD` 违规并一票否决。
+
+65. **Markdown 规范确定性管控与工作流完工断路器公理 (Markdown Specification Deterministic Enforcement & Completion Hook Axiom - `MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM` - 严禁散装说教与零遗漏完工断路器铁律)**：
+    - **Markdown 规范与审计细节原子结构化规程 (Markdown Specification Atomic Structuring Protocol - MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL)**：
+      所有用于指导工作流执行、程序开发或质量审计的 Markdown 规范文档，必须（SHALL）全面实施原子结构化标准；关键约束、业务逻辑、审核检查项与不变式必须赋予 canonical 独立标识（`[SPEC-RULE-01]` ~ `[SPEC-RULE-K]` 或 `[AUDIT-CHECK-01]` ~ `[AUDIT-CHECK-K]`），并强制按 RFC 2119 规范结构展开（前置域条件 Preconditions、严密契约 Contract、实测命令或断言 Verification）；严禁以散装长段落或模糊口水散文隐匿关键技术约束，文档静态检查若发现未结构化散文描述直接判定为不合规并阻断发布；
+    - **工作流 Agent 完工断路器与生命周期拦截钩子规程 (Agent Lifecycle Completion Hook Gate - AGENT_LIFECYCLE_COMPLETION_HOOK_GATE)**：
+      系统确立完工断路器机制（Stop Hook 模式），在智能体触发任务完成指令、合流或交付归档时实施强制生命周期拦截：Stop Hook 前置深度扫描当前任务所绑定的全部原子规范规则（`[SPEC-RULE-xx]` / `[AUDIT-CHECK-xx]`），逐一核验其是否均具备终端真实实测通过证明（`[Measured] Exit Code 0`）；若存在任何一项规则未被自动化测试覆盖或实测凭据缺失，Stop Hook 直接以 Exit Code 1 阻断任务退出，抛出 `WORKFLOW_SPEC_OMISSION_CIRCUIT_BREAKER` 错误并将缺失规则精准打回给智能体强制继续执行，严禁无凭据形式主义打勾放行；
+    - **自然语言细节两碰下沉为 AST/机器规则硬门禁 (Two-Strike AST Machine Escalation Mandate - TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE)**：
+      全系统强制践行“机器执行铁律高于 Prompt 散文”：凡是在 Markdown 规范中写明、但在智能体执行或人工审阅中遗漏或犯错达 2 次的代码与业务细节，严禁（FORBIDDEN）继续仅停留在自然语言散文中口头说教；必须强制立项将其机械化下沉为一条具备真实 Exit Code 1 编译期/测试期硬阻断力的 AST 语法树规则（如 `ast-grep` / ESLint Rule）或静态校验脚本，未完成机器规则下沉前严禁关闭变更生命周期；
+    - **工作流细节执行单焦点状态机锁定规程 (Workflow Step Single-Focus Statechart Standard - WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD)**：
+      智能体在工作流与细节执行阶段，必须将原子规则与步骤清单严格映射为串行状态图（Serial Statechart）：状态流转严格遵循 `未开始 [ ]` -> `进行中 [-]` -> `已核销 [x]`；任意时刻严格只允许单一规则或步骤持有单焦点执行锁（`[-] lock`）；上一步骤未取得真实 Exit Code 0 实测凭据前，绝对禁止解锁当前项或跳步激活下一项，防止长程执行中的注意力衰减与隐蔽跳步；
+    - **自动化 L2 规范清算与断路器守卫工具链 (Workflow Specification Compliance Guard Standard - WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD)**：
+      系统强制挂载自动化 Layer 2 静态守卫脚本（`scripts/check-workflow-spec-compliance.mjs`，并通过 `package.json` 注册为 `npm run guard:workflow-spec`）：守卫脚本自动解析当前工作流规范与 Gate 1 备忘录提取全部 `[(SPEC-RULE|AUDIT-CHECK)-xx]` 标识，静态扫描测试套件核验测试断言覆盖度；若发现任何规则缺失对应测试断言或未验证，脚本直接输出 Exit Code 1 阻断并抛出 `WORKFLOW_SPEC_OMISSION_CIRCUIT_BREAKER`；变异测试故意删除任一规则断言时，脚本必须稳定红灯；
+    - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SPEC_ENFORCEMENT_STANDARD)**：
+      本公理的全部规约、原子结构化格式、完工拦截钩子、AST 机器下沉拓扑、单焦点状态图与规范守卫断路器必须（SHALL）100% 采用原子规范（Atomic Specifications）、完工钩子（Stop Hook）、状态图不变式（Statechart Invariants）、AST 语法规则（AST Rules）、测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SPEC_ENFORCEMENT_STANDARD` 违规并一票否决。
 
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：

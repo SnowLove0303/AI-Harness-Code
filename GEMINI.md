@@ -857,6 +857,20 @@
     - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_PROBLEM_REMEDIATION_STANDARD)**：
       本公理的全部规约、问题切片账本模型、双射任务拓扑、四阶根治阶梯、专注锁状态机与零遗漏清算断路器必须（SHALL）100% 采用问题账本（Problem Ledger）、双射任务（Bijective Tasks）、源头生产者（Origin Producer）、消费宿主（Consumer Sink）、状态机不变式（Statechart Invariants）、形式化测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_PROBLEM_REMEDIATION_STANDARD` 违规并一票否决。
 
+65. **Markdown 规范确定性管控与工作流完工断路器公理 (Markdown Specification Deterministic Enforcement & Completion Hook Axiom - `MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM` - 严禁散装说教与零遗漏完工断路器铁律)**：
+    - **Markdown 规范与审计细节原子结构化规程 (Markdown Specification Atomic Structuring Protocol - MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL)**：
+      所有用于指导工作流执行、程序开发或质量审计的 Markdown 规范文档，必须（SHALL）全面实施原子结构化标准；关键约束、业务逻辑、审核检查项与不变式必须赋予 canonical 独立标识（`[SPEC-RULE-01]` ~ `[SPEC-RULE-K]` 或 `[AUDIT-CHECK-01]` ~ `[AUDIT-CHECK-K]`），并强制按 RFC 2119 规范结构展开（前置域条件 Preconditions、严密契约 Contract、实测命令或断言 Verification）；严禁以散装长段落或模糊口水散文隐匿关键技术约束，文档静态检查若发现未结构化散文描述直接判定为不合规并阻断发布；
+    - **工作流 Agent 完工断路器与生命周期拦截钩子规程 (Agent Lifecycle Completion Hook Gate - AGENT_LIFECYCLE_COMPLETION_HOOK_GATE)**：
+      系统确立完工断路器机制（Stop Hook 模式），在智能体触发任务完成指令、合流或交付归档时实施强制生命周期拦截：Stop Hook 前置深度扫描当前任务所绑定的全部原子规范规则（`[SPEC-RULE-xx]` / `[AUDIT-CHECK-xx]`），逐一核验其是否均具备终端真实实测通过证明（`[Measured] Exit Code 0`）；若存在任何一项规则未被自动化测试覆盖或实测凭据缺失，Stop Hook 直接以 Exit Code 1 阻断任务退出，抛出 `WORKFLOW_SPEC_OMISSION_CIRCUIT_BREAKER` 错误并将缺失规则精准打回给智能体强制继续执行，严禁无凭据形式主义打勾放行；
+    - **自然语言细节两碰下沉为 AST/机器规则硬门禁 (Two-Strike AST Machine Escalation Mandate - TWO_STRIKE_AST_MACHINE_ESCALATION_MANDATE)**：
+      全系统强制践行“机器执行铁律高于 Prompt 散文”：凡是在 Markdown 规范中写明、但在智能体执行或人工审阅中遗漏或犯错达 2 次的代码与业务细节，严禁（FORBIDDEN）继续仅停留在自然语言散文中口头说教；必须强制立项将其机械化下沉为一条具备真实 Exit Code 1 编译期/测试期硬阻断力的 AST 语法树规则（如 `ast-grep` / ESLint Rule）或静态校验脚本，未完成机器规则下沉前严禁关闭变更生命周期；
+    - **工作流细节执行单焦点状态机锁定规程 (Workflow Step Single-Focus Statechart Standard - WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD)**：
+      智能体在工作流与细节执行阶段，必须将原子规则与步骤清单严格映射为串行状态图（Serial Statechart）：状态流转严格遵循 `未开始 [ ]` -> `进行中 [-]` -> `已核销 [x]`；任意时刻严格只允许单一规则或步骤持有单焦点执行锁（`[-] lock`）；上一步骤未取得真实 Exit Code 0 实测凭据前，绝对禁止解锁当前项或跳步激活下一项，防止长程执行中的注意力衰减与隐蔽跳步；
+    - **自动化 L2 规范清算与断路器守卫工具链 (Workflow Specification Compliance Guard Standard - WORKFLOW_SPEC_COMPLIANCE_GUARD_STANDARD)**：
+      系统强制挂载自动化 Layer 2 静态守卫脚本（`scripts/check-workflow-spec-compliance.mjs`，并通过 `package.json` 注册为 `npm run guard:workflow-spec`）：守卫脚本自动解析当前工作流规范与 Gate 1 备忘录提取全部 `[(SPEC-RULE|AUDIT-CHECK)-xx]` 标识，静态扫描测试套件核验测试断言覆盖度；若发现任何规则缺失对应测试断言或未验证，脚本直接输出 Exit Code 1 阻断并抛出 `WORKFLOW_SPEC_OMISSION_CIRCUIT_BREAKER`；变异测试故意删除任一规则断言时，脚本必须稳定红灯；
+    - **纯通用工程抽象硬门禁 (Domain Neutrality & Universal Engineering Abstraction - UNIVERSAL_SPEC_ENFORCEMENT_STANDARD)**：
+      本公理的全部规约、原子结构化格式、完工拦截钩子、AST 机器下沉拓扑、单焦点状态图与规范守卫断路器必须（SHALL）100% 采用原子规范（Atomic Specifications）、完工钩子（Stop Hook）、状态图不变式（Statechart Invariants）、AST 语法规则（AST Rules）、测试见证（Test Witness）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_SPEC_ENFORCEMENT_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
