@@ -4,7 +4,7 @@ import json
 import argparse
 from pathlib import Path
 
-CREDENTIALS_FILE = Path("C:/Users/Administrator/.gemini/config/credentials/tavily_credentials.json")
+CREDENTIALS_FILE = Path.home() / ".gemini/config/credentials/tavily_credentials.json"
 
 def get_api_key():
     if not CREDENTIALS_FILE.exists():

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import test from 'node:test';
@@ -1891,7 +1891,7 @@ test('gemini adapter enforces REA action skill governance, MCP server registrati
   assert.match(reaSkill, /decompile/, 'REA skill must document decompile tool');
 
   // 4. Verify mcp_config.json contains rea server
-  const mcpConfigPath = 'C:/Users/Administrator/.gemini/config/mcp_config.json';
+  const mcpConfigPath = path.join(homedir(), '.gemini/config/mcp_config.json');
   assert.ok(existsSync(mcpConfigPath), 'mcp_config.json must exist');
   const mcpConfig = JSON.parse(readFileSync(mcpConfigPath, 'utf8'));
   assert.ok(mcpConfig.mcpServers?.rea, 'mcp_config.json must contain rea server');
@@ -2314,4 +2314,42 @@ test('gemini adapter enforces called program immutability and invocation purity 
   assert.match(pstackRules, /GATE2_CALLER_SCOPE_PHYSICAL_FENCE/, 'pstack-openspec must enforce gate2 caller scope physical fence');
   assert.match(pstackRules, /INVOCATION_PURITY_GUARD_STANDARD/, 'pstack-openspec must enforce invocation purity guard standard');
   assert.match(pstackRules, /UNIVERSAL_INVOCATION_PURITY_STANDARD/, 'pstack-openspec must enforce universal invocation purity standard');
+});
+
+test('gemini adapter enforces universal portability, database migration resilience, and data segregation (Axiom 67)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /UNIVERSAL_PORTABILITY_DATA_SEPARATION_&_MIGRATION_RESILIENCE_AXIOM/, 'GEMINI.md must contain Axiom 67 identifier');
+  assert.match(geminiRules, /CROSS_DEVICE_PORTABILITY_&_HOST_DECOUPLING_STANDARD/, 'GEMINI.md must enforce cross-device portability standard');
+  assert.match(geminiRules, /DATABASE_MIGRATION_RESILIENCE_&_AUTO_BOOTSTRAP_STANDARD/, 'GEMINI.md must enforce database migration resilience standard');
+  assert.match(geminiRules, /USER_DATA_&_DEFAULT_DATA_ORTHOGONAL_SEGREGATION_STANDARD/, 'GEMINI.md must enforce user/default data orthogonal segregation');
+  assert.match(geminiRules, /PORTABLE_DATA_EXPORT_BACKUP_&_RESTORE_STANDARD/, 'GEMINI.md must enforce portable data export and restore standard');
+  assert.match(geminiRules, /UNIVERSAL_PORTABILITY_GUARD_STANDARD/, 'GEMINI.md must enforce universal portability guard standard');
+  assert.match(geminiRules, /UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD/, 'GEMINI.md must enforce universal portability legislation parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /UNIVERSAL_PORTABILITY_DATA_SEPARATION_&_MIGRATION_RESILIENCE_AXIOM/, 'ai-harness-openspec must contain Axiom 67 identifier');
+  assert.match(harnessRules, /CROSS_DEVICE_PORTABILITY_&_HOST_DECOUPLING_STANDARD/, 'ai-harness-openspec must enforce cross-device portability standard');
+  assert.match(harnessRules, /DATABASE_MIGRATION_RESILIENCE_&_AUTO_BOOTSTRAP_STANDARD/, 'ai-harness-openspec must enforce database migration resilience standard');
+  assert.match(harnessRules, /USER_DATA_&_DEFAULT_DATA_ORTHOGONAL_SEGREGATION_STANDARD/, 'ai-harness-openspec must enforce user/default data orthogonal segregation');
+  assert.match(harnessRules, /PORTABLE_DATA_EXPORT_BACKUP_&_RESTORE_STANDARD/, 'ai-harness-openspec must enforce portable data export and restore standard');
+  assert.match(harnessRules, /UNIVERSAL_PORTABILITY_GUARD_STANDARD/, 'ai-harness-openspec must enforce universal portability guard standard');
+  assert.match(harnessRules, /UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD/, 'ai-harness-openspec must enforce universal portability legislation parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /UNIVERSAL_PORTABILITY_DATA_SEPARATION_&_MIGRATION_RESILIENCE_AXIOM/, 'pstack-openspec must contain Axiom 67 identifier');
+  assert.match(pstackRules, /CROSS_DEVICE_PORTABILITY_&_HOST_DECOUPLING_STANDARD/, 'pstack-openspec must enforce cross-device portability standard');
+  assert.match(pstackRules, /DATABASE_MIGRATION_RESILIENCE_&_AUTO_BOOTSTRAP_STANDARD/, 'pstack-openspec must enforce database migration resilience standard');
+  assert.match(pstackRules, /USER_DATA_&_DEFAULT_DATA_ORTHOGONAL_SEGREGATION_STANDARD/, 'pstack-openspec must enforce user/default data orthogonal segregation');
+  assert.match(pstackRules, /PORTABLE_DATA_EXPORT_BACKUP_&_RESTORE_STANDARD/, 'pstack-openspec must enforce portable data export and restore standard');
+  assert.match(pstackRules, /UNIVERSAL_PORTABILITY_GUARD_STANDARD/, 'pstack-openspec must enforce universal portability guard standard');
+  assert.match(pstackRules, /UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD/, 'pstack-openspec must enforce universal portability legislation parity standard');
 });

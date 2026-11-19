@@ -2,8 +2,9 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const tokenPath = path.resolve('C:/Users/Administrator/.gemini/config/credentials/xmind_mcp_token.json');
+const tokenPath = path.resolve(os.homedir(), '.gemini/config/credentials/xmind_mcp_token.json');
 
 function getToken() {
   if (!fs.existsSync(tokenPath)) {

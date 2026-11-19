@@ -17,7 +17,8 @@
     "guard:unslop": "node scripts/check-unslop-purity.mjs",
     "guard:issue-clearance": "node scripts/check-issue-clearance.mjs",
     "guard:workflow-spec": "node scripts/check-workflow-spec-compliance.mjs",
-    "guard:invocation-purity": "node scripts/check-invocation-purity.mjs"
+    "guard:invocation-purity": "node scripts/check-invocation-purity.mjs",
+    "guard:portability": "node scripts/check-universal-portability.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

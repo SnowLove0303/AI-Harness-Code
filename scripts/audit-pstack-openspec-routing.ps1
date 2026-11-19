@@ -88,9 +88,10 @@ if (!$contextOutput.root -or [IO.Path]::GetFullPath($contextOutput.root.path).Tr
 }
 
 if ($sourceLayout) {
-    $globalRegistry = 'C:\Users\Administrator\.codex\pstack-openspec-route-map.json'
-    $globalAgent = 'C:\Users\Administrator\.codex\AGENTS.md'
-    $globalAdapter = 'C:\Users\Administrator\.codex\skills\orbitstack-pstack-openspec\SKILL.md'
+    $userHome = [Environment]::GetFolderPath('UserProfile')
+    $globalRegistry = Join-Path $userHome '.codex\pstack-openspec-route-map.json'
+    $globalAgent = Join-Path $userHome '.codex\AGENTS.md'
+    $globalAdapter = Join-Path $userHome '.codex\skills\orbitstack-pstack-openspec\SKILL.md'
     if (!(Test-Path -LiteralPath $globalRegistry) -or !(Test-Path -LiteralPath $globalAdapter)) { throw 'Global PStack/OpenSpec mirrors are missing' }
     if ((Get-FileHash -LiteralPath $adapter -Algorithm SHA256).Hash -ne (Get-FileHash -LiteralPath $globalAdapter -Algorithm SHA256).Hash) { throw 'Global Codex adapter differs from repository source' }
     $agentText = Get-Content -LiteralPath $globalAgent -Raw

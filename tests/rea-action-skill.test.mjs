@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import test from 'node:test';
@@ -13,8 +14,8 @@ const reaSkillPath = path.join(repoRoot, 'skills/rea-reverse-engineering/SKILL.m
 const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
 const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
 const specPath = path.join(repoRoot, 'openspec/specs/orbitstack-pstack-routing/spec.md');
-const globalSkillPath = 'C:/Users/Administrator/.gemini/config/skills/rea-reverse-engineering/SKILL.md';
-const mcpConfigPath = 'C:/Users/Administrator/.gemini/config/mcp_config.json';
+const globalSkillPath = path.join(homedir(), '.gemini/config/skills/rea-reverse-engineering/SKILL.md');
+const mcpConfigPath = path.join(homedir(), '.gemini/config/mcp_config.json');
 
 const readReaSkill = () => readFileSync(reaSkillPath, 'utf8');
 

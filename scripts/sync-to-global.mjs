@@ -3,11 +3,12 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { homedir } from 'node:os';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const repoRoot = resolve(__dirname, '..');
-const userProfile = process.env.USERPROFILE || 'C:\\Users\\Administrator';
+const userProfile = process.env.USERPROFILE || homedir();
 const globalGeminiRoot = resolve(userProfile, '.gemini');
 
 function sha256(content) {
@@ -139,7 +140,8 @@ export function syncAllToGlobal() {
     'check-unslop-purity.mjs',
     'check-issue-clearance.mjs',
     'check-workflow-spec-compliance.mjs',
-    'check-invocation-purity.mjs'
+    'check-invocation-purity.mjs',
+    'check-universal-portability.mjs'
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);

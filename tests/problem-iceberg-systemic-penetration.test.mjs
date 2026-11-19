@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +52,7 @@ test('L2 Suite: Problem Iceberg Probe & Panoramic Systemic Penetration Governanc
     }
 
     // Verify global user skill is treated as an external boundary without unapproved edits
-    const globalPstackPath = 'C:\\Users\\Administrator\\.gemini\\config\\skills\\pstack-openspec\\SKILL.md';
+    const globalPstackPath = path.join(os.homedir(), '.gemini/config/skills/pstack-openspec/SKILL.md');
     if (fs.existsSync(globalPstackPath)) {
       // Confirmed boundary exists; ensure test does not require mutating external global path
       assert.ok(true, 'Global pstack configuration inspected as non-repo-owned boundary');

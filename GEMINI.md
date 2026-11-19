@@ -885,6 +885,20 @@
     - **通用调用纯净度标准 (Universal Invocation Purity Standard - UNIVERSAL_INVOCATION_PURITY_STANDARD)**：
       被调用程序不可变与调用纯净度的全部规则必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md` 三处宪法镜像中以 Axiom 66 形式编码；所有编码规则、守卫脚本、测试套件与文档必须保持 100% 通用软件工程抽象，零领域情境词汇泄漏，违者系统静态检查直接判定为 `UNIVERSAL_INVOCATION_PURITY_STANDARD` 违规并一票否决。
 
+67. **通用便携性、数据库迁移韧性与用户/默认数据正交隔离公理 (Universal Portability, Database Migration Resilience & Data Segregation Axiom - UNIVERSAL_PORTABILITY_DATA_SEPARATION_&_MIGRATION_RESILIENCE_AXIOM - 跨设备宿主解耦与默认可变双层隔离铁律)**：
+    - **跨设备多环境通用性与宿主环境解耦规程 (Cross-Device Portability & Host Decoupling Standard - CROSS_DEVICE_PORTABILITY_&_HOST_DECOUPLING_STANDARD)**：
+      在系统、Web 应用、脚本或智能体工作流开发与重构中，全系统代码与静态配置强制与具体开发机宿主环境解耦；严禁在源码或提交的配置文件中硬编码单机物理绝对路径（如个人用户名目录 `C:\Users\...`、`/home/...`）或单机专属网络主机名与端口；所有文件与持久化路径必须在系统绝对物理边界（System Boundary）处，通过相对路径（如 `process.cwd()`、标准项目相对根）或标准化环境变量（`DATA_DIR`、`APPDATA`、`XDG_DATA_HOME`）进行动态计算与解析；源码中检出单机绝对路径直接判定为阻断违规：`HARDCODED_HOST_ENVIRONMENT_BLOCKED`；
+    - **数据库冷启动自愈与幂等迁移韧性规程 (Database Migration Resilience & Auto-Bootstrap Standard - DATABASE_MIGRATION_RESILIENCE_&_AUTO_BOOTSTRAP_STANDARD)**：
+      当程序连接或初始化嵌入式存储（如 SQLite）、文件型存储或关系型数据库时，系统必须具备跨设备冷启动自愈能力；初始化逻辑必须：（1）自动探测并递归创建数据库存储父级目录；（2）以幂等方式创建基础数据库文件与表结构；（3）采用声明式、版本化迁移机制（Versioned Migrations）并由元数据表记录应用版本；迁移至新设备或旧版数据挂载至新系统时，系统自动执行增量迁移且绝对不丢失用户既有数据；任何未经动态自愈与迁移防护的裸数据库直连直接阻断：`DATABASE_UNMANAGED_BOOTSTRAP_BLOCKED`；
+    - **用户数据与默认系统数据/预设物理正交隔离规程 (User Data & Default Data Orthogonal Segregation Standard - USER_DATA_&_DEFAULT_DATA_ORTHOGONAL_SEGREGATION_STANDARD)**：
+      系统管理的预设、初始模板、系统字典、内置工作流与用户运行时数据，强制实施双层正交物理隔离架构：（1）只读系统默认基线层（Read-Only Default Layer）：随程序发布包分发，享有绝对只读保护，版本更新整包替换；（2）用户可变覆盖层（Mutable User Overlay Layer）：用户业务实例、自定义配置、操作历史与覆盖配置独立存储于专属用户数据区；系统版本升级时绝对不覆盖、篡改用户数据；用户触发重置或清理时仅清除用户覆盖层，绝对不误伤系统默认底座；数据混淆存放直接判定为致命违规：`STATE_SEGREGATION_VIOLATION_BLOCKED`；
+    - **跨设备数据便携导出、备份与无损迁移规程 (Portable Data Export, Backup & Restore Standard - PORTABLE_DATA_EXPORT_BACKUP_&_RESTORE_STANDARD)**：
+      持久化业务系统必须提供结构化、便携的数据导出与恢复接口；导出产物（如规范 JSON 或 SQL dump）必须仅包含用户可变数据与覆盖配置，严格剔除单机环境路径、本地进程标识与宿主专属元数据；在异构新设备上导入时，必须具备数据完整性校验、版本兼容性自检与幂等还原能力，确保跨机迁移零损耗恢复全量业务状态；
+    - **自动化 L2 通用性与环境解耦静态守卫标准 (Universal Portability Guard Standard - UNIVERSAL_PORTABILITY_GUARD_STANDARD)**：
+      系统提供独立的静态分析守卫脚本（`scripts/check-universal-portability.mjs`，通过 `package.json` 注册为 `guard:portability`）；守卫扫描全工程源码、工作流、配置与脚本资产，机械检测是否存在单机硬编码绝对路径、未做目录自愈的裸数据库连接以及默认/用户数据混淆反模式；检测到任何违规项时，守卫以退出码 1 退出并输出违规代码坐标；反例变异注入绝对路径时稳定红灯阻断；
+    - **通用便携性与数据隔离立法同构标准 (Universal Portability Legislation Parity Standard - UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD)**：
+      通用便携性、数据库迁移韧性与正交数据隔离的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 64 项）三处宪法镜像中以 Axiom 67 形式同构固化；所有编码规则、守卫脚本、测试套件与文档必须保持 100% 通用软件工程抽象，零单一业务情境词汇泄漏，违者系统静态检查直接判定为 `UNIVERSAL_PORTABILITY_LEGISLATION_PARITY_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
