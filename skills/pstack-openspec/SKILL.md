@@ -760,6 +760,20 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **双审计工具体系宪法立法同构标准 (Dual Audit Tooling Parity Standard - DUAL_AUDIT_TOOLING_PARITY_STANDARD)**：
       双审计工具体系的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 65 项）三处宪法镜像中以 Axiom 68 形式同构固化；所有编码规则、测试套件与工作规程必须保持 100% 通用软件工程抽象，零单一情境词汇泄漏，违者静态检查直接判定为 `DUAL_AUDIT_TOOLING_PARITY_STANDARD` 违规并一票否决。
 
+69. **需求前瞻性头脑风暴推演与跨模型跨线程全局绝对继承公理 (Proactive Requirement Brainstorming & Universal Cross-Thread Governance Axiom - PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM - 伴生诉求前瞻推演与全系统冷启动硬门禁铁律)**：
+    - **两道门禁用户需求前瞻性头脑风暴与隐含诉求推演规程 (Proactive Requirement Brainstorming & Anticipation Protocol - PROACTIVE_REQUIREMENT_BRAINSTORMING_&_ANTICIPATION_PROTOCOL)**：
+      在 Step 0 门禁 1 阶段，智能体必须 100% 逐字保留用户显式指令 A、B 事实指纹；同时必须发挥架构能动性，展开工程因果前瞻推演，深挖伴生的隐含诉求 C、D、E（覆盖运行时安全防御、数据迁移韧性、系统可维护性与回滚机制等三维指标）；并在门禁 1 备忘录中设立独立的《前瞻性扩展提案清单》，明确利弊与建议，供管理者审阅确认；未包含头脑风暴推演清单直接阻断：`PROACTIVE_BRAINSTORMING_OMISSION_BLOCKED`；
+    - **门禁 2 需求吸收与规格立法过滤规程 (Gate 2 Brainstorming Ingestion & Legislation Gate - GATE2_BRAINSTORMING_INGESTION_&_LEGISLATION_GATE)**：
+      在 Step 2 编制 OpenSpec 规格资产时，系统必须严格执行输入过滤：仅将管理者在 Gate 1 明确批准的显式需求与推演提案转化为 RFC 2119 行为契约、技术设计与原子任务；未获批准的推演提案 100% 排除在施工范围外；严禁智能体借头脑风暴之名暗中夹带未经批准的私人代码改动：`UNAUTHORIZED_PROPOSAL_MUTATION_BLOCKED`；
+    - **跨模型跨线程全局绝对继承与前置冷启动硬门禁规程 (Universal Cross-Thread & Model Bootstrap Mandate - UNIVERSAL_CROSS_THREAD_&_MODEL_BOOTSTRAP_MANDATE)**：
+      全系统所有模型（包括 Gemini、GPT、Claude、DeepSeek 及本地代理模型）与所有新开启的会话线程，强制统一继承 Ps-openspec 全流程；全局规则在首屏 20 KB 安全区内前置部署 `MANDATORY_BOOTSTRAP_PROTOCOL`；任何模型在接收到任务指令后，首个动作必须且只能是执行 Step 0 立案；跳过双门禁直接作答或改码判定为致命违规：`GOVERNANCE_BOOTSTRAP_VIOLATION_BLOCKED`；
+    - **宪法首屏防截断架构与轻量全景索引标准 (Anti-Truncation Front-Loaded Architecture & Sync Standard - ANTI_TRUNCATION_MODULAR_ARCHITECTURE_&_SYNC_STANDARD)**：
+      为防止平台注入全局规则时因尺寸超标截断深层规则，系统重构全局规则物理布局：全系统最高法定总纲、双门禁 SOP、冷启动指令与公理速查索引强制提炼至首部 20 KB 安全区以内；同步脚本自动将轻量指向文件分发至所有活跃工作区根目录；核心引导令溢出安全区直接阻断：`TRUNCATION_HAZARD_BLOCKED`；
+    - **全系统纯通用软件工程抽象标准 (Pure Universal Software Engineering Abstraction Standard - PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD)**：
+      头脑风暴推演与跨线程继承体系的全部定义、规则、脚本与用例，必须 100% 采用组件、接口、状态机、数据流、动静态断言与退出码等纯通用软件工程语言；绝对禁止掺杂任何特定业务领域专有词汇；违者静态检查直接判定为 `DOMAIN_SCENARIO_POLLUTION_BLOCKED` 违规并一票否决；
+    - **公理 69 三镜像同构固化标准 (Axiom 69 Constitutional Legislation Parity Standard - AXIOM_69_PARITY_STANDARD)**：
+      公理 69 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 66 项）三处宪法镜像中同构固化；所有规则与测试套件保持 100% 通用工程抽象，违者系统静态检查直接判定为 `AXIOM_69_PARITY_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

@@ -80,6 +80,13 @@ export function syncAllToGlobal() {
     if (syncFile(repoWorkerMd, globalWorkerMd)) updatedCount++;
   }
 
+  // 1c. Deploy workspace rule anchor to active session workspace
+  const sessionWorkspaceDir = resolve(repoRoot, '..', '会话');
+  if (existsSync(sessionWorkspaceDir)) {
+    const sessionGeminiMd = join(sessionWorkspaceDir, 'GEMINI.md');
+    if (syncFile(repoGeminiMd, sessionGeminiMd)) updatedCount++;
+  }
+
   // 2. Sync orbitstack-gemini adapter to both global skills
   const adapterDir = join(repoRoot, 'orbitstack-gemini');
   updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini'));

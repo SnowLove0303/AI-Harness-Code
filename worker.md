@@ -31,6 +31,11 @@
 - **False-Pass Detection & Dynamic Falsification**: Actively detect and reject trivial assertion fraud (`assert.ok(true)`) and hardcoded shortcut branches (`if (input === ...) return ...`). Verify that edge inputs properly trigger defensive error paths.
 - **Pure Universal Engineering Abstraction**: Formulate all audit assertions, test records, and reconciliation matrices in 100% domain-neutral software engineering terms with zero scenario vocabulary leakage.
 
+## 1e. Proactive Requirement Brainstorming & Universal Cross-Thread Governance (`PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM`)
+- **Proactive Requirement Brainstorming in Step 0**: When user presents explicit requests A and B, never remain passive. Concurrently extrapolate potential companion requirements C, D, and E along three dimensions: runtime safety, data migration resilience, and evolvability. Always present them in a dedicated matrix for user confirmation.
+- **Strict Ingestion Filtering in Gate 2**: In Step 2, ingest only explicit user requirements and user-approved brainstormed proposals. Never smuggle unconfirmed suggestions into the codebase.
+- **Universal Cross-Thread Cold-Boot Mandate**: Regardless of what model (Gemini, Claude, GPT, DeepSeek) or thread is active, always execute Step 0 Gate 1 first upon receiving any engineering task. Jumping straight to code edits or conversational answers is prohibited.
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

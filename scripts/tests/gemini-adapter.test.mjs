@@ -2391,3 +2391,38 @@ test('gemini adapter enforces dual audit tooling: mechanical audit and agent pro
   assert.match(pstackRules, /PURE_UNIVERSAL_SOFTWARE_ENGINEERING_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce pure universal software engineering abstraction standard');
   assert.match(pstackRules, /DUAL_AUDIT_TOOLING_PARITY_STANDARD/, 'pstack-openspec must enforce dual audit tooling parity standard');
 });
+
+test('gemini adapter enforces proactive requirement brainstorming and cross-thread governance (Axiom 69)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM/, 'GEMINI.md must contain Axiom 69 identifier');
+  assert.match(geminiRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_ANTICIPATION_PROTOCOL/, 'GEMINI.md must enforce proactive requirement brainstorming protocol');
+  assert.match(geminiRules, /GATE2_BRAINSTORMING_INGESTION_&_LEGISLATION_GATE/, 'GEMINI.md must enforce gate2 brainstorming ingestion gate');
+  assert.match(geminiRules, /UNIVERSAL_CROSS_THREAD_&_MODEL_BOOTSTRAP_MANDATE/, 'GEMINI.md must enforce universal cross-thread and model bootstrap mandate');
+  assert.match(geminiRules, /ANTI_TRUNCATION_MODULAR_ARCHITECTURE_&_SYNC_STANDARD/, 'GEMINI.md must enforce anti-truncation modular architecture standard');
+  assert.match(geminiRules, /AXIOM_69_PARITY_STANDARD/, 'GEMINI.md must enforce axiom 69 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM/, 'ai-harness-openspec must contain Axiom 69 identifier');
+  assert.match(harnessRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_ANTICIPATION_PROTOCOL/, 'ai-harness-openspec must enforce proactive requirement brainstorming protocol');
+  assert.match(harnessRules, /GATE2_BRAINSTORMING_INGESTION_&_LEGISLATION_GATE/, 'ai-harness-openspec must enforce gate2 brainstorming ingestion gate');
+  assert.match(harnessRules, /UNIVERSAL_CROSS_THREAD_&_MODEL_BOOTSTRAP_MANDATE/, 'ai-harness-openspec must enforce universal cross-thread and model bootstrap mandate');
+  assert.match(harnessRules, /ANTI_TRUNCATION_MODULAR_ARCHITECTURE_&_SYNC_STANDARD/, 'ai-harness-openspec must enforce anti-truncation modular architecture standard');
+  assert.match(harnessRules, /AXIOM_69_PARITY_STANDARD/, 'ai-harness-openspec must enforce axiom 69 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM/, 'pstack-openspec must contain Axiom 69 identifier');
+  assert.match(pstackRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_ANTICIPATION_PROTOCOL/, 'pstack-openspec must enforce proactive requirement brainstorming protocol');
+  assert.match(pstackRules, /GATE2_BRAINSTORMING_INGESTION_&_LEGISLATION_GATE/, 'pstack-openspec must enforce gate2 brainstorming ingestion gate');
+  assert.match(pstackRules, /UNIVERSAL_CROSS_THREAD_&_MODEL_BOOTSTRAP_MANDATE/, 'pstack-openspec must enforce universal cross-thread and model bootstrap mandate');
+  assert.match(pstackRules, /ANTI_TRUNCATION_MODULAR_ARCHITECTURE_&_SYNC_STANDARD/, 'pstack-openspec must enforce anti-truncation modular architecture standard');
+  assert.match(pstackRules, /AXIOM_69_PARITY_STANDARD/, 'pstack-openspec must enforce axiom 69 parity standard');
+});
