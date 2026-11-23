@@ -36,6 +36,12 @@
 - **Strict Ingestion Filtering in Gate 2**: In Step 2, ingest only explicit user requirements and user-approved brainstormed proposals. Never smuggle unconfirmed suggestions into the codebase.
 - **Universal Cross-Thread Cold-Boot Mandate**: Regardless of what model (Gemini, Claude, GPT, DeepSeek) or thread is active, always execute Step 0 Gate 1 first upon receiving any engineering task. Jumping straight to code edits or conversational answers is prohibited.
 
+## 1f. Project Architecture & Maintenance Graph Discipline (`PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM`)
+- **Mandatory Project Graph Precondition**: Verify `.harness/project-graph.json` exists before modifying business logic (`PROJECT_GRAPH_MISSING_BLOCKED`). Bootstrap via `node scripts/check-project-graph.mjs --init` if absent.
+- **Graph-Guided Localization & Blast Radius (`how` & `blast-radius`)**: Query the Project Graph during Step 1 to isolate the Origin Producer module and trace multi-hop downstream dependencies via `node scripts/check-project-graph.mjs --blast-radius <moduleId>`.
+- **Repeated-Error Hotspot Circuit Breaker (`fix-root-causes` & `encode-lessons-in-structure`)**: Never apply surface patches to modules flagged with `errorMutationCount >= 2` or `hotspot_locked` (`REPEATED_HOTSPOT_MUTATION_BLOCKED`). Penetrate the root cause and encode a structural guard (L1 type constraint or L2 test/lint rule) before unlocking.
+- **Lifecycle Graph Synchronization**: Update module paths, dependency edges, and maintenance items in `.harness/project-graph.json` and pass `npm run guard:graph` before archival (`STALE_PROJECT_GRAPH_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

@@ -724,6 +724,20 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **公理 69 三镜像同构固化标准 (Axiom 69 Constitutional Legislation Parity Standard - AXIOM_69_PARITY_STANDARD)**：
       公理 69 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 66 项）三处宪法镜像中同构固化；所有规则与测试套件保持 100% 通用工程抽象，违者系统静态检查直接判定为 `AXIOM_69_PARITY_STANDARD` 违规并一票否决。
 
+67. **项目级架构与维护 Graph 体系及防重复错误改动公理 (Project Architecture & Maintenance Graph & Anti-Repeated-Mutation Axiom - `PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM` - Axiom 70 - 融合 `@poteto` Pstack 思想的模块精准定位、爆炸半径追踪与热点熔断铁律)**：
+    - **项目架构与维护 Graph 强制构建准入规程 (Mandatory Project Architecture & Maintenance Graph Mandate - `PROJECT_ARCHITECTURE_GRAPH_MANDATE`)**：
+      每个受 Ps-openspec 纳管的软件项目必须（SHALL）构建并维护一份机器可读且人类可审阅的规范项目架构与维护图谱（`.harness/project-graph.json`），结构化声明各模块的边界路径（`paths`）、职责归属（`ownership`）、核心入口（`entryPoints`）、依赖边（`dependencies`）、风险等级（`riskTier`）、结构守卫（`structuralGuards`）与维护事项账本（`maintenanceItems`）；任何缺失有效 Graph 的项目在修改业务代码前必须先初始化建图，违者触发硬阻断：`PROJECT_GRAPH_MISSING_BLOCKED`；
+    - **基于 Graph 的问题定位与多跳爆炸半径追踪规程 (Graph-Guided Diagnosis & Blast Radius Protocol - `GRAPH_GUIDED_DIAGNOSIS_&_BLAST_RADIUS_PROTOCOL`)**：
+      融合 `@poteto` 的 `how`（心智模型与归属）与 `blast-radius`（下游三跳破坏追踪）思想：在 Step 1 底座感知与问题排查时，智能体必须优先查询项目 Graph 精准定位故障源头模块（Origin Producer）并计算上下游依赖波及链（Direct & Transitive Blast Radius），明确区分根因模块与受波及调用模块；严禁脱离 Graph 盲目全局试错或只在调用宿主局部掩盖，未完成 Graph 定位的变更提案直接阻断：`UNLOCATED_MODULE_MUTATION_BLOCKED`；
+    - **同一位置防重复错误改动与热点熔断机制 (Repeated-Error-Mutation Hotspot Circuit Breaker - `REPEATED_HOTSPOT_MUTATION_CIRCUIT_BREAKER`)**：
+      融合 `@poteto` 的 `principle-fix-root-causes`、`principle-encode-lessons-in-structure` 与 `architect Phase E` 思想：Graph 必须追踪各模块的错误改动频次（`errorMutationCount`）；当同一位置或模块累计错误改动或反复返工达到阈值（$\ge 2$ 次）时，该节点自动锁定为 `hotspot_locked`，触发熔断阻断：`REPEATED_HOTSPOT_MUTATION_BLOCKED`；绝对禁止在热点位置继续叠加表面补丁，必须穿透根因并将教训固化为 L1 类型约束、L2 自动化静态守卫或模块边界重塑后方可解锁；
+    - **维护事项清单化管理与生命周期同步更新规程 (Maintenance Ledger & Graph Lifecycle Sync - `GRAPH_MAINTENANCE_LEDGER_&_SYNC_PROTOCOL`)**：
+      任何功能新增、缺陷修复或架构重构在交付归档前，必须同步更新 `.harness/project-graph.json` 中的模块边界、依赖拓扑与维护事项状态；若 Graph 与真实仓库结构脱节或引用不存在路径，归档门禁直接抛出 `STALE_PROJECT_GRAPH_BLOCKED` 并阻止合流；
+    - **自动化 L2 图谱守卫、冷启动向导与风险分级规程 (`AUTOMATED_L2_PROJECT_GRAPH_GUARD_STANDARD`, `COLD_START_GRAPH_BOOTSTRAP_STANDARD`, `MODULE_RISK_TIERING_&_ESCALATED_REVIEW_GATE`)**：
+      系统提供独立的 L2 静态守卫脚本（`scripts/check-project-graph.mjs`，注册为 `npm run guard:graph`），机械校验 Graph Schema、路径防腐烂、依赖完整性及未缓解热点锁；支持 `--init` 只读目录扫描以快速冷启动任何新老项目的初始 Graph；节点支持 `standard`、`critical_load_bearing` 与 `hotspot_locked` 三级风险分级，高危节点变更须挂载更严格的爆炸半径验证；
+    - **公理 70 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 70 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 67 项）三处宪法镜像中以纯通用软件工程语言（模块、依赖边、爆炸半径、热点熔断、结构守卫）同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ---
 
 ## 📚 附录与配套参考

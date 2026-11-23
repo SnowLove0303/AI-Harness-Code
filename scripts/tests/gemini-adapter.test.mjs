@@ -2426,3 +2426,38 @@ test('gemini adapter enforces proactive requirement brainstorming and cross-thre
   assert.match(pstackRules, /ANTI_TRUNCATION_MODULAR_ARCHITECTURE_&_SYNC_STANDARD/, 'pstack-openspec must enforce anti-truncation modular architecture standard');
   assert.match(pstackRules, /AXIOM_69_PARITY_STANDARD/, 'pstack-openspec must enforce axiom 69 parity standard');
 });
+
+test('gemini adapter enforces project architecture graph and anti-repeated-mutation governance (Axiom 70)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM/, 'GEMINI.md must contain Axiom 70 identifier');
+  assert.match(geminiRules, /PROJECT_ARCHITECTURE_GRAPH_MANDATE/, 'GEMINI.md must enforce project architecture graph mandate');
+  assert.match(geminiRules, /GRAPH_GUIDED_DIAGNOSIS_&_BLAST_RADIUS_PROTOCOL/, 'GEMINI.md must enforce graph-guided diagnosis and blast radius protocol');
+  assert.match(geminiRules, /REPEATED_HOTSPOT_MUTATION_CIRCUIT_BREAKER/, 'GEMINI.md must enforce repeated hotspot mutation circuit breaker');
+  assert.match(geminiRules, /GRAPH_MAINTENANCE_LEDGER_&_SYNC_PROTOCOL/, 'GEMINI.md must enforce graph maintenance ledger and sync protocol');
+  assert.match(geminiRules, /AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 70 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM/, 'ai-harness-openspec must contain Axiom 70 identifier');
+  assert.match(harnessRules, /PROJECT_ARCHITECTURE_GRAPH_MANDATE/, 'ai-harness-openspec must enforce project architecture graph mandate');
+  assert.match(harnessRules, /GRAPH_GUIDED_DIAGNOSIS_&_BLAST_RADIUS_PROTOCOL/, 'ai-harness-openspec must enforce graph-guided diagnosis and blast radius protocol');
+  assert.match(harnessRules, /REPEATED_HOTSPOT_MUTATION_CIRCUIT_BREAKER/, 'ai-harness-openspec must enforce repeated hotspot mutation circuit breaker');
+  assert.match(harnessRules, /GRAPH_MAINTENANCE_LEDGER_&_SYNC_PROTOCOL/, 'ai-harness-openspec must enforce graph maintenance ledger and sync protocol');
+  assert.match(harnessRules, /AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 70 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM/, 'pstack-openspec must contain Axiom 70 identifier');
+  assert.match(pstackRules, /PROJECT_ARCHITECTURE_GRAPH_MANDATE/, 'pstack-openspec must enforce project architecture graph mandate');
+  assert.match(pstackRules, /GRAPH_GUIDED_DIAGNOSIS_&_BLAST_RADIUS_PROTOCOL/, 'pstack-openspec must enforce graph-guided diagnosis and blast radius protocol');
+  assert.match(pstackRules, /REPEATED_HOTSPOT_MUTATION_CIRCUIT_BREAKER/, 'pstack-openspec must enforce repeated hotspot mutation circuit breaker');
+  assert.match(pstackRules, /GRAPH_MAINTENANCE_LEDGER_&_SYNC_PROTOCOL/, 'pstack-openspec must enforce graph maintenance ledger and sync protocol');
+  assert.match(pstackRules, /AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 70 parity standard');
+});

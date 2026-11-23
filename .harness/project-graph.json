@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectName": "AI-Harness-Code",
+  "lastSyncedAt": "2026-11-23T15:52:30+08:00",
+  "modules": [
+    {
+      "id": "mod-constitutional-rules",
+      "name": "Constitutional Governance & Worker Rules",
+      "ownership": "Core Architecture",
+      "paths": [
+        "GEMINI.md",
+        "GLOBAL-RULES.md",
+        "AGENTS.md",
+        "worker.md"
+      ],
+      "entryPoints": [
+        "GEMINI.md",
+        "worker.md"
+      ],
+      "dependencies": [
+        "mod-guards-and-sync",
+        "mod-skills-methodology"
+      ],
+      "riskTier": "critical_load_bearing",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/tests/gemini-adapter.test.mjs",
+        "tests/proactive-brainstorming-governance.test.mjs",
+        "tests/project-architecture-graph.test.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-01",
+          "title": "Preserve MANDATORY_BOOTSTRAP_PROTOCOL within top 50 lines (< 20 KB safe zone) of GEMINI.md",
+          "status": "active"
+        },
+        {
+          "id": "MAINT-02",
+          "title": "Maintain 100% pure universal software engineering abstraction across all axioms",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-skills-methodology",
+      "name": "Methodology & Governance Skills",
+      "ownership": "Methodology Layer",
+      "paths": [
+        "skills",
+        "skills/pstack-openspec/SKILL.md",
+        "skills/ai-harness-openspec/SKILL.md"
+      ],
+      "entryPoints": [
+        "skills/pstack-openspec/SKILL.md",
+        "skills/ai-harness-openspec/SKILL.md"
+      ],
+      "dependencies": [
+        "mod-openspec-lifecycle"
+      ],
+      "riskTier": "critical_load_bearing",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/tests/gemini-adapter.test.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-03",
+          "title": "Enforce three-mirror parity across GEMINI.md, pstack-openspec, and ai-harness-openspec",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-openspec-lifecycle",
+      "name": "OpenSpec Specifications, Proposals & Gate Dossiers",
+      "ownership": "Specification Governance",
+      "paths": [
+        "openspec",
+        "openspec/specs/orbitstack-pstack-routing/spec.md"
+      ],
+      "entryPoints": [
+        "openspec/specs/orbitstack-pstack-routing/spec.md"
+      ],
+      "dependencies": [],
+      "riskTier": "critical_load_bearing",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/check-workflow-spec-compliance.mjs",
+        "scripts/check-issue-clearance.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-04",
+          "title": "Archive validated change deltas strictly with --strict validation",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-guards-and-sync",
+      "name": "Static Guards, Sync Scripts & Automation Tooling",
+      "ownership": "Tooling & Verification Plane",
+      "paths": [
+        "scripts",
+        "package.json"
+      ],
+      "entryPoints": [
+        "scripts/sync-to-global.mjs",
+        "scripts/check-project-graph.mjs"
+      ],
+      "dependencies": [
+        "mod-constitutional-rules",
+        "mod-openspec-lifecycle"
+      ],
+      "riskTier": "critical_load_bearing",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/check-universal-portability.mjs",
+        "scripts/check-unslop-purity.mjs",
+        "scripts/check-project-graph.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-05",
+          "title": "Keep global and workspace GEMINI.md anchors synchronized via sync-to-global.mjs",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-adapters-and-packages",
+      "name": "Platform Adapters & Distributable Packages",
+      "ownership": "Adapter Integration",
+      "paths": [
+        "orbitstack-gemini",
+        "orbitstack-codex",
+        "packages"
+      ],
+      "entryPoints": [
+        "orbitstack-gemini",
+        "packages"
+      ],
+      "dependencies": [
+        "mod-constitutional-rules",
+        "mod-skills-methodology"
+      ],
+      "riskTier": "standard",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/check-packaged-docs-neutrality.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-06",
+          "title": "Verify packaged documentation neutrality before release",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-verification-suites",
+      "name": "Automated Verification & Regression Suites",
+      "ownership": "Quality Assurance",
+      "paths": [
+        "tests",
+        "scripts/tests"
+      ],
+      "entryPoints": [
+        "scripts/tests/gemini-adapter.test.mjs",
+        "tests/project-architecture-graph.test.mjs"
+      ],
+      "dependencies": [
+        "mod-constitutional-rules",
+        "mod-guards-and-sync",
+        "mod-skills-methodology"
+      ],
+      "riskTier": "critical_load_bearing",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/tests/gemini-adapter.test.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-07",
+          "title": "Maintain Exit Code 0 across all L2 regression suites",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "mod-documentation-baseline",
+      "name": "System Architecture Docs & Onboarding Guides",
+      "ownership": "Documentation",
+      "paths": [
+        "docs",
+        "README.md",
+        "AGENT_ONBOARDING.md"
+      ],
+      "entryPoints": [
+        "README.md",
+        "AGENT_ONBOARDING.md"
+      ],
+      "dependencies": [
+        "mod-constitutional-rules"
+      ],
+      "riskTier": "standard",
+      "errorMutationCount": 0,
+      "structuralGuards": [
+        "scripts/check-packaged-docs-neutrality.mjs",
+        "scripts/check-unslop-purity.mjs"
+      ],
+      "maintenanceItems": [
+        {
+          "id": "MAINT-08",
+          "title": "Keep README and onboarding docs domain-neutral and unslopped",
+          "status": "active"
+        }
+      ]
+    }
+  ]
+}
