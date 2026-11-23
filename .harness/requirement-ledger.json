@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "ledgerVersion": 1,
+  "baselineConfirmed": true,
+  "entries": [
+    {
+      "id": "REQ-1",
+      "turn": 1,
+      "summary": "Multi-turn cumulative requirement ledger versioning and algebraic conservation",
+      "graphModuleId": "mod-constitutional-rules",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 1 PASS (Exit Code 0)"
+    },
+    {
+      "id": "REQ-2",
+      "turn": 1,
+      "summary": "Mandatory atomic micro-decomposition prohibiting lossy aggregation",
+      "graphModuleId": "mod-guards-and-sync",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 2 PASS (Exit Code 0)"
+    },
+    {
+      "id": "REQ-3",
+      "turn": 1,
+      "summary": "Mandatory Re-Gating baseline lock on multi-turn scope drift",
+      "graphModuleId": "mod-guards-and-sync",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 3 PASS (Exit Code 0)"
+    },
+    {
+      "id": "REQ-4",
+      "turn": 1,
+      "summary": "End-to-end cumulative checkoff verification against final artifact",
+      "graphModuleId": "mod-verification-suites",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 4 PASS (Exit Code 0)"
+    },
+    {
+      "id": "PROP-C",
+      "turn": 1,
+      "summary": "Persistent machine ledger and L2 continuity guard (guard:ledger-continuity)",
+      "graphModuleId": "mod-guards-and-sync",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "npm run guard:ledger-continuity -> PASS (Exit Code 0)"
+    },
+    {
+      "id": "PROP-D",
+      "turn": 1,
+      "summary": "Explicit [SUPERSEDES REQ-xx] requirement retirement and default persistence",
+      "graphModuleId": "mod-constitutional-rules",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 1 PASS (Exit Code 0)"
+    },
+    {
+      "id": "PROP-E",
+      "turn": 1,
+      "summary": "Graph-coupled multi-turn regression detection on shared module edits",
+      "graphModuleId": "mod-guards-and-sync",
+      "status": "ACTIVE",
+      "supersedes": null,
+      "verified": true,
+      "verificationEvidence": "tests/cumulative-requirement-ledger.test.mjs -> Test 5 PASS (Exit Code 0)"
+    }
+  ]
+}

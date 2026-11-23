@@ -2461,3 +2461,38 @@ test('gemini adapter enforces project architecture graph and anti-repeated-mutat
   assert.match(pstackRules, /GRAPH_MAINTENANCE_LEDGER_&_SYNC_PROTOCOL/, 'pstack-openspec must enforce graph maintenance ledger and sync protocol');
   assert.match(pstackRules, /AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 70 parity standard');
 });
+
+test('gemini adapter enforces cumulative requirement ledger and re-gating protocol (Axiom 71)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM/, 'GEMINI.md must contain Axiom 71 identifier');
+  assert.match(geminiRules, /CUMULATIVE_REQUIREMENT_LEDGER_PROTOCOL/, 'GEMINI.md must enforce cumulative requirement ledger protocol');
+  assert.match(geminiRules, /ATOMIC_REQUIREMENT_DECOMPOSITION_STANDARD/, 'GEMINI.md must enforce atomic requirement decomposition standard');
+  assert.match(geminiRules, /SCOPE_DRIFT_RE_GATING_MANDATE/, 'GEMINI.md must enforce scope drift re-gating mandate');
+  assert.match(geminiRules, /END_TO_END_CUMULATIVE_CHECKOFF_STANDARD/, 'GEMINI.md must enforce end-to-end cumulative checkoff standard');
+  assert.match(geminiRules, /AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 71 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM/, 'ai-harness-openspec must contain Axiom 71 identifier');
+  assert.match(harnessRules, /CUMULATIVE_REQUIREMENT_LEDGER_PROTOCOL/, 'ai-harness-openspec must enforce cumulative requirement ledger protocol');
+  assert.match(harnessRules, /ATOMIC_REQUIREMENT_DECOMPOSITION_STANDARD/, 'ai-harness-openspec must enforce atomic requirement decomposition standard');
+  assert.match(harnessRules, /SCOPE_DRIFT_RE_GATING_MANDATE/, 'ai-harness-openspec must enforce scope drift re-gating mandate');
+  assert.match(harnessRules, /END_TO_END_CUMULATIVE_CHECKOFF_STANDARD/, 'ai-harness-openspec must enforce end-to-end cumulative checkoff standard');
+  assert.match(harnessRules, /AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 71 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM/, 'pstack-openspec must contain Axiom 71 identifier');
+  assert.match(pstackRules, /CUMULATIVE_REQUIREMENT_LEDGER_PROTOCOL/, 'pstack-openspec must enforce cumulative requirement ledger protocol');
+  assert.match(pstackRules, /ATOMIC_REQUIREMENT_DECOMPOSITION_STANDARD/, 'pstack-openspec must enforce atomic requirement decomposition standard');
+  assert.match(pstackRules, /SCOPE_DRIFT_RE_GATING_MANDATE/, 'pstack-openspec must enforce scope drift re-gating mandate');
+  assert.match(pstackRules, /END_TO_END_CUMULATIVE_CHECKOFF_STANDARD/, 'pstack-openspec must enforce end-to-end cumulative checkoff standard');
+  assert.match(pstackRules, /AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 71 parity standard');
+});

@@ -946,6 +946,20 @@
     - **公理 70 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 70 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 67 项）三处宪法镜像中以纯通用软件工程语言（模块、依赖边、爆炸半径、热点熔断、结构守卫）同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_70_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+71. **多轮交互累计需求账本、原子微粒化与变更重过门禁公理 (Cumulative Requirement Ledger, Atomic Decomposition & Re-Gating Axiom - `CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM` - 跨轮次需求零丢失与防覆盖回归铁律)**：
+    - **多轮交互累计需求账本与版本守恒规程 (`CUMULATIVE_REQUIREMENT_LEDGER_PROTOCOL`, `EXPLICIT_SUPERSESSION_&_CONFLICT_DETECTION_STANDARD`)**：
+      在多轮交互任务中，门禁 1 严禁退化为一次性静态快照；系统必须维护单调递增的活体《累计需求总账本 (`v1 -> v2 -> ... -> vN`)》（可持久化于 `.harness/requirement-ledger.json`），为每条需求赋予明确生命周期状态（`ACTIVE`、`MODIFIED`、`ADDED`、`SUPERSEDED`）；未通过 `[SUPERSEDES REQ-xx]` 显式废止的历史需求永久保持有效，任何跨轮次静默丢弃早期需求的行为直接触发阻断：`REQUIREMENT_CONSERVATION_VIOLATION_BLOCKED`；
+    - **复合输入强制原子微粒化拆解规程 (`ATOMIC_REQUIREMENT_DECOMPOSITION_STANDARD`)**：
+      当用户在单轮输入中提出多个并列缺陷、多处节点或多项约束时，智能体必须按“单一可独立验证行为（Single Verifiable Behavior）”将其拆解为独立原子条目（`REQ-01a`、`REQ-01b`...），严禁以宏观概括词汇合并打包多条诉求，违者触发阻断：`LOSSY_REQUIREMENT_AGGREGATION_BLOCKED`；
+    - **需求漂移强制重过门禁规程 (`SCOPE_DRIFT_RE_GATING_MANDATE`)**：
+      凡在门禁 1 确认后、施工前或施工途中发生需求补充、细化或变更，智能体必须立即暂停代码改动，向用户呈报合并后的《最新累计需求账本 Diff》，并取得用户明确确认锁定新基线后方可继续实施，违者触发阻断：`RE_GATING_REQUIRED_BLOCKED`；
+    - **全量累计账本终态物理复核与 Graph 联动多轮回归 (`END_TO_END_CUMULATIVE_CHECKOFF_STANDARD`, `GRAPH_COUPLED_MULTI_TURN_REGRESSION_STANDARD`)**：
+      Step 5 交付前必须调出从首轮至终轮的全部 `ACTIVE` / `MODIFIED` / `ADDED` 原子条目，基于最终落盘产物执行 100% 逐条端到端物理复核（`CUMULATIVE_CHECKOFF_DEFICIT_BLOCKED`）；同时结合 Axiom 70 `.harness/project-graph.json`，当后续轮次修改命中本会话已修改过的同一模块时，强制重跑该模块关联的早期需求验证断言，彻底杜绝“修新坏旧”；
+    - **自动化 L2 账本连续性守卫标准 (`AUTOMATED_L2_LEDGER_CONTINUITY_GUARD_STANDARD`)**：
+      系统提供独立的 L2 静态守卫脚本（`scripts/check-ledger-continuity.mjs`，注册为 `npm run guard:ledger-continuity`），机械验证累计账本守恒、原子性拆分、基线重确认状态与 `activeCount === verifiedCount`；
+    - **公理 71 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 71 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 68 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

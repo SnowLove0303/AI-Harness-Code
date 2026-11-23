@@ -106,7 +106,8 @@
       ],
       "entryPoints": [
         "scripts/sync-to-global.mjs",
-        "scripts/check-project-graph.mjs"
+        "scripts/check-project-graph.mjs",
+        "scripts/check-ledger-continuity.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -117,7 +118,8 @@
       "structuralGuards": [
         "scripts/check-universal-portability.mjs",
         "scripts/check-unslop-purity.mjs",
-        "scripts/check-project-graph.mjs"
+        "scripts/check-project-graph.mjs",
+        "scripts/check-ledger-continuity.mjs"
       ],
       "maintenanceItems": [
         {

@@ -42,6 +42,12 @@
 - **Repeated-Error Hotspot Circuit Breaker (`fix-root-causes` & `encode-lessons-in-structure`)**: Never apply surface patches to modules flagged with `errorMutationCount >= 2` or `hotspot_locked` (`REPEATED_HOTSPOT_MUTATION_BLOCKED`). Penetrate the root cause and encode a structural guard (L1 type constraint or L2 test/lint rule) before unlocking.
 - **Lifecycle Graph Synchronization**: Update module paths, dependency edges, and maintenance items in `.harness/project-graph.json` and pass `npm run guard:graph` before archival (`STALE_PROJECT_GRAPH_BLOCKED`).
 
+## 1g. Cumulative Requirement Ledger & Re-Gating Discipline (`CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM`)
+- **Atomic Requirement Decomposition**: Decompose compound user inputs into atomic single-verifiable-behavior entries (`REQ-01a`, `REQ-01b`). Lossy bundling triggers `LOSSY_REQUIREMENT_AGGREGATION_BLOCKED`.
+- **Multi-Turn Ledger Conservation**: Preserve every prior un-superseded requirement across turns (`REQUIREMENT_CONSERVATION_VIOLATION_BLOCKED`). Retire constraints only via explicit `[SUPERSEDES REQ-xx]` markers.
+- **Scope Drift Re-Gating**: Halt edits when requirements change mid-session (`RE_GATING_REQUIRED_BLOCKED`) until the merged cumulative ledger is confirmed.
+- **End-to-End Checkoff & Graph-Coupled Regression**: Verify every `ACTIVE` atomic entry against final build artifacts and re-run earlier assertions whenever a later edit touches the same Project Graph module (`CUMULATIVE_CHECKOFF_DEFICIT_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).
