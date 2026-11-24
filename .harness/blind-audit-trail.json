@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "executorId": "executor-agent-step3",
+  "auditorId": "blind-auditor-isolated",
+  "mechanicalPassed": true,
+  "witnesses": [
+    {
+      "requirementId": "REQ-1",
+      "artifactPath": "scripts/check-blind-audit.mjs",
+      "observedSlice": "if (!trail.executorId || !trail.auditorId || trail.executorId === trail.auditorId) -> SELF_AUDIT_ISOLATION_VIOLATION_BLOCKED",
+      "verdict": "PASS"
+    },
+    {
+      "requirementId": "REQ-2",
+      "artifactPath": "scripts/check-blind-audit.mjs",
+      "observedSlice": "PROXY_ONLY_PATTERNS blocks exit code / summary-only evidence without real artifactPath + observedSlice",
+      "verdict": "PASS"
+    }
+  ],
+  "adversarialProbes": [
+    {
+      "probeName": "self-audit-rejection",
+      "command": "node tests/blind-auditor-real-witness.test.mjs",
+      "outcome": "SELF_AUDIT_ISOLATION_VIOLATION_BLOCKED triggered as expected"
+    }
+  ]
+}

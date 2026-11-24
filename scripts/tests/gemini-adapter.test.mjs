@@ -2560,3 +2560,35 @@ test('gemini adapter enforces UI craft elevation, distill purification, and guar
   assert.match(pstackRules, /AUTOMATED_L2_UI_SLOP_GUARD_STANDARD/, 'pstack-openspec must enforce automated L2 UI slop guard standard');
   assert.match(pstackRules, /AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 73 parity standard');
 });
+
+test('gemini adapter enforces blind auditor isolation and real-artifact witness mandate (Axiom 74)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM/, 'GEMINI.md must contain Axiom 74 identifier');
+  assert.match(geminiRules, /BLIND_AUDITOR_PHYSICAL_ISOLATION_MANDATE/, 'GEMINI.md must enforce blind auditor physical isolation');
+  assert.match(geminiRules, /REAL_ARTIFACT_WITNESS_MANDATE/, 'GEMINI.md must enforce real-artifact witness mandate');
+  assert.match(geminiRules, /ANTI_PROXY_MECHANICAL_ESCALATION_PROTOCOL/, 'GEMINI.md must enforce anti-proxy mechanical escalation');
+  assert.match(geminiRules, /AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 74 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM/, 'ai-harness-openspec must contain Axiom 74 identifier');
+  assert.match(harnessRules, /BLIND_AUDITOR_PHYSICAL_ISOLATION_MANDATE/, 'ai-harness-openspec must enforce blind auditor physical isolation');
+  assert.match(harnessRules, /REAL_ARTIFACT_WITNESS_MANDATE/, 'ai-harness-openspec must enforce real-artifact witness mandate');
+  assert.match(harnessRules, /ANTI_PROXY_MECHANICAL_ESCALATION_PROTOCOL/, 'ai-harness-openspec must enforce anti-proxy mechanical escalation');
+  assert.match(harnessRules, /AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 74 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM/, 'pstack-openspec must contain Axiom 74 identifier');
+  assert.match(pstackRules, /BLIND_AUDITOR_PHYSICAL_ISOLATION_MANDATE/, 'pstack-openspec must enforce blind auditor physical isolation');
+  assert.match(pstackRules, /REAL_ARTIFACT_WITNESS_MANDATE/, 'pstack-openspec must enforce real-artifact witness mandate');
+  assert.match(pstackRules, /ANTI_PROXY_MECHANICAL_ESCALATION_PROTOCOL/, 'pstack-openspec must enforce anti-proxy mechanical escalation');
+  assert.match(pstackRules, /AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 74 parity standard');
+});

@@ -57,6 +57,11 @@
 - **Shape -> Distill -> Polish Order**: Calibrate UI mode (`operate`, `read`, `persuade`), execute a dedicated `distill` pass to strip redundant eyebrow kickers, verbose explanatory paragraphs, nested cards, and decorative badges, then polish browser surfaces (`tabular-nums`, selection tint, directional shadows).
 - **L2 UI Slop Gate**: Run `npm run guard:ui-slop` on frontend changes and confirm Exit Code 0 (`UI_SLOP_NESTED_CARD_BLOCKED`, `UI_SLOP_EXCESSIVE_BADGES_BLOCKED`, `UI_SLOP_EYEBROW_CLUTTER_BLOCKED`, `UI_SLOP_VERBOSE_PROSE_BLOCKED`, `UI_SLOP_PURPLE_GLOW_CLICHE_BLOCKED`).
 
+## 1j. Blind Auditor Isolation & Real-Artifact Witness Discipline (`BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM`)
+- **Zero Self-Certification**: Implementing agents cannot certify their own semantic audit (`SELF_AUDIT_ISOLATION_VIOLATION_BLOCKED`). Hand off only original requirements and final artifact paths to an isolated blind auditor.
+- **Real-Artifact Witness Slicing**: Reject proxy-only approvals such as `Exit Code 0` or summary text (`PROXY_ONLY_AUDIT_REJECTED`). Record concrete `observedSlice` readings extracted from the final output.
+- **Bidirectional Escalation**: When blind inspection detects a defect missed by green mechanical checks, add a deterministic mechanical guard (`MECHANICAL_BLIND_SPOT_UNMITIGATED_BLOCKED`) and pass `npm run guard:blind-audit`.
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

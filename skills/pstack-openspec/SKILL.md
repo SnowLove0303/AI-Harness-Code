@@ -824,6 +824,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **公理 73 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 73 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 70 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+74. **反代理指标陷阱、盲审物理隔离与真物切片强制举证公理 (Blind Auditor Isolation & Real-Artifact Witness Axiom - `BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM` - 融合 `@poteto` `prove-it-works` / `show-me-your-work` / `interrogate` 的真物核验铁律)**：
+    - **禁止同源自我审阅：盲审物理隔离规程 (`BLIND_AUDITOR_PHYSICAL_ISOLATION_MANDATE`)**：
+      施工 Agent 严禁自行宣布第二把钥匙（Agent 介入审计）通过；系统必须派发全新无施工过程记忆的独立盲审 Agent（优先跨模型家族或隔离上下文），且输入严格限定为“用户原始需求清单 + 最终落盘产物路径”，屏蔽施工者的诱导性总结，违者触发阻断：`SELF_AUDIT_ISOLATION_VIOLATION_BLOCKED`；
+    - **真物切片强制举证与反代理指标陷阱规程 (`REAL_ARTIFACT_WITNESS_MANDATE`, `STRUCTURED_REAL_ARTIFACT_TRAIL_STANDARD`)**：
+      严禁仅凭“退出码 0”、“脚本跑通”或“自测日志”等代理指标（Proxy）替代真物查验；结构化审计轨迹中每条需求必须绑定直接从最终产出物本身读取到的真实切片读值（`artifactPath` + `observedSlice`），仅靠代理套话放行直接触发阻断：`PROXY_ONLY_AUDIT_REJECTED`；
+    - **敌手证伪与“机械全绿但真物失真”双向纠偏规程 (`ADVERSARIAL_FALSIFICATION_&_ACCOUNTABILITY_PROTOCOL`, `ANTI_PROXY_MECHANICAL_ESCALATION_PROTOCOL`)**：
+      盲审必须记录至少一项主动敌手证伪探针（`ADVERSARIAL_PROBE_MISSING_BLOCKED`）；当机械审计全部绿灯而盲审在真实产物中捕获缺陷时，系统判定存在机械审计盲区，强制要求补强机械审计断言（`MECHANICAL_BLIND_SPOT_UNMITIGATED_BLOCKED`）后方可关闭任务；
+    - **自动化 L2 盲审守卫标准 (`AUTOMATED_L2_BLIND_AUDIT_GUARD_STANDARD`)**：
+      系统提供独立的 L2 静态守卫脚本（`scripts/check-blind-audit.mjs`，注册为 `npm run guard:blind-audit`），机械验证盲审隔离身份、真物切片真实性、敌手探针记录与双向纠偏状态；
+    - **公理 74 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 74 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 71 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；
