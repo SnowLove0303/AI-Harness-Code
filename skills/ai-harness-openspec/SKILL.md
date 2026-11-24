@@ -764,6 +764,16 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **公理 72 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 72 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 69 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+70. **工业级 UI 审美升维、极简提纯 (`distill`) 与 L2 前端防 Slop 机械守卫公理 (UI Craft, Distill Purification & Automated Slop Guard Axiom - `UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM` - Axiom 73 - 融合 `impeccable` 与 `ui-ux-pro-max` 的三阶执行与减法硬门禁铁律)**：
+    - **三阶执行流与三模式密度预算规程 (`UI_SHAPE_DISTILL_POLISH_EXECUTION_ORDER`, `UI_THREE_MODE_DENSITY_BUDGET_STANDARD`, `UI_CRAFT_FLOOR_&_ANTI_PLAINNESS_STANDARD`)**：
+      前端界面设计与编码必须严格遵循 `Shape（定型）-> Distill（提纯）-> Polish（抛光）` 三阶秩序，按场景模式校准信息密度预算（`operate` 操作台高密度极简控件、`read` 阅读文档 `65-75ch` 行宽、`persuade` 展示页鲜明层级）；严格执行表面工艺底线（`tabular-nums` 等距数字对齐、方向性物理阴影、自定义浏览器滚动条与选中态、全交互五态），彻底消灭“素颜白板默认感”；
+    - **`distill` 无情减法提纯与零冗余标签规程 (`UI_DISTILL_PURIFICATION_&_ZERO_CLUTTER_PROTOCOL`)**：
+      交付前必须执行专门的 `distill` 减法轮次，移除一切无法证明自身存在价值的视觉噪音：严禁在标题上方堆砌冗余 Eyebrow/Kicker 眉标、严禁卡片嵌套卡片与等大三列懒惰网格、严禁无信息价值的 `01/02/03` 装饰序号、严禁在操作组件内附带废话解释段落与泛滥 Badge 徽章；
+    - **自动化 L2 前端 UI Slop 机械静态守卫标准 (`AUTOMATED_L2_UI_SLOP_GUARD_STANDARD`, `CROSS_FRAMEWORK_UI_DIAGNOSTIC_STANDARD`)**：
+      系统提供跨框架（`.tsx`, `.jsx`, `.vue`, `.svelte`, `.html`, `.css`）的确定性 Layer 2 静态守卫脚本（`scripts/check-ui-slop.mjs`，注册为 `npm run guard:ui-slop`），机械拦截并返回 Exit Code 1 阻断五大反模式：`UI_SLOP_NESTED_CARD_BLOCKED`（嵌套卡片）、`UI_SLOP_EXCESSIVE_BADGES_BLOCKED`（Badge 超出模式预算）、`UI_SLOP_EYEBROW_CLUTTER_BLOCKED`（眉标堆砌）、`UI_SLOP_VERBOSE_PROSE_BLOCKED`（操作界面废话段落）及 `UI_SLOP_PURPLE_GLOW_CLICHE_BLOCKED`（廉价紫黑渐变模板）；
+    - **公理 73 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 73 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 70 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ---
 
 ## 📚 附录与配套参考

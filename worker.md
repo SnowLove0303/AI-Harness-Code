@@ -53,6 +53,10 @@
 - **Zero-Fabricated-Citation Standard (`ZERO_FABRICATED_CITATION_STANDARD`)**: Confirm every external link, paper, or system reference before citing it in `/reframe` outputs. Omit any unverified citation (`UNVERIFIED_CITATION_BLOCKED`).
 - **Upstream Mirror Parity**: Verify `npm run guard:pstack-sync` exits with Exit Code 0 and preserves the 23-playbook route invariant (`routes.length === 23`).
 
+## 1i. UI Craft, `distill` Purification & `guard:ui-slop` Discipline (`UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM`)
+- **Shape -> Distill -> Polish Order**: Calibrate UI mode (`operate`, `read`, `persuade`), execute a dedicated `distill` pass to strip redundant eyebrow kickers, verbose explanatory paragraphs, nested cards, and decorative badges, then polish browser surfaces (`tabular-nums`, selection tint, directional shadows).
+- **L2 UI Slop Gate**: Run `npm run guard:ui-slop` on frontend changes and confirm Exit Code 0 (`UI_SLOP_NESTED_CARD_BLOCKED`, `UI_SLOP_EXCESSIVE_BADGES_BLOCKED`, `UI_SLOP_EYEBROW_CLUTTER_BLOCKED`, `UI_SLOP_VERBOSE_PROSE_BLOCKED`, `UI_SLOP_PURPLE_GLOW_CLICHE_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

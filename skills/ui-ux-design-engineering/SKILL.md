@@ -1,11 +1,11 @@
 ---
 name: ui-ux-design-engineering
-description: "基于 Anthropic 官方 Frontend Design 规范 (10,000+ Stars) 与 VoltAgent/Bergside 现代设计系统 (4,300+ Stars)。确立工业级前端程序设计与 UI/UX 界面工程标准。覆盖少字原则与极简微文案 (Radical Text Economy)、高辨识度品牌审美、Design Tokens 设计令牌体系 (语义调色板/字阶排版/间距)、Anti-AI-Slop 界面工程硬防线 (消除廉价紫黑渐变、文本说明堆砌与千篇一律卡片)、WCAG 2.2 AA 无障碍对比度、响应式几何布局与微交互人体工程学。触发词：ui设计/ux设计/前端设计/界面设计/页面排版/frontend design/设计规范/设计系统/现代化界面/配色方案/组件库设计/少字原则/微文案"
+description: "融合 pbakaus/impeccable (115k+ Stars)、nextlevelbuilder/ui-ux-pro-max-skill (153k+ Stars)、Anthropic Frontend Design 与 Vercel Web Design Guidelines (34k+ Stars)。确立工业级前端审美升维、极简提纯 (distill) 与 L2 guard:ui-slop 机械守卫体系。覆盖 Shape -> Distill -> Polish 三阶执行流、Operate/Read/Persuade 三模式密度预算、剔除 Eyebrow 眉标/嵌套卡片/冗余 Badge/解释性废话、浏览器原生表面抛光 (tabular-nums/选中态/滚动条) 与 WCAG 2.2 AA 对比度。触发词：ui设计/ux设计/前端设计/界面设计/页面排版/frontend design/设计规范/设计系统/distill/impeccable/少字原则/去冗精简"
 ---
 
 # 🎨 现代前端程序设计与 UI/UX 工业级界面工程规范 (Modern Frontend Programming & UI/UX Design Engineering)
 
-> **技术血统与前沿背书**：本规范深度提炼自 **Anthropic 官方 Frontend-Design 规范 (10,000+ ⭐)** 与社区领先的 **VoltAgent / Bergside Design Systems (4,300+ ⭐)**。为 AI 智能体确立一流的交互审美与工程严谨性，彻底消灭“千篇一律的廉价 AI 口水界面与文本堆砌”，打造具备工业级质感、品牌独特性、自明性几何美学与极致人体工程学的用户界面。
+> **技术血统与前沿背书**：本规范深度融合 **`pbakaus/impeccable` (115k+ ⭐)**、**`nextlevelbuilder/ui-ux-pro-max-skill` (153k+ ⭐)**、**Anthropic 官方 Frontend-Design (10,000+ ⭐)** 与 **Vercel `web-design-guidelines` (34k+ ⭐)**。彻底消灭“页面朴素默认感”与“无用说明/标签泛滥”。
 
 ---
 
@@ -166,3 +166,30 @@ description: "基于 Anthropic 官方 Frontend Design 规范 (10,000+ Stars) 与
 
 ### 3. 反 AI-Slop 文本污染机检红线 (Anti-Textual-AI-Slop Gate)
 - **一票否决门禁**：在日常业务 UI 审查中，若发现任何非数据类、纯静态解释性说明文案超过 **2 行**，或卡片中含有“用于对...进行集中配置与管理的...”等模版套话，直接判定为 `AI_SLOP_PROSE_VIOLATION`，打回重构。
+
+---
+
+## 🔪 七、 `impeccable` 极简提纯 (`distill`) 与防朴素工艺底线 (`craft-floor`)
+
+### 1. 三阶强制执行流 (`Shape -> Distill -> Polish`)
+1. **Shape（定型与模式校准）**：编码前先锁定页面的单一核心用户目标与模式预算：
+   - **`operate`（专业操作台模式）**：高信息密度、极简控件标签（1–3 词）、`maxBadges: 3`，严禁解释段落；
+   - **`read`（阅读与文档模式）**：`65–75ch` 黄金行宽、舒适呼吸间距、`maxBadges: 2`；
+   - **`persuade`（展示与落地页模式）**：鲜明排版层级、刻意色彩对比、`maxBadges: 4`。
+2. **Distill（无情减法提纯）**：*"Remove anything that doesn't earn its place."*
+   - **禁止标题眉标（No Eyebrow Kickers）**：严禁在每个标题上方堆砌全大写小标签（如 `FEATURE OVERVIEW`）；标题自身必须有足够表达力；
+   - **禁止卡片嵌套与等大三列懒惰网格（No Nested Cards / Identical 3-Card Grids）**：不要用“图标 + 标题 + 解释段”的盒子套盒子拼凑页面；
+   - **禁止无意义装饰序号**：除非顺序本身携带信息，否则严禁添加 `01 / 02 / 03` 修饰序号；
+   - **渐进式披露（Progressive Disclosure）**：次要操作与长说明收拢至折叠区、抽屉或 Tooltip。
+3. **Polish（工业级表面抛光）**：告别“素颜白板默认感”：
+   - **浏览器原生表面定制**：统一美化 `::selection` 选中背景色、自定义细腻滚动条、精确 `focus-visible` 焦环、`text-underline-offset`；
+   - **等距数据对齐**：所有数字、时间、统计指标强制使用 `font-variant-numeric: tabular-nums`；
+   - **真实物理阴影**：阴影必须包含方向性偏移（offset）与柔和模糊，严禁无偏移的廉价彩色外发光晕。
+
+### 2. L2 自动化 UI Slop 机械守卫 (`npm run guard:ui-slop`)
+所有前端组件修改后必须运行 `npm run guard:ui-slop`（[`scripts/check-ui-slop.mjs`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/scripts/check-ui-slop.mjs)），机械拦截以下 5 类违规并返回 Exit Code 1：
+- `UI_SLOP_NESTED_CARD_BLOCKED`（卡片容器内嵌套子卡片）
+- `UI_SLOP_EXCESSIVE_BADGES_BLOCKED`（单组件 Badge/Tag 数量超出三模式预算）
+- `UI_SLOP_EYEBROW_CLUTTER_BLOCKED`（标题上方冗余 Eyebrow/Kicker 眉标）
+- `UI_SLOP_VERBOSE_PROSE_BLOCKED`（操作组件内冗长废话解释段落）
+- `UI_SLOP_PURPLE_GLOW_CLICHE_BLOCKED`（廉价紫黑发光渐变模板）

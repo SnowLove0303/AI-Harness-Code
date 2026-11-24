@@ -108,7 +108,8 @@
         "scripts/sync-to-global.mjs",
         "scripts/check-project-graph.mjs",
         "scripts/check-ledger-continuity.mjs",
-        "scripts/check-pstack-sync.mjs"
+        "scripts/check-pstack-sync.mjs",
+        "scripts/check-ui-slop.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -121,7 +122,8 @@
         "scripts/check-unslop-purity.mjs",
         "scripts/check-project-graph.mjs",
         "scripts/check-ledger-continuity.mjs",
-        "scripts/check-pstack-sync.mjs"
+        "scripts/check-pstack-sync.mjs",
+        "scripts/check-ui-slop.mjs"
       ],
       "maintenanceItems": [
         {

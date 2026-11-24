@@ -2528,3 +2528,35 @@ test('gemini adapter enforces pstack v0.15.48 parity and /reframe disambiguation
   assert.match(pstackRules, /ZERO_FABRICATED_CITATION_STANDARD/, 'pstack-openspec must enforce zero fabricated citation standard');
   assert.match(pstackRules, /AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 72 parity standard');
 });
+
+test('gemini adapter enforces UI craft elevation, distill purification, and guard:ui-slop (Axiom 73)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM/, 'GEMINI.md must contain Axiom 73 identifier');
+  assert.match(geminiRules, /UI_SHAPE_DISTILL_POLISH_EXECUTION_ORDER/, 'GEMINI.md must enforce Shape -> Distill -> Polish execution order');
+  assert.match(geminiRules, /UI_DISTILL_PURIFICATION_&_ZERO_CLUTTER_PROTOCOL/, 'GEMINI.md must enforce distill purification protocol');
+  assert.match(geminiRules, /AUTOMATED_L2_UI_SLOP_GUARD_STANDARD/, 'GEMINI.md must enforce automated L2 UI slop guard standard');
+  assert.match(geminiRules, /AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 73 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM/, 'ai-harness-openspec must contain Axiom 73 identifier');
+  assert.match(harnessRules, /UI_SHAPE_DISTILL_POLISH_EXECUTION_ORDER/, 'ai-harness-openspec must enforce Shape -> Distill -> Polish execution order');
+  assert.match(harnessRules, /UI_DISTILL_PURIFICATION_&_ZERO_CLUTTER_PROTOCOL/, 'ai-harness-openspec must enforce distill purification protocol');
+  assert.match(harnessRules, /AUTOMATED_L2_UI_SLOP_GUARD_STANDARD/, 'ai-harness-openspec must enforce automated L2 UI slop guard standard');
+  assert.match(harnessRules, /AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 73 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM/, 'pstack-openspec must contain Axiom 73 identifier');
+  assert.match(pstackRules, /UI_SHAPE_DISTILL_POLISH_EXECUTION_ORDER/, 'pstack-openspec must enforce Shape -> Distill -> Polish execution order');
+  assert.match(pstackRules, /UI_DISTILL_PURIFICATION_&_ZERO_CLUTTER_PROTOCOL/, 'pstack-openspec must enforce distill purification protocol');
+  assert.match(pstackRules, /AUTOMATED_L2_UI_SLOP_GUARD_STANDARD/, 'pstack-openspec must enforce automated L2 UI slop guard standard');
+  assert.match(pstackRules, /AXIOM_73_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 73 parity standard');
+});
