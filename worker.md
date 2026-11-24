@@ -62,6 +62,12 @@
 - **Real-Artifact Witness Slicing**: Reject proxy-only approvals such as `Exit Code 0` or summary text (`PROXY_ONLY_AUDIT_REJECTED`). Record concrete `observedSlice` readings extracted from the final output.
 - **Bidirectional Escalation**: When blind inspection detects a defect missed by green mechanical checks, add a deterministic mechanical guard (`MECHANICAL_BLIND_SPOT_UNMITIGATED_BLOCKED`) and pass `npm run guard:blind-audit`.
 
+## 1k. Problem-Task Zero-Simplification, Active Verification & Anti-Recurrence (`PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM`)
+- **Zero-Simplification Dual-Gate Conservation**: Preserve 100% of Gate 1 `[ISSUE-xx]` entries and constraint fidelity into Gate 2 without ellipsis condensation or shrinkage (`ISSUE_GATE_SIMPLIFICATION_BLOCKED`).
+- **Active Non-Mechanical Verification**: Never close an issue solely on mechanical exit codes. Inspect the real final output directly and record `activeObservation` (`ISSUE_ACTIVE_VERIFICATION_MISSING_BLOCKED`).
+- **Anti-Oscillation & Four-Tier Recurrence Immunity**: Query `.harness/project-graph.json` before remediation, execute full-suite regression to prevent oscillation, and bind each fix to a concrete structural defense (`L1_TYPE`, `L2_GUARD`, `GRAPH_HOTSPOT`, or `ALL_SITES_SWEEP`) (`ISSUE_ANTI_RECURRENCE_MISSING_BLOCKED`).
+- **GitHub-First Benchmarking**: Benchmark leading GitHub open-source engineering workflows before proposing Ps-openspec system optimizations (`GITHUB_FIRST_BENCHMARKING_MANDATE`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

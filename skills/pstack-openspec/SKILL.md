@@ -836,6 +836,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **公理 74 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 74 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 71 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+75. **问题处理零简化双门禁、主动真物验真、根本防复发与 GitHub 优先借鉴公理 (Problem-Task Zero-Simplification, Active Verification, Anti-Recurrence & GitHub-First Axiom - `PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM` - 融合 OpenHands/SWE-agent 思想的防删减、禁代理自欺、防振荡免疫铁律)**：
+    - **问题事项全量原子建档与双门禁零简化/零删减保真规程 (`STRICT_ATOMIC_PROBLEM_LOGGING_MANDATE`, `DUAL_GATE_ZERO_SIMPLIFICATION_CONSERVATION`, `ISSUE_SEMANTIC_FIDELITY_PRESERVATION_GUARD`)**：
+      问题处理类任务必须对输入问题逐条赋予 `[ISSUE-01]..[ISSUE-K]` 原子编号与完整描述；进入 Gate 1 与 Gate 2 时，`scripts/check-issue-clearance.mjs`（`verifyZeroSimplificationBetweenGates`）机械校验项数 1:1 守恒与语义保真，严禁省略号截断、合并缩水或静默删减，违者触发阻断：`ISSUE_GATE_SIMPLIFICATION_BLOCKED`；
+    - **禁止仅依赖机械审计：强制 Agent 主动确认最终真实结果 (`ACTIVE_NON_MECHANICAL_PROBLEM_VERIFICATION`)**：
+      任务完成后，严禁 Agent 仅凭机械审计退出码 0 或自编单测通过即关闭问题；每条 `[ISSUE-xx]` 必须附带 Agent 主动查验最终真实物理输出或运行时状态的 `activeObservation` 直接读值，确认问题现象在真实交付物中彻底消失，违者触发阻断：`ISSUE_ACTIVE_VERIFICATION_MISSING_BLOCKED`；
+    - **根本性防复发免疫、防振荡全量回归与开工前热点检索 (`ROOT_CAUSE_ANTI_RECURRENCE_IMMUNITY_PROTOCOL`, `FOUR_TIER_ANTI_RECURRENCE_TAXONOMY`, `GRAPH_COUPLED_PRE_FIX_RECALL_STANDARD`)**：
+      开工前必须检索 `.harness/project-graph.json` 目标模块历史热点；修复每条 `[ISSUE-xx]` 时必须破解 OpenHands 警示的 **Oscillation Trap（修新坏旧振荡陷阱）**，执行全量回归而非仅局部探针，并必须绑定四级结构化防复发免疫措施之一（`L1_TYPE` / `L2_GUARD` / `GRAPH_HOTSPOT` / `ALL_SITES_SWEEP`），拒绝“以后注意”等空洞表态，违者触发阻断：`ISSUE_ANTI_RECURRENCE_MISSING_BLOCKED`；
+    - **Ps-openspec 体系优化 GitHub 顶尖开源优先借鉴铁律 (`GITHUB_FIRST_BENCHMARKING_MANDATE`)**：
+      今后凡涉及 Ps-openspec 体系本身的架构优化与能力演进，智能体在接收需求并展开 Step 2 规格立法前，必须优先检索 GitHub 顶尖开源工程体系（高 Stars 方法论、工具与最佳实践）进行思想对标与择优融合，严禁闭门造车；
+    - **公理 75 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 75 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 72 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

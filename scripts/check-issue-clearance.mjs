@@ -311,6 +311,95 @@ export function runClearanceGuard(options = {}) {
   return testResult;
 }
 
+const VALID_DEFENSE_TIERS = new Set(['L1_TYPE', 'L2_GUARD', 'GRAPH_HOTSPOT', 'ALL_SITES_SWEEP']);
+const SIMPLIFICATION_PATTERNS = [/(?:\.\.\.|…|等类似|若干|etc\.?$)/i];
+const MECHANICAL_ONLY_PATTERNS = [/^(?:exit\s*code\s*0|lint\s*pass(?:ed)?|tests?\s*pass(?:ed)?|mechanical\s*audit\s*pass(?:ed)?)$/i];
+
+/**
+ * Verifies 1:1 conservation and anti-simplification fidelity between Gate 1 and Gate 2 issues.
+ * Blocks dropped IDs, ellipsis truncation, or severe description shrinkage (> 60% loss).
+ */
+export function verifyZeroSimplificationBetweenGates(gate1Issues = [], gate2Issues = []) {
+  const violations = [];
+  const gate2Map = new Map();
+
+  for (const item of gate2Issues) {
+    if (item?.id) {
+      gate2Map.set(item.id, item);
+    }
+  }
+
+  for (const g1 of gate1Issues) {
+    const g2 = gate2Map.get(g1.id);
+    if (!g2) {
+      violations.push({
+        code: 'ISSUE_GATE_SIMPLIFICATION_BLOCKED',
+        issueId: g1.id,
+        message: `Issue ${g1.id} from Gate 1 was omitted in Gate 2.`,
+      });
+      continue;
+    }
+
+    const d1 = String(g1.description || '').trim();
+    const d2 = String(g2.description || '').trim();
+
+    if (SIMPLIFICATION_PATTERNS.some((re) => re.test(d2))) {
+      violations.push({
+        code: 'ISSUE_GATE_SIMPLIFICATION_BLOCKED',
+        issueId: g1.id,
+        message: `Issue ${g1.id} in Gate 2 contains prohibited ellipsis/condensation markers.`,
+      });
+      continue;
+    }
+
+    if (d1.length >= 20 && d2.length < Math.floor(d1.length * 0.4)) {
+      violations.push({
+        code: 'ISSUE_GATE_SIMPLIFICATION_BLOCKED',
+        issueId: g1.id,
+        message: `Issue ${g1.id} description shrank excessively (${d1.length} -> ${d2.length} chars).`,
+      });
+    }
+  }
+
+  return {
+    valid: violations.length === 0,
+    violations,
+  };
+}
+
+/**
+ * Verifies each resolved issue has active non-mechanical real-output verification
+ * and a concrete structural anti-recurrence defense (L1/L2/Graph/All-Sites).
+ */
+export function verifyActiveNonMechanicalAndAntiRecurrence(entries = []) {
+  const violations = [];
+
+  for (const entry of entries) {
+    const obs = String(entry?.activeObservation || '').trim();
+    if (!obs || MECHANICAL_ONLY_PATTERNS.some((re) => re.test(obs))) {
+      violations.push({
+        code: 'ISSUE_ACTIVE_VERIFICATION_MISSING_BLOCKED',
+        issueId: entry?.id || 'unknown',
+        message: `Issue ${entry?.id || 'unknown'} lacks active non-mechanical real-output observation.`,
+      });
+    }
+
+    const defense = entry?.antiRecurrenceDefense;
+    if (!defense || !VALID_DEFENSE_TIERS.has(defense.tier) || !String(defense.targetRef || '').trim()) {
+      violations.push({
+        code: 'ISSUE_ANTI_RECURRENCE_MISSING_BLOCKED',
+        issueId: entry?.id || 'unknown',
+        message: `Issue ${entry?.id || 'unknown'} lacks a structural anti-recurrence defense (L1_TYPE/L2_GUARD/GRAPH_HOTSPOT/ALL_SITES_SWEEP).`,
+      });
+    }
+  }
+
+  return {
+    valid: violations.length === 0,
+    violations,
+  };
+}
+
 // Direct CLI execution
 if (process.argv[1] && process.argv[1].endsWith('check-issue-clearance.mjs')) {
   let customDossier = null;

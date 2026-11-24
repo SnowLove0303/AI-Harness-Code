@@ -2592,3 +2592,38 @@ test('gemini adapter enforces blind auditor isolation and real-artifact witness 
   assert.match(pstackRules, /ANTI_PROXY_MECHANICAL_ESCALATION_PROTOCOL/, 'pstack-openspec must enforce anti-proxy mechanical escalation');
   assert.match(pstackRules, /AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 74 parity standard');
 });
+
+test('gemini adapter enforces problem-task zero-simplification, active verification, anti-recurrence, and GitHub-first mandate (Axiom 75)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM/, 'GEMINI.md must contain Axiom 75 identifier');
+  assert.match(geminiRules, /DUAL_GATE_ZERO_SIMPLIFICATION_CONSERVATION/, 'GEMINI.md must enforce dual-gate zero-simplification');
+  assert.match(geminiRules, /ACTIVE_NON_MECHANICAL_PROBLEM_VERIFICATION/, 'GEMINI.md must enforce active non-mechanical problem verification');
+  assert.match(geminiRules, /ROOT_CAUSE_ANTI_RECURRENCE_IMMUNITY_PROTOCOL/, 'GEMINI.md must enforce root-cause anti-recurrence immunity');
+  assert.match(geminiRules, /GITHUB_FIRST_BENCHMARKING_MANDATE/, 'GEMINI.md must enforce GitHub-first benchmarking mandate');
+  assert.match(geminiRules, /AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 75 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM/, 'ai-harness-openspec must contain Axiom 75 identifier');
+  assert.match(harnessRules, /DUAL_GATE_ZERO_SIMPLIFICATION_CONSERVATION/, 'ai-harness-openspec must enforce dual-gate zero-simplification');
+  assert.match(harnessRules, /ACTIVE_NON_MECHANICAL_PROBLEM_VERIFICATION/, 'ai-harness-openspec must enforce active non-mechanical problem verification');
+  assert.match(harnessRules, /ROOT_CAUSE_ANTI_RECURRENCE_IMMUNITY_PROTOCOL/, 'ai-harness-openspec must enforce root-cause anti-recurrence immunity');
+  assert.match(harnessRules, /GITHUB_FIRST_BENCHMARKING_MANDATE/, 'ai-harness-openspec must enforce GitHub-first benchmarking mandate');
+  assert.match(harnessRules, /AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 75 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM/, 'pstack-openspec must contain Axiom 75 identifier');
+  assert.match(pstackRules, /DUAL_GATE_ZERO_SIMPLIFICATION_CONSERVATION/, 'pstack-openspec must enforce dual-gate zero-simplification');
+  assert.match(pstackRules, /ACTIVE_NON_MECHANICAL_PROBLEM_VERIFICATION/, 'pstack-openspec must enforce active non-mechanical problem verification');
+  assert.match(pstackRules, /ROOT_CAUSE_ANTI_RECURRENCE_IMMUNITY_PROTOCOL/, 'pstack-openspec must enforce root-cause anti-recurrence immunity');
+  assert.match(pstackRules, /GITHUB_FIRST_BENCHMARKING_MANDATE/, 'pstack-openspec must enforce GitHub-first benchmarking mandate');
+  assert.match(pstackRules, /AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 75 parity standard');
+});
