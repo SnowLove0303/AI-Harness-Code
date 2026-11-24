@@ -20,7 +20,8 @@
     "guard:invocation-purity": "node scripts/check-invocation-purity.mjs",
     "guard:portability": "node scripts/check-universal-portability.mjs",
     "guard:graph": "node scripts/check-project-graph.mjs",
-    "guard:ledger-continuity": "node scripts/check-ledger-continuity.mjs"
+    "guard:ledger-continuity": "node scripts/check-ledger-continuity.mjs",
+    "guard:pstack-sync": "node scripts/check-pstack-sync.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

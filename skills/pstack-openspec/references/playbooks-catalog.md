@@ -20,6 +20,7 @@ Lauren Tan（@poteto）在 Pstack 中将常见的软件工程任务提炼为 20 
 | | `performance` | 耗时优化、高并发锁竞争、内存治理 | **Prove It Works, Foundational Thinking** |
 | **探查与架构对齐** | `how` | 梳理陌生的复杂调用链与数据流向 | Boundary Discipline, Minimize Reader Load |
 | | `why` | 调查代码设计背后的历史意图与权衡 | Model the Domain, Encode Lessons |
+| | `reframe` | 针对模糊/多义需求做歧义消解、专家术语映射、邻近领域借鉴与需求重写 (`v0.15.48`) | **Ambiguity Threshold Gate, Zero Fabricated Citations** |
 | | `figure-it-out` | 攻坚未知的第三方库、未公开 API 或协议 | Foundational Thinking, Guard Context |
 | | `teach` | 向人类开发者讲透底层实现与关键原理 | Minimize Reader Load, Experience First |
 | **质量审查与交付** | `unslop` | 清洗大模型常见的垃圾代码与废话注释 | **Unslop Every Output, Laziness Protocol** |

@@ -802,6 +802,18 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **公理 71 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 71 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 68 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+72. **上游 Pstack 演进对齐与 `/reframe` 需求术语升维公理 (Pstack `/reframe` Disambiguation & Upstream Parity Axiom - `PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM` - 模糊需求专家术语重塑与反虚构引用铁律)**：
+    - **上游原生镜像演进同步与跨平台对齐规程 (`UPSTREAM_PSTACK_V01548_MIRROR_SYNC`, `WINDOWS_STATECHART_&_MODEL_ROUTING_PARITY`, `REFRAME_COMPANION_ROUTE_REGISTRATION`)**：
+      本地上游镜像（`~/.gemini/pstack-upstream/`）与全球路由表（`docs/pstack-openspec-route-map.json`）必须与上游最新演进保持同步（含 `v0.15.48` `/reframe` 技能、原生 Windows `/statechart` `\r\n` 兼容性修复及最新模型路由）；伴生技能注册于 `companionSkills` 独立节点，严格维护既有 23 条 Playbooks 承重墙数量不变量（`routes.length === 23`）；
+    - **Step 0 `/reframe` 模糊需求歧义消解与按需阈值门控规程 (`REFRAME_STEP0_DISAMBIGUATION_PROTOCOL`, `REFRAME_AMBIGUITY_THRESHOLD_GATE`)**：
+      当用户在 Step 0 门禁 1 提供的需求描述偏口语化、抽象或可能指向多种工程问题时，智能体必须激活 `/reframe` 协议：（1）列出 2–3 种可能的问题定义、专业工程术语名称及其区分标志；（2）给出按架构影响度排序的核心专家术语与邻近领域架构借鉴；（3）点出隐含遗漏关切点；（4）用精准工程术语重述需求供用户确认，与 Axiom 69 前瞻性头脑风暴深度咬合；针对已具备精确文件路径、堆栈或明确形式化规约的指令，直接进入 1:1 RTM 立案以杜绝冗余科普；
+    - **反虚构引用与实证锚定铁律 (`ZERO_FABRICATED_CITATION_STANDARD`)**：
+      在 `/reframe` 或任意架构解释过程中，任何外部论文、规范或 URL 引用必须经过真实访问与语义核验；未核验或无法证实的外部引用一律予以剔除，严禁大模型凭记忆编造文献或链接，违者触发阻断：`UNVERIFIED_CITATION_BLOCKED`；
+    - **自动化 L2 上游同步巡检守卫标准 (`UPSTREAM_PSTACK_SYNC_INSPECTOR_STANDARD`)**：
+      系统提供独立的 L2 静态巡检脚本（`scripts/check-pstack-sync.mjs`，注册为 `npm run guard:pstack-sync`），机械校验本地上游镜像最低版本（`>= 0.15.48`）、`/reframe` 与 `/statechart` 资产完整性、模糊度阈值门控逻辑及反虚构引用守卫；
+    - **公理 72 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 72 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 69 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

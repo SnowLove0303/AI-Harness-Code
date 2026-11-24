@@ -2496,3 +2496,35 @@ test('gemini adapter enforces cumulative requirement ledger and re-gating protoc
   assert.match(pstackRules, /END_TO_END_CUMULATIVE_CHECKOFF_STANDARD/, 'pstack-openspec must enforce end-to-end cumulative checkoff standard');
   assert.match(pstackRules, /AXIOM_71_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 71 parity standard');
 });
+
+test('gemini adapter enforces pstack v0.15.48 parity and /reframe disambiguation protocol (Axiom 72)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM/, 'GEMINI.md must contain Axiom 72 identifier');
+  assert.match(geminiRules, /REFRAME_STEP0_DISAMBIGUATION_PROTOCOL/, 'GEMINI.md must enforce reframe step0 disambiguation protocol');
+  assert.match(geminiRules, /REFRAME_AMBIGUITY_THRESHOLD_GATE/, 'GEMINI.md must enforce reframe ambiguity threshold gate');
+  assert.match(geminiRules, /ZERO_FABRICATED_CITATION_STANDARD/, 'GEMINI.md must enforce zero fabricated citation standard');
+  assert.match(geminiRules, /AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 72 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM/, 'ai-harness-openspec must contain Axiom 72 identifier');
+  assert.match(harnessRules, /REFRAME_STEP0_DISAMBIGUATION_PROTOCOL/, 'ai-harness-openspec must enforce reframe step0 disambiguation protocol');
+  assert.match(harnessRules, /REFRAME_AMBIGUITY_THRESHOLD_GATE/, 'ai-harness-openspec must enforce reframe ambiguity threshold gate');
+  assert.match(harnessRules, /ZERO_FABRICATED_CITATION_STANDARD/, 'ai-harness-openspec must enforce zero fabricated citation standard');
+  assert.match(harnessRules, /AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 72 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM/, 'pstack-openspec must contain Axiom 72 identifier');
+  assert.match(pstackRules, /REFRAME_STEP0_DISAMBIGUATION_PROTOCOL/, 'pstack-openspec must enforce reframe step0 disambiguation protocol');
+  assert.match(pstackRules, /REFRAME_AMBIGUITY_THRESHOLD_GATE/, 'pstack-openspec must enforce reframe ambiguity threshold gate');
+  assert.match(pstackRules, /ZERO_FABRICATED_CITATION_STANDARD/, 'pstack-openspec must enforce zero fabricated citation standard');
+  assert.match(pstackRules, /AXIOM_72_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 72 parity standard');
+});

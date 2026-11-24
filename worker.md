@@ -48,6 +48,11 @@
 - **Scope Drift Re-Gating**: Halt edits when requirements change mid-session (`RE_GATING_REQUIRED_BLOCKED`) until the merged cumulative ledger is confirmed.
 - **End-to-End Checkoff & Graph-Coupled Regression**: Verify every `ACTIVE` atomic entry against final build artifacts and re-run earlier assertions whenever a later edit touches the same Project Graph module (`CUMULATIVE_CHECKOFF_DEFICIT_BLOCKED`).
 
+## 1h. `/reframe` Disambiguation & Zero-Fabricated-Citation Discipline (`PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM`)
+- **Ambiguity Threshold Gate (`REFRAME_AMBIGUITY_THRESHOLD_GATE`)**: Invoke `/reframe` disambiguation only when operator descriptions are vague, colloquial, or multi-interpretable. Proceed straight to standard 1:1 RTM ingestion when concrete technical anchors (file paths, error codes, symbol names) are already present.
+- **Zero-Fabricated-Citation Standard (`ZERO_FABRICATED_CITATION_STANDARD`)**: Confirm every external link, paper, or system reference before citing it in `/reframe` outputs. Omit any unverified citation (`UNVERIFIED_CITATION_BLOCKED`).
+- **Upstream Mirror Parity**: Verify `npm run guard:pstack-sync` exits with Exit Code 0 and preserves the 23-playbook route invariant (`routes.length === 23`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

@@ -1,6 +1,6 @@
 {
-  "pstackCommit": "c742dd61706fbacc1b95f1a20b7b988cf096ce6c",
-  "pstackVersion": "0.15.36",
+  "pstackCommit": "9e278fe",
+  "pstackVersion": "0.15.48",
   "registryVersion": 4,
   "durableTaskSource": "OpenSpec tasks.md",
   "supportingSkillPolicy": "resolve-from-pinned-playbook-and-poteto-mode-triggers",
@@ -319,6 +319,18 @@
       "verify": "live PR URL, base/head, checks and scoped diff",
       "taskSource": "OpenSpec tasks.md",
       "supportingSkills": "resolve-from-pinned-playbook-and-poteto-mode-triggers"
+    }
+  ],
+  "companionSkills": [
+    {
+      "id": "reframe",
+      "source": "skills/reframe/SKILL.md",
+      "trigger": "Operator description is vague, colloquial, or could refer to multiple problems; or explicit /reframe invocation",
+      "openSpec": "Step 0 Gate 1 disambiguation, impact-ranked expert terminology, neighboring-domain analogies, and requirement rewrite",
+      "gate": "Trigger only under REFRAME_AMBIGUITY_THRESHOLD_GATE; enforce ZERO_FABRICATED_CITATION_STANDARD",
+      "geminiCapability": "disambiguate ambiguous prompts, map expert concepts, and rewrite crisp Step 0 requirements",
+      "geminiModelTier": "pro",
+      "verify": "Verified citations only (UNVERIFIED_CITATION_BLOCKED) and ambiguity disambiguation options"
     }
   ]
 }
