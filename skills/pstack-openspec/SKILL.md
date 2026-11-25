@@ -848,6 +848,16 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **公理 75 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 75 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 72 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+76. **企业研发周期业务建模与 Draw.io Diagram-as-Test 守卫公理 (Enterprise Lifecycle Modeling & Draw.io Diagram-as-Test Axiom - `DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM` - 融合 `Agents365-ai/drawio-skill` 的确定性泳道网格编译与防重叠避障铁律)**：
+    - **五要素结构化业务建模与确定性网格编译规程 (`ENTERPRISE_LIFECYCLE_STRUCTURED_MODELING`, `DETERMINISTIC_SWIMLANE_GRID_COMPILER`, `MULTI_PAGE_L0_L1_DIAGRAM_PROJECTION`, `TEXT_FIT_MARGIN_ANTI_CLIPPING_RULE`)**：
+      绘制细节密集的企业研发周期或复杂业务流程模型时，智能体必须先建模五要素中间表示（横向阶段 Stages、纵向职能泳道 Swimlanes、门径决策网关 Gates、反馈回环 Loopbacks 与交付物 Artifacts），再通过 `scripts/check-drawio-model.mjs`（`compileBusinessLifecycleToDrawioXml`）确定性编译坐标网格、中英文自适应防截断宽度与 L0 全景/L1 明细多 `<diagram>` 分页 XML，严禁大模型手算复杂绝对坐标；
+    - **Draw.io MCP 专业样式与避障走线规程 (`DRAWIO_SWIMLANE_&_GATE_STYLE_STANDARD`)**：
+      遵循 `skills/drawio-mcp/SKILL.md` 规范，跨职能业务图节点必须归属 `swimlane` 容器，门径采用菱形网关、交付物采用文档形状、回环采用虚线正交路由，并强制挂载 `routing="libavoid"` 自动正交避障；
+    - **Diagram-as-Test L2 几何与拓扑守卫标准 (`AUTOMATED_L2_DRAWIO_MODEL_GUARD_STANDARD`)**：
+      系统提供独立的 L2 静态检验守卫（`npm run guard:drawio-model` / `validateDrawioXml`），在渲染或交付前机械拦截并返回 Exit Code 1 阻断：`DRAWIO_INVALID_XML_BLOCKED`（结构缺失）、`DRAWIO_NODE_OVERLAP_BLOCKED`（同层节点边界框重叠）与 `DRAWIO_DANGLING_EDGE_BLOCKED`（悬空连线）；
+    - **公理 76 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      公理 76 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 73 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

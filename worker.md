@@ -68,6 +68,10 @@
 - **Anti-Oscillation & Four-Tier Recurrence Immunity**: Query `.harness/project-graph.json` before remediation, execute full-suite regression to prevent oscillation, and bind each fix to a concrete structural defense (`L1_TYPE`, `L2_GUARD`, `GRAPH_HOTSPOT`, or `ALL_SITES_SWEEP`) (`ISSUE_ANTI_RECURRENCE_MISSING_BLOCKED`).
 - **GitHub-First Benchmarking**: Benchmark leading GitHub open-source engineering workflows before proposing Ps-openspec system optimizations (`GITHUB_FIRST_BENCHMARKING_MANDATE`).
 
+## 1l. Draw.io Business Lifecycle Modeling & Diagram-as-Test Discipline (`DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM`)
+- **Five-Element IR & Grid Compilation**: Model Stages, Swimlanes, Decision Gates, Loopbacks, and Artifacts as structured JSON IR, then compile coordinates via `compileBusinessLifecycleToDrawioXml` (`scripts/check-drawio-model.mjs`) with multi-page L0/L1 `<diagram>` support instead of hand-computing dense coordinates.
+- **Diagram-as-Test & Obstacle Avoidance**: Validate generated XML with `validateDrawioXml` / `npm run guard:drawio-model` (`DRAWIO_NODE_OVERLAP_BLOCKED`, `DRAWIO_DANGLING_EDGE_BLOCKED`, `DRAWIO_INVALID_XML_BLOCKED`) and always pass `routing="libavoid"` to `open_drawio_xml`.
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

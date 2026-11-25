@@ -120,6 +120,13 @@ export function syncAllToGlobal() {
     updatedCount += syncDirectory(uiUxSkillSrc, uiUxSkillDest);
   }
 
+  // 4d. Sync skills/drawio-mcp
+  const drawioSkillSrc = join(repoRoot, 'skills', 'drawio-mcp');
+  const drawioSkillDest = join(globalGeminiRoot, 'config', 'skills', 'drawio-mcp');
+  if (existsSync(drawioSkillSrc)) {
+    updatedCount += syncDirectory(drawioSkillSrc, drawioSkillDest);
+  }
+
   // 4d. Sync skills/rea-reverse-engineering
   const reaSkillSrc = join(repoRoot, 'skills', 'rea-reverse-engineering');
   const reaSkillDest = join(globalGeminiRoot, 'config', 'skills', 'rea-reverse-engineering');

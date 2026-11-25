@@ -110,7 +110,8 @@
         "scripts/check-ledger-continuity.mjs",
         "scripts/check-pstack-sync.mjs",
         "scripts/check-ui-slop.mjs",
-        "scripts/check-blind-audit.mjs"
+        "scripts/check-blind-audit.mjs",
+        "scripts/check-drawio-model.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -125,7 +126,8 @@
         "scripts/check-ledger-continuity.mjs",
         "scripts/check-pstack-sync.mjs",
         "scripts/check-ui-slop.mjs",
-        "scripts/check-blind-audit.mjs"
+        "scripts/check-blind-audit.mjs",
+        "scripts/check-drawio-model.mjs"
       ],
       "maintenanceItems": [
         {

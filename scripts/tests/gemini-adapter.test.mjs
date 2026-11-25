@@ -2627,3 +2627,32 @@ test('gemini adapter enforces problem-task zero-simplification, active verificat
   assert.match(pstackRules, /GITHUB_FIRST_BENCHMARKING_MANDATE/, 'pstack-openspec must enforce GitHub-first benchmarking mandate');
   assert.match(pstackRules, /AXIOM_75_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 75 parity standard');
 });
+
+test('gemini adapter enforces enterprise lifecycle Draw.io modeling and Diagram-as-Test guard (Axiom 76)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM/, 'GEMINI.md must contain Axiom 76 identifier');
+  assert.match(geminiRules, /DETERMINISTIC_SWIMLANE_GRID_COMPILER/, 'GEMINI.md must enforce deterministic swimlane grid compiler');
+  assert.match(geminiRules, /AUTOMATED_L2_DRAWIO_MODEL_GUARD_STANDARD/, 'GEMINI.md must enforce automated L2 Draw.io model guard');
+  assert.match(geminiRules, /AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'GEMINI.md must enforce axiom 76 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM/, 'ai-harness-openspec must contain Axiom 76 identifier');
+  assert.match(harnessRules, /DETERMINISTIC_SWIMLANE_GRID_COMPILER/, 'ai-harness-openspec must enforce deterministic swimlane grid compiler');
+  assert.match(harnessRules, /AUTOMATED_L2_DRAWIO_MODEL_GUARD_STANDARD/, 'ai-harness-openspec must enforce automated L2 Draw.io model guard');
+  assert.match(harnessRules, /AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'ai-harness-openspec must enforce axiom 76 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM/, 'pstack-openspec must contain Axiom 76 identifier');
+  assert.match(pstackRules, /DETERMINISTIC_SWIMLANE_GRID_COMPILER/, 'pstack-openspec must enforce deterministic swimlane grid compiler');
+  assert.match(pstackRules, /AUTOMATED_L2_DRAWIO_MODEL_GUARD_STANDARD/, 'pstack-openspec must enforce automated L2 Draw.io model guard');
+  assert.match(pstackRules, /AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 76 parity standard');
+});

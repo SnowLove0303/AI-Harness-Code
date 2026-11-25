@@ -23,7 +23,8 @@
     "guard:ledger-continuity": "node scripts/check-ledger-continuity.mjs",
     "guard:pstack-sync": "node scripts/check-pstack-sync.mjs",
     "guard:ui-slop": "node scripts/check-ui-slop.mjs",
-    "guard:blind-audit": "node scripts/check-blind-audit.mjs"
+    "guard:blind-audit": "node scripts/check-blind-audit.mjs",
+    "guard:drawio-model": "node scripts/check-drawio-model.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }
