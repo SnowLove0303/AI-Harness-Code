@@ -77,6 +77,12 @@
 - **Role-Pinned Persistent Reuse**: Inspect existing agents first, pin one persistent agent per role (`DUPLICATE_ROLE_INSTANCE_BLOCKED`), and reuse via `send_message` with focused task boundaries (`FOCUSED_REUSE_CHECKPOINT_HYGIENE`).
 - **Human-Authorized Termination Lock**: Never invoke `kill` or `kill_all` on any subagent or Swarm worker without explicit human permission (`UNAUTHORIZED_AGENT_TERMINATION_BLOCKED`).
 
+### 1n. Problem-Class Generalization, Analogous Sweep & Anti-Special-Casing (`UNIVERSAL_PROBLEM_CLASS_GENERALIZATION_AXIOM`)
+- **Problem-Class Abstraction**: Abstract every defect or architectural gap into a general problem class before writing code (`PROBLEM_CLASS_ABSTRACTION_MISSING_BLOCKED`). Fix the root mechanism and invariant rather than patching a single instance.
+- **Analogous Pattern Sweep**: After any fix, sweep the codebase for analogous sibling patterns (`analogousSitesChecked`) and harden all matching sites together.
+- **Anti-Special-Casing**: Never introduce instance-specific literal branches, hardcoded IDs, or single-input workarounds (`SPECIAL_CASE_OVERFITTING_BLOCKED`). Consolidate repeated conditional chains into table-driven or parameterized mappings (`TABLE_DRIVEN_REFACTOR_REQUIRED`).
+- **Orthogonal Variant Quota**: Verify every problem-class fix with at least two orthogonal property-based or boundary test variants (`VARIANT_QUOTA_DEFICIT_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

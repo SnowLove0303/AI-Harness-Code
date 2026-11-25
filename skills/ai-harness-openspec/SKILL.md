@@ -818,6 +818,20 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **自动化 L2 智能体生命周期守卫与三镜像同构标准 (`AUTOMATED_L2_AGENT_LIFECYCLE_GUARD_STANDARD`, `AXIOM_77_PARITY_&_SUPERSESSION_STANDARD`)**：
       系统提供独立的 L2 静态策略守卫（`scripts/check-agent-lifecycle.mjs`，注册为 `npm run guard:agent-lifecycle`）；公理 77 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 74 项）三处宪法镜像中以纯通用软件工程语言同构固化，正式修订接管 Axiom 30/61 冲突条款，违者系统静态检查一票否决。
 
+75. **通用问题类泛化与反特指固化铁律 (`UNIVERSAL_PROBLEM_CLASS_GENERALIZATION_AXIOM` — "Fix the Problem Class, Not Just the Instance")**：
+    - **问题类抽象原则 (`PROBLEM_CLASS_ABSTRACTION_MANDATE`)**：
+      Agent 在定位任何缺陷、状态异常或架构短板时，必须先将具体问题抽象为一般性的问题类（Problem Class），从根因、不变量与通用机制层面求解；禁止仅针对当前单点输入、单条记录或单一上下文做局部补丁，确保同类问题在系统其他位置不再复发（缺失问题类抽象则触发 `PROBLEM_CLASS_ABSTRACTION_MISSING_BLOCKED`）。
+    - **举一反三全仓横扫契约 (`ANALOGOUS_PATTERN_SWEEP_MANDATE`)**：
+      修复或重构任一问题后，必须基于 AST 或符号检索对全仓同类模式（`analogousSitesChecked`）执行横扫盘点与同步加固，不得遗留同源缺陷在其他模块或兄弟分支中继续潜伏。
+    - **反特指向性硬编码与过拟合标准 (`ANTI_SPECIAL_CASING_GENERALIZATION_STANDARD`)**：
+      严禁为解决单个实例而在业务代码或通用引擎中引入针对特定字面量、特定 ID、特定路径或特定测试输入值的分支特判（如 `if (id === '...')` 或孤立魔数豁免）；违者触发 `SPECIAL_CASE_OVERFITTING_BLOCKED` 硬阻断。
+    - **表驱动重构触发阈值 (`TABLE_DRIVEN_REFACTOR_TRIGGER_THRESHOLD`)**：
+      当同一逻辑存在多组同构分支或配置化差异时，必须立即收口为表驱动（Table-Driven）、策略映射（Strategy Map）或参数化契约，禁止复制粘贴堆叠 `if / else if / switch` 特判链；超阈未收口触发 `TABLE_DRIVEN_REFACTOR_REQUIRED`。
+    - **正交属性化变体测试配额 (`PROPERTY_BASED_VARIANT_QUOTA_STANDARD`)**：
+      每项问题类修复必须至少附带 2 个及以上正交维度或边界变体的属性化验证用例（不得仅用触发缺陷的单一输入做回归自证）；变体配额不足触发 `VARIANT_QUOTA_DEFICIT_BLOCKED`。
+    - **自动化 L2 反硬编码守卫与三镜像同构标准 (`AUTOMATED_L2_ANTI_HARDCODING_GUARD_STANDARD`, `AXIOM_78_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
+      系统提供独立的 L2 静态策略守卫（`scripts/check-anti-hardcoding.mjs`，注册为 `npm run guard:anti-hardcoding`）；公理 78 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 75 项）三处宪法镜像中以纯通用软件工程语言同构固化，违者系统静态检查一票否决。
+
 ---
 
 ## 📚 附录与配套参考
