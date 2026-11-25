@@ -351,7 +351,7 @@
     - **智能 Subagent 复用判定决策树公理 (Subagent Reuse vs. Fresh Decision Tree)**：
       在派发任务前，主 Agent 必须首先调用 `manage_subagents(Action='list')` 探查当前活跃的 Subagent 列表与生命周期状态：
       ① **状态延续性复用 (`send_message`)**：唯独当后续工作严格属于当前子智能体正在执行的未完结同一任务断点、或者子智能体持有未落盘且不可轻易迁移的瞬态开发环境（如挂载中的 Git 工作分支、正在运行的本地常驻测试服务/进程）时，方可通过 `send_message` 消息队列直接复用该 Subagent；
-      ② **干净独立全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`)**：凡属新任务、重构任务、排错转向、或前序失败重试，一律强制启动干净的全新 Subagent（`Workspace='branch'`），严禁在被海量错误日志污染的长上下文中击鼓传花；
+      ② **干净独立全新默认原则 (`Fresh Subagents by Default` via `invoke_subagent`) [SUPERSEDED BY AXIOM 77]**：历史条款已由公理 77 正式修订接管——未经用户明确允许，严禁随意新开多个并行 Subagent，优先复用已有专职 Agent；
     - **四位一体任务交接胶囊公理 (Four-in-One Lossless Handoff Capsule)**：
       主 Agent 向 Subagent 派发任务时，严禁用随口大白话口水化压缩，必须 100% 封装四位一体不可精简交付胶囊：
       ① `ps-openspec`: 架构法定规格（OpenSpec 增量提案、RFC 2119 specs 规范、单任务专注锁 `[-] lock` 条目及真实 Exit Code 0 验收命令）；
@@ -811,7 +811,7 @@
       本公理的全部规约、调度拓扑、事件级联状态机与门禁断路器必须（SHALL）100% 采用用户交互拟态（Behavioral Emulation）、事件级联（Event Cascade）、无障碍语义树（Accessibility Tree）、虚拟 DOM（Virtual DOM）、多维门禁（Multi-Tiered Verification）与标准退出码等纯通用软件工程语言；严禁掺杂单一业务场景或特定产品专有词汇，违者系统静态检查直接判定为 `UNIVERSAL_BEHAVIORAL_EMULATION_STANDARD` 违规并一票否决。
 
 61. **主 Agent 主动化利用 Swarm 与 Subagent 治理公理 (Autonomous Swarm & Subagent Proactive Dispatch Axiom - AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM - 严禁单体施工退化与双引擎主动调度铁律)**：
-    - **主动自动化委派铁律 (Proactive Autonomous Delegation Invariant - PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT)**：
+    - **主动自动化委派铁律 (Proactive Autonomous Delegation Invariant - PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT) [SUPERSEDED BY AXIOM 77：未经用户允许禁止随意多开与关闭，优先持续复用既有专职 Agent]**：
       全系统确立“主 Agent 施工期零单体主动委派铁律”：主 Agent 作为法定架构师与最高协调者（`@coordinator`），在进入 Step 3 单步施工阶段时，必须（SHALL）无条件主动、全自动将代码编写、多文件重构、自动化测试与对抗审计任务委派给 Swarm Workers 或专用 Subagents；绝对禁止等待或依赖用户显式提醒（如“请使用 Swarm”、“派发 Worker”）；严禁主 Agent 退化为单体执行者亲自在主会话中编写业务代码或直接运行长时测试，单体施工行为直接触发角色退化违规；
     - **双引擎确定性路由规程 (Dual-Engine Deterministic Dispatch Routing Protocol - DUAL_ENGINE_DETERMINISTIC_DISPATCH_ROUTING_PROTOCOL)**：
       系统强制实施清晰无歧义的双引擎分流路由矩阵，严禁工具调用重叠与认知瘫痪：(1) 交互浏览器与视觉验证引擎（Visual / UI Interaction Engine）：凡涉及浏览器交互、真实 DOM 渲染、UI 界面缺陷复现与客户端视觉验证的任务，必须且只能路由至 `invoke_subagent` 调用 `browser` 专用子智能体；(2) 代码施工与工程蜂群引擎（Engineering Swarm Engine）：凡涉及业务代码修改、多文件重构、单元测试与 L2 测试套件编写、以及红队证伪审计的任务，必须且只能路由至 `swarm` 派发命名 Worker（如 `worker-impl`、`worker-test`、`worker-audit`）；严禁在主会话中混用或单体执行；
@@ -1015,6 +1015,16 @@
       系统提供独立的 L2 静态检验守卫（`npm run guard:drawio-model` / `validateDrawioXml`），在渲染或交付前机械拦截并返回 Exit Code 1 阻断：`DRAWIO_INVALID_XML_BLOCKED`（结构缺失）、`DRAWIO_NODE_OVERLAP_BLOCKED`（同层节点边界框重叠）与 `DRAWIO_DANGLING_EDGE_BLOCKED`（悬空连线）；
     - **公理 76 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 76 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 73 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
+
+77. **反智能体蔓延、专职角色持久复用与启停人工授权门禁公理 (Anti-Sprawl, Role-Pinned Persistent Reuse & Lifecycle Lock Axiom - `ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM` - 正式修订接管公理 30/61 并发与销毁旧规的启停受控铁律)**：
+    - **禁止未经允许随意开启多个 Subagent / Swarm 门禁 (`HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE`)**：
+      遵循 Anthropic / LangGraph 反蔓延最佳实践，默认优先在单主控或单个既有专职 Agent 闭环内顺序推进；未经管理者明文授权允许，任何 Agent/线程/主线程严禁随意并发开启多个 Subagent 或拉起 Swarm 集群，违者触发阻断：`UNAUTHORIZED_MULTI_AGENT_SPAWN_BLOCKED`；
+    - **特定 Agent 职责锚定、一职一员与持续复用优先原则 (`ROLE_PINNED_PERSISTENT_REUSE_MANDATE`, `SINGLE_INSTANCE_PER_ROLE_CAP`, `FOCUSED_REUSE_CHECKPOINT_HYGIENE`)**：
+      派发任务前必须先探查既有成员列表（`manage_subagents(Action='list')` / `swarm(action='status')`）；每个常驻专职 Agent 锚定清晰单一职责，同一职责严格只保留 1 个常驻实例（`DUPLICATE_ROLE_INSTANCE_BLOCKED`）；后续同职责任务必须优先通过 `send_message` / `@mention`（附带清晰聚焦范围与文件锚点）持续复用既有 Agent；
+    - **禁止未经允许随意关闭 / 销毁智能体锁 (`HUMAN_AUTHORIZED_AGENT_TERMINATION_LOCK`)**：
+      未经管理者明文指令允许，任何协调者或子智能体严禁私自调用 `kill`、`kill_all` 或终止指令关闭活跃或空闲的 Subagent / Swarm 成员（`UNAUTHORIZED_AGENT_TERMINATION_BLOCKED`）；闲置智能体零 Token 消耗保持常驻待命以供持续复用；
+    - **自动化 L2 智能体生命周期守卫与三镜像同构标准 (`AUTOMATED_L2_AGENT_LIFECYCLE_GUARD_STANDARD`, `AXIOM_77_PARITY_&_SUPERSESSION_STANDARD`)**：
+      系统提供独立的 L2 静态策略守卫（`scripts/check-agent-lifecycle.mjs`，注册为 `npm run guard:agent-lifecycle`）；公理 77 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 74 项）三处宪法镜像中以纯通用软件工程语言同构固化，正式修订接管 Axiom 30/61 冲突条款，违者系统静态检查一票否决。
 
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：

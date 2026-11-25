@@ -808,6 +808,16 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **公理 76 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 76 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 73 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 
+74. **反智能体蔓延、专职角色持久复用与启停人工授权门禁公理 (Anti-Sprawl, Role-Pinned Persistent Reuse & Lifecycle Lock Axiom - `ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM` - Axiom 77 - 正式修订接管公理 30/61 并发与销毁旧规的启停受控铁律)**：
+    - **禁止未经允许随意开启多个 Subagent / Swarm 门禁 (`HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE`)**：
+      遵循 Anthropic / LangGraph 反蔓延最佳实践，默认优先在单主控或单个既有专职 Agent 闭环内顺序推进；未经管理者明文授权允许，任何 Agent/线程/主线程严禁随意并发开启多个 Subagent 或拉起 Swarm 集群，违者触发阻断：`UNAUTHORIZED_MULTI_AGENT_SPAWN_BLOCKED`；
+    - **特定 Agent 职责锚定、一职一员与持续复用优先原则 (`ROLE_PINNED_PERSISTENT_REUSE_MANDATE`, `SINGLE_INSTANCE_PER_ROLE_CAP`, `FOCUSED_REUSE_CHECKPOINT_HYGIENE`)**：
+      派发任务前必须先探查既有成员列表（`manage_subagents(Action='list')` / `swarm(action='status')`）；每个常驻专职 Agent 锚定清晰单一职责，同一职责严格只保留 1 个常驻实例（`DUPLICATE_ROLE_INSTANCE_BLOCKED`）；后续同职责任务必须优先通过 `send_message` / `@mention`（附带清晰聚焦范围与文件锚点）持续复用既有 Agent；
+    - **禁止未经允许随意关闭 / 销毁智能体锁 (`HUMAN_AUTHORIZED_AGENT_TERMINATION_LOCK`)**：
+      未经管理者明文指令允许，任何协调者或子智能体严禁私自调用 `kill`、`kill_all` 或终止指令关闭活跃或空闲的 Subagent / Swarm 成员（`UNAUTHORIZED_AGENT_TERMINATION_BLOCKED`）；闲置智能体零 Token 消耗保持常驻待命以供持续复用；
+    - **自动化 L2 智能体生命周期守卫与三镜像同构标准 (`AUTOMATED_L2_AGENT_LIFECYCLE_GUARD_STANDARD`, `AXIOM_77_PARITY_&_SUPERSESSION_STANDARD`)**：
+      系统提供独立的 L2 静态策略守卫（`scripts/check-agent-lifecycle.mjs`，注册为 `npm run guard:agent-lifecycle`）；公理 77 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 74 项）三处宪法镜像中以纯通用软件工程语言同构固化，正式修订接管 Axiom 30/61 冲突条款，违者系统静态检查一票否决。
+
 ---
 
 ## 📚 附录与配套参考

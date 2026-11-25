@@ -2656,3 +2656,35 @@ test('gemini adapter enforces enterprise lifecycle Draw.io modeling and Diagram-
   assert.match(pstackRules, /AUTOMATED_L2_DRAWIO_MODEL_GUARD_STANDARD/, 'pstack-openspec must enforce automated L2 Draw.io model guard');
   assert.match(pstackRules, /AXIOM_76_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD/, 'pstack-openspec must enforce axiom 76 parity standard');
 });
+
+test('gemini adapter enforces anti-sprawl, role-pinned persistent reuse, and termination lock (Axiom 77)', () => {
+  const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
+  assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+
+  assert.match(geminiRules, /ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM/, 'GEMINI.md must contain Axiom 77 identifier');
+  assert.match(geminiRules, /HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE/, 'GEMINI.md must enforce human-authorized multi-agent spawn gate');
+  assert.match(geminiRules, /ROLE_PINNED_PERSISTENT_REUSE_MANDATE/, 'GEMINI.md must enforce role-pinned persistent reuse');
+  assert.match(geminiRules, /HUMAN_AUTHORIZED_AGENT_TERMINATION_LOCK/, 'GEMINI.md must enforce human-authorized termination lock');
+  assert.match(geminiRules, /AXIOM_77_PARITY_&_SUPERSESSION_STANDARD/, 'GEMINI.md must enforce axiom 77 parity standard');
+
+  const harnessSkillPath = path.join(repoRoot, 'skills', 'ai-harness-openspec', 'SKILL.md');
+  assert.ok(existsSync(harnessSkillPath), 'ai-harness-openspec SKILL.md must exist');
+  const harnessRules = readFileSync(harnessSkillPath, 'utf8');
+
+  assert.match(harnessRules, /ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM/, 'ai-harness-openspec must contain Axiom 77 identifier');
+  assert.match(harnessRules, /HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE/, 'ai-harness-openspec must enforce human-authorized multi-agent spawn gate');
+  assert.match(harnessRules, /ROLE_PINNED_PERSISTENT_REUSE_MANDATE/, 'ai-harness-openspec must enforce role-pinned persistent reuse');
+  assert.match(harnessRules, /HUMAN_AUTHORIZED_AGENT_TERMINATION_LOCK/, 'ai-harness-openspec must enforce human-authorized termination lock');
+  assert.match(harnessRules, /AXIOM_77_PARITY_&_SUPERSESSION_STANDARD/, 'ai-harness-openspec must enforce axiom 77 parity standard');
+
+  const pstackSkillPath = path.join(repoRoot, 'skills', 'pstack-openspec', 'SKILL.md');
+  assert.ok(existsSync(pstackSkillPath), 'pstack-openspec SKILL.md must exist');
+  const pstackRules = readFileSync(pstackSkillPath, 'utf8');
+
+  assert.match(pstackRules, /ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM/, 'pstack-openspec must contain Axiom 77 identifier');
+  assert.match(pstackRules, /HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE/, 'pstack-openspec must enforce human-authorized multi-agent spawn gate');
+  assert.match(pstackRules, /ROLE_PINNED_PERSISTENT_REUSE_MANDATE/, 'pstack-openspec must enforce role-pinned persistent reuse');
+  assert.match(pstackRules, /HUMAN_AUTHORIZED_AGENT_TERMINATION_LOCK/, 'pstack-openspec must enforce human-authorized termination lock');
+  assert.match(pstackRules, /AXIOM_77_PARITY_&_SUPERSESSION_STANDARD/, 'pstack-openspec must enforce axiom 77 parity standard');
+});

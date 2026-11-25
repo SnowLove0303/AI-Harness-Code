@@ -111,7 +111,8 @@
         "scripts/check-pstack-sync.mjs",
         "scripts/check-ui-slop.mjs",
         "scripts/check-blind-audit.mjs",
-        "scripts/check-drawio-model.mjs"
+        "scripts/check-drawio-model.mjs",
+        "scripts/check-agent-lifecycle.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -127,7 +128,8 @@
         "scripts/check-pstack-sync.mjs",
         "scripts/check-ui-slop.mjs",
         "scripts/check-blind-audit.mjs",
-        "scripts/check-drawio-model.mjs"
+        "scripts/check-drawio-model.mjs",
+        "scripts/check-agent-lifecycle.mjs"
       ],
       "maintenanceItems": [
         {

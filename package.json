@@ -24,7 +24,8 @@
     "guard:pstack-sync": "node scripts/check-pstack-sync.mjs",
     "guard:ui-slop": "node scripts/check-ui-slop.mjs",
     "guard:blind-audit": "node scripts/check-blind-audit.mjs",
-    "guard:drawio-model": "node scripts/check-drawio-model.mjs"
+    "guard:drawio-model": "node scripts/check-drawio-model.mjs",
+    "guard:agent-lifecycle": "node scripts/check-agent-lifecycle.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

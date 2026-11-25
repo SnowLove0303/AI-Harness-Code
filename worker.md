@@ -72,6 +72,11 @@
 - **Five-Element IR & Grid Compilation**: Model Stages, Swimlanes, Decision Gates, Loopbacks, and Artifacts as structured JSON IR, then compile coordinates via `compileBusinessLifecycleToDrawioXml` (`scripts/check-drawio-model.mjs`) with multi-page L0/L1 `<diagram>` support instead of hand-computing dense coordinates.
 - **Diagram-as-Test & Obstacle Avoidance**: Validate generated XML with `validateDrawioXml` / `npm run guard:drawio-model` (`DRAWIO_NODE_OVERLAP_BLOCKED`, `DRAWIO_DANGLING_EDGE_BLOCKED`, `DRAWIO_INVALID_XML_BLOCKED`) and always pass `routing="libavoid"` to `open_drawio_xml`.
 
+## 1m. Anti-Sprawl, Role-Pinned Reuse & Termination Lock (`ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM`)
+- **No Unauthorized Multi-Agent Spawning**: Never spawn multiple concurrent subagents or initiate a Swarm without explicit human permission (`UNAUTHORIZED_MULTI_AGENT_SPAWN_BLOCKED`).
+- **Role-Pinned Persistent Reuse**: Inspect existing agents first, pin one persistent agent per role (`DUPLICATE_ROLE_INSTANCE_BLOCKED`), and reuse via `send_message` with focused task boundaries (`FOCUSED_REUSE_CHECKPOINT_HYGIENE`).
+- **Human-Authorized Termination Lock**: Never invoke `kill` or `kill_all` on any subagent or Swarm worker without explicit human permission (`UNAUTHORIZED_AGENT_TERMINATION_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).
