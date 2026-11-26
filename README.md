@@ -141,8 +141,9 @@ flowchart LR
 - **问题处理五维头脑风暴与 `/correct` 四级防线升级（Axiom 79 · `SYSTEMIC_PROBLEM_BRAINSTORM_&_STRUCTURAL_PREVENTION_AXIOM`）**：
   - 遇到已发生的问题时，Agent 必须先主动完成五维头脑风暴：① 现象→系统症结穿透与控制面边界审计（拦截“语义阶段交由纯机械脚本无人值守直出” `UNATTENDED_MECHANICAL_SEMANTIC_PIPELINE_BLOCKED`）；② 通用工程准则对齐；③ 同类发散；④ L1–L4 多方案对比；⑤ 收敛与前提质疑（连续失败 $\ge 2$ 次强制 `attack-the-premise`）；
   - 按 **L1 架构 > L2 类型/Lint > L3 行为测试 > L4 规则** 升级根治，低于 L1 须说明原因，并用真实历史故障样本反证新守卫。
-- **问题清单增量合并与未裁定条目反问（Axiom 80 · `PROBLEM_LEDGER_INCREMENTAL_MERGE_&_RULING_GATE_AXIOM`）**：
+- **问题清单增量合并、原子拆条与集合差值核销（Axiom 80 · `PROBLEM_LEDGER_INCREMENTAL_MERGE_&_RULING_GATE_AXIOM`）**：
   - 无论是任务产出还是用户提供的问题清单，补充说明一律执行增量合并（`mergeProblemLedgerDelta`），禁止覆盖丢项（`PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED`）；
+  - 强制“一缺陷一原子 ID”（禁止复合打包 `BUNDLED_ISSUE_ID_BLOCKED`）与呈报前源集物理集合差值核销（`LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED`），任何豁免必须绑定原子级理由（`PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED`）；
   - 当多条目清单（如 `1, 2, 3, 4`）中用户仅补充或解释局部条目（如 `2` 号）时，禁止只处理 `2` 号，必须追问缺失处置并主动反问剩余 `pending_ruling` 条目（`1, 3, 4`），直到 100% 获裁定。
 - **智能体防蔓延与角色固定复用锁（Axiom 77 · `ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM`）**：
   - 未经人类明确授权禁止并发拉起多 Subagent 或 Swarm，也禁止私自 `kill` / `kill_all` 终止任何活跃或空闲智能体；优先按职责固定并持续复用已有智能体。

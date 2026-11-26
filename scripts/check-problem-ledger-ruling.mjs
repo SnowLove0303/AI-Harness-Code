@@ -7,10 +7,15 @@ export const AXIOM_80_REQUIRED_TOKENS = [
   'PROBLEM_LEDGER_INCREMENTAL_MERGE_MANDATE',
   'PARTIAL_REPLY_COUNTER_QUESTIONING_GATE',
   'EXPLANATION_TO_DISPOSITION_CONFIRMATION_MANDATE',
+  'ATOMIC_ONE_DEFECT_ONE_ID_MANDATE',
+  'APPEND_ONLY_SET_DIFFERENCE_RECONCILIATION_GATE',
   'AXIOM_80_PARITY_&_PROBLEM_RULING_STANDARD',
   'PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED',
   'UNRULING_LEDGER_ITEMS_PENDING_BLOCKED',
   'DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED',
+  'BUNDLED_ISSUE_ID_BLOCKED',
+  'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED',
+  'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
 ];
 
 const FINAL_RULING_STATUSES = new Set(['approved_fix', 'deferred', 'waived', 'resolved']);
@@ -49,10 +54,10 @@ export function mergeProblemLedgerDelta(prevLedger = [], deltaItems = []) {
 }
 
 /**
- * Validates that no prior problem-ledger items were dropped, any explained item has an explicit
- * disposition, and no items remain pending_ruling before execution/closure.
+ * Validates atomic one-defect-one-id decomposition, append-only set-difference conservation
+ * against sourceAtomicIds, per-atomic waiver rationale, and counter-questioning on unruled items.
  */
-export function validateProblemLedgerRuling(ledger, prevLedger = null) {
+export function validateProblemLedgerRuling(ledger, prevLedger = null, options = {}) {
   const violations = [];
   const items = Array.isArray(ledger) ? ledger : [];
   const currentIds = new Set(items.map((item) => String(item.id)));
@@ -70,17 +75,60 @@ export function validateProblemLedgerRuling(ledger, prevLedger = null) {
     }
   }
 
+  let missingFromSourceIds = [];
+  if (Array.isArray(options.sourceAtomicIds)) {
+    missingFromSourceIds = options.sourceAtomicIds
+      .map((id) => String(id))
+      .filter((id) => !currentIds.has(id));
+    if (missingFromSourceIds.length > 0) {
+      violations.push({
+        code: 'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED',
+        missingFromSourceIds,
+        message: `Set-difference reconciliation failed: source atomic ID(s) ${missingFromSourceIds.join(', ')} missing from current ledger.`,
+      });
+    }
+  }
+
+  const bundledIds = [];
+  const unjustifiedWaiverIds = [];
   const clarificationIds = [];
   const pendingIds = [];
+
   for (const item of items) {
     const id = String(item.id);
     const status = String(item.status || 'pending_ruling');
+
+    if (item.isBundled === true || (Array.isArray(item.subIssues) && item.subIssues.length > 1)) {
+      bundledIds.push(id);
+    }
+
+    if (status === 'waived' && !String(item.waiverRationale || '').trim()) {
+      unjustifiedWaiverIds.push(id);
+    }
+
     if (item.explanationProvided === true && !String(item.disposition || '').trim() && !FINAL_RULING_STATUSES.has(status)) {
       clarificationIds.push(id);
     }
+
     if (!FINAL_RULING_STATUSES.has(status)) {
       pendingIds.push(id);
     }
+  }
+
+  if (bundledIds.length > 0) {
+    violations.push({
+      code: 'BUNDLED_ISSUE_ID_BLOCKED',
+      bundledIds,
+      message: `Bundled multi-defect entry detected for ID(s): ${bundledIds.join(', ')}. Split into independent atomic IDs (One-Defect-One-ID).`,
+    });
+  }
+
+  if (unjustifiedWaiverIds.length > 0) {
+    violations.push({
+      code: 'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
+      unjustifiedWaiverIds,
+      message: `Waived atomic ID(s) ${unjustifiedWaiverIds.join(', ')} require explicit per-item waiverRationale.`,
+    });
   }
 
   if (clarificationIds.length > 0) {
@@ -102,6 +150,9 @@ export function validateProblemLedgerRuling(ledger, prevLedger = null) {
   return {
     valid: violations.length === 0,
     pendingIds,
+    missingFromSourceIds,
+    bundledIds,
+    unjustifiedWaiverIds,
     violations,
   };
 }
@@ -139,6 +190,9 @@ function runCli() {
       'PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED',
       'UNRULING_LEDGER_ITEMS_PENDING_BLOCKED',
       'DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED',
+      'BUNDLED_ISSUE_ID_BLOCKED',
+      'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED',
+      'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
     ]) {
       if (!workerContent.includes(token)) {
         violations.push(`worker.md missing Axiom 80 token: ${token}`);
@@ -154,7 +208,7 @@ function runCli() {
     process.exit(1);
   }
 
-  console.log('[PASS] Axiom 80 parity & problem-ledger ruling gate verified across 3 mirrors + worker.md (Exit Code 0).');
+  console.log('[PASS] Axiom 80 parity, atomic decomposition & set-difference reconciliation verified across 3 mirrors + worker.md (Exit Code 0).');
   process.exit(0);
 }
 

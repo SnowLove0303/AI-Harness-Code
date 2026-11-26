@@ -66,14 +66,57 @@ test('validateProblemLedgerRuling blocks explained item lacking explicit disposi
   assert.ok(res.violations.some((v) => v.code === 'DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED'));
 });
 
-test('validateProblemLedgerRuling passes when 100% of items have explicit final rulings', () => {
+test('validateProblemLedgerRuling blocks bundled multi-defect IDs (One-Defect-One-ID)', () => {
+  const bundledLedger = [
+    {
+      id: 'ISSUE-04',
+      status: 'waived',
+      waiverRationale: 'Topology rule',
+      subIssues: ['sub-a: topology subheader', 'sub-b: missing colon'],
+    },
+  ];
+  const res = validateProblemLedgerRuling(bundledLedger);
+  assert.equal(res.valid, false);
+  assert.ok(res.violations.some((v) => v.code === 'BUNDLED_ISSUE_ID_BLOCKED'));
+});
+
+test('validateProblemLedgerRuling blocks non-zero set difference when multi-turn rewrite drops source atomic ID', () => {
+  const sourceAtomicIds = ['ISSUE-01', 'ISSUE-02', 'ISSUE-03', 'ISSUE-04a', 'ISSUE-04b', 'ISSUE-07'];
+  const driftedLedger = [
+    { id: 'ISSUE-01', status: 'approved_fix', disposition: 'fix' },
+    { id: 'ISSUE-02', status: 'approved_fix', disposition: 'fix' },
+    { id: 'ISSUE-03', status: 'approved_fix', disposition: 'fix' },
+    { id: 'ISSUE-04a', status: 'waived', waiverRationale: 'Topology supersedes content' },
+    { id: 'ISSUE-04b', status: 'approved_fix', disposition: 'fix' },
+    // ISSUE-07 silently evaporated after focusing on ISSUE-02
+  ];
+  const res = validateProblemLedgerRuling(driftedLedger, null, { sourceAtomicIds });
+  assert.equal(res.valid, false);
+  assert.deepEqual(res.missingFromSourceIds, ['ISSUE-07']);
+  assert.ok(res.violations.some((v) => v.code === 'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED'));
+});
+
+test('validateProblemLedgerRuling blocks waived atomic item without explicit waiverRationale and preserves unruled sibling', () => {
+  const ledger = [
+    { id: 'ISSUE-04a', status: 'waived', waiverRationale: '' },
+    { id: 'ISSUE-04b', status: 'pending_ruling' },
+  ];
+  const res = validateProblemLedgerRuling(ledger);
+  assert.equal(res.valid, false);
+  assert.ok(res.violations.some((v) => v.code === 'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED'));
+  assert.deepEqual(res.pendingIds, ['ISSUE-04b']);
+});
+
+test('validateProblemLedgerRuling passes when 100% of atomic source items have explicit rulings', () => {
+  const sourceAtomicIds = ['1', '2', '3', '4a', '4b'];
   const ledger = [
     { id: '1', status: 'approved_fix', disposition: 'fix' },
     { id: '2', status: 'approved_fix', disposition: 'fix' },
     { id: '3', status: 'deferred', disposition: 'defer_to_next_sprint' },
-    { id: '4', status: 'waived', disposition: 'accepted_risk' },
+    { id: '4a', status: 'waived', waiverRationale: 'Canonical topology overrides' },
+    { id: '4b', status: 'approved_fix', disposition: 'fix_colon' },
   ];
-  const res = validateProblemLedgerRuling(ledger, ledger);
+  const res = validateProblemLedgerRuling(ledger, ledger, { sourceAtomicIds });
   assert.equal(res.valid, true);
   assert.equal(res.violations.length, 0);
 });

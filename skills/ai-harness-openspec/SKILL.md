@@ -852,6 +852,8 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
       无论问题清单来源于任务/审计产出还是用户直接提供，当用户在确认期间追加说明或新问题时，必须执行增量合并（`mergeProblemLedgerDelta`），完整保留全部既有条目与编号；严禁覆盖替换或静默丢弃既有条目（违者触发 `PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED`）。
     - **解释追问处置与局部回复反问门禁 (`EXPLANATION_TO_DISPOSITION_CONFIRMATION_MANDATE`, `PARTIAL_REPLY_COUNTER_QUESTIONING_GATE`)**：
       若用户仅对问题清单中的部分条目（如 `1, 2, 3, 4` 号中的 `2` 号）作出补充或解释，Agent 严禁将其视为仅解决 `2` 号并忽略其余条目；若解释中未明确具体处理动作，须交互追问明确处置方式（`DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED`），同时必须基于完整清单主动反问所有剩余未裁定条目（如 `1, 3, 4` 号），直至 100% 条目获得用户最终裁定（存在 `pending_ruling` 条目即触发 `UNRULING_LEDGER_ITEMS_PENDING_BLOCKED`）。
+    - **原子拆条禁打包与集合差值核销门禁 (`ATOMIC_ONE_DEFECT_ONE_ID_MANDATE`, `APPEND_ONLY_SET_DIFFERENCE_RECONCILIATION_GATE`)**：
+      问题台账严格遵守“一缺陷一原子 ID”原则，严禁将多子项打包塞入同一编号（违者触发 `BUNDLED_ISSUE_ID_BLOCKED`），防止某一项豁免裁定连带吞掉同编号下的其他缺陷；多轮交互以只增不减账本持久化维护，呈报方案或写入 OpenSpec 前必须校验 `Source_Atomic_Set - (Actionable_Fix_Set ∪ Explicit_Per_Item_Waived_Set) == ∅`（差集非空触发 `LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED`），且每条豁免必须绑定原子级 `waiverRationale`（缺失触发 `PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED`）。
     - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_80_PARITY_&_PROBLEM_RULING_STANDARD`)**：
       系统提供独立的 L2 静态守卫（`scripts/check-problem-ledger-ruling.mjs`，注册为 `npm run guard:problem-ruling`）；公理 80 必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 77 项）三处宪法镜像中以纯通用软件工程语言同构固化。
 
