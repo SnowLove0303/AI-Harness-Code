@@ -30,7 +30,7 @@ Xmind 官方云端 MCP 运行在 `https://app.xmind.com/api/mcp`，采用标准 
 ### 1.2 关键凭证存储位置
 
 为确保跨线程、跨任务持久复用，无需重复向用户发起浏览器扫码授权：
-- **凭据路径**：`C:\Users\Administrator\.gemini\config\credentials\xmind_mcp_token.json`
+- **凭据路径**：`~/.gemini/config/credentials/xmind_mcp_token.json`
 - **数据结构**：
   ```json
   {
@@ -47,25 +47,27 @@ Xmind 官方云端 MCP 运行在 `https://app.xmind.com/api/mcp`，采用标准 
 ## 2. 工具库与执行环境
 
 本技能已全局沉淀可直接执行的 Node.js 客户端驱动：
-**路径**：[`C:\Users\Administrator\.gemini\config\skills\xmind-cloud-mcp\xmind_cloud_client.js`](file:///C:/Users/Administrator/.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js)
+**路径**：`~/.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js`
 
 ### 2.1 命令行直接调用
 
 ```bash
 # 1. 读取云端导图完整大纲 (包含已分配的节点 ID 锚点)
-node "C:\Users\Administrator\.gemini\config\skills\xmind-cloud-mcp\xmind_cloud_client.js" read <fileId>
+node ~/.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js read <fileId>
 
 # 2. 推送并使最新编辑对云端用户即时可见 (极为重要，修改后必须调用)
-node "C:\Users\Administrator\.gemini\config\skills\xmind-cloud-mcp\xmind_cloud_client.js" show <fileId>
+node ~/.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js show <fileId>
 
 # 3. 调用指定工具
-node "C:\Users\Administrator\.gemini\config\skills\xmind-cloud-mcp\xmind_cloud_client.js" <tool_name> <fileId> '<json_arguments>'
+node ~/.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js <tool_name> <fileId> '<json_arguments>'
 ```
 
 ### 2.2 代码内集成调用
 
 ```javascript
-const { callTool } = require('C:\\Users\\Administrator\\.gemini\\config\\skills\\xmind-cloud-mcp\\xmind_cloud_client.js');
+const path = require('path');
+const os = require('os');
+const { callTool } = require(path.join(os.homedir(), '.gemini/config/skills/xmind-cloud-mcp/xmind_cloud_client.js'));
 
 async function updateCloudMap(fileId, newMarkdown) {
   // 1. 提交新大纲
@@ -148,4 +150,4 @@ async function updateCloudMap(fileId, newMarkdown) {
    `https://app.xmind.com/oauth/authorize?client_id=<ID>&redirect_uri=http://localhost:8080/callback&response_type=code&scope=openid%20mcp:connect&code_challenge=<HASH>&code_challenge_method=S256`
    引导用户在浏览器中点击“允许/授权”；
 3. **换取并写入持久化 Token**：
-   用回传的 `code` 调取 `https://app.xmind.com/oauth/token` 接口换取凭证，保存至 `C:\Users\Administrator\.gemini\config\credentials\xmind_mcp_token.json`。
+   用回传的 `code` 调取 `https://app.xmind.com/oauth/token` 接口换取凭证，保存至 `~/.gemini/config/credentials/xmind_mcp_token.json`。

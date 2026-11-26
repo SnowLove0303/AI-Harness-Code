@@ -4,3 +4,10 @@ dist/
 package.json.orig
 .DS_Store
 Thumbs.db
+.env
+.env.*
+*credentials*.json
+*token*.json
+*cookie*
+*.pem
+*.key

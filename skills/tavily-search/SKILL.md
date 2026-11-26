@@ -17,13 +17,13 @@ description: "基于官方 Tavily AI 搜索引擎的 LLM 原生全网高精度�
 ### 1. 终端命令行调用
 ```bash
 # 标准检索（返回语义解答 + 相关网页摘要）
-C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe "C:\Users\Administrator\.gemini\config\skills\tavily-search\tavily_runner.py" search "检索内容"
+python ~/.gemini/config/skills/tavily-search/tavily_runner.py search "检索内容"
 
 # 深度高级检索（抓取更多源与深度分析）
-C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe "C:\Users\Administrator\.gemini\config\skills\tavily-search\tavily_runner.py" search "检索内容" --depth advanced --max-results 5
+python ~/.gemini/config/skills/tavily-search/tavily_runner.py search "检索内容" --depth advanced --max-results 5
 
 # 精准 URL 内容抓取（清洗掉 HTML，保留纯净 Markdown 正文）
-C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe "C:\Users\Administrator\.gemini\config\skills\tavily-search\tavily_runner.py" extract "https://example.com/docs"
+python ~/.gemini/config/skills/tavily-search/tavily_runner.py extract "https://example.com/docs"
 ```
 
 ### 2. 内部原生工具联动
@@ -33,7 +33,7 @@ C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe "C:\Us
 
 ## 二、 凭据与安全保管
 
-- **配置文件**：`C:\Users\Administrator\.gemini\config\credentials\tavily_credentials.json`
+- **配置文件**：`~/.gemini/config/credentials/tavily_credentials.json`
 - **安全铁律**：**严禁将真实的 API Key 写入代码仓库或公开发布文档！** 实际凭证已脱敏并隔离存储在本地配置目录中。
 - **容灾机制**：
   - 本地凭据文件包含 `primary_api_key` 与 `backup_api_key`；
