@@ -92,6 +92,7 @@
 - **Incremental Merge Only**: Merge all user supplements and new findings incrementally into any task-generated or user-provided problem ledger; never replace or drop prior items (`PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED`).
 - **Counter-Question Unruled Items**: When a user explains or supplements only a subset of items, clarify any missing concrete disposition (`DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED`) and counter-question every remaining `pending_ruling` item until 100% of items hold explicit final rulings (`UNRULING_LEDGER_ITEMS_PENDING_BLOCKED`).
 - **Atomic One-Defect-One-ID & Set-Difference Gate**: Keep one atomic defect per ID (`BUNDLED_ISSUE_ID_BLOCKED`), reconcile zero set difference against `sourceAtomicIds` before authoring specs (`LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED`), and attach explicit `waiverRationale` to each waived atomic ID (`PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED`).
+- **Post-Task Ledger Proofread Gate**: Proofread the initial atomic issue list after completing task work (`POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE`); block completion if any initial item is neither `resolved` nor interactively excluded with rationale (`POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED`).
 
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.

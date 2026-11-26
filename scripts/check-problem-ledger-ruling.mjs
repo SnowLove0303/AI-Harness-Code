@@ -16,6 +16,8 @@ export const AXIOM_80_REQUIRED_TOKENS = [
   'BUNDLED_ISSUE_ID_BLOCKED',
   'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED',
   'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
+  'POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE',
+  'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED',
 ];
 
 const FINAL_RULING_STATUSES = new Set(['approved_fix', 'deferred', 'waived', 'resolved']);
@@ -157,6 +159,44 @@ export function validateProblemLedgerRuling(ledger, prevLedger = null, options =
   };
 }
 
+/**
+ * Post-task final proofread gate: verifies that 100% of initial atomic issues are 'resolved',
+ * except those explicitly excluded via interactive user ruling ('waived' or 'deferred' with rationale).
+ */
+export function validatePostTaskLedgerProofread(ledger, options = {}) {
+  const base = validateProblemLedgerRuling(ledger, null, options);
+  const violations = [...base.violations];
+  const items = Array.isArray(ledger) ? ledger : [];
+  const unresolvedIds = [];
+
+  for (const item of items) {
+    const id = String(item.id);
+    const status = String(item.status || 'pending_ruling');
+    const hasInteractiveExclusionRationale =
+      (status === 'waived' || status === 'deferred') &&
+      Boolean(String(item.waiverRationale || item.exclusionRationale || '').trim());
+
+    if (status !== 'resolved' && !hasInteractiveExclusionRationale) {
+      unresolvedIds.push(id);
+    }
+  }
+
+  if (unresolvedIds.length > 0) {
+    violations.push({
+      code: 'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED',
+      unresolvedIds,
+      message: `Post-task proofread failed: initial issue(s) ${unresolvedIds.join(', ')} are neither resolved nor interactively excluded with rationale.`,
+    });
+  }
+
+  return {
+    valid: violations.length === 0,
+    unresolvedIds,
+    missingFromSourceIds: base.missingFromSourceIds,
+    violations,
+  };
+}
+
 function runCli() {
   const repoRoot = process.cwd();
   const mirrorPaths = [
@@ -193,6 +233,8 @@ function runCli() {
       'BUNDLED_ISSUE_ID_BLOCKED',
       'LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED',
       'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
+      'POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE',
+      'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED',
     ]) {
       if (!workerContent.includes(token)) {
         violations.push(`worker.md missing Axiom 80 token: ${token}`);

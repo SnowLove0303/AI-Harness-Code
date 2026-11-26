@@ -144,7 +144,8 @@ flowchart LR
 - **问题清单增量合并、原子拆条与集合差值核销（Axiom 80 · `PROBLEM_LEDGER_INCREMENTAL_MERGE_&_RULING_GATE_AXIOM`）**：
   - 无论是任务产出还是用户提供的问题清单，补充说明一律执行增量合并（`mergeProblemLedgerDelta`），禁止覆盖丢项（`PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED`）；
   - 强制“一缺陷一原子 ID”（禁止复合打包 `BUNDLED_ISSUE_ID_BLOCKED`）与呈报前源集物理集合差值核销（`LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED`），任何豁免必须绑定原子级理由（`PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED`）；
-  - 当多条目清单（如 `1, 2, 3, 4`）中用户仅补充或解释局部条目（如 `2` 号）时，禁止只处理 `2` 号，必须追问缺失处置并主动反问剩余 `pending_ruling` 条目（`1, 3, 4`），直到 100% 获裁定。
+  - 当多条目清单（如 `1, 2, 3, 4`）中用户仅补充或解释局部条目（如 `2` 号）时，禁止只处理 `2` 号，必须追问缺失处置并主动反问剩余 `pending_ruling` 条目（`1, 3, 4`），直到 100% 获裁定；
+  - 任务处理完成后强制执行初始问题清单终局校对（`POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE`），确保全部初始问题已完全解决（`resolved`），仅经过交互排除（`waived` / `deferred` 且带显式依据）的条目除外（`POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED`）。
 - **智能体防蔓延与角色固定复用锁（Axiom 77 · `ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM`）**：
   - 未经人类明确授权禁止并发拉起多 Subagent 或 Swarm，也禁止私自 `kill` / `kill_all` 终止任何活跃或空闲智能体；优先按职责固定并持续复用已有智能体。
 - **盲审隔离与真实产物见证（Axiom 74）**、**UI 极简精纯与像素级对齐（Axiom 73）**、**累计需求台账与 Re-Gating 协议（Axiom 71）**、**项目架构依赖图与爆炸半径锁定（Axiom 70）**、**全仓通用可移植性与凭证隔离（Axiom 67）**。

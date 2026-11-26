@@ -5,6 +5,7 @@ import { test } from 'node:test';
 import {
   AXIOM_80_REQUIRED_TOKENS,
   mergeProblemLedgerDelta,
+  validatePostTaskLedgerProofread,
   validateProblemLedgerRuling,
 } from '../scripts/check-problem-ledger-ruling.mjs';
 
@@ -128,4 +129,31 @@ test('Axiom 80 parity across GEMINI.md, pstack-openspec, ai-harness-openspec, an
       assert.ok(content.includes(token), `${relPath} missing Axiom 80 token: ${token}`);
     }
   }
+});
+
+test('validatePostTaskLedgerProofread blocks completion when non-excluded initial issue is not resolved', () => {
+  const sourceAtomicIds = ['1', '2', '3', '4'];
+  const ledger = [
+    { id: '1', status: 'resolved' },
+    { id: '2', status: 'resolved' },
+    { id: '3', status: 'approved_fix', disposition: 'fix' },
+    { id: '4', status: 'waived', waiverRationale: 'Interactively excluded by user' },
+  ];
+  const res = validatePostTaskLedgerProofread(ledger, { sourceAtomicIds });
+  assert.equal(res.valid, false);
+  assert.deepEqual(res.unresolvedIds, ['3']);
+  assert.ok(res.violations.some((v) => v.code === 'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED'));
+});
+
+test('validatePostTaskLedgerProofread passes when all initial issues are resolved or interactively excluded', () => {
+  const sourceAtomicIds = ['1', '2', '3', '4'];
+  const ledger = [
+    { id: '1', status: 'resolved' },
+    { id: '2', status: 'resolved' },
+    { id: '3', status: 'deferred', exclusionRationale: 'User deferred to next release' },
+    { id: '4', status: 'waived', waiverRationale: 'Interactively excluded by user' },
+  ];
+  const res = validatePostTaskLedgerProofread(ledger, { sourceAtomicIds });
+  assert.equal(res.valid, true);
+  assert.equal(res.violations.length, 0);
 });
