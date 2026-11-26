@@ -882,6 +882,21 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
     - **自动化 L2 反硬编码守卫与三镜像同构标准 (`AUTOMATED_L2_ANTI_HARDCODING_GUARD_STANDARD`, `AXIOM_78_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       系统提供独立的 L2 静态策略守卫（`scripts/check-anti-hardcoding.mjs`，注册为 `npm run guard:anti-hardcoding`）；公理 78 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 75 项）三处宪法镜像中以纯通用软件工程语言同构固化，违者系统静态检查一票否决。
 
+79. **系统性问题处理头脑风暴与结构化防复发铁律 (`SYSTEMIC_PROBLEM_BRAINSTORM_&_STRUCTURAL_PREVENTION_AXIOM`)**：
+    - **前置五维问题处理头脑风暴门禁 (`PRE_REMEDIATION_FIVE_DIM_BRAINSTORM_GATE`)**：
+      当系统或研发流程中出现任何已发生的问题、缺陷、审计异常或用户纠错时，Agent 禁止跳过系统思考直接提出单点补丁（违者触发 `BRAINSTORM_LAYER_SKIPPED_BLOCKED`），必须先由 Agent 主动完成五维头脑风暴推演：
+      1. *现象 → 系统症结穿透与控制面边界审计*：追问系统为何允许该故障发生——特别审查是否将需要智能体语义判断、内容保真或质量校对的环节交给了纯机械脚本端到端无人值守直出（缺失中间态智能体认知把关门禁则触发 `UNATTENDED_MECHANICAL_SEMANTIC_PIPELINE_BLOCKED`）；
+      2. *通用工程准则对齐*：定位该问题触犯了哪项通用软件工程原则或架构不变量（如确定性执行与认知判断分离、状态合法性源头治理、单一事实源）；
+      3. *同类与衍生发散*：举一反三排查全仓或全流程中存在同构隐患的兄弟环节；
+      4. *L1–L4 多防线系统改造对比*：生成多个系统代码/流程/守卫改造方案并比较其防复发层级；
+      5. *收敛与前提质疑*：选定最高有效防线方案；若同一前提下修复连续失败 $\ge 2$ 次，立即触发前提推翻机制（`CONSECUTIVE_FAILURE_PREMISE_ATTACK_TRIGGER`）。
+    - **poteto `/correct` 四级最高防线升级路由 (`POTETO_CORRECT_FOUR_TIER_ESCALATION_ROUTE`)**：
+      所有问题类改造必须按防复发效力从高到低依次评估：**L1 架构/工作流消除**（单一状态所有者、强制认知门禁、删除坏示例） > **L2 类型与静态守卫/CI 阻断**（报错信息直接指明正确用法） > **L3 行为回归测试** > **L4 规则文档**（仅用于无法机械化的判断性规范，且必须维护规则与执行器的对照映射）。选择低于 L1 的层级时，必须显式说明为何更高层级不可行（`LOWER_TIER_DOWNGRADE_UNJUSTIFIED_BLOCKED`）。
+    - **结构化固化与历史错题反证原则 (`ENCODE_LESSONS_IN_STRUCTURE_MANDATE`, `HISTORICAL_FAILURE_COUNTEREXAMPLE_PROOF_MANDATE`)**：
+      同一纠错出现第二遍时，禁止继续堆叠自然语言文本，必须下沉编码为结构、类型、Lint 或脚本检查；任何新增防复发检查都必须用真实已发生的历史故障样本证明其能红灯拦截（未反证触发 `HISTORICAL_COUNTEREXAMPLE_UNPROVEN_BLOCKED`）。
+    - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_79_PARITY_&_BRAINSTORM_ENFORCEMENT_STANDARD`)**：
+      系统提供独立的 L2 静态守卫（`scripts/check-problem-brainstorm.mjs`，注册为 `npm run guard:problem-brainstorm`）；公理 79 必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 76 项）三处宪法镜像中以纯通用软件工程语言同构固化。
+
 ### 4.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

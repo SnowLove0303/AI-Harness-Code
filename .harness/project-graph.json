@@ -113,7 +113,8 @@
         "scripts/check-blind-audit.mjs",
         "scripts/check-drawio-model.mjs",
         "scripts/check-agent-lifecycle.mjs",
-        "scripts/check-anti-hardcoding.mjs"
+        "scripts/check-anti-hardcoding.mjs",
+        "scripts/check-problem-brainstorm.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -131,7 +132,8 @@
         "scripts/check-blind-audit.mjs",
         "scripts/check-drawio-model.mjs",
         "scripts/check-agent-lifecycle.mjs",
-        "scripts/check-anti-hardcoding.mjs"
+        "scripts/check-anti-hardcoding.mjs",
+        "scripts/check-problem-brainstorm.mjs"
       ],
       "maintenanceItems": [
         {

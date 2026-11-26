@@ -83,6 +83,11 @@
 - **Anti-Special-Casing**: Never introduce instance-specific literal branches, hardcoded IDs, or single-input workarounds (`SPECIAL_CASE_OVERFITTING_BLOCKED`). Consolidate repeated conditional chains into table-driven or parameterized mappings (`TABLE_DRIVEN_REFACTOR_REQUIRED`).
 - **Orthogonal Variant Quota**: Verify every problem-class fix with at least two orthogonal property-based or boundary test variants (`VARIANT_QUOTA_DEFICIT_BLOCKED`).
 
+### 1o. Systemic Problem-Handling Brainstorm & Structural Prevention (`SYSTEMIC_PROBLEM_BRAINSTORM_&_STRUCTURAL_PREVENTION_AXIOM`)
+- **Pre-Remediation 5-Dim Brainstorm Gate**: Before designing any fix, complete all five brainstorm dimensions (`PRE_REMEDIATION_FIVE_DIM_BRAINSTORM_GATE`): root cause and control-plane boundary check, universal principle alignment, analogous blast radius, L1-L4 options comparison, and premise check.
+- **No Unattended Semantic Pipelines**: Never leave semantic or judgment-sensitive stages to unattended deterministic scripts (`UNATTENDED_MECHANICAL_SEMANTIC_PIPELINE_BLOCKED`). Enforce an explicit Agent Cognitive Gate before downstream persistence.
+- **4-Tier Structural Escalation**: Prefer L1 Architecture over L2 Types/Lint, L3 Behavioral Tests, and L4 Docs. Justify any choice below L1 (`LOWER_TIER_DOWNGRADE_UNJUSTIFIED_BLOCKED`), encode repeated lessons in structure, and prove new checks fail on historical failures (`HISTORICAL_COUNTEREXAMPLE_UNPROVEN_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).
