@@ -19,11 +19,30 @@
 | **[`docs/pstack-openspec-route-map.json`](docs/pstack-openspec-route-map.json)** | 23 路映射：上游来源、OpenSpec task source、PStack skill resolver、Codex 能力和验证证据 |
 | **`scripts/install-to-harness.ps1`** | Windows PowerShell 一键极速部署器，支持将体系秒级注入任意目标项目 |
 | **`scripts/install-to-harness.sh`** | Linux / macOS / Bash 一键极速部署器 |
-| **[`skills/pstack-openspec/SKILL.md`](skills/pstack-openspec/SKILL.md)** | PStack/OpenSpec 兼容入口，只连接执行流程和两项缺口扩展 |
-| `skills/tavily-search/` | 官方 Tavily AI 检索与防撞墙技能（主备双 Key 容灾规范） |
-| `skills/xmind-cloud-mcp/` | 官方 Xmind 云端 MCP 深度协同指南与持久化客户端脚本 |
+| **[`skills/pstack-openspec/SKILL.md`](skills/pstack-openspec/SKILL.md)** | PStack/OpenSpec 主控入口与核心公理镜像 |
+| **[`skills/ai-harness-openspec/SKILL.md`](skills/ai-harness-openspec/SKILL.md)** | AI-Harness 与 OpenSpec 闭环执行镜像 |
+| **`skills/` (10 项受管技能)** | 涵盖 `spec-driven-workflow`、`desktop-exe-development`、`ui-ux-design-engineering`、`drawio-mcp`、`rea-reverse-engineering`、`app-reverse-deconstruction`、`tavily-search`、`xmind-cloud-mcp` |
+| **`scripts/sync-to-global.mjs`** | 一键将宪法、路由表、10 大技能与全部 L2 守卫脚本同步至全局目录 |
+| **`scripts/check-*.mjs` (15 项 L2 守卫)** | 自动化静态门禁矩阵（见下文校验命令表） |
 | `packages/ai-harness/` | npm 包 `@hujiale2609/ai-harness`（补丁层维护形态） |
-| `openspec/` | 本仓库的 OpenSpec 规格根 |
+| `openspec/` | 本仓库的 OpenSpec 规格与归档根（活跃分支：`release/ps-openspec-v2.00`） |
+
+---
+
+## 全局应用与 L2 静态守卫矩阵
+
+### 一键全局同步
+```powershell
+node scripts/sync-to-global.mjs
+```
+自动同步 `GEMINI.md`、`worker.md`、`docs/pstack-openspec-route-map.json`、全部 10 个 `skills/*` 目录及全部 `scripts/check-*.mjs` L2 静态守卫至用户全局配置。
+
+### 15 项自动化 L2 静态守卫 (`npm run guard:*`)
+- `guard:neutrality` / `guard:unslop` / `guard:portability`：随包文档中立性、文本纯净度与通用可移植性校验
+- `guard:graph` / `guard:ledger-continuity` / `guard:pstack-sync`：架构依赖图、需求台账连续性与上游 PStack 镜像一致性校验
+- `guard:issue-clearance` / `guard:workflow-spec` / `guard:invocation-purity` / `guard:blind-audit`：问题清零、规格合规、调用纯洁度与盲审实证链校验
+- `guard:ui-slop` / `guard:drawio-model`：UI 精简与 WCAG 守卫、Draw.io 泳道拓扑 Diagram-as-Test 守卫
+- `guard:agent-lifecycle` / `guard:anti-hardcoding` / `guard:problem-brainstorm`：智能体生命周期复用锁（Axiom 77）、反特指硬编码（Axiom 78）、五维问题头脑风暴与四级防线升级（Axiom 79）
 
 ---
 

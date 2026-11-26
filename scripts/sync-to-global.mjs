@@ -92,53 +92,25 @@ export function syncAllToGlobal() {
   updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini'));
   updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-pstack-openspec'));
 
-  // 3. Sync skills/pstack-openspec
-  const pstackSkillSrc = join(repoRoot, 'skills', 'pstack-openspec');
-  const pstackSkillDest = join(globalGeminiRoot, 'config', 'skills', 'pstack-openspec');
-  if (existsSync(pstackSkillSrc)) {
-    updatedCount += syncDirectory(pstackSkillSrc, pstackSkillDest);
-  }
-
-  // 4. Sync skills/ai-harness-openspec
-  const harnessSkillSrc = join(repoRoot, 'skills', 'ai-harness-openspec');
-  const harnessSkillDest = join(globalGeminiRoot, 'config', 'skills', 'ai-harness-openspec');
-  if (existsSync(harnessSkillSrc)) {
-    updatedCount += syncDirectory(harnessSkillSrc, harnessSkillDest);
-  }
-
-  // 4b. Sync skills/desktop-exe-development
-  const desktopExeSkillSrc = join(repoRoot, 'skills', 'desktop-exe-development');
-  const desktopExeSkillDest = join(globalGeminiRoot, 'config', 'skills', 'desktop-exe-development');
-  if (existsSync(desktopExeSkillSrc)) {
-    updatedCount += syncDirectory(desktopExeSkillSrc, desktopExeSkillDest);
-  }
-
-  // 4c. Sync skills/ui-ux-design-engineering
-  const uiUxSkillSrc = join(repoRoot, 'skills', 'ui-ux-design-engineering');
-  const uiUxSkillDest = join(globalGeminiRoot, 'config', 'skills', 'ui-ux-design-engineering');
-  if (existsSync(uiUxSkillSrc)) {
-    updatedCount += syncDirectory(uiUxSkillSrc, uiUxSkillDest);
-  }
-
-  // 4d. Sync skills/drawio-mcp
-  const drawioSkillSrc = join(repoRoot, 'skills', 'drawio-mcp');
-  const drawioSkillDest = join(globalGeminiRoot, 'config', 'skills', 'drawio-mcp');
-  if (existsSync(drawioSkillSrc)) {
-    updatedCount += syncDirectory(drawioSkillSrc, drawioSkillDest);
-  }
-
-  // 4d. Sync skills/rea-reverse-engineering
-  const reaSkillSrc = join(repoRoot, 'skills', 'rea-reverse-engineering');
-  const reaSkillDest = join(globalGeminiRoot, 'config', 'skills', 'rea-reverse-engineering');
-  if (existsSync(reaSkillSrc)) {
-    updatedCount += syncDirectory(reaSkillSrc, reaSkillDest);
-  }
-
-  // 4e. Sync skills/app-reverse-deconstruction
-  const appReverseSkillSrc = join(repoRoot, 'skills', 'app-reverse-deconstruction');
-  const appReverseSkillDest = join(globalGeminiRoot, 'config', 'skills', 'app-reverse-deconstruction');
-  if (existsSync(appReverseSkillSrc)) {
-    updatedCount += syncDirectory(appReverseSkillSrc, appReverseSkillDest);
+  // 3. Sync all managed repository skills (table-driven)
+  const SKILLS_TO_SYNC = [
+    'pstack-openspec',
+    'ai-harness-openspec',
+    'spec-driven-workflow',
+    'desktop-exe-development',
+    'ui-ux-design-engineering',
+    'drawio-mcp',
+    'rea-reverse-engineering',
+    'app-reverse-deconstruction',
+    'tavily-search',
+    'xmind-cloud-mcp',
+  ];
+  for (const skillName of SKILLS_TO_SYNC) {
+    const skillSrc = join(repoRoot, 'skills', skillName);
+    const skillDest = join(globalGeminiRoot, 'config', 'skills', skillName);
+    if (existsSync(skillSrc)) {
+      updatedCount += syncDirectory(skillSrc, skillDest);
+    }
   }
 
   // 5. Sync route registry
@@ -146,16 +118,26 @@ export function syncAllToGlobal() {
   const routeMapDest = join(globalGeminiRoot, 'pstack-openspec-route-map.json');
   if (syncFile(routeMapSrc, routeMapDest)) updatedCount++;
 
-  // 6. Sync helper scripts
+  // 6. Sync helper & L2 guard scripts
   const scriptsToSync = [
     'pstack-handoff.mjs',
     'audit-protected-invariants.mjs',
     'audit-pstack-openspec-routing.ps1',
+    'check-packaged-docs-neutrality.mjs',
     'check-unslop-purity.mjs',
     'check-issue-clearance.mjs',
     'check-workflow-spec-compliance.mjs',
     'check-invocation-purity.mjs',
-    'check-universal-portability.mjs'
+    'check-universal-portability.mjs',
+    'check-project-graph.mjs',
+    'check-ledger-continuity.mjs',
+    'check-pstack-sync.mjs',
+    'check-ui-slop.mjs',
+    'check-blind-audit.mjs',
+    'check-drawio-model.mjs',
+    'check-agent-lifecycle.mjs',
+    'check-anti-hardcoding.mjs',
+    'check-problem-brainstorm.mjs',
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);
