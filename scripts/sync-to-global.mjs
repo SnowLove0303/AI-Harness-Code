@@ -138,6 +138,8 @@ export function syncAllToGlobal() {
     'check-agent-lifecycle.mjs',
     'check-anti-hardcoding.mjs',
     'check-problem-brainstorm.mjs',
+    'check-secret-privacy.mjs',
+    'check-problem-ledger-ruling.mjs',
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);

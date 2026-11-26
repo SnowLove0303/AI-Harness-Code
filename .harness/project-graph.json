@@ -115,7 +115,8 @@
         "scripts/check-agent-lifecycle.mjs",
         "scripts/check-anti-hardcoding.mjs",
         "scripts/check-problem-brainstorm.mjs",
-        "scripts/check-secret-privacy.mjs"
+        "scripts/check-secret-privacy.mjs",
+        "scripts/check-problem-ledger-ruling.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -135,7 +136,8 @@
         "scripts/check-agent-lifecycle.mjs",
         "scripts/check-anti-hardcoding.mjs",
         "scripts/check-problem-brainstorm.mjs",
-        "scripts/check-secret-privacy.mjs"
+        "scripts/check-secret-privacy.mjs",
+        "scripts/check-problem-ledger-ruling.mjs"
       ],
       "maintenanceItems": [
         {

@@ -28,7 +28,8 @@
     "guard:agent-lifecycle": "node scripts/check-agent-lifecycle.mjs",
     "guard:anti-hardcoding": "node scripts/check-anti-hardcoding.mjs",
     "guard:problem-brainstorm": "node scripts/check-problem-brainstorm.mjs",
-    "guard:privacy": "node scripts/check-secret-privacy.mjs"
+    "guard:privacy": "node scripts/check-secret-privacy.mjs",
+    "guard:problem-ruling": "node scripts/check-problem-ledger-ruling.mjs"
   },
   "packageManager": "pnpm@11.7.0"
 }

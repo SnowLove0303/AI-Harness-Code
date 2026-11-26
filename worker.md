@@ -88,6 +88,10 @@
 - **No Unattended Semantic Pipelines**: Never leave semantic or judgment-sensitive stages to unattended deterministic scripts (`UNATTENDED_MECHANICAL_SEMANTIC_PIPELINE_BLOCKED`). Enforce an explicit Agent Cognitive Gate before downstream persistence.
 - **4-Tier Structural Escalation**: Prefer L1 Architecture over L2 Types/Lint, L3 Behavioral Tests, and L4 Docs. Justify any choice below L1 (`LOWER_TIER_DOWNGRADE_UNJUSTIFIED_BLOCKED`), encode repeated lessons in structure, and prove new checks fail on historical failures (`HISTORICAL_COUNTEREXAMPLE_UNPROVEN_BLOCKED`).
 
+### 1p. Problem Ledger Incremental Merge & Per-Item Ruling Gate (`PROBLEM_LEDGER_INCREMENTAL_MERGE_&_RULING_GATE_AXIOM`)
+- **Incremental Merge Only**: Merge all user supplements and new findings incrementally into any task-generated or user-provided problem ledger; never replace or drop prior items (`PROBLEM_LEDGER_REPLACEMENT_DROP_BLOCKED`).
+- **Counter-Question Unruled Items**: When a user explains or supplements only a subset of items, clarify any missing concrete disposition (`DISPOSITION_CLARIFICATION_REQUIRED_BLOCKED`) and counter-question every remaining `pending_ruling` item until 100% of items hold explicit final rulings (`UNRULING_LEDGER_ITEMS_PENDING_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).
