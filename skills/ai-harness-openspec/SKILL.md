@@ -867,6 +867,18 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
     - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_81_PARITY_&_DISCLOSURE_STANDARD`)**：
       公理 81 由 `scripts/check-problem-ledger-ruling.mjs`（`validatePostTaskIssueDisclosure`）提供 L2 自动化校验，并在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 78 项）三处宪法镜像中以纯通用软件工程语言同构固化。
 
+79. **全线程禁止擅自开设新智能体、同职能优先复用与 poteto 角色派单铁律 (`STRICT_HUMAN_SPAWN_APPROVAL_PRIORITY_REUSE_&_ROLE_DISPATCH_AXIOM`)**：
+    - **全线程零擅自开设与单独请示门禁 (`ZERO_UNAPPROVED_SPAWN_IN_ANY_THREAD`)**：
+      在任何会话线程中，**未经用户明确许可，严禁私自开设任何新的 Swarm 成员或 Subagent（哪怕仅 1 个）**（违者触发 `UNAUTHORIZED_SPAWN_WITHOUT_USER_APPROVAL_BLOCKED`）。确需新开时，必须向用户单独发起结构化请示（列明无法复用现有智能体的原因、拟设职能标签与详情、拟分配任务），获准后方可拉起。
+    - **同职能优先复用原则 (`PRIORITY_REUSE_BEFORE_SPAWN_REQUEST`)**：
+      协调者在发起任何新开请示前，必须先盘点当前活跃或空闲智能体台账；若已有匹配职能的智能体存在，必须优先通过 `send_message` 复用并禁止重复开设（`DUPLICATE_ROLE_INSTANCE_BLOCKED`）。
+    - **强制职能标签/详情与按职能派单 (`MANDATORY_ROLE_TAG_DETAIL_&_MATCHED_DISPATCH`)**：
+      所有 Agent（含 Subagent 与 Swarm 成员）创建与在册时必须显式赋予 `roleTag`（职能标签）与 `roleDetail`（职能详情、读写边界与职责范围），缺失即阻断（`MISSING_AGENT_ROLE_METADATA_BLOCKED`）；任务派发必须严格匹配其锁定职能，禁止跨职能错配硬塞（`ROLE_TASK_MISMATCH_BLOCKED`）。
+    - **poteto 多 Agent 架构对齐 (`POTETO_MULTI_AGENT_ROLE_ARCHITECTURE_ALIGNMENT`)**：
+      深度吸收上游 `orchestrate.md` 与 `poteto-agent.md` 原则：主协调者统筹台账与剧本、执行者严守路径与职能边界、跟进复用而非轮询唤醒、作者与验证者职能物理分离。
+    - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_82_PARITY_&_LIFECYCLE_GUARD_STANDARD`)**：
+      公理 82 由 `scripts/check-agent-lifecycle.mjs`（`npm run guard:agent-lifecycle`）提供 L2 自动化校验，并在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 79 项）三处宪法镜像中以纯通用软件工程语言同构固化。
+
 ---
 
 ## 📚 附录与配套参考

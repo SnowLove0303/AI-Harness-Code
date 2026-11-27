@@ -2695,4 +2695,6 @@ test('gemini adapter enforces anti-sprawl, role-pinned persistent reuse, and ter
   assert.match(pstackRules, /AXIOM_80_PARITY_&_PROBLEM_RULING_STANDARD/, 'pstack-openspec must enforce Axiom 80 parity standard');
   assert.match(pstackRules, /POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM/, 'pstack-openspec must enforce Axiom 81 post-task issue disclosure');
   assert.match(pstackRules, /AXIOM_81_PARITY_&_DISCLOSURE_STANDARD/, 'pstack-openspec must enforce Axiom 81 parity standard');
+  assert.match(pstackRules, /STRICT_HUMAN_SPAWN_APPROVAL_PRIORITY_REUSE_&_ROLE_DISPATCH_AXIOM/, 'pstack-openspec must enforce Axiom 82 strict spawn approval and role dispatch');
+  assert.match(pstackRules, /AXIOM_82_PARITY_&_LIFECYCLE_GUARD_STANDARD/, 'pstack-openspec must enforce Axiom 82 parity standard');
 });

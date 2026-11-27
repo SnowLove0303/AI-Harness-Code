@@ -98,6 +98,11 @@
 - **Mandatory Incident Disclosure**: Report every error, blocker, or execution friction encountered during any task at completion, even if resolved mid-task (`SILENT_INCIDENT_SUPPRESSION_BLOCKED`).
 - **Invite User Judgment**: Explicitly ask the user to judge the disclosed incidents and in-task handling at delivery (`USER_JUDGMENT_INVITATION_MISSING_BLOCKED`).
 
+### 1r. Strict Human Spawn Approval, Priority Role Reuse & Poteto Role Dispatch (`STRICT_HUMAN_SPAWN_APPROVAL_PRIORITY_REUSE_&_ROLE_DISPATCH_AXIOM`)
+- **Zero Unapproved Spawn**: Never spawn any new Swarm member or Subagent in any thread without explicit user approval (`UNAUTHORIZED_SPAWN_WITHOUT_USER_APPROVAL_BLOCKED`).
+- **Priority Role Reuse**: Check active/idle agent roster and reuse matching roles via `send_message` before requesting a new spawn (`DUPLICATE_ROLE_INSTANCE_BLOCKED`).
+- **Mandatory Role Metadata & Matched Dispatch**: Every Agent/Subagent must hold explicit `roleTag` + `roleDetail` (`MISSING_AGENT_ROLE_METADATA_BLOCKED`) and only execute tasks matching its pinned role (`ROLE_TASK_MISMATCH_BLOCKED`), following poteto's coordinator-worker separation and verifier independence.
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

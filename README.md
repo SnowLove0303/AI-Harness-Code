@@ -148,6 +148,8 @@ flowchart LR
   - 任务处理完成后强制执行初始问题清单终局校对（`POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE`），确保全部初始问题已完全解决（`resolved`），仅经过交互排除（`waived` / `deferred` 且带显式依据）的条目除外（`POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED`）。
 - **全任务遇错必报与请用户判断（Axiom 81 · `POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM`）**：
   - 任意任务在执行期间遇到任何问题或异常，即使在过程中已解决，任务结束后也必须主动汇报过程问题并显式请用户判断（`SILENT_INCIDENT_SUPPRESSION_BLOCKED`、`USER_JUDGMENT_INVITATION_MISSING_BLOCKED`）。
+- **全线程禁止擅自开设智能体与 poteto 角色派单（Axiom 82 · `STRICT_HUMAN_SPAWN_APPROVAL_PRIORITY_REUSE_&_ROLE_DISPATCH_AXIOM`）**：
+  - 任何线程未经用户单独请示并获准，严禁开设新 Swarm 或 Subagent；优先复用同职能既有智能体，所有 Agent 必须绑定 `roleTag` + `roleDetail` 并严格按职能派单（`UNAUTHORIZED_SPAWN_WITHOUT_USER_APPROVAL_BLOCKED`、`ROLE_TASK_MISMATCH_BLOCKED`）。
 - **智能体防蔓延与角色固定复用锁（Axiom 77 · `ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM`）**：
   - 未经人类明确授权禁止并发拉起多 Subagent 或 Swarm，也禁止私自 `kill` / `kill_all` 终止任何活跃或空闲智能体；优先按职责固定并持续复用已有智能体。
 - **盲审隔离与真实产物见证（Axiom 74）**、**UI 极简精纯与像素级对齐（Axiom 73）**、**累计需求台账与 Re-Gating 协议（Axiom 71）**、**项目架构依赖图与爆炸半径锁定（Axiom 70）**、**全仓通用可移植性与凭证隔离（Axiom 67）**。
