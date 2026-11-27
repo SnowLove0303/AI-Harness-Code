@@ -1067,6 +1067,14 @@
     - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_80_PARITY_&_PROBLEM_RULING_STANDARD`)**：
       系统提供独立的 L2 静态守卫（`scripts/check-problem-ledger-ruling.mjs`，注册为 `npm run guard:problem-ruling`）；公理 80 必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 77 项）三处宪法镜像中以纯通用软件工程语言同构固化。
 
+81. **全任务遇错必报与任务后请用户判断铁律 (`POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM`)**：
+    - **全任务过程问题强制披露原则 (`UNIVERSAL_TASK_INCIDENT_DISCLOSURE_MANDATE`)**：
+      所有任务在执行期间只要遇到任何问题、报错、阻塞、异常或摩擦，**即使该问题已在执行过程中被解决或绕过**，Agent 也严禁静默吞没（违者触发 `SILENT_INCIDENT_SUPPRESSION_BLOCKED`）；任务结束交付时必须主动单列汇报（含现象与阶段、根因研判、过程处置方式及系统防复发影响）。
+    - **显式提请用户判断门禁 (`USER_JUDGMENT_INVITATION_REQUIRED`)**：
+      在汇报上述过程遇到的问题后，必须显式邀请用户作出最终判断与裁定（如认可当前处置或要求进一步系统级改造）；未提请用户判断即触发 `USER_JUDGMENT_INVITATION_MISSING_BLOCKED`。
+    - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_81_PARITY_&_DISCLOSURE_STANDARD`)**：
+      公理 81 由 `scripts/check-problem-ledger-ruling.mjs`（`validatePostTaskIssueDisclosure`）提供 L2 自动化校验，并在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 78 项）三处宪法镜像中以纯通用软件工程语言同构固化。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

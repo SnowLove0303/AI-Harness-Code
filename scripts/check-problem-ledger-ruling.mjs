@@ -20,6 +20,15 @@ export const AXIOM_80_REQUIRED_TOKENS = [
   'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED',
 ];
 
+export const AXIOM_81_REQUIRED_TOKENS = [
+  'POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM',
+  'UNIVERSAL_TASK_INCIDENT_DISCLOSURE_MANDATE',
+  'USER_JUDGMENT_INVITATION_REQUIRED',
+  'AXIOM_81_PARITY_&_DISCLOSURE_STANDARD',
+  'SILENT_INCIDENT_SUPPRESSION_BLOCKED',
+  'USER_JUDGMENT_INVITATION_MISSING_BLOCKED',
+];
+
 const FINAL_RULING_STATUSES = new Set(['approved_fix', 'deferred', 'waived', 'resolved']);
 
 /**
@@ -197,6 +206,46 @@ export function validatePostTaskLedgerProofread(ledger, options = {}) {
   };
 }
 
+/**
+ * Validates that all incidents encountered during any task—even if resolved mid-task—
+ * are proactively disclosed at task completion and the user is invited to judge.
+ */
+export function validatePostTaskIssueDisclosure(record) {
+  const violations = [];
+  const encountered = Array.isArray(record?.incidentsEncountered) ? record.incidentsEncountered : [];
+  const disclosed = Array.isArray(record?.disclosedIncidents) ? record.disclosedIncidents : [];
+  const disclosedIds = new Set(disclosed.map((d) => String(d.id || d)));
+
+  const undisclosedIds = [];
+  for (const inc of encountered) {
+    const id = String(inc.id || inc);
+    if (!disclosedIds.has(id)) {
+      undisclosedIds.push(id);
+    }
+  }
+
+  if (undisclosedIds.length > 0) {
+    violations.push({
+      code: 'SILENT_INCIDENT_SUPPRESSION_BLOCKED',
+      undisclosedIds,
+      message: `Encountered incident(s) ${undisclosedIds.join(', ')} were omitted from final disclosure (even resolved mid-task incidents must be reported).`,
+    });
+  }
+
+  if (encountered.length > 0 && record?.userJudgmentInvited !== true) {
+    violations.push({
+      code: 'USER_JUDGMENT_INVITATION_MISSING_BLOCKED',
+      message: 'Final task report must explicitly invite user judgment on all encountered issues.',
+    });
+  }
+
+  return {
+    valid: violations.length === 0,
+    undisclosedIds,
+    violations,
+  };
+}
+
 function runCli() {
   const repoRoot = process.cwd();
   const mirrorPaths = [
@@ -213,9 +262,9 @@ function runCli() {
       continue;
     }
     const content = readFileSync(absPath, 'utf8');
-    for (const token of AXIOM_80_REQUIRED_TOKENS) {
+    for (const token of [...AXIOM_80_REQUIRED_TOKENS, ...AXIOM_81_REQUIRED_TOKENS]) {
       if (!content.includes(token)) {
-        violations.push(`${relPath} missing Axiom 80 token: ${token}`);
+        violations.push(`${relPath} missing Axiom 80/81 token: ${token}`);
       }
     }
   }
@@ -235,6 +284,9 @@ function runCli() {
       'PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED',
       'POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE',
       'POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED',
+      'POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM',
+      'SILENT_INCIDENT_SUPPRESSION_BLOCKED',
+      'USER_JUDGMENT_INVITATION_MISSING_BLOCKED',
     ]) {
       if (!workerContent.includes(token)) {
         violations.push(`worker.md missing Axiom 80 token: ${token}`);

@@ -94,6 +94,10 @@
 - **Atomic One-Defect-One-ID & Set-Difference Gate**: Keep one atomic defect per ID (`BUNDLED_ISSUE_ID_BLOCKED`), reconcile zero set difference against `sourceAtomicIds` before authoring specs (`LEDGER_SET_DIFFERENCE_NON_ZERO_BLOCKED`), and attach explicit `waiverRationale` to each waived atomic ID (`PER_ATOMIC_WAIVER_RATIONALE_REQUIRED_BLOCKED`).
 - **Post-Task Ledger Proofread Gate**: Proofread the initial atomic issue list after completing task work (`POST_TASK_PROBLEM_LEDGER_PROOFREAD_MANDATE`); block completion if any initial item is neither `resolved` nor interactively excluded with rationale (`POST_TASK_UNRESOLVED_SOURCE_ISSUES_BLOCKED`).
 
+### 1q. Universal Post-Task Incident Disclosure & User Judgment (`POST_TASK_MANDATORY_ISSUE_DISCLOSURE_&_JUDGMENT_AXIOM`)
+- **Mandatory Incident Disclosure**: Report every error, blocker, or execution friction encountered during any task at completion, even if resolved mid-task (`SILENT_INCIDENT_SUPPRESSION_BLOCKED`).
+- **Invite User Judgment**: Explicitly ask the user to judge the disclosed incidents and in-task handling at delivery (`USER_JUDGMENT_INVITATION_MISSING_BLOCKED`).
+
 ## 2. Reversible Decision Authority
 - **Autonomy by Default**: Make all reversible implementation decisions independently. Do not pause, poll, or block the coordinator (`@coordinator`) for trivial preferences, naming choices, or internal modularization.
 - **Four-Tier Deep Remediation Discipline (`FOUR_TIER_DEEP_REMEDIATION_LADDER`)**: In issue remediation, execute sequentially through Red Witness (Exit Code != 0) -> Origin Remediation -> Structural Immunity -> All-Sites Sweep. Remediate at the Origin Producer rather than consumer sinks (`SINK_PATCHING_BLOCKED`).

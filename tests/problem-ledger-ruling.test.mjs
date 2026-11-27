@@ -4,7 +4,9 @@ import path from 'node:path';
 import { test } from 'node:test';
 import {
   AXIOM_80_REQUIRED_TOKENS,
+  AXIOM_81_REQUIRED_TOKENS,
   mergeProblemLedgerDelta,
+  validatePostTaskIssueDisclosure,
   validatePostTaskLedgerProofread,
   validateProblemLedgerRuling,
 } from '../scripts/check-problem-ledger-ruling.mjs';
@@ -156,4 +158,31 @@ test('validatePostTaskLedgerProofread passes when all initial issues are resolve
   const res = validatePostTaskLedgerProofread(ledger, { sourceAtomicIds });
   assert.equal(res.valid, true);
   assert.equal(res.violations.length, 0);
+});
+
+test('validatePostTaskIssueDisclosure blocks silent suppression of resolved mid-task incidents and missing user judgment invitation', () => {
+  const suppressed = validatePostTaskIssueDisclosure({
+    incidentsEncountered: [{ id: 'INC-1', status: 'resolved_mid_task' }],
+    disclosedIncidents: [],
+    userJudgmentInvited: false,
+  });
+  assert.equal(suppressed.valid, false);
+  assert.ok(suppressed.violations.some((v) => v.code === 'SILENT_INCIDENT_SUPPRESSION_BLOCKED'));
+  assert.ok(suppressed.violations.some((v) => v.code === 'USER_JUDGMENT_INVITATION_MISSING_BLOCKED'));
+
+  const valid = validatePostTaskIssueDisclosure({
+    incidentsEncountered: [{ id: 'INC-1', status: 'resolved_mid_task' }],
+    disclosedIncidents: [{ id: 'INC-1' }],
+    userJudgmentInvited: true,
+  });
+  assert.equal(valid.valid, true);
+});
+
+test('Axiom 81 parity across GEMINI.md, pstack-openspec, and ai-harness-openspec', () => {
+  for (const relPath of ['GEMINI.md', 'skills/pstack-openspec/SKILL.md', 'skills/ai-harness-openspec/SKILL.md']) {
+    const content = readFileSync(path.join(REPO_ROOT, relPath), 'utf8');
+    for (const token of AXIOM_81_REQUIRED_TOKENS) {
+      assert.ok(content.includes(token), `${relPath} missing Axiom 81 token: ${token}`);
+    }
+  }
 });
