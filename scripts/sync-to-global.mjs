@@ -148,6 +148,11 @@ export function syncAllToGlobal() {
     if (syncFile(sSrc, sDest)) updatedCount++;
   }
 
+  // 7. Bundle drawio-toolkit.mjs directly inside global drawio-mcp skill for self-contained cross-workspace use
+  const drawioToolkitSrc = join(repoRoot, 'scripts', 'drawio-toolkit.mjs');
+  const drawioSkillToolkitDest = join(globalGeminiRoot, 'config', 'skills', 'drawio-mcp', 'scripts', 'drawio-toolkit.mjs');
+  if (syncFile(drawioToolkitSrc, drawioSkillToolkitDest)) updatedCount++;
+
   console.log(`[OK] Global sync completed successfully. Total files updated: ${updatedCount}`);
   return updatedCount;
 }

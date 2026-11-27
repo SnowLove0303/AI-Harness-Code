@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { test } from 'node:test';
 import {
   buildFlowchartOrSwimlaneXml,
@@ -88,4 +90,17 @@ test('validateDrawioGeometry detects overlaps, dangling edges, and edge-through-
   const guardRes = validateDrawioXml(badXml, 'bad.drawio');
   assert.equal(guardRes.valid, false);
   assert.ok(guardRes.violations.some((v) => v.code === 'EDGE_CROSSES_NODE_BLOCKED'));
+});
+
+test('bundled drawio-mcp example IR templates compile and pass L2 geometry validation with score 100', () => {
+  for (const name of ['flowchart.ir.json', 'swimlane.ir.json']) {
+    const irPath = path.resolve('skills', 'drawio-mcp', 'examples', name);
+    const ir = JSON.parse(readFileSync(irPath, 'utf8'));
+    const xml = buildFlowchartOrSwimlaneXml(ir);
+    const geom = validateDrawioGeometry(xml);
+    assert.equal(geom.valid, true, `${name} should produce valid geometry`);
+    assert.equal(geom.score, 100, `${name} should score 100`);
+    const guardRes = validateDrawioXml(xml, name);
+    assert.equal(guardRes.valid, true, `${name} should pass L2 guard`);
+  }
 });
