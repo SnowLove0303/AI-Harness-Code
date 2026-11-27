@@ -1,56 +1,55 @@
 ---
 name: drawio-mcp
 description: >-
-  Draw.io (Diagrams.net) 官方 MCP 绘图与企业级业务模型建模技能（融合 Agents365-ai/drawio-skill 10.9k+ Stars）。
-  支持通过 @drawio/mcp 与 drawio-cloud 生成、校验并在线打开企业研发周期模型（IPD/Stage-Gate）、跨职能泳道图（Swimlanes）、
-  BPMN 2.0 业务流程、多页 L0/L1 分层架构图，内置确定性泳道网格编译器与 Diagram-as-Test L2 几何拓扑守卫 (guard:drawio-model)。
+  Draw.io (Diagrams.net) 三合一融合绘图工具层与 MCP 协同指南（融合 DayuanJiang/next-ai-draw-io 37.2k ⭐ +
+  Agents365-ai/drawio-skill 10.9k ⭐ + lgazo/drawio-mcp-server 1.5k ⭐ + @drawio/mcp）。
+  提供确定性业务流程图/跨职能泳道间隙绕行编译器 (scripts/drawio-toolkit.mjs)、细粒度节点/连线增量编辑原语、
+  L2 几何碰撞/穿框/断线评分守卫 (guard:drawio-model) 与双通道 MCP 渲染闭环。
   触发词：drawio/画图/流程图/泳道图/研发周期/业务模型/Stage-Gate/IPD/BPMN/架构图
 ---
 
-# Draw.io (Diagrams.net) 企业级业务模型与 MCP 协同绘图指南
+# Draw.io (Diagrams.net) 三合一融合工具层与 MCP 绘图指南
 
-> **核心定位**：融合 **`Agents365-ai/drawio-skill` (10.9k+ ⭐)** 与 **`jgraph/drawio-mcp` (5.8k+ ⭐)**，彻底解决大模型直接手算坐标绘制多细节企业研发周期模型图时的“节点重叠、连线穿模、文字截断、细节拥挤”四大顽疾。
-
----
-
-## 一、 企业研发周期与密集业务模型五要素建模规范
-
-绘制任何细节密集的企业研发周期或端到端业务流程模型时，必须先建立结构化中间表示（Diagram IR），严禁盲写零散 XML 绝对坐标：
-
-1. **横向阶段轴（Stages / Phases）**：如 `立项 -> 需求 -> 架构 -> 研发 -> 测试 -> 试产 -> 发布 -> 运维/退市`。
-2. **纵向职能泳道（Cross-Functional Swimlanes）**：如 `决策委员会 (IRB/IPMT)`、`产品经理 (PM)`、`架构师`、`研发工程`、`QA 审计`、`运维交付`。所有节点必须挂靠在对应泳道父容器（`parent="lane_xxx"`）内。
-3. **门径决策网关（Stage-Gate Diamonds）**：阶段准出评审使用菱形（`rhombus`），标注明确 Gate 编号与准入条件。
-4. **交付物节点（Deliverable Artifacts）**：输入/输出关键文档使用文档形状（`shape=document`），清晰标注产物名称。
-5. **反馈打回闭环（Loopbacks）**：评审不通过或缺陷退回使用红色虚线正交回环（`dashed=1;edgeStyle=orthogonalEdgeStyle`），并在渲染时传参 `routing="libavoid"` 自动避障走线。
+> **核心定位**：深度融合 **`DayuanJiang/next-ai-draw-io` (37.2k ⭐)** 的间隙正交绕行与视觉自检规则、**`Agents365-ai/drawio-skill` (10.9k ⭐)** 的 Diagram IR 建模与几何评分校验、以及 **`lgazo/drawio-mcp-server` (1.5k ⭐)** 的细粒度节点/连线增量编辑原语，彻底终结“大模型手算 XML 坐标导致重叠、穿框、断线”的顽疾。
 
 ---
 
-## 二、 确定性坐标编译与 L0/L1 多页分层策略
+## 一、 统一工具层核心能力 (`scripts/drawio-toolkit.mjs`)
 
-1. **优先使用确定性泳道网格编译器 (`scripts/check-drawio-model.mjs`)**：
-   - 当节点数 $\ge 8$ 或存在多泳道交叉时，使用 `compileBusinessLifecycleToDrawioXml(model)` 将结构化 JSON 编译为标准 Draw.io XML，自动完成：
-     - **中英文混排字宽自适应**（中文 14px/字，ASCII 8px/字 + 32px 留白，杜绝文字截断）；
-     - **同格多节点垂直防重叠错位**；
-     - **L0 全景总图 + L1 阶段明细多页 `<diagram>` 投影**（细节过多时自动拆页，配合 `list_pages` / `set_page` 增量编辑）。
-2. **Diagram-as-Test L2 机械质量门禁 (`npm run guard:drawio-model`)**：
-   - 调用 `open_drawio_xml` 打开或保存 `.drawio` 文件前，必须通过 `validateDrawioXml` 机械检验：
-     - `DRAWIO_INVALID_XML_BLOCKED`（结构缺失）
-     - `DRAWIO_NODE_OVERLAP_BLOCKED`（同层节点边界框重叠）
-     - `DRAWIO_DANGLING_EDGE_BLOCKED`（连线引用不存在的节点 ID）
+绘制任何业务流程图或跨职能泳道图时，**优先调用 `scripts/drawio-toolkit.mjs` 生成与校验 XML**，禁止盲写裸坐标：
 
----
-
-## 三、 官方 MCP 核心工具调用规程
-
-| 工具名 | 适用场景 | 最佳实践参数 |
-| :--- | :--- | :--- |
-| `open_drawio_xml` | **复杂业务模型/泳道图/多页图** | 传入经 `validateDrawioXml` 校验后的 XML，**必须设置 `routing="libavoid"`** 自动正交避障走线 |
-| `open_drawio_mermaid` | 简单线性流程/时序/状态图 | 简单图可使用，密集泳道业务模型禁止仅靠 Mermaid 敷衍 |
-| `search_shapes` | 检索官方专业图标与 BPMN 形状 | 检索 `"bpmn"`, `"swimlane"`, `"aws"`, `"k8s"` 精确 `style` |
-| `list_pages` / `get_page` / `set_page` | 多页 `.drawio` 增量修改 | 大型企业研发周期图按 L0 总图 + L1 各阶段子图分页增量维护 |
-| `open_drawio_csv` | 组织架构/依赖矩阵转图 | 表格型数据一键生成拓扑 |
+1. **确定性间隙绕行编译器 (`buildFlowchartOrSwimlaneXml(ir)`)**：
+   - 输入结构化 JSON（`type: 'flowchart' | 'swimlane'`、`direction: 'TB' | 'LR'`、`lanes`、`nodes`、`edges`）；
+   - 自动完成拓扑分层、中英文自适应字宽（`fitLabelWidth`）、泳道容器嵌套（`parent="lane_xxx"`）、反向回环旁路与跨层连线的**行列间隙分轨正交路由**（`<Array as="points">`），确保连线永不穿过中间节点、平行边不重叠。
+2. **细粒度增量编辑原语 (`mutateDrawioXml(xml, ops)`)**：
+   - 支持按 ID 执行 `add-node`、`add-edge`、`update-cell`（改标签/样式）、`delete-cell`（自动级联清理关联断边），局部微调时绝不破坏整图既有布局。
+3. **L2 几何碰撞与拓扑评分门禁 (`validateDrawioGeometry(xml)` / `npm run guard:drawio-model`)**：
+   - 输出 `0–100` 质量评分，机械拦截：
+     - `DUPLICATE_CELL_ID_BLOCKED`（重复 ID）
+     - `VERTEX_OVERLAP_DETECTED` / `DRAWIO_NODE_OVERLAP_BLOCKED`（节点矩形重叠）
+     - `DANGLING_EDGE_TARGET_BLOCKED` / `DRAWIO_DANGLING_EDGE_BLOCKED`（悬空连线）
+     - `EDGE_CROSSES_NODE_BLOCKED`（正交连线穿过中间节点）
 
 ---
 
-## 四、 隐私与私有化支持
-- 图表数据通过 URL Hash 纯前端传递至 `app.diagrams.net` 打开，不经过第三方持久化存储；支持通过 `DRAWIO_BASE_URL` 切换内网私有化 Draw.io 实例。
+## 二、 CLI 命令行速查
+
+```bash
+# 1. 从结构化 IR JSON 编译生成零碰撞 .drawio 文件（内置几何校验，不通过直接退出码 1）
+node scripts/drawio-toolkit.mjs build process.json output.drawio
+
+# 2. 对已有 .drawio 文件执行 L2 几何评分校验
+node scripts/drawio-toolkit.mjs validate output.drawio
+
+# 3. 运行全仓 Draw.io L2 静态守卫
+npm run guard:drawio-model
+```
+
+---
+
+## 三、 双通道 MCP 协同与视觉自检闭环
+
+1. **渲染通道**：将 `drawio-toolkit.mjs` 产出的已校验 XML 送入 `@drawio/mcp`（`open_drawio_xml`）或 `drawio-cloud`（`create_diagram`）；简单线性流程亦可使用 `open_drawio_mermaid`。
+2. **连线与视觉铁律（源自 `next-ai-draw-io` + `drawio-skill`）**：
+   - 双向连接使用对向侧面（`exitX=1/entryX=0` 与 `exitX=0/entryX=1`），绝不在矩形角点连线；
+   - 复杂图生成后若配合截图检查，**视觉自动精修最多 2 轮封顶**，优先用几何校验替代盲目重写。

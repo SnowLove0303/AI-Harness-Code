@@ -140,6 +140,7 @@ export function syncAllToGlobal() {
     'check-problem-brainstorm.mjs',
     'check-secret-privacy.mjs',
     'check-problem-ledger-ruling.mjs',
+    'drawio-toolkit.mjs',
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);

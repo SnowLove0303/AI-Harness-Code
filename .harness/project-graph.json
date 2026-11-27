@@ -116,7 +116,8 @@
         "scripts/check-anti-hardcoding.mjs",
         "scripts/check-problem-brainstorm.mjs",
         "scripts/check-secret-privacy.mjs",
-        "scripts/check-problem-ledger-ruling.mjs"
+        "scripts/check-problem-ledger-ruling.mjs",
+        "scripts/drawio-toolkit.mjs"
       ],
       "dependencies": [
         "mod-constitutional-rules",
@@ -137,7 +138,8 @@
         "scripts/check-anti-hardcoding.mjs",
         "scripts/check-problem-brainstorm.mjs",
         "scripts/check-secret-privacy.mjs",
-        "scripts/check-problem-ledger-ruling.mjs"
+        "scripts/check-problem-ledger-ruling.mjs",
+        "scripts/drawio-toolkit.mjs"
       ],
       "maintenanceItems": [
         {

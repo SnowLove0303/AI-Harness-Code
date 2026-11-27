@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateDrawioGeometry } from './drawio-toolkit.mjs';
 
 function escapeXml(str) {
   return String(str ?? '')
@@ -226,6 +227,17 @@ export function validateDrawioXml(xmlContent, filePath = 'diagram.drawio') {
       }
     }
   });
+
+  const geom = validateDrawioGeometry(xmlContent);
+  for (const err of geom.errors) {
+    if (err.code === 'EDGE_CROSSES_NODE_BLOCKED' || err.code === 'DUPLICATE_CELL_ID_BLOCKED') {
+      violations.push({
+        code: err.code,
+        file: filePath,
+        message: err.message,
+      });
+    }
+  }
 
   return {
     valid: violations.length === 0,
