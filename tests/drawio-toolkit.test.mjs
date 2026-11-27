@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
 import {
   buildFlowchartOrSwimlaneXml,
   mutateDrawioXml,
+  replacePageInMasterXml,
   validateDrawioGeometry,
 } from '../scripts/drawio-toolkit.mjs';
 import { validateDrawioXml } from '../scripts/check-drawio-model.mjs';
@@ -103,4 +104,56 @@ test('bundled drawio-mcp example IR templates compile and pass L2 geometry valid
     const guardRes = validateDrawioXml(xml, name);
     assert.equal(guardRes.valid, true, `${name} should pass L2 guard`);
   }
+});
+
+test('USER_HARD_RULES_GUIDE.md is the enforced root authority across skill and constitution mirrors', () => {
+  const rootGuidePath = path.resolve('skills', 'drawio-mcp', 'USER_HARD_RULES_GUIDE.md');
+  assert.equal(existsSync(rootGuidePath), true, 'USER_HARD_RULES_GUIDE.md must exist in skills/drawio-mcp');
+  const skillText = readFileSync(path.resolve('skills', 'drawio-mcp', 'SKILL.md'), 'utf8');
+  assert.ok(skillText.includes('MANDATORY_ROOT_GUIDE_READ_GATE'));
+  assert.ok(skillText.includes('USER_HARD_RULES_GUIDE.md'));
+  for (const rel of ['GEMINI.md', 'skills/pstack-openspec/SKILL.md', 'skills/ai-harness-openspec/SKILL.md']) {
+    const text = readFileSync(path.resolve(rel), 'utf8');
+    assert.ok(text.includes('DRAWIO_ROOT_AUTHORITY_MANDATE'), `${rel} must enforce DRAWIO_ROOT_AUTHORITY_MANDATE`);
+    assert.ok(text.includes('USER_HARD_RULES_GUIDE.md'), `${rel} must reference USER_HARD_RULES_GUIDE.md`);
+  }
+});
+
+test('DRW-01 through DRW-08 L2 validators reject monochrome, canvas, midpoint, and LR centering violations and support replacePageInMasterXml', () => {
+  const lrXml = buildFlowchartOrSwimlaneXml({
+    title: 'LR Centered Swimlane',
+    direction: 'LR',
+    lanes: [
+      { id: 'pm', label: 'PM' },
+      { id: 'eng', label: 'Eng' },
+    ],
+    nodes: [
+      { id: 's', label: 'Start', lane: 'pm', kind: 'start' },
+      { id: 'd', label: 'Gate', lane: 'eng', kind: 'decision' },
+      { id: 'a', label: 'Approve', lane: 'eng', kind: 'process' },
+      { id: 'b', label: 'Subflow', lane: 'pm', kind: 'sub' },
+    ],
+    edges: [
+      { id: 'e1', from: 's', to: 'd' },
+      { id: 'e2', from: 'd', to: 'a', label: 'yes' },
+      { id: 'e3', from: 'd', to: 'b', label: 'sub' },
+    ],
+  });
+  const lrCheck = validateDrawioGeometry(lrXml);
+  assert.equal(lrCheck.valid, true);
+  assert.equal(lrCheck.score, 100);
+
+  const badColorXml = lrXml.replace('fillColor=#FFFFFF', 'fillColor=#dcfce7');
+  assert.ok(validateDrawioGeometry(badColorXml).errors.some((e) => e.code === 'NON_MONOCHROME_STYLE_BLOCKED'));
+
+  const badCanvasXml = lrXml.replace(/pageWidth="\d+"/, 'pageWidth="4000"');
+  assert.ok(validateDrawioGeometry(badCanvasXml).errors.some((e) => e.code === 'CANVAS_SIZE_EXCEEDED_BLOCKED'));
+
+  const badPortXml = lrXml.replace('exitX=1;exitY=0.5', 'exitX=0.15;exitY=0.2');
+  assert.ok(validateDrawioGeometry(badPortXml).errors.some((e) => e.code === 'NON_MIDPOINT_PORT_DETECTED'));
+
+  const master = `<mxfile><diagram id="p1" name="Page1"><mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/></root></mxGraphModel></diagram><diagram id="p2" name="Page2"><mxGraphModel><root><mxCell id="0"/></root></mxGraphModel></diagram></mxfile>`;
+  const replaced = replacePageInMasterXml(master, 'p1', lrXml);
+  assert.ok(replaced.includes('LR Centered Swimlane') || replaced.includes('id="lane_pm"'));
+  assert.ok(replaced.includes('id="p2"'));
 });

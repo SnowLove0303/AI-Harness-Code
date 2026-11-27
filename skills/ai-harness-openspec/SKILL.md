@@ -886,3 +886,4 @@ description: "Hujiale AI-Harness 与 OpenSpec 工业级 Vibe Coding 全流程闭
 - 双清单标准汇报模版：[`references/double-checklist-template.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/double-checklist-template.md)
 - 工业级 Vibe Coding 实操指南：[`references/vibe-coding-sop-guide.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/vibe-coding-sop-guide.md)
 - 核心不变量速查卡：[`references/invariants-cheat-sheet.md`](file:///C:/Users/Administrator/.gemini/config/skills/ai-harness-openspec/references/invariants-cheat-sheet.md)
+- **Draw.io 统一绘图根文件 (`DRAWIO_ROOT_AUTHORITY_MANDATE`)**：[`USER_HARD_RULES_GUIDE.md`](file:///C:/Users/Administrator/.gemini/config/skills/drawio-mcp/USER_HARD_RULES_GUIDE.md)（任何 Agent 使用 Draw.io 体系前必须先完整读取）。
