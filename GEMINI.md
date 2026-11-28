@@ -11,6 +11,7 @@
 3. **Step 2【门禁 2：Ps-openspec 规格立法门禁】**：**门禁 2 核心法定宗旨**：编写并呈报 OpenSpec 四大资产（`proposal.md`、`specs/`、`design.md`、`tasks.md`）与【双清单】（拟变范围因果角色 + 保持现状承诺）；问题类任务须在 `tasks.md` 为每个 `[ISSUE-xx]` 建独立原子块（禁打包）。**门禁 2 施工硬阻断禁令**：获批前严禁改任何业务代码。
 4. **Step 3 单步施工与 VS Code Diff**：`tasks.md` 执行 `[-]` 单焦点锁；修改代码优先调用 `vscode-review` (`review_diff_in_vscode` / `code --diff`)；零警告（`--max-warnings=0`）且退出码 0 方可 `[x]`。
 5. **Step 4–5 核销归档**：`git diff` 审计并及时 Commit；交付附带 **1:1 双向核销清算表**（`[Measured]` 退码 0）与 `openspec validate --all --strict` 归档；问题类任务必须额外附带**《问题清单逐项审计对照确认表》**（初始问题 → 根治改动 → 真物实测退码 0 → 过程异常全披露）并跑通 `check-issue-clearance.mjs` / `check-problem-ledger-ruling.mjs`，显式提请用户逐项确认；人工纠错两次的问题下沉为 L1/L2 机器门禁。
+   - **任务后通用性改进总结建议**：每次任务完成后，必须基于**通用性准则**（参考 `operating-invariants-full.md` 通用抽象与反场景污染公理，禁写单点特判）向用户提交一份《改进总结建议》；获用户明确确认后，方可将改动写入 `Ps-openspec` 准则并提交 PR 至仓库。
 
 ## 2. 唯一工具路由铁律 (按需索引调用，0 常驻冗余)
 - **任何任务（含工具能力询问、方案设计与执行）均须优先到 `Ps-openspec` 工具层查找可用工具并判断是否适用**；除 Antigravity 原生工具（读/写/终端/搜索/浏览器/子代理）外，必须先查阅索引再按需调用 `Ps-openspec` 工具体系，严禁忽视既有工具或另立临时脚本：
