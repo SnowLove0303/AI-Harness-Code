@@ -57,6 +57,12 @@
       "id": "spec-driven-workflow",
       "triggers": ["spec-driven"],
       "path": "~/.gemini/ps-hub/skills/spec-driven-workflow/SKILL.md"
+    },
+    {
+      "id": "code-generality-audit",
+      "triggers": ["code-audit", "hardcoding-audit", "代码审计", "硬编码审计", "通用性审计"],
+      "path": "~/.gemini/ps-hub/skills/code-generality-audit/SKILL.md",
+      "script": "~/.gemini/ps-hub/scripts/check-anti-hardcoding.mjs"
     }
   ],
   "l2Guards": {
