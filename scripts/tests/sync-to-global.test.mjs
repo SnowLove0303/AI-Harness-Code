@@ -10,19 +10,20 @@ const __dirname = dirname(__filename);
 const repoRoot = resolve(__dirname, '../..');
 const globalGeminiRoot = resolve(process.env.USERPROFILE || 'C:\\Users\\Administrator', '.gemini');
 
-test('sync-to-global engine executes idempotently and synchronizes all assets', () => {
+test('sync-to-global engine executes idempotently and deploys Single-Entry Ps-openspec Hub', () => {
   const updatedCount = syncAllToGlobal();
   assert.equal(typeof updatedCount, 'number', 'must return updated file count');
   assert.ok(updatedCount >= 0, 'updated count must be non-negative');
 
-  // Verify global assets exist and are populated
   const expectedFiles = [
     join(globalGeminiRoot, 'config', 'GEMINI.md'),
-    join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini', 'SKILL.md'),
     join(globalGeminiRoot, 'config', 'skills', 'orbitstack-pstack-openspec', 'SKILL.md'),
-    join(globalGeminiRoot, 'config', 'skills', 'pstack-openspec', 'SKILL.md'),
-    join(globalGeminiRoot, 'config', 'skills', 'ai-harness-openspec', 'SKILL.md'),
+    join(globalGeminiRoot, 'ps-hub', 'skills', 'pstack-openspec', 'SKILL.md'),
+    join(globalGeminiRoot, 'ps-hub', 'skills', 'pstack-openspec', 'references', 'operating-invariants-full.md'),
+    join(globalGeminiRoot, 'ps-hub', 'skills', 'ai-harness-openspec', 'SKILL.md'),
+    join(globalGeminiRoot, 'ps-toolbox-index.json'),
     join(globalGeminiRoot, 'pstack-openspec-route-map.json'),
+    join(globalGeminiRoot, 'ps-hub', 'scripts', 'pstack-handoff.mjs'),
     join(globalGeminiRoot, 'scripts', 'pstack-handoff.mjs'),
     join(globalGeminiRoot, 'scripts', 'audit-protected-invariants.mjs'),
     join(globalGeminiRoot, 'scripts', 'audit-pstack-openspec-routing.ps1')

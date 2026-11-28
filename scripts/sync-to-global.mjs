@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, renameSync, rmSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -28,7 +28,7 @@ function syncFile(src, dest) {
   if (existsSync(dest)) {
     const destBuf = readFileSync(dest);
     if (sha256(srcBuf) === sha256(destBuf)) {
-      return false; // Identical
+      return false;
     }
   }
   writeFileSync(dest, srcBuf);
@@ -57,20 +57,18 @@ function syncDirectory(srcDir, destDir) {
 }
 
 export function syncAllToGlobal() {
-  console.log(`=== OrbitStack Global Gemini Auto-Sync Starting ===`);
+  console.log(`=== OrbitStack Single-Entry Ps-openspec Hub Sync Starting ===`);
   console.log(`Source Repo Root: ${repoRoot}`);
   console.log(`Target Global Gemini: ${globalGeminiRoot}`);
 
   let updatedCount = 0;
+  const psHubRoot = join(globalGeminiRoot, 'ps-hub');
 
-  // 1. Sync GEMINI.md core rules to global config
+  // 1. Sync compact GEMINI.md single-entry switch to global config
   const repoGeminiMd = join(repoRoot, 'GEMINI.md');
   const globalGeminiMd = join(globalGeminiRoot, 'config', 'GEMINI.md');
   if (existsSync(repoGeminiMd)) {
     if (syncFile(repoGeminiMd, globalGeminiMd)) updatedCount++;
-  } else if (existsSync(globalGeminiMd)) {
-    // If repo root doesn't have it yet, seed from global
-    syncFile(globalGeminiMd, repoGeminiMd);
   }
 
   // 1b. Sync worker.md to global Gemini root
@@ -80,20 +78,24 @@ export function syncAllToGlobal() {
     if (syncFile(repoWorkerMd, globalWorkerMd)) updatedCount++;
   }
 
-  // 1c. Deploy workspace rule anchor to active session workspace
-  const sessionWorkspaceDir = resolve(repoRoot, '..', '会话');
-  if (existsSync(sessionWorkspaceDir)) {
-    const sessionGeminiMd = join(sessionWorkspaceDir, 'GEMINI.md');
-    if (syncFile(repoGeminiMd, sessionGeminiMd)) updatedCount++;
+  // 1c. Deduplicate legacy rule snapshot so it does not double-load alongside GEMINI.md
+  const legacyRule = join(globalGeminiRoot, 'config', 'rules', 'ps-openspec-v210-governance.md');
+  if (existsSync(legacyRule)) {
+    const backupDir = join(globalGeminiRoot, 'backup-legacy-rules');
+    mkdirSync(backupDir, { recursive: true });
+    renameSync(legacyRule, join(backupDir, 'ps-openspec-v210-governance.md'));
+    console.log(`[Dedup] Archived legacy duplicate rule: ps-openspec-v210-governance.md`);
+    updatedCount++;
   }
 
-  // 2. Sync orbitstack-gemini adapter to both global skills
+  // 2. Single-Entry Skill: Only orbitstack-pstack-openspec is registered in config/skills
   const adapterDir = join(repoRoot, 'orbitstack-gemini');
-  updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini'));
   updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-pstack-openspec'));
 
-  // 3. Sync all managed repository skills (table-driven)
-  const SKILLS_TO_SYNC = [
+  // 3. Store all Ps-openspec skills inside ~/.gemini/ps-hub/skills/ for on-demand lookup
+  updatedCount += syncDirectory(adapterDir, join(psHubRoot, 'skills', 'orbitstack-gemini'));
+
+  const SKILLS_TO_HUB = [
     'pstack-openspec',
     'ai-harness-openspec',
     'spec-driven-workflow',
@@ -105,20 +107,32 @@ export function syncAllToGlobal() {
     'tavily-search',
     'xmind-cloud-mcp',
   ];
-  for (const skillName of SKILLS_TO_SYNC) {
+  for (const skillName of SKILLS_TO_HUB) {
     const skillSrc = join(repoRoot, 'skills', skillName);
-    const skillDest = join(globalGeminiRoot, 'config', 'skills', skillName);
+    const skillDest = join(psHubRoot, 'skills', skillName);
     if (existsSync(skillSrc)) {
       updatedCount += syncDirectory(skillSrc, skillDest);
     }
+    // Remove duplicate from auto-loaded config/skills so Antigravity does not inject it every turn
+    const oldConfigSkill = join(globalGeminiRoot, 'config', 'skills', skillName);
+    if (existsSync(oldConfigSkill)) {
+      rmSync(oldConfigSkill, { recursive: true, force: true });
+      console.log(`[Hub] Moved out of auto-loaded config/skills: ${skillName}`);
+      updatedCount++;
+    }
+  }
+  const oldOrbitGemini = join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini');
+  if (existsSync(oldOrbitGemini)) {
+    rmSync(oldOrbitGemini, { recursive: true, force: true });
+    console.log(`[Hub] Deduplicated config/skills/orbitstack-gemini (kept orbitstack-pstack-openspec)`);
+    updatedCount++;
   }
 
-  // 5. Sync route registry
-  const routeMapSrc = join(repoRoot, 'docs', 'pstack-openspec-route-map.json');
-  const routeMapDest = join(globalGeminiRoot, 'pstack-openspec-route-map.json');
-  if (syncFile(routeMapSrc, routeMapDest)) updatedCount++;
+  // 4. Sync route registry and toolbox index
+  if (syncFile(join(repoRoot, 'docs', 'pstack-openspec-route-map.json'), join(globalGeminiRoot, 'pstack-openspec-route-map.json'))) updatedCount++;
+  if (syncFile(join(repoRoot, 'docs', 'toolbox-index.json'), join(globalGeminiRoot, 'ps-toolbox-index.json'))) updatedCount++;
 
-  // 6. Sync helper & L2 guard scripts
+  // 5. Sync helper & L2 guard scripts into ps-hub/scripts (and core handoff scripts in ~/.gemini/scripts)
   const scriptsToSync = [
     'pstack-handoff.mjs',
     'audit-protected-invariants.mjs',
@@ -144,20 +158,17 @@ export function syncAllToGlobal() {
   ];
   for (const s of scriptsToSync) {
     const sSrc = join(repoRoot, 'scripts', s);
-    const sDest = join(globalGeminiRoot, 'scripts', s);
-    if (syncFile(sSrc, sDest)) updatedCount++;
+    if (syncFile(sSrc, join(psHubRoot, 'scripts', s))) updatedCount++;
+  }
+  for (const coreScript of ['pstack-handoff.mjs', 'audit-protected-invariants.mjs', 'audit-pstack-openspec-routing.ps1']) {
+    const sSrc = join(repoRoot, 'scripts', coreScript);
+    if (syncFile(sSrc, join(globalGeminiRoot, 'scripts', coreScript))) updatedCount++;
   }
 
-  // 7. Bundle drawio-toolkit.mjs directly inside global drawio-mcp skill for self-contained cross-workspace use
-  const drawioToolkitSrc = join(repoRoot, 'scripts', 'drawio-toolkit.mjs');
-  const drawioSkillToolkitDest = join(globalGeminiRoot, 'config', 'skills', 'drawio-mcp', 'scripts', 'drawio-toolkit.mjs');
-  if (syncFile(drawioToolkitSrc, drawioSkillToolkitDest)) updatedCount++;
-
-  console.log(`[OK] Global sync completed successfully. Total files updated: ${updatedCount}`);
+  console.log(`[OK] Global Single-Entry Hub sync completed. Total operations: ${updatedCount}`);
   return updatedCount;
 }
 
-// Direct execution
 if (process.argv[1] && process.argv[1].endsWith('sync-to-global.mjs')) {
   try {
     syncAllToGlobal();

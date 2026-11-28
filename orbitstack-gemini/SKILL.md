@@ -77,7 +77,7 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - Mandatory Negative Test Ratio: Compiler and linters run under `--max-warnings=0`. Mandatory negative/boundary test ratio $\ge 30\%$ asserting expected domain errors.
    - Role: Mechanical green is Key 1 (necessary prerequisite). Execution cannot proceed to Step 2 without exit code 0.
 2. Step 2: Agent Cognitive & Specification Audit (Semantic Falsification Gate):
-   - Adversarial Red-Team Interrogation (Fresh Auditor Subagent): Self-review by builder agents is prohibited. A fresh subagent (`Model='pro'`, `Workspace='branch'`) running Poteto's `/interrogate` playbook executes adversarial audits.
+   - Adversarial Red-Team Interrogation (On-Demand for Contested/High-Risk Designs): For high-risk, cross-module, or contested architectural changes, an independent auditor subagent running Poteto's `/interrogate` playbook executes adversarial audits; routine changes verify via L2 machine gates (`scripts/check-*.mjs`, `--max-warnings=0`) and VS Code Diff.
    - 100% Fact Provenance Checkoff & Code Pointer Anchoring: Every specification clause must be backed by exact source file paths, line ranges (`file:///path#Lxx-Lyy`), and `[Measured]` logs.
    - Active Adversarial Falsification: The auditor must record boundary falsification attacks, proving the codebase deterministically resists attacks.
 3. Dual-Scope Specification Governance:
@@ -168,33 +168,29 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
 2. Negative Proof Gate & Mandatory Adversarial Quota:
    - For all non-trivial tasks, an audit report reporting "0 issues / perfectly clean" without evidence of active stress testing is rejected as a superficial pseudo-audit.
    - The auditor agent must provide at least 1-2 active counter-factual falsification attempts with reproduction commands, proving the system deterministically rejected or survived invalid inputs.
-3. Fresh Pro Auditor Enforcement & Architectural Lock:
-   - Builder agents are fundamentally barred from marking tasks `[x]` or issuing release signoffs.
-   - A fresh, independent auditor subagent (`Model='pro'`, `Workspace='branch'`) running the `/interrogate` playbook acts as the sole adversary.
+3. On-Demand Independent Interrogation & Dynamic Tiering:
+   - Routine, single-thread changes verify via L2 deterministic checks and VS Code Diff without mandatory `pro`-tier subagent spawning.
+   - Contested designs or cross-module architectural changes invoke `/interrogate` dynamically sized to task complexity per `pstack-openspec-route-map.json`.
 4. Two-Strike Machine Escalation:
    - Recurring human-identified defects cannot remain as natural language advice in prompts. Any issue corrected twice by a human must be converted into a machine-enforced AST/Lint rule or deterministic test with a non-zero exit code.
 
-## Autonomous subagent swarm & four-in-one handoff gate
+## Role boundaries, existing agent reuse & Pstack-aligned delegation
 
-1. Auto-Dispatch by Default & Coordinator Bar:
-   - The coordinator (Main Agent) receiving user instructions acts strictly as architect and supreme auditor; the coordinator is fundamentally barred from directly modifying or writing business code.
-   - All concrete construction and execution tasks must be automatically dispatched to an Executor Subagent.
-2. Subagent Reuse vs. Fresh Decision Tree (`manage_subagents`):
-   - Prior to dispatch, the coordinator must call `manage_subagents(Action='list')` to inspect active subagents.
-   - Reuse via `send_message`: Permitted strictly when subsequent work continues the same unbroken task breakpoint, or when the subagent holds non-persisted, expensive-to-migrate transient state (e.g., active Git branch, running test daemon/watcher/server).
-   - Fresh by default via `invoke_subagent`: New scopes, refactoring tasks, triage pivots, or retries after failure must launch fresh subagents (`Workspace='branch'`) to prevent interrupt-chain prompt pollution.
-3. Four-in-One Lossless Handoff Capsule:
-   - Task handoff cannot be casually summarized; it must package four indivisible elements:
-     ① `ps-openspec`: Architectural contract (proposal, RFC 2119 specs, atomic `tasks.md` item, non-zero exit acceptance commands).
-     ② `skill`: Explicit methodological and operational skills (e.g. `pstack-openspec`, `unslop`, `tdd`).
-     ③ `Context`: Writable scope boundaries, read-only paths, invariant locks (`@ANTIGRAVITY_INVARIANT_LOCK`), base commit, and frozen fact fingerprints.
-     ④ `Prompt`: Focused single-responsibility directive with explicit Non-Goals.
-4. Active Completion Report & Reactive Wakeup:
-   - Upon completion, the executor subagent must deliver a structured report with `[Measured]` exit code 0 log evidence, mutation kill records, and changed file paths.
-   - The system reactively wakes up the coordinator without polling; the coordinator initiates deep two-step cognitive audit.
-5. Verifier-Only Merge Authority & Workspace Sandboxing:
-   - Executor subagents run in isolated branch workspaces (`Workspace='branch'`) and are physically prevented from mutating the main tree or self-merging.
-   - Final code merge and status signoff authority belongs exclusively to the coordinator/auditor after 100% audit verification.
+1. **Role Boundaries (Coordinator / Builder / Verifier)**:
+   - The main agent acts as Coordinator and Integrator: owning Gate 1/2 alignment, OpenSpec authoring, and final merge/signoff.
+   - Following upstream PStack (`Guard the Context Window` and `Match the model to the job`), routine, single-thread, or small-to-medium changes are executed directly by the main agent without mandatory subagent splitting.
+   - Subagents or Swarm workers are dispatched on-demand when tasks genuinely require context shielding (large outputs/files), parallel fan-out (`swarm` / `arena`), or adversarial review of contested/cross-cutting designs (`/interrogate`).
+2. **Existing Subagent & Swarm Reuse First (`manage_subagents` / `swarm`)**:
+   - Before spawning a new subagent, inspect active agents via `manage_subagents(Action='list')` (or `swarm(action='status')`).
+   - Reuse via `send_message` (or Swarm board) whenever follow-up work belongs to the same functional role, continues the same task domain, or depends on existing transient state (active branch, uncommitted edits, running server/watcher), avoiding redundant cold-start token burn.
+   - Launch a fresh subagent only when switching to an unrelated scope or recovering from severe context pollution.
+3. **L2 Machine Gates First (Zero-Token Verification)**:
+   - Prefer deterministic L2 scripts (`scripts/check-*.mjs`, `openspec validate --all --strict`, `--max-warnings=0`, test suites) over multi-turn LLM self-review.
+   - Reserve independent `pro`-tier `/interrogate` subagent audits for high-risk, cross-module, or contested architectural changes rather than every routine edit.
+4. **Four-in-One Lossless Handoff Capsule (When Delegating)**:
+   - When dispatching a subagent or Swarm worker, package: ① OpenSpec contract & exit-0 verification command; ② required skill pointer; ③ explicit writable path bounds & `@ANTIGRAVITY_INVARIANT_LOCK` scope; ④ focused single-responsibility directive with Non-Goals.
+5. **Active Completion Report & Merge Authority**:
+   - Subagents return `[Measured]` exit code 0 evidence and changed file paths (large logs stored in `<appDataDir>\brain\<conversation-id>`). Final integration and VS Code Diff signoff remain with the main agent.
 
 ## Universal engineering anti-phantom & structural fidelity gate (The 6 Invariants)
 
@@ -351,10 +347,9 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - ① `/reflect`: Immediate extraction of failure modes and defense strategies into `brain/` and Audit Graph upon task delivery or correction (`UNREFLECTED_DELIVERY_BLOCKED`).
    - ② `/ruminate`: Periodic crawling across session logs to surface latent user preferences and recurrent traps.
    - ③ `/meditate`: Bidirectional reconciliation between memory notes and living specs, pruning dead rules and escalating repeated corrections to L1 statecharts or L2 Lint rules.
-3. Kitchen-Brigade Order Protocol (`KITCHEN_BRIGADE_ORDER_PROTOCOL`):
-   - `Mise en place`: Orchestrator agent aggregates system context, invariants, and backlog without editing business code.
-   - `Orders-next`: Emits decoupled atomic task orders. Direct business code modifications by orchestrators trigger `ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED`.
-   - Line Cooks: Dispatched worker agents execute in isolated workspaces (`Workspace='branch'` or Git Worktree) holding single-focus lock (`[-] lock`).
+3. Role-Scoped Dispatch Protocol (`ROLE_SCOPED_DISPATCH`):
+   - `Mise en place`: Coordinator gathers context, invariants, and backlog; routine edits may execute directly in the main thread per PStack `Guard the Context Window`.
+   - `Orders-next`: When delegating to worker subagents/Swarm, emit scoped task orders and reuse existing same-role agents via `send_message` / board before spawning new ones.
 4. Fan-Out Exploration & Adversarial Critique (`FANOUT_EXPLORATION_CRITIQUE_RUBRIC`):
    - Phase 1 Explore supports 2–4 parallel fan-out subagent probes, synthesized into 5 standard dimensions (`Overview`, `Key Concepts`, `How It Works`, `Where Things Live`, `Gotchas`).
    - Gate 5 delivery mandates adversarial critique under strict rubrics (`TRIVIAL_SELF_AUDIT_FRAUD`).
@@ -424,21 +419,16 @@ Ps-openspec (OrbitStack) is the supreme governance framework. Spec-Kit operates 
    - Operates 100% on universal computer science primitives (process pipes, exit codes, stderr/stdout, code slices, AST, RFC 2119) (`UNIVERSAL_DISPATCH_STANDARD`) with zero scenario-specific keywords.
 
 
-## Master-subagent governance-execution boundary & full-specification handoff gate
+## Master-subagent role boundaries & full-specification handoff
 
-1. Master Agent Governance & Systemic Hold:
-   - The Master Agent governs global project context, constitutional invariants, and authors full OpenSpec assets (`MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE`).
-   - The Master Agent is strictly blocked from ad-hoc business code modifications in governance mode (`MASTER_AD_HOC_CODING_BLOCKED`).
-2. Subagent Physical Execution Domain:
-   - Ground-level code execution, test passes, and local build debugging are physically quarantined to the Subagent execution layer (`SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE`).
-   - Subagents operate under single-focus lock `[-]` lock, releasing only upon Exit 0 verification. Out-of-bounds file mutations trigger `SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED`.
-3. Mandatory Full-Specification Handoff Protocol:
-   - Orchestrator dispatches must be 100% self-contained (`MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL`), transmitting verbatim OpenSpec RFC 2119 specs, architectural invariants, file paths, line anchors (`file:///path#Lxx-Lyy`), deterministic Exit 0 commands, and bounded blast radius.
-   - Shallow dispatches trigger immediate `SHALLOW_SPEC_HANDOFF_BLOCKED` failure.
-4. Governance-Execution Separation Gate:
-   - Enforces bidirectional physical separation (`GOVERNANCE_EXECUTION_SEPARATION_GATE`): Master Agent adjudicates and merges; Subagents construct and attest.
-5. Domain-Neutrality Standard:
-   - Operates 100% on distributed multi-agent architecture, state machine theory, process pipes, and standard exit codes (`UNIVERSAL_BOUNDARY_HANDOFF_STANDARD`) with zero scenario-specific vocabulary.
+1. Role Boundaries & Direct Main-Agent Execution:
+   - The Master Agent owns global context, Gate 1/2 alignment, OpenSpec authoring, and merge signoff, and may execute routine/scoped edits directly without mandatory subagent splitting.
+2. Subagent Reuse & Scoped Execution Domain:
+   - When subagents or Swarm workers are used for context shielding or parallel fan-out, reuse existing same-role agents first and enforce `[-]` lock with Exit 0 verification and bounded paths.
+3. Full-Specification Handoff (When Delegating):
+   - Orchestrator dispatches transmit OpenSpec RFC 2119 specs, target file paths, line anchors (`file:///path#Lxx-Lyy`), deterministic Exit 0 commands, and bounded blast radius.
+4. Merge & Signoff Authority:
+   - Subagents construct and attest with `[Measured]` logs; final integration and VS Code Diff signoff remain with the Master Agent.
 
 
 ## Action skill layer and methodology catalog

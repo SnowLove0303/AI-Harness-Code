@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "hubRoot": "~/.gemini/ps-hub",
+  "localToolboxRoot": "~/.gemini/ps-toolbox",
+  "policy": "Read the matching skill SKILL.md or run the mapped L2 script on-demand only when the task domain matches. Do not pre-load unused skills.",
+  "skills": [
+    {
+      "id": "pstack-openspec",
+      "triggers": ["pstack", "orbitstack", "unslop", "interrogate", "how", "why", "openspec", "双清单"],
+      "path": "~/.gemini/ps-hub/skills/pstack-openspec/SKILL.md",
+      "references": "~/.gemini/ps-hub/skills/pstack-openspec/references/operating-invariants-full.md"
+    },
+    {
+      "id": "ai-harness-openspec",
+      "triggers": ["ai-harness", "spec-kit", "rtm", "门禁", "承重墙"],
+      "path": "~/.gemini/ps-hub/skills/ai-harness-openspec/SKILL.md"
+    },
+    {
+      "id": "drawio-mcp",
+      "triggers": ["drawio", "diagram", "flowchart", "swimlane", "bpmn", "架构图", "流程图", "泳道图"],
+      "path": "~/.gemini/ps-hub/skills/drawio-mcp/SKILL.md",
+      "hardRules": "~/.gemini/ps-hub/skills/drawio-mcp/USER_HARD_RULES_GUIDE.md",
+      "script": "~/.gemini/ps-hub/scripts/drawio-toolkit.mjs"
+    },
+    {
+      "id": "ui-ux-design-engineering",
+      "triggers": ["ui", "ux", "frontend", "css", "design", "distill", "wcag", "界面", "前端"],
+      "path": "~/.gemini/ps-hub/skills/ui-ux-design-engineering/SKILL.md",
+      "script": "~/.gemini/ps-hub/scripts/check-ui-slop.mjs"
+    },
+    {
+      "id": "desktop-exe-development",
+      "triggers": ["tauri", "exe", "desktop", "installer", "nsis", "msi", "桌面应用"],
+      "path": "~/.gemini/ps-hub/skills/desktop-exe-development/SKILL.md"
+    },
+    {
+      "id": "rea-reverse-engineering",
+      "triggers": ["rea", "reverse", "decompile", "asar", "apk", "ghidra", "逆向", "反编译"],
+      "path": "~/.gemini/ps-hub/skills/rea-reverse-engineering/SKILL.md"
+    },
+    {
+      "id": "app-reverse-deconstruction",
+      "triggers": ["deconstruct", "block-schema", "crdt", "clean-room", "深度解构"],
+      "path": "~/.gemini/ps-hub/skills/app-reverse-deconstruction/SKILL.md"
+    },
+    {
+      "id": "tavily-search",
+      "triggers": ["tavily", "web-search", "联网搜索", "撞墙检索"],
+      "path": "~/.gemini/ps-hub/skills/tavily-search/SKILL.md"
+    },
+    {
+      "id": "xmind-cloud-mcp",
+      "triggers": ["xmind", "mindmap", "思维导图"],
+      "path": "~/.gemini/ps-hub/skills/xmind-cloud-mcp/SKILL.md"
+    },
+    {
+      "id": "spec-driven-workflow",
+      "triggers": ["spec-driven"],
+      "path": "~/.gemini/ps-hub/skills/spec-driven-workflow/SKILL.md"
+    }
+  ],
+  "l2Guards": {
+    "uiSlop": "~/.gemini/ps-hub/scripts/check-ui-slop.mjs",
+    "antiHardcoding": "~/.gemini/ps-hub/scripts/check-anti-hardcoding.mjs",
+    "secretPrivacy": "~/.gemini/ps-hub/scripts/check-secret-privacy.mjs",
+    "drawioModel": "~/.gemini/ps-hub/scripts/check-drawio-model.mjs",
+    "blindAudit": "~/.gemini/ps-hub/scripts/check-blind-audit.mjs",
+    "pstackHandoff": "~/.gemini/ps-hub/scripts/pstack-handoff.mjs",
+    "protectedInvariants": "~/.gemini/ps-hub/scripts/audit-protected-invariants.mjs"
+  }
+}
