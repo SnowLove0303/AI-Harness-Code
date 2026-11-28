@@ -1,11 +1,11 @@
 {
   "repository": "https://github.com/cursor/plugins",
   "path": "pstack/",
-  "upstreamCommit": "c742dd61706fbacc1b95f1a20b7b988cf096ce6c",
-  "pluginVersion": "0.15.36",
+  "upstreamCommit": "b7b93c36be9bcc36a74db438e0fd385d660bc559",
+  "pluginVersion": "0.15.48",
   "license": "MIT",
   "localMirror": "bundle/pstack-upstream/",
-  "globalMirror": "~/.codex/pstack-upstream/",
-  "fileCount": 573,
+  "globalMirror": "~/.gemini/pstack-upstream/",
+  "fileCount": 554,
   "sha256ParityVerified": true
 }

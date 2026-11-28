@@ -128,9 +128,10 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     updatedCount++;
   }
 
-  // 4. Sync route registry and toolbox index
+  // 4. Sync route registry, toolbox index, and upstream pstack mirror
   if (syncFile(join(repoRoot, 'docs', 'pstack-openspec-route-map.json'), join(targetRoot, 'pstack-openspec-route-map.json'))) updatedCount++;
   if (syncFile(join(repoRoot, 'docs', 'toolbox-index.json'), join(targetRoot, 'ps-toolbox-index.json'))) updatedCount++;
+  updatedCount += syncDirectory(join(repoRoot, 'bundle', 'pstack-upstream'), join(targetRoot, 'pstack-upstream'));
 
   // 5. Sync helper & L2 guard scripts into ps-hub/scripts (and core handoff scripts in ~/.gemini/scripts)
   const scriptsToSync = [

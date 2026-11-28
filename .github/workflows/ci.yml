@@ -1,0 +1,42 @@
+name: Ps-openspec CI
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+      - 'release/**'
+
+jobs:
+  guards-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run L2 static guards
+        env:
+          PSTACK_UPSTREAM_DIR: ${{ github.workspace }}/bundle/pstack-upstream
+        run: |
+          npm run guard:single-entry-hub
+          npm run guard:privacy
+          npm run guard:neutrality
+          npm run guard:unslop
+          npm run guard:pstack-sync
+
+      - name: Run core adapter & hub test suites
+        run: |
+          node --test \
+            scripts/tests/gemini-adapter.test.mjs \
+            scripts/tests/sync-to-global.test.mjs \
+            scripts/tests/pstack-handoff.test.mjs \
+            scripts/tests/protected-invariants.test.mjs \
+            tests/single-entry-hub.test.mjs
