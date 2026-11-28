@@ -27,6 +27,7 @@ npm run guard:single-entry-hub
 2. **Step 1 (Explore)**: Query `~/.gemini/pstack-openspec-route-map.json` to bind a PStack Playbook, and look up `~/.gemini/ps-toolbox-index.json` (plus `~/.gemini/ps-toolbox/local-index.json` if needed) to `read_file` only the relevant skill/reference.
 3. **Step 2 (Gate 2)**: Author OpenSpec artifacts (`proposal.md`, `specs/`, `design.md`, `tasks.md` — 1:1 bijective task block per `[ISSUE-xx]`) + Dual-Checklist, and halt for approval.
 4. **Step 3–5 (Apply, Verify, Archive)**: Main agent executes routine changes directly under `[-]` lock (dispatch subagents/Swarm only for bulk context shielding, parallel fan-out, or contested `/interrogate`; reuse existing same-role agents first). Run zero-token L2 guards (`~/.gemini/ps-hub/scripts/check-*.mjs`), open VS Code Diff, deliver 1:1 checkoff (plus an item-by-item **Issue Ledger Final Audit Confirmation Table** for Problem Tasks, explicitly inviting user confirmation), and run `openspec validate --all --strict`.
+5. **Post-Task Universal Improvement Proposal**: Upon completing any task (across Antigravity, Codex, Claude Code, or Cursor), use the 4-step abstraction guide (`recursive-self-improvement-protocol.md`) to propose universal improvements; only after explicit user confirmation, write them into the target L2 guard/skill/principle and submit a PR to the repository.
 
 ---
 
