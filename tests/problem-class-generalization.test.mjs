@@ -1,8 +1,11 @@
 import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import {
+  auditFilesForHardcoding,
   classifyMutationBoundary,
   scanCodeForSpecialCasing,
   scanForStaticDataEmbedding,
@@ -191,4 +194,30 @@ test('scanForStaticDataEmbedding flags large embedded static maps while allowing
     'src/protocol.mjs'
   );
   assert.equal(allowlistedRes.valid, true);
+});
+
+test('auditFilesForHardcoding audits changed source files while exempting external schemas', () => {
+  const tmpRoot = mkdtempSync(path.join(os.tmpdir(), 'hardcoding-audit-'));
+  try {
+    mkdirSync(path.join(tmpRoot, 'src'), { recursive: true });
+    mkdirSync(path.join(tmpRoot, 'schemas'), { recursive: true });
+
+    const dirtyEngine = `
+      const TEMPLATE_FIELDS = ['a1', 'b2', 'c3', 'd4', 'e5', 'f6', 'g7', 'h8'];
+      export function parse() { return TEMPLATE_FIELDS; }
+    `;
+    writeFileSync(path.join(tmpRoot, 'src', 'engine.mjs'), dirtyEngine, 'utf8');
+    writeFileSync(path.join(tmpRoot, 'schemas', 'template.mjs'), dirtyEngine, 'utf8');
+
+    const blocked = auditFilesForHardcoding(['src/engine.mjs'], tmpRoot);
+    assert.equal(blocked.valid, false);
+    assert.equal(blocked.scanned, 1);
+    assert.equal(blocked.violations[0].code, 'STATIC_DATA_EMBEDDING_DETECTED');
+
+    const schemaClean = auditFilesForHardcoding(['schemas/template.mjs'], tmpRoot);
+    assert.equal(schemaClean.valid, true);
+    assert.equal(schemaClean.scanned, 0);
+  } finally {
+    rmSync(tmpRoot, { recursive: true, force: true });
+  }
 });

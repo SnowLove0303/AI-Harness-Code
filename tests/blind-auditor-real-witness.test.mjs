@@ -89,7 +89,7 @@ test('5. Repository .harness/blind-audit-trail.json passes validation and Axiom 
   const res = validateBlindAuditTrail(trail);
   assert.equal(res.valid, true, `Trail violations: ${JSON.stringify(res.violations)}`);
 
-  const geminiContent = readFileSync(path.join(repoRoot, 'GEMINI.md'), 'utf8');
+  const geminiContent = readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   const pstackContent = readFileSync(path.join(repoRoot, 'skills/pstack-openspec/SKILL.md'), 'utf8');
   const harnessContent = readFileSync(path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md'), 'utf8');
 
@@ -109,7 +109,7 @@ test('5. Repository .harness/blind-audit-trail.json passes validation and Axiom 
   ];
 
   for (const token of requiredTokens) {
-    assert.ok(geminiContent.includes(token), `GEMINI.md missing ${token}`);
+    assert.ok(geminiContent.includes(token), `operating-invariants-full.md missing ${token}`);
     assert.ok(pstackContent.includes(token), `skills/pstack-openspec/SKILL.md missing ${token}`);
     assert.ok(harnessContent.includes(token), `skills/ai-harness-openspec/SKILL.md missing ${token}`);
   }

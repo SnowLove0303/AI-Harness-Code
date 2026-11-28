@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -208,8 +209,79 @@ export function scanForStaticDataEmbedding(
   };
 }
 
+const AUDITABLE_EXT_RE = /\.(?:mjs|cjs|js|ts|tsx|py)$/i;
+
+/**
+ * Audits a concrete list of changed/target files for both special-case overfitting
+ * and static user/instance data embedding in generic source layers.
+ */
+export function auditFilesForHardcoding(filePaths, repoRoot = process.cwd()) {
+  const allViolations = [];
+  let scanned = 0;
+
+  for (const relOrAbs of filePaths || []) {
+    const relPath = path.isAbsolute(relOrAbs)
+      ? path.relative(repoRoot, relOrAbs)
+      : relOrAbs;
+    const normalized = relPath.replace(/\\/g, '/');
+    if (
+      !AUDITABLE_EXT_RE.test(normalized) ||
+      FIXTURE_OR_SCHEMA_PATH_RE.test(normalized) ||
+      normalized.endsWith('check-anti-hardcoding.mjs')
+    ) {
+      continue;
+    }
+    const fullPath = path.resolve(repoRoot, relPath);
+    if (!existsSync(fullPath)) continue;
+
+    scanned++;
+    const content = readFileSync(fullPath, 'utf8');
+    const specialRes = scanCodeForSpecialCasing(content, normalized);
+    const staticRes = scanForStaticDataEmbedding(content, normalized);
+    allViolations.push(...specialRes.violations, ...staticRes.violations);
+  }
+
+  return {
+    valid: allViolations.length === 0,
+    scanned,
+    violations: allViolations,
+  };
+}
+
+function getGitChangedFiles(repoRoot) {
+  try {
+    const out = execSync('git status --porcelain', {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    });
+    return out
+      .split(/\r?\n/)
+      .filter((line) => line.length > 3)
+      .map((line) => line.slice(3).trim().replace(/^"|"$/g, '').split(' -> ').pop());
+  } catch {
+    return [];
+  }
+}
+
 function runCli() {
   const repoRoot = process.cwd();
+  const useGitDiff = process.argv.includes('--git-diff');
+
+  console.log('=== Automated L2 Anti-Hardcoding & Generalization Guard (AUTOMATED_L2_ANTI_HARDCODING_GUARD_STANDARD) ===');
+
+  if (useGitDiff) {
+    const changedFiles = getGitChangedFiles(repoRoot);
+    const res = auditFilesForHardcoding(changedFiles, repoRoot);
+    if (!res.valid) {
+      for (const v of res.violations) {
+        console.error(`[FAIL] ${v.code} (${v.file}): ${v.message}`);
+      }
+      process.exit(1);
+    }
+    console.log(`[PASS] Audited ${res.scanned} changed source file(s) from git working tree, 0 hardcoding/embedding violations detected.`);
+    process.exit(0);
+  }
+
   const targetIdx = process.argv.indexOf('--target');
   const targetRel =
     targetIdx !== -1 && process.argv[targetIdx + 1]
@@ -230,7 +302,6 @@ function runCli() {
     }
   }
 
-  console.log('=== Automated L2 Anti-Hardcoding & Generalization Guard (AUTOMATED_L2_ANTI_HARDCODING_GUARD_STANDARD) ===');
   if (allViolations.length > 0) {
     for (const v of allViolations) {
       console.error(`[FAIL] ${v.code} (${v.file}): ${v.message}`);

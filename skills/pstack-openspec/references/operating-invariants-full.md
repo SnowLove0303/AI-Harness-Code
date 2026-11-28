@@ -820,6 +820,10 @@
       盲审必须记录至少一项主动敌手证伪探针（`ADVERSARIAL_PROBE_MISSING_BLOCKED`）；当机械审计全部绿灯而盲审在真实产物中捕获缺陷时，系统判定存在机械审计盲区，强制要求补强机械审计断言（`MECHANICAL_BLIND_SPOT_UNMITIGATED_BLOCKED`）后方可关闭任务；
     - **自动化 L2 盲审守卫标准 (`AUTOMATED_L2_BLIND_AUDIT_GUARD_STANDARD`)**：
       系统提供独立的 L2 静态守卫脚本（`scripts/check-blind-audit.mjs`，注册为 `npm run guard:blind-audit`），机械验证盲审隔离身份、真物切片真实性、敌手探针记录与双向纠偏状态；
+    - **硬编码与变动文件全量审计规程 (`HARDCODING_&_CHANGED_FILES_AUDIT_PROTOCOL`)**：
+      ① **任务变动文件全量审计**：任务交付前，必须对任务过程中产生的所有变动文件（`git diff` 新增与修改文件，可运行 `node scripts/check-anti-hardcoding.mjs --git-diff`）执行全量审计，严防用户实例数据、业务实体名、固定结构清单或静态映射表渗入通用源码层；
+      ② **去先验样本异构探针（Zero-Source-Diff Probe）**：涉及解析、转换或拓扑构建的通用工具，在 `adversarialProbes` 中必须验证“核心引擎源码 `git diff == 0`”前提下仅替换外部 Schema 即可跑通异构新输入；
+      ③ **Diff 红绿灯复核**：逐个变动文件对照 Axiom 84 的 Class A–D 分类与红绿灯边界核查（区分业务硬编码与 Category ④ 协议/标准不变量白名单），发现 Class A/B 越界改通用引擎直接驳回；
     - **公理 74 三镜像同构固化与纯通用工程抽象标准 (`AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD`)**：
       公理 74 的全部规约必须在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 71 项）三处宪法镜像中以纯通用软件工程语言同构固化，严禁掺杂任何特定业务情境词汇，违者系统静态检查直接判定为 `AXIOM_74_PARITY_&_UNIVERSAL_ABSTRACTION_STANDARD` 违规并一票否决。
 

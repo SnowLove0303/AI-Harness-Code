@@ -64,6 +64,7 @@
 - **Zero Self-Certification**: Implementing agents cannot certify their own semantic audit (`SELF_AUDIT_ISOLATION_VIOLATION_BLOCKED`). Hand off only original requirements and final artifact paths to an isolated blind auditor.
 - **Real-Artifact Witness Slicing**: Reject proxy-only approvals such as `Exit Code 0` or summary text (`PROXY_ONLY_AUDIT_REJECTED`). Record concrete `observedSlice` readings extracted from the final output.
 - **Bidirectional Escalation**: When blind inspection detects a defect missed by green mechanical checks, add a deterministic mechanical guard (`MECHANICAL_BLIND_SPOT_UNMITIGATED_BLOCKED`) and pass `npm run guard:blind-audit`.
+- **Changed-Files Hardcoding Audit (`HARDCODING_&_CHANGED_FILES_AUDIT_PROTOCOL`)**: Audit all task-modified files (`check-anti-hardcoding.mjs --git-diff`) against Class A–D boundaries to block user/instance data or static mapping leaks into generic engine layers, backed by a zero-source-diff heterogeneous probe.
 
 ## 1k. Problem-Task Zero-Simplification, Active Verification & Anti-Recurrence (`PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM`)
 - **Zero-Simplification Dual-Gate Conservation**: Preserve 100% of Gate 1 `[ISSUE-xx]` entries and constraint fidelity into Gate 2 without ellipsis condensation or shrinkage (`ISSUE_GATE_SIMPLIFICATION_BLOCKED`).
