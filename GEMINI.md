@@ -5,10 +5,11 @@
 ## 1. 唯一流程铁律：Ps-openspec 双门禁闭环 (最高法定总纲)
 任何开发、编码、修改、排错或架构任务（纯只读问答走 Pstack `Investigation` 路由除外），必须严格遵循 **Ps-openspec**（`GitHub Spec-Kit` 为其 Step 0 附属思路与子模块，统领 **Pstack** 与 **OpenSpec**，构建基于 Graph 的方法论技能关联拓扑与布控治理网）：
 1. **Step 0【门禁 1：需求全量确认门禁】**：100% 逐字留存用户原始输入，建立 1:1 需求物理对账矩阵（RTM）与《前瞻性扩展提案清单》。**门禁 1 绝对物理绝缘禁令**：严禁讨论实现细节或列出拟变文件，等待用户确认。
+   - **问题类任务分流（Problem-Task Gate）**：先判定是否含报错/缺陷/异常/Audit Findings/修复指令；若属于**问题类任务**，门禁 1 同步建立**《详细问题清单》**（原子编号 `[ISSUE-01]..[ISSUE-K]`，逐条写明现象与复现路径、现状代码锚点、`Root Source`/`Consumer Sink` 因果定位及独立判据）。多轮澄清严格执行**只增不减增量合并**，若用户仅回复部分条目，必须把剩余 `pending_ruling` 条目显式反问直至 100% 获裁定。
 2. **Step 1 底座感知 (Explore)**：只读探查，查询 `~/.gemini/pstack-openspec-route-map.json` 锚定剧本，严禁写业务代码。
-3. **Step 2【门禁 2：Ps-openspec 规格立法门禁】**：**门禁 2 核心法定宗旨**：编写并呈报 OpenSpec 四大资产（`proposal.md`、`specs/`、`design.md`、`tasks.md`）与【双清单】（拟变范围因果角色 + 保持现状承诺）。**门禁 2 施工硬阻断禁令**：获批前严禁改任何业务代码。
+3. **Step 2【门禁 2：Ps-openspec 规格立法门禁】**：**门禁 2 核心法定宗旨**：编写并呈报 OpenSpec 四大资产（`proposal.md`、`specs/`、`design.md`、`tasks.md`）与【双清单】（拟变范围因果角色 + 保持现状承诺）；问题类任务须在 `tasks.md` 为每个 `[ISSUE-xx]` 建独立原子块（禁打包）。**门禁 2 施工硬阻断禁令**：获批前严禁改任何业务代码。
 4. **Step 3 单步施工与 VS Code Diff**：`tasks.md` 执行 `[-]` 单焦点锁；修改代码优先调用 `vscode-review` (`review_diff_in_vscode` / `code --diff`)；零警告（`--max-warnings=0`）且退出码 0 方可 `[x]`。
-5. **Step 4–5 核销归档**：`git diff` 审计并及时 Commit；交付附带 **1:1 双向核销清算表**（`[Measured]` 退码 0）与 `openspec validate --all --strict` 归档；人工纠错两次的问题下沉为 L1/L2 机器门禁。
+5. **Step 4–5 核销归档**：`git diff` 审计并及时 Commit；交付附带 **1:1 双向核销清算表**（`[Measured]` 退码 0）与 `openspec validate --all --strict` 归档；问题类任务必须额外附带**《问题清单逐项审计对照确认表》**（初始问题 → 根治改动 → 真物实测退码 0 → 过程异常全披露）并跑通 `check-issue-clearance.mjs` / `check-problem-ledger-ruling.mjs`，显式提请用户逐项确认；人工纠错两次的问题下沉为 L1/L2 机器门禁。
 
 ## 2. 唯一工具路由铁律 (按需索引调用，0 常驻冗余)
 - 除 Antigravity 原生工具（读/写/终端/搜索/浏览器/子代理）外，凡涉及专项领域或检查任务，**必须优先查阅索引按需调用 `Ps-openspec` 工具体系**，严禁另立临时脚本：

@@ -23,10 +23,10 @@ npm run guard:single-entry-hub
 ```
 
 ### How an Antigravity Agent Executes a Task in V3.00
-1. **Step 0 (Gate 1)**: Capture raw request verbatim, present 1:1 RTM + Proactive Proposals, and halt for user confirmation (read-only `Investigation` routes skip Gate 1).
+1. **Step 0 (Gate 1)**: Capture raw request verbatim, present 1:1 RTM + Proactive Proposals, and halt for user confirmation (read-only `Investigation` routes skip Gate 1). If the input is a **Problem/Issue Task** (errors, defects, audit findings, repair requests), Gate 1 also establishes a detailed `[ISSUE-01]..[ISSUE-K]` ledger (symptom/repro, anchor, Root Source vs. Consumer Sink, acceptance criteria) with append-only multi-turn merging and mandatory counter-questioning on any unruled `pending_ruling` items.
 2. **Step 1 (Explore)**: Query `~/.gemini/pstack-openspec-route-map.json` to bind a PStack Playbook, and look up `~/.gemini/ps-toolbox-index.json` (plus `~/.gemini/ps-toolbox/local-index.json` if needed) to `read_file` only the relevant skill/reference.
-3. **Step 2 (Gate 2)**: Author OpenSpec artifacts (`proposal.md`, `specs/`, `design.md`, `tasks.md`) + Dual-Checklist, and halt for approval.
-4. **Step 3–5 (Apply, Verify, Archive)**: Main agent executes routine changes directly under `[-]` lock (dispatch subagents/Swarm only for bulk context shielding, parallel fan-out, or contested `/interrogate`; reuse existing same-role agents first). Run zero-token L2 guards (`~/.gemini/ps-hub/scripts/check-*.mjs`), open VS Code Diff, deliver 1:1 checkoff, and run `openspec validate --all --strict`.
+3. **Step 2 (Gate 2)**: Author OpenSpec artifacts (`proposal.md`, `specs/`, `design.md`, `tasks.md` — 1:1 bijective task block per `[ISSUE-xx]`) + Dual-Checklist, and halt for approval.
+4. **Step 3–5 (Apply, Verify, Archive)**: Main agent executes routine changes directly under `[-]` lock (dispatch subagents/Swarm only for bulk context shielding, parallel fan-out, or contested `/interrogate`; reuse existing same-role agents first). Run zero-token L2 guards (`~/.gemini/ps-hub/scripts/check-*.mjs`), open VS Code Diff, deliver 1:1 checkoff (plus an item-by-item **Issue Ledger Final Audit Confirmation Table** for Problem Tasks, explicitly inviting user confirmation), and run `openspec validate --all --strict`.
 
 ---
 
