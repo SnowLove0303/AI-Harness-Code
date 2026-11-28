@@ -34,9 +34,9 @@ test('sync-to-global engine executes idempotently and deploys Single-Entry Ps-op
       join(tempRoot, 'scripts', 'audit-protected-invariants.mjs'),
       join(tempRoot, 'scripts', 'audit-pstack-openspec-routing.ps1'),
       join(tempRoot, 'config', 'plugins', 'ps-openspec', 'plugin.json'),
-      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'workflows', 'mech-audit.md'),
-      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'workflows', 'ortho-audit.md'),
-      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'workflows', 'ps-guide.md')
+      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'skills', 'mech-audit', 'SKILL.md'),
+      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'skills', 'ortho-audit', 'SKILL.md'),
+      join(tempRoot, 'config', 'plugins', 'ps-openspec', 'skills', 'ps-guide', 'SKILL.md')
     ];
 
     for (const f of expectedFiles) {

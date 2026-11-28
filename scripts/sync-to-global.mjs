@@ -169,7 +169,7 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     if (syncFile(sSrc, join(targetRoot, 'scripts', coreScript))) updatedCount++;
   }
 
-  // 6. Sync Ps-openspec slash-command plugin (workflows/*.md + plugin.json)
+  // 6. Sync Ps-openspec slash-command plugin (skills/<cmd>/SKILL.md + plugin.json)
   const workflowsSrc = join(repoRoot, 'workflows');
   if (existsSync(workflowsSrc)) {
     const pluginDest = join(targetRoot, 'config', 'plugins', 'ps-openspec');
@@ -177,7 +177,7 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     const manifestJson = JSON.stringify(
       {
         name: 'ps-openspec',
-        description: 'Ps-openspec dual-gate workflow and OrthoAudit slash commands for Antigravity',
+        description: 'Ps-openspec dual-gate workflow and OrthoAudit/MechAudit slash commands for Antigravity',
         version: '3.0.0',
       },
       null,
@@ -189,7 +189,22 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
       console.log(`[Sync] Updated: ${manifestDest}`);
       updatedCount++;
     }
-    updatedCount += syncDirectory(workflowsSrc, join(pluginDest, 'workflows'));
+    for (const entry of readdirSync(workflowsSrc, { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+      const cmdName = entry.name.slice(0, -3);
+      const raw = readFileSync(join(workflowsSrc, entry.name), 'utf8');
+      const skillContent = /^---\r?\n[\s\S]*?\bname:\s*/m.test(raw)
+        ? raw
+        : raw.replace(/^---\r?\n/, `---\nname: ${cmdName}\n`);
+      const skillDir = join(pluginDest, 'skills', cmdName);
+      mkdirSync(skillDir, { recursive: true });
+      const skillDest = join(skillDir, 'SKILL.md');
+      if (!existsSync(skillDest) || readFileSync(skillDest, 'utf8') !== skillContent) {
+        writeFileSync(skillDest, skillContent, 'utf8');
+        console.log(`[Sync] Updated: ${skillDest}`);
+        updatedCount++;
+      }
+    }
   }
 
   console.log(`[OK] Global Single-Entry Hub sync completed. Total operations: ${updatedCount}`);
