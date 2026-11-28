@@ -13,7 +13,7 @@
 5. **Step 4–5 核销归档**：`git diff` 审计并及时 Commit；交付附带 **1:1 双向核销清算表**（`[Measured]` 退码 0）与 `openspec validate --all --strict` 归档；问题类任务必须额外附带**《问题清单逐项审计对照确认表》**（初始问题 → 根治改动 → 真物实测退码 0 → 过程异常全披露）并跑通 `check-issue-clearance.mjs` / `check-problem-ledger-ruling.mjs`，显式提请用户逐项确认；人工纠错两次的问题下沉为 L1/L2 机器门禁。
 
 ## 2. 唯一工具路由铁律 (按需索引调用，0 常驻冗余)
-- 除 Antigravity 原生工具（读/写/终端/搜索/浏览器/子代理）外，凡涉及专项领域或检查任务，**必须优先查阅索引按需调用 `Ps-openspec` 工具体系**，严禁另立临时脚本：
+- **任何任务（含工具能力询问、方案设计与执行）均须优先到 `Ps-openspec` 工具层查找可用工具并判断是否适用**；除 Antigravity 原生工具（读/写/终端/搜索/浏览器/子代理）外，必须先查阅索引再按需调用 `Ps-openspec` 工具体系，严禁忽视既有工具或另立临时脚本：
   - **工具与技能总索引**：`~/.gemini/ps-toolbox-index.json`（及本机私有技能 `~/.gemini/ps-toolbox/local-index.json`）
   - **82 项操作纪律全量库**：`~/.gemini/ps-hub/skills/pstack-openspec/references/operating-invariants-full.md`（含 `Verifier Isolation & Anti-Patching Axiom`、`Explicit Missing States & Anti-Fabrication Axiom`、`Env-Authored Witness & Auto-Rollback Axiom`、`Ground-Truth Anchoring & 100% Fact Provenance Axiom`、`Methodology Skills & Graph Governance Axiom`、`Universal Deep Audit & Anti-Fraud Axiom` 等，命中对应场景按需 `read_file`）
   - **两阶双轨通用深度审计体系与六大高强制性防线**：Step 1 优先运行 `~/.gemini/ps-hub/scripts/check-*.mjs`（0 Token 机器门禁，防 `VERIFIER_TAMPERING_DETECTED` / `TRIVIAL_ASSERTION_FRAUD`）；Step 2 对照 Specs 核销（`SPEC_OMISSION_DETECTED`），仅高争议/跨模块架构按需触发 `/interrogate`。
