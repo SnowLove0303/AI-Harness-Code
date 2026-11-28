@@ -187,8 +187,8 @@ test('gemini adapter enforces two-step dual-scope deep audit architecture', () =
   const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /两阶双轨通用深度审计体系/, 'GEMINI.md must contain Two-Step Dual-Scope section');
   assert.match(globalRules, /Two-Step Dual-Scope Deep Audit Axiom/, 'GEMINI.md must contain Axiom 24');
-  assert.match(globalRules, /第一步：机械确定性审计/, 'GEMINI.md must declare Step 1 mechanical audit');
-  assert.match(globalRules, /第二步：语义规范审计/, 'GEMINI.md must declare Step 2 cognitive audit');
+  assert.match(globalRules, /Step 1 优先运行/, 'GEMINI.md must declare Step 1 mechanical audit');
+  assert.match(globalRules, /Step 2 对照 Specs 核销/, 'GEMINI.md must declare Step 2 cognitive audit');
   assert.match(globalRules, /对照全局与局部 Specs/, 'GEMINI.md must declare dual-scope specification governance');
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
 
