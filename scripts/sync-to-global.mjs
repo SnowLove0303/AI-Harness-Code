@@ -169,6 +169,29 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     if (syncFile(sSrc, join(targetRoot, 'scripts', coreScript))) updatedCount++;
   }
 
+  // 6. Sync Ps-openspec slash-command plugin (workflows/*.md + plugin.json)
+  const workflowsSrc = join(repoRoot, 'workflows');
+  if (existsSync(workflowsSrc)) {
+    const pluginDest = join(targetRoot, 'config', 'plugins', 'ps-openspec');
+    mkdirSync(pluginDest, { recursive: true });
+    const manifestJson = JSON.stringify(
+      {
+        name: 'ps-openspec',
+        description: 'Ps-openspec dual-gate workflow and OrthoAudit slash commands for Antigravity',
+        version: '3.0.0',
+      },
+      null,
+      2
+    ) + '\n';
+    const manifestDest = join(pluginDest, 'plugin.json');
+    if (!existsSync(manifestDest) || readFileSync(manifestDest, 'utf8') !== manifestJson) {
+      writeFileSync(manifestDest, manifestJson, 'utf8');
+      console.log(`[Sync] Updated: ${manifestDest}`);
+      updatedCount++;
+    }
+    updatedCount += syncDirectory(workflowsSrc, join(pluginDest, 'workflows'));
+  }
+
   console.log(`[OK] Global Single-Entry Hub sync completed. Total operations: ${updatedCount}`);
   return updatedCount;
 }
