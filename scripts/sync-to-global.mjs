@@ -106,6 +106,7 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     'app-reverse-deconstruction',
     'tavily-search',
     'xmind-cloud-mcp',
+    'code-generality-audit',
   ];
   for (const skillName of SKILLS_TO_HUB) {
     const skillSrc = join(repoRoot, 'skills', skillName);
