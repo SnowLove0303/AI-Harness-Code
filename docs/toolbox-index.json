@@ -59,9 +59,9 @@
       "path": "~/.gemini/ps-hub/skills/spec-driven-workflow/SKILL.md"
     },
     {
-      "id": "code-generality-audit",
-      "triggers": ["code-audit", "hardcoding-audit", "代码审计", "硬编码审计", "通用性审计"],
-      "path": "~/.gemini/ps-hub/skills/code-generality-audit/SKILL.md",
+      "id": "ortho-audit",
+      "triggers": ["ortho-audit", "orthoaudit", "code-audit", "hardcoding-audit", "正交审计", "代码审计", "硬编码审计", "通用性审计"],
+      "path": "~/.gemini/ps-hub/skills/ortho-audit/SKILL.md",
       "script": "~/.gemini/ps-hub/scripts/check-anti-hardcoding.mjs"
     }
   ],

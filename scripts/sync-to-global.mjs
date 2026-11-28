@@ -95,6 +95,7 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
   // 3. Store all Ps-openspec skills inside ~/.gemini/ps-hub/skills/ for on-demand lookup
   updatedCount += syncDirectory(adapterDir, join(psHubRoot, 'skills', 'orbitstack-gemini'));
 
+  // @PROTOCOL_INVARIANT_ALLOWLIST: built-in hub skill directory manifest
   const SKILLS_TO_HUB = [
     'pstack-openspec',
     'ai-harness-openspec',
@@ -106,7 +107,7 @@ export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
     'app-reverse-deconstruction',
     'tavily-search',
     'xmind-cloud-mcp',
-    'code-generality-audit',
+    'ortho-audit',
   ];
   for (const skillName of SKILLS_TO_HUB) {
     const skillSrc = join(repoRoot, 'skills', skillName);

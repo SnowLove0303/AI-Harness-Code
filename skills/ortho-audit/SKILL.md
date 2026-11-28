@@ -1,9 +1,9 @@
 ---
-name: code-generality-audit
-description: "Agent 代码通用性审计方法论与执行剧本：融合 differential-review、requesting/receiving-code-review 与 AST/依赖图确定性预筛，围绕程序与数据正交、问题 Class A–D 分类、六元资产分层、源码修改红绿灯与零源码改动异构探针，对任务变动文件执行全面硬编码与边界审计。"
+name: ortho-audit
+description: "OrthoAudit（代码正交与通用性审计引擎）：融合 differential-review、requesting/receiving-code-review 与 AST/依赖图确定性预筛，围绕程序与数据正交、问题 Class A–D 分类、六元资产分层、源码修改红绿灯与零源码改动异构探针，对任务变动文件执行全面硬编码与边界审计。"
 ---
 
-# Agent 代码通用性审计方法论（Code Generality Audit Playbook）
+# OrthoAudit · 代码正交与通用性审计体系 (Execution Playbook)
 
 > **适用场景**：任何代码审查、盲审（Blind Audit）、PR 增量审计或“防止用户数据/具体模板在通用源码中成为硬编码”的任务。
 
@@ -76,7 +76,7 @@ description: "Agent 代码通用性审计方法论与执行剧本：融合 diffe
 ### 模板 A：审计 Agent 派单指令
 ```markdown
 你现在担任独立的代码通用性审计员（Blind Code Auditor），禁止修改任何业务源码。
-请严格按照 `code-generality-audit` 六步执行流对本次任务的全部变动文件执行审计：
+请严格按照 `OrthoAudit`（`ortho-audit`）六步执行流对本次任务的全部变动文件执行审计：
 1. 拉取全量变动文件（git status / git diff --name-only），贴标六元层级；
 2. 运行 check-anti-hardcoding.mjs --git-diff（及项目 AST/依赖守卫）做机械预筛；
 3. 对 [Engine Core] 与 [ACL] 变动行区间逐文件执行 Q1 剥离测试、Q2 Class A–D 归类、Q3 跨层依赖与 Category 4 白名单复核；
