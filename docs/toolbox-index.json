@@ -60,6 +60,7 @@
     }
   ],
   "l2Guards": {
+    "singleEntryHub": "~/.gemini/ps-hub/scripts/check-single-entry-hub.mjs",
     "uiSlop": "~/.gemini/ps-hub/scripts/check-ui-slop.mjs",
     "antiHardcoding": "~/.gemini/ps-hub/scripts/check-anti-hardcoding.mjs",
     "secretPrivacy": "~/.gemini/ps-hub/scripts/check-secret-privacy.mjs",

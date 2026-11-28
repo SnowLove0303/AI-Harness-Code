@@ -14,6 +14,7 @@ param (
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repoRoot = Split-Path -Parent $scriptDir
 $ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
 
 if ([string]::IsNullOrWhiteSpace($OutDir)) {
     $OutDir = Join-Path $repoRoot "dist"
@@ -88,16 +89,31 @@ function Build-PackageArchive {
 
         Copy-Item -LiteralPath $readme -Destination (Join-Path $stageDir "README.md")
         Copy-Item -LiteralPath $onboarding -Destination (Join-Path $stageDir "AGENT_ONBOARDING.md")
+        if (Test-Path -LiteralPath (Join-Path $repoRoot "GEMINI.md")) {
+            Copy-Item -LiteralPath (Join-Path $repoRoot "GEMINI.md") -Destination (Join-Path $stageDir "GEMINI.md")
+        }
+        if (Test-Path -LiteralPath (Join-Path $repoRoot "worker.md")) {
+            Copy-Item -LiteralPath (Join-Path $repoRoot "worker.md") -Destination (Join-Path $stageDir "worker.md")
+        }
+        if (Test-Path -LiteralPath (Join-Path $repoRoot "skills")) {
+            Copy-Item -LiteralPath (Join-Path $repoRoot "skills") -Destination $stageDir -Recurse
+        }
         New-Item -ItemType Directory -Path (Join-Path $stageDir "scripts") -Force | Out-Null
         Copy-Item -LiteralPath $installScript -Destination (Join-Path $stageDir "scripts\install-to-harness.ps1")
         Copy-Item -LiteralPath $installShell -Destination (Join-Path $stageDir "scripts\install-to-harness.sh")
-        Copy-Item -LiteralPath (Join-Path $repoRoot "scripts\pstack-handoff.mjs") -Destination (Join-Path $stageDir "scripts\pstack-handoff.mjs")
-        Copy-Item -LiteralPath (Join-Path $repoRoot "scripts\audit-protected-invariants.mjs") -Destination (Join-Path $stageDir "scripts\audit-protected-invariants.mjs")
-        Copy-Item -LiteralPath (Join-Path $repoRoot "scripts\audit-pstack-openspec-routing.ps1") -Destination (Join-Path $stageDir "scripts\audit-pstack-openspec-routing.ps1")
+        foreach ($sc in @("sync-to-global.mjs", "sync-to-global.ps1", "check-single-entry-hub.mjs", "pstack-handoff.mjs", "audit-protected-invariants.mjs", "audit-pstack-openspec-routing.ps1")) {
+            $scPath = Join-Path $repoRoot "scripts\$sc"
+            if (Test-Path -LiteralPath $scPath) {
+                Copy-Item -LiteralPath $scPath -Destination (Join-Path $stageDir "scripts\$sc")
+            }
+        }
 
         New-Item -ItemType Directory -Path (Join-Path $stageDir "docs") -Force | Out-Null
         Copy-Item -LiteralPath $auditDoc -Destination (Join-Path $stageDir "docs\pstack-openspec-routing-audit.md")
         Copy-Item -LiteralPath $routeMap -Destination (Join-Path $stageDir "docs\pstack-openspec-route-map.json")
+        if (Test-Path -LiteralPath (Join-Path $repoRoot "docs\toolbox-index.json")) {
+            Copy-Item -LiteralPath (Join-Path $repoRoot "docs\toolbox-index.json") -Destination (Join-Path $stageDir "docs\toolbox-index.json")
+        }
         Copy-Item -LiteralPath $routeEvaluation -Destination (Join-Path $stageDir "docs\pstack-openspec-route-evaluation.md")
         Copy-Item -LiteralPath $systemReference -Destination (Join-Path $stageDir "docs\ps-openspec-system.md")
         if (Test-Path -LiteralPath $geminiSystemReference) {

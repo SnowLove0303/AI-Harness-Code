@@ -56,32 +56,32 @@ function syncDirectory(srcDir, destDir) {
   return count;
 }
 
-export function syncAllToGlobal() {
+export function syncAllToGlobal(targetRoot = globalGeminiRoot) {
   console.log(`=== OrbitStack Single-Entry Ps-openspec Hub Sync Starting ===`);
   console.log(`Source Repo Root: ${repoRoot}`);
-  console.log(`Target Global Gemini: ${globalGeminiRoot}`);
+  console.log(`Target Global Gemini: ${targetRoot}`);
 
   let updatedCount = 0;
-  const psHubRoot = join(globalGeminiRoot, 'ps-hub');
+  const psHubRoot = join(targetRoot, 'ps-hub');
 
   // 1. Sync compact GEMINI.md single-entry switch to global config
   const repoGeminiMd = join(repoRoot, 'GEMINI.md');
-  const globalGeminiMd = join(globalGeminiRoot, 'config', 'GEMINI.md');
+  const globalGeminiMd = join(targetRoot, 'config', 'GEMINI.md');
   if (existsSync(repoGeminiMd)) {
     if (syncFile(repoGeminiMd, globalGeminiMd)) updatedCount++;
   }
 
   // 1b. Sync worker.md to global Gemini root
   const repoWorkerMd = join(repoRoot, 'worker.md');
-  const globalWorkerMd = join(globalGeminiRoot, 'worker.md');
+  const globalWorkerMd = join(targetRoot, 'worker.md');
   if (existsSync(repoWorkerMd)) {
     if (syncFile(repoWorkerMd, globalWorkerMd)) updatedCount++;
   }
 
   // 1c. Deduplicate legacy rule snapshot so it does not double-load alongside GEMINI.md
-  const legacyRule = join(globalGeminiRoot, 'config', 'rules', 'ps-openspec-v210-governance.md');
+  const legacyRule = join(targetRoot, 'config', 'rules', 'ps-openspec-v210-governance.md');
   if (existsSync(legacyRule)) {
-    const backupDir = join(globalGeminiRoot, 'backup-legacy-rules');
+    const backupDir = join(targetRoot, 'backup-legacy-rules');
     mkdirSync(backupDir, { recursive: true });
     renameSync(legacyRule, join(backupDir, 'ps-openspec-v210-governance.md'));
     console.log(`[Dedup] Archived legacy duplicate rule: ps-openspec-v210-governance.md`);
@@ -90,7 +90,7 @@ export function syncAllToGlobal() {
 
   // 2. Single-Entry Skill: Only orbitstack-pstack-openspec is registered in config/skills
   const adapterDir = join(repoRoot, 'orbitstack-gemini');
-  updatedCount += syncDirectory(adapterDir, join(globalGeminiRoot, 'config', 'skills', 'orbitstack-pstack-openspec'));
+  updatedCount += syncDirectory(adapterDir, join(targetRoot, 'config', 'skills', 'orbitstack-pstack-openspec'));
 
   // 3. Store all Ps-openspec skills inside ~/.gemini/ps-hub/skills/ for on-demand lookup
   updatedCount += syncDirectory(adapterDir, join(psHubRoot, 'skills', 'orbitstack-gemini'));
@@ -114,14 +114,14 @@ export function syncAllToGlobal() {
       updatedCount += syncDirectory(skillSrc, skillDest);
     }
     // Remove duplicate from auto-loaded config/skills so Antigravity does not inject it every turn
-    const oldConfigSkill = join(globalGeminiRoot, 'config', 'skills', skillName);
+    const oldConfigSkill = join(targetRoot, 'config', 'skills', skillName);
     if (existsSync(oldConfigSkill)) {
       rmSync(oldConfigSkill, { recursive: true, force: true });
       console.log(`[Hub] Moved out of auto-loaded config/skills: ${skillName}`);
       updatedCount++;
     }
   }
-  const oldOrbitGemini = join(globalGeminiRoot, 'config', 'skills', 'orbitstack-gemini');
+  const oldOrbitGemini = join(targetRoot, 'config', 'skills', 'orbitstack-gemini');
   if (existsSync(oldOrbitGemini)) {
     rmSync(oldOrbitGemini, { recursive: true, force: true });
     console.log(`[Hub] Deduplicated config/skills/orbitstack-gemini (kept orbitstack-pstack-openspec)`);
@@ -129,8 +129,8 @@ export function syncAllToGlobal() {
   }
 
   // 4. Sync route registry and toolbox index
-  if (syncFile(join(repoRoot, 'docs', 'pstack-openspec-route-map.json'), join(globalGeminiRoot, 'pstack-openspec-route-map.json'))) updatedCount++;
-  if (syncFile(join(repoRoot, 'docs', 'toolbox-index.json'), join(globalGeminiRoot, 'ps-toolbox-index.json'))) updatedCount++;
+  if (syncFile(join(repoRoot, 'docs', 'pstack-openspec-route-map.json'), join(targetRoot, 'pstack-openspec-route-map.json'))) updatedCount++;
+  if (syncFile(join(repoRoot, 'docs', 'toolbox-index.json'), join(targetRoot, 'ps-toolbox-index.json'))) updatedCount++;
 
   // 5. Sync helper & L2 guard scripts into ps-hub/scripts (and core handoff scripts in ~/.gemini/scripts)
   const scriptsToSync = [
@@ -146,6 +146,7 @@ export function syncAllToGlobal() {
     'check-project-graph.mjs',
     'check-ledger-continuity.mjs',
     'check-pstack-sync.mjs',
+    'check-single-entry-hub.mjs',
     'check-ui-slop.mjs',
     'check-blind-audit.mjs',
     'check-drawio-model.mjs',
@@ -162,7 +163,7 @@ export function syncAllToGlobal() {
   }
   for (const coreScript of ['pstack-handoff.mjs', 'audit-protected-invariants.mjs', 'audit-pstack-openspec-routing.ps1']) {
     const sSrc = join(repoRoot, 'scripts', coreScript);
-    if (syncFile(sSrc, join(globalGeminiRoot, 'scripts', coreScript))) updatedCount++;
+    if (syncFile(sSrc, join(targetRoot, 'scripts', coreScript))) updatedCount++;
   }
 
   console.log(`[OK] Global Single-Entry Hub sync completed. Total operations: ${updatedCount}`);

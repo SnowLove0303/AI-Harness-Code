@@ -1,6 +1,6 @@
-# Ps-openspec Gemini system reference
+# Ps-openspec Gemini system reference (V3.00 Single-Entry Hub)
 
-This document describes the Ps-openspec Gemini adaptation in this repository. It explains how tasks execute in Google Gemini and Antigravity, how PStack playbooks map to native Gemini tools and subagents, and how the system is installed and packaged.
+This document describes the Ps-openspec Gemini adaptation in this repository. In V3.00, Antigravity uses a **Single-Entry Hub** (`GEMINI.md` ~4 KB + `orbitstack-pstack-openspec` as the sole auto-loaded skill + `~/.gemini/ps-toolbox-index.json` for on-demand skills and L2 guards) to minimize per-turn token overhead while keeping 100% of Ps-openspec governance intact. See `AGENT_ONBOARDING.md` for `GEMINI.md`, `AGENTS.md`, `rules`, `plugin`, and `skill` setup.
 
 ## System boundary
 

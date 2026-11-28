@@ -201,6 +201,7 @@ flowchart LR
 | `guard:anti-hardcoding` | `scripts/check-anti-hardcoding.mjs` | 反特指字面量硬编码与表驱动重构守卫（Axiom 78） |
 | `guard:problem-brainstorm` | `scripts/check-problem-brainstorm.mjs` | 五维问题头脑风暴与四级防线升级三镜像一致性守卫（Axiom 79） |
 | `guard:problem-ruling` | `scripts/check-problem-ledger-ruling.mjs` | 问题清单增量合并与未裁定条目反问门禁守卫（Axiom 80） |
+| `guard:single-entry-hub` | `scripts/check-single-entry-hub.mjs` | 校验 `GEMINI.md` 体积 $\le$ 16 KB 且 `docs/toolbox-index.json` 路径全量有效 |
 
 ---
 
@@ -208,16 +209,18 @@ flowchart LR
 
 ```text
 Pstack-openspec/
-├── GEMINI.md                     # 跨线程最高法定宪法 (Axioms 1–80)
-├── worker.md                     # 子智能体隔离执行契约 (Sections 1–3)
-├── AGENTS.md / Agent.md          # PStack-first 入口规则与历史行为保护
-├── .harness/project-graph.json   # 7 大模块架构拓扑与守卫登记图
+├── GEMINI.md                     # Antigravity 唯一全局常驻总开关 (~4 KB)
+├── worker.md                     # 子智能体隔离执行契约
+├── AGENTS.md / Agent.md          # 项目级仓库宪法 (按需读取，不污染全局每轮提示词)
+├── AGENT_ONBOARDING.md           # V3.00 Antigravity 与多 Harness 开箱即用配置指南
+├── .harness/project-graph.json   # 模块架构拓扑与守卫登记图
 ├── bundle/pstack-upstream/       # Lauren Tan 官方 PStack 只读上游镜像
 ├── docs/
 │   ├── ps-openspec-system.md     # 体系架构与权责边界详述
+│   ├── toolbox-index.json        # 单入口工具箱按需索引 (skills + L2 guards)
 │   └── pstack-openspec-route-map.json # 23 剧本到 OpenSpec 路由表
-├── skills/                       # 10 项受管治理与行动技能
-├── scripts/                      # 17 项 L2 静态守卫、全局同步与跨平台安装器
+├── skills/                       # 10 项受管治理与行动技能（收纳至 ~/.gemini/ps-hub/）
+├── scripts/                      # 18 项 L2 静态守卫、全局同步与跨平台安装器
 ├── tests/                        # L2 守卫单元测试与三镜像回归套件
 ├── openspec/                     # OpenSpec 规格基线、门禁备忘录与归档目录
 └── packages/ai-harness/          # 独立分发的 npm 基座包 (@hujiale2609/ai-harness)
@@ -225,36 +228,39 @@ Pstack-openspec/
 
 ---
 
-## 10. 安装部署、全局应用与打包维护
+## 10. V3.00 开箱即用：Antigravity 与跨 Harness 配置
 
-### 10.1 一键全局应用（同步本机策略层）
+### 10.1 Antigravity 一键部署（Single-Entry Hub，适配 Gemini 额度优化）
 ```powershell
-node scripts/sync-to-global.mjs
+powershell -ExecutionPolicy Bypass -File scripts/sync-to-global.ps1
+npm run guard:single-entry-hub
 ```
-表驱动同步 `GEMINI.md`、`worker.md`、`docs/pstack-openspec-route-map.json`、全部 10 个 `skills/*` 技能目录及全部 L2 守卫脚本至用户全局配置目录（`~/.gemini/`），并严格隔离受保护目录。
+V3.00 对 Antigravity 五大入口的调整（详见 [`AGENT_ONBOARDING.md`](AGENT_ONBOARDING.md)）：
+- **`GEMINI.md`**：全局唯一常驻总开关（~4 KB，硬上限 16 KB），强绑定 Ps-openspec 双门禁、工具唯一路由与职能复用；
+- **`AGENTS.md`**：回归项目级宪法，按需读取，不塞入全局每轮提示词；
+- **`rules`**：全局 `~/.gemini/config/rules/` 保持零冗余，项目专属规则放入 `<project>/.agent/rules/`；
+- **`plugin`**：按需启用插件，清理 `<project>/.agents/skills/openspec-*` 与插件的重复注册；
+- **`skill`**：全局 `config/skills/` 仅注册 1 个入口 Skill（`orbitstack-pstack-openspec`），其余技能与 L2 脚本统一收纳于 `~/.gemini/ps-hub/`，通过 `~/.gemini/ps-toolbox-index.json` 按需读取。
 
-### 10.2 注入其他目标项目
+### 10.2 注入其他 Harness 工具（Codex / Claude Code / Cursor / Gemini）
 Windows PowerShell：
 ```powershell
 .\scripts\install-to-harness.ps1 -TargetDir "D:\MyOtherProject" -SkillLocation all
 ```
 Linux / macOS：
 ```bash
-./scripts/install-to-harness.sh /path/to/my-other-project
+./scripts/install-to-harness.sh /path/to/my-other-project all
 ```
 
 ### 10.3 全量回归校验
 ```powershell
+npm run guard:single-entry-hub
 npm run guard:privacy
-npm run guard:problem-ruling
-npm run guard:problem-brainstorm
-npm run guard:anti-hardcoding
-npm run guard:agent-lifecycle
 npm run guard:neutrality
 npm run guard:unslop
-node scripts/tests/gemini-adapter.test.mjs
+node --test scripts/tests/gemini-adapter.test.mjs scripts/tests/sync-to-global.test.mjs scripts/tests/pstack-handoff.test.mjs scripts/tests/protected-invariants.test.mjs tests/single-entry-hub.test.mjs
 ```
 
 ### 10.4 打包归档与 `@hujiale2609/ai-harness` 维护
-- **打包完整发布资产**：`pnpm pack:bundle`（生成 `dist/Ps-openspec-V2.10.zip`）
+- **打包 V3.00 发布资产**：`pnpm pack:bundle`（生成 `dist/Ps-openspec-V3.00-Gemini.zip` 与 `dist/Ps-openspec-V3.00.zip`）
 - **npm 基座包补丁层维护**：`packages/ai-harness/` 通过补丁层维护 `templates/`、`schemas/` 与 `.agents/`，严禁将主机耦合信息写入随包文档，详细说明见 [`packages/ai-harness/README.md`](packages/ai-harness/README.md)。
