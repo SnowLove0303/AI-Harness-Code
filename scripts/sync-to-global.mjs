@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, renameSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -85,6 +85,17 @@ export function syncAllToGlobal() {
   if (existsSync(sessionWorkspaceDir)) {
     const sessionGeminiMd = join(sessionWorkspaceDir, 'GEMINI.md');
     if (syncFile(repoGeminiMd, sessionGeminiMd)) updatedCount++;
+  }
+
+  // 1d. Deduplicate legacy rule snapshot so it does not double-load alongside GEMINI.md
+  const legacyRule = join(globalGeminiRoot, 'config', 'rules', 'ps-openspec-v210-governance.md');
+  if (existsSync(legacyRule)) {
+    const backupDir = join(globalGeminiRoot, 'backup-legacy-rules');
+    mkdirSync(backupDir, { recursive: true });
+    const backupDest = join(backupDir, 'ps-openspec-v210-governance.md');
+    renameSync(legacyRule, backupDest);
+    console.log(`[Dedup] Archived legacy duplicate rule to: ${backupDest}`);
+    updatedCount++;
   }
 
   // 2. Sync orbitstack-gemini adapter to both global skills

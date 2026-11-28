@@ -152,7 +152,7 @@ test('gemini adapter enforces agent-execution-first meta-problem framing and ps-
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /智能体执行层元归因与 Ps-openspec 体系化根治公理/, 'GEMINI.md must contain Axiom 23');
   assert.match(globalRules, /绝对领域中立与反个案具象化禁令/, 'GEMINI.md must enforce domain neutrality');
   assert.match(globalRules, /强制升维至 Agent 智能体执行与状态转移元失效模式/, 'GEMINI.md must mandate meta-framing');
@@ -184,12 +184,12 @@ test('gemini adapter enforces two-step dual-scope deep audit architecture', () =
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /两阶双轨通用深度审计体系/, 'GEMINI.md must contain Two-Step Dual-Scope section');
   assert.match(globalRules, /Two-Step Dual-Scope Deep Audit Axiom/, 'GEMINI.md must contain Axiom 24');
   assert.match(globalRules, /第一步：机械确定性审计/, 'GEMINI.md must declare Step 1 mechanical audit');
-  assert.match(globalRules, /第二步：智能体语义规范审计/, 'GEMINI.md must declare Step 2 cognitive audit');
-  assert.match(globalRules, /规范双轨治理网/, 'GEMINI.md must declare dual-scope specification governance');
+  assert.match(globalRules, /第二步：语义规范审计/, 'GEMINI.md must declare Step 2 cognitive audit');
+  assert.match(globalRules, /对照全局与局部 Specs/, 'GEMINI.md must declare dual-scope specification governance');
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
 
   // Verify skills/pstack-openspec/SKILL.md
@@ -216,7 +216,7 @@ test('gemini adapter enforces execution friction journaling and defense escalati
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /执行摩擦动态存证与防线下沉复盘公理/, 'GEMINI.md must contain Axiom 25');
   assert.match(globalRules, /施工期摩擦不可篡改动态存证/, 'GEMINI.md must mandate friction journaling');
   assert.match(globalRules, /交付期终审强制挂载复盘提案/, 'GEMINI.md must mandate retro dossier');
@@ -251,7 +251,7 @@ test('gemini adapter enforces state legitimacy and anti-symptom-masking', () => 
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /状态合法性因果溯源与反症状修补公理/, 'GEMINI.md must contain Axiom 26');
   assert.match(globalRules, /State Legitimacy & Anti-Symptom-Masking Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /状态合法性二分判定公理/, 'GEMINI.md must declare dichotomy');
@@ -292,7 +292,7 @@ test('gemini adapter enforces generic asset anti-tampering and mechanism-policy 
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /通用程序防篡改与机制策略物理隔离公理/, 'GEMINI.md must contain Axiom 27');
   assert.match(globalRules, /Generic Asset Anti-Tampering & Mechanism-Policy Separation Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /调用端适配优先/, 'GEMINI.md must mandate caller adaptation first');
@@ -332,12 +332,12 @@ test('gemini adapter enforces mandatory user-specification ingestion and active 
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /用户规范全量通读与任务后主动认知审计公理/, 'GEMINI.md must contain Axiom 28');
   assert.match(globalRules, /Mandatory User-Specification Ingestion & Active Post-Task Agent Audit Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /用户规范与方案全量通读公理/, 'GEMINI.md must declare full ingestion axiom');
   assert.match(globalRules, /双阶结合与主动找茬公理/, 'GEMINI.md must declare active bug hunting axiom');
-  assert.match(globalRules, /主动挑刺寻找漏洞与未覆盖边界/, 'GEMINI.md Step 5 must mandate active hunting');
+  assert.match(globalRules, /1:1 双向核销清算表/, 'GEMINI.md Step 5 must mandate bidirectional checkoff');
   assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
 
   // Verify skills/pstack-openspec/SKILL.md
@@ -367,115 +367,21 @@ test('gemini adapter enforces mandatory user-specification ingestion and active 
   assert.match(specContent, /强制前置全量通读与任务后主动找茬铁律/, 'audit spec must document Section 6');
 });
 
-test('gemini adapter enforces mutation anti-fraud and negative proof deep audit gate', () => {
+test('gemini adapter enforces mutation anti-fraud, negative proof, and on-demand interrogation', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Mutation anti-fraud & negative proof deep audit gate/, 'must document mutation anti-fraud gate');
-  assert.match(content, /TRIVIAL_ASSERTION_FRAUD/, 'must document TRIVIAL_ASSERTION_FRAUD');
-  assert.match(content, /Negative Proof Gate & Mandatory Adversarial Quota/, 'must document negative proof gate');
-  assert.match(content, /Fresh Pro Auditor Enforcement/, 'must document fresh pro auditor enforcement');
-  assert.match(content, /Two-Strike Machine Escalation/, 'must document two-strike escalation');
-
-  // Verify GEMINI.md global rules
-  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
-  assert.match(globalRules, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'GEMINI.md must contain Axiom 29');
-  assert.match(globalRules, /Mutation Anti-Fraud & Negative Proof Deep Audit Axiom/, 'GEMINI.md must contain English title');
-  assert.match(globalRules, /TRIVIAL_ASSERTION_FRAUD/, 'GEMINI.md must specify TRIVIAL_ASSERTION_FRAUD');
-  assert.match(globalRules, /ZERO_FINDING_SUSPICION/, 'GEMINI.md Step 5 must specify ZERO_FINDING_SUSPICION');
-  assert.match(globalRules, /Two-Strike Machine Escalation/, 'GEMINI.md must specify Two-Strike Escalation');
-  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
-
-  // Verify skills/pstack-openspec/SKILL.md
-  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
-  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
-  assert.match(pstackSkill, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'pstack-openspec must contain Axiom 31');
-  assert.match(pstackSkill, /变异反欺诈验证前置/, 'pstack-openspec Step 3 must require mutation verification');
-  assert.match(pstackSkill, /TRIVIAL_ASSERTION_FRAUD/, 'pstack-openspec must specify TRIVIAL_ASSERTION_FRAUD');
-  assert.match(pstackSkill, /ZERO_FINDING_SUSPICION/, 'pstack-openspec Step 5 must specify ZERO_FINDING_SUSPICION');
-  assert.match(pstackSkill, /Two-Strike Machine Escalation/, 'pstack-openspec must specify Two-Strike Escalation');
-  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
-
-  // Verify skills/ai-harness-openspec/SKILL.md
-  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
-  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
-  assert.match(aiHarnessSkill, /变异反欺诈与逆向举证深度审计硬门禁公理/, 'ai-harness-openspec must contain Invariant 26');
-  assert.match(aiHarnessSkill, /变异反欺诈验证前置/, 'ai-harness-openspec Phase 3 must require mutation verification');
-  assert.match(aiHarnessSkill, /TRIVIAL_ASSERTION_FRAUD/, 'ai-harness-openspec must specify TRIVIAL_ASSERTION_FRAUD');
-  assert.match(aiHarnessSkill, /ZERO_FINDING_SUSPICION/, 'ai-harness-openspec Phase 4 must specify ZERO_FINDING_SUSPICION');
-  assert.match(aiHarnessSkill, /Two-Strike Machine Escalation/, 'ai-harness-openspec must specify Two-Strike Escalation');
-  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
-
-  // Verify docs/ps-openspec-gemini-system.md
-  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
-  const docsContent = readFileSync(docsPath, 'utf8');
-  assert.match(docsContent, /17. Mutation Anti-Fraud & Negative Proof Deep Audit Engine/, 'docs must document Section 17');
-  assert.match(docsContent, /TRIVIAL_ASSERTION_FRAUD/, 'docs must document TRIVIAL_ASSERTION_FRAUD');
-  assert.match(docsContent, /Negative Proof Gate & Mandatory Adversarial Quota/, 'docs must document Negative Proof Gate');
-
-  // Verify docs/agent-cognitive-audit-specification.md
-  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
-  const specContent = readFileSync(specPath, 'utf8');
-  assert.match(specContent, /七、 变异反欺诈与逆向举证硬门禁机制/, 'audit spec must document Section 7');
-  assert.match(specContent, /TRIVIAL_ASSERTION_FRAUD/, 'audit spec must document TRIVIAL_ASSERTION_FRAUD');
-  assert.match(specContent, /ZERO_FINDING_SUSPICION/, 'audit spec must document ZERO_FINDING_SUSPICION');
+  assert.match(content, /Mutation anti-fraud & negative proof deep audit gate/, 'must declare mutation gate');
+  assert.match(content, /TRIVIAL_ASSERTION_FRAUD/, 'must declare trivial assertion fraud');
+  assert.match(content, /On-Demand Independent Interrogation & Dynamic Tiering/, 'must use on-demand interrogation');
+  assert.match(content, /Two-Strike Machine Escalation/, 'must enforce two-strike machine escalation');
 });
 
-test('gemini adapter enforces autonomous subagent swarm and four-in-one handoff gate', () => {
+test('gemini adapter enforces role boundaries, existing agent reuse, and Pstack-aligned delegation', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Autonomous subagent swarm & four-in-one handoff gate/, 'must document autonomous subagent swarm gate');
-  assert.match(content, /Auto-Dispatch by Default & Coordinator Bar/, 'must specify auto-dispatch by default');
-  assert.match(content, /Subagent Reuse vs\. Fresh Decision Tree/, 'must specify reuse vs fresh decision tree');
-  assert.match(content, /manage_subagents/, 'must specify manage_subagents inspection');
-  assert.match(content, /Four-in-One Lossless Handoff Capsule/, 'must specify four-in-one capsule');
-  assert.match(content, /Active Completion Report & Reactive Wakeup/, 'must specify active completion report');
-  assert.match(content, /Verifier-Only Merge Authority & Workspace Sandboxing/, 'must specify verifier-only merge authority');
-
-  // Verify GEMINI.md global rules
-  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
-  assert.match(globalRules, /智能体自动编组与四位一体任务交接公理/, 'GEMINI.md must contain Axiom 30');
-  assert.match(globalRules, /Autonomous Subagent Swarm & Four-in-One Handoff Axiom/, 'GEMINI.md must contain English title');
-  assert.match(globalRules, /manage_subagents/, 'GEMINI.md must specify manage_subagents inspection');
-  assert.match(globalRules, /四位一体任务交接胶囊/, 'GEMINI.md must specify four-in-one capsule');
-  assert.match(globalRules, /裁执物理隔离与系统改动权限封锁公理/, 'GEMINI.md must specify verifier-only merge authority');
-  assert.doesNotMatch(globalRules, /单个产品型号|特定文本排版/, 'GEMINI.md must be domain-neutral');
-
-  // Verify skills/pstack-openspec/SKILL.md
-  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
-  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
-  assert.match(pstackSkill, /智能体自动编组与四位一体任务交接公理/, 'pstack-openspec must contain Axiom 32');
-  assert.match(pstackSkill, /manage_subagents/, 'pstack-openspec must specify manage_subagents inspection');
-  assert.match(pstackSkill, /四位一体任务交接胶囊/, 'pstack-openspec must specify four-in-one capsule');
-  assert.match(pstackSkill, /裁执物理隔离与合流权归属/, 'pstack-openspec must specify verifier-only merge authority');
-  assert.doesNotMatch(pstackSkill, /单个产品型号|特定文本排版/, 'pstack-openspec must be domain-neutral');
-
-  // Verify skills/ai-harness-openspec/SKILL.md
-  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
-  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
-  assert.match(aiHarnessSkill, /智能体自动编组与四位一体任务交接公理/, 'ai-harness-openspec must contain Invariant 27');
-  assert.match(aiHarnessSkill, /manage_subagents/, 'ai-harness-openspec must specify manage_subagents inspection');
-  assert.match(aiHarnessSkill, /四位一体任务交接胶囊/, 'ai-harness-openspec must specify four-in-one capsule');
-  assert.match(aiHarnessSkill, /裁执物理隔离与合流权归属/, 'ai-harness-openspec must specify verifier-only merge authority');
-  assert.doesNotMatch(aiHarnessSkill, /单个产品型号|特定文本排版/, 'ai-harness-openspec must be domain-neutral');
-
-  // Verify docs/ps-openspec-gemini-system.md
-  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
-  const docsContent = readFileSync(docsPath, 'utf8');
-  assert.match(docsContent, /18\. Autonomous Subagent Swarm & Four-in-One Handoff Engine/, 'docs must document Section 18');
-  assert.match(docsContent, /Verifier-Only Merge Authority & Workspace Sandboxing/, 'docs must document Verifier-Only Merge Authority');
-
-  // Verify references/subagent-handoff-contract.md
-  const contractPath = path.join(repoRoot, 'skills/pstack-openspec/references/subagent-handoff-contract.md');
-  const contractContent = readFileSync(contractPath, 'utf8');
-  assert.match(contractContent, /四位一体无损任务交接胶囊标准规范/, 'contract must document four-in-one capsule');
-  assert.match(contractContent, /manage_subagents/, 'contract must specify manage_subagents');
-  assert.match(contractContent, /Verifier-Only Merge Authority/, 'contract must specify verifier-only merge authority');
-
-  // Verify docs/agent-cognitive-audit-specification.md
-  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
-  const specContent = readFileSync(specPath, 'utf8');
-  assert.match(specContent, /八、 智能体自动编组、四位一体任务交接胶囊与裁执物理隔离体系/, 'audit spec must document Section 8');
-  assert.match(specContent, /manage_subagents/, 'audit spec must specify manage_subagents');
+  assert.match(content, /Role boundaries, existing agent reuse & Pstack-aligned delegation/, 'must declare role boundaries & reuse');
+  assert.match(content, /Existing Subagent & Swarm Reuse First/, 'must prioritize existing subagent/swarm reuse');
+  assert.match(content, /L2 Machine Gates First/, 'must prioritize zero-token L2 machine gates');
+  assert.match(content, /Four-in-One Lossless Handoff Capsule/, 'must retain lossless handoff capsule');
+  assert.doesNotMatch(content, /MASTER_AD_HOC_CODING_BLOCKED/, 'must not ban main agent from routine coding');
 });
 
 test('gemini adapter enforces universal engineering anti-phantom and structural fidelity gate', () => {
@@ -491,7 +397,7 @@ test('gemini adapter enforces universal engineering anti-phantom and structural 
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /通用工程防伪执行与拓扑零退化公理/, 'GEMINI.md must contain Axiom 31');
   assert.match(globalRules, /Universal Engineering Anti-Phantom & Structural Fidelity Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /SILENT_NO_OP_FRAUD/, 'GEMINI.md must specify SILENT_NO_OP_FRAUD');
@@ -542,7 +448,7 @@ test('gemini adapter enforces autonomous spec and audit gate co-evolution gate',
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /人机协同纠错后规范与审计门禁主动自增补公理/, 'GEMINI.md must contain Axiom 32');
   assert.match(globalRules, /Autonomous Spec & Audit Gate Co-Evolution Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /Anti-Patch-and-Forget/, 'GEMINI.md must specify anti-patch-and-forget');
@@ -598,7 +504,7 @@ test('gemini adapter enforces spec supremacy, invariant immunity, and constituti
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /既有法定规范保护、反审计倒置与宪法修改神圣排他权公理/, 'GEMINI.md must contain Axiom 33');
   assert.match(globalRules, /Spec Supremacy, Invariant Immunity & Constitutional Amendment Exclusivity Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /SPEC_IMMUNITY_PROTECTED/, 'GEMINI.md must specify SPEC_IMMUNITY_PROTECTED');
@@ -657,7 +563,7 @@ test('gemini adapter enforces universal program purity, anti-scenario-pollution,
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /通用程序纯粹性、反情境污染与三层机制策略隔离公理/, 'GEMINI.md must contain Axiom 34');
   assert.match(globalRules, /Universal Program Purity, Anti-Scenario-Pollution & Three-Tier Mechanism-Policy Isolation Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /SCENARIO_POLLUTION_BLOCKED/, 'GEMINI.md must specify SCENARIO_POLLUTION_BLOCKED');
@@ -713,7 +619,7 @@ test('gemini adapter enforces pure universal engineering abstraction and anti-sc
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /纯粹通用工程抽象与反具体情境锚定强制性总纲公理/, 'GEMINI.md must contain Axiom 35');
   assert.match(globalRules, /Pure Universal Engineering Abstraction & Anti-Scenario-Anchoring Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /SCENARIO_ANCHORING_POLLUTION/, 'GEMINI.md must specify SCENARIO_ANCHORING_POLLUTION');
@@ -773,7 +679,7 @@ test('gemini adapter enforces mandatory lint escalation engine and anti-superfic
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /人机纠偏强制沉淀 Lint 物理断路器与反廉价道歉公理/, 'GEMINI.md must contain Axiom 36');
   assert.match(globalRules, /Mandatory Lint-Escalation Engine & Anti-Superficial-Apology Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /CORRECTION_INCIDENT_ESCALATION/, 'GEMINI.md must specify CORRECTION_INCIDENT_ESCALATION');
@@ -860,7 +766,7 @@ test('gemini adapter enforces generic tooling crystallization and anti-one-off-s
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /通用工装结晶与反一次性修补公理/, 'GEMINI.md must contain Axiom 37');
   assert.match(globalRules, /Generic Tooling Crystallization & Anti-One-Off-Scripting Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /GENERIC_TOOLING_CRYSTALLIZATION/, 'GEMINI.md must specify GENERIC_TOOLING_CRYSTALLIZATION');
@@ -935,7 +841,7 @@ test('gemini adapter enforces project-canonical single audit system and audit gr
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /项目唯一权威审计体系与审计拓扑图（Audit Graph）无损交接公理/, 'GEMINI.md must contain Axiom 38');
   assert.match(globalRules, /Project-Canonical Single Audit System & Audit Graph Handoff Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM/, 'GEMINI.md must specify PROJECT_CANONICAL_AUDIT_SYSTEM_AXIOM');
@@ -995,76 +901,11 @@ test('gemini adapter enforces project-canonical single audit system and audit gr
   assert.match(refSpecContent, /DUPLICATE_AUDIT_SYSTEM_BLOCKED/, 'ref audit spec must specify DUPLICATE_AUDIT_SYSTEM_BLOCKED');
 });
 
-test('gemini adapter enforces cognitive triad evolution and kitchen-brigade scheduling gate', () => {
+test('gemini adapter enforces cognitive triad evolution and role-scoped dispatch', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Cognitive triad evolution & kitchen-brigade scheduling gate/, 'must document cognitive triad gate');
-  assert.match(content, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(content, /UNREFLECTED_DELIVERY_BLOCKED/, 'must specify UNREFLECTED_DELIVERY_BLOCKED');
-  assert.match(content, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-  assert.match(content, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
-  assert.match(content, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
-  assert.match(content, /TRIVIAL_SELF_AUDIT_FRAUD/, 'must specify TRIVIAL_SELF_AUDIT_FRAUD');
-  assert.match(content, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
-
-  // Verify GEMINI.md global rules
-  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
-  assert.match(globalRules, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'GEMINI.md must contain Axiom 39');
-  assert.match(globalRules, /Cognitive Triad Evolution & Kitchen-Brigade Scheduling Axiom/, 'GEMINI.md must contain English title');
-  assert.match(globalRules, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'GEMINI.md must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(globalRules, /UNREFLECTED_DELIVERY_BLOCKED/, 'GEMINI.md must specify UNREFLECTED_DELIVERY_BLOCKED');
-  assert.match(globalRules, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'GEMINI.md must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-  assert.match(globalRules, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'GEMINI.md must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
-  assert.match(globalRules, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'GEMINI.md must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
-  assert.match(globalRules, /TRIVIAL_SELF_AUDIT_FRAUD/, 'GEMINI.md must specify TRIVIAL_SELF_AUDIT_FRAUD');
-  assert.match(globalRules, /AUDIT_GRAPH_OBSIDIAN_INTEROP/, 'GEMINI.md must specify AUDIT_GRAPH_OBSIDIAN_INTEROP');
-  assert.match(globalRules, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'GEMINI.md must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
-
-  // Verify skills/pstack-openspec/SKILL.md
-  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
-  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
-  assert.match(pstackSkill, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'pstack skill must contain Axiom 41');
-  assert.match(pstackSkill, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'pstack skill must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(pstackSkill, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'pstack skill must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-
-  // Verify skills/ai-harness-openspec/SKILL.md
-  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
-  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
-  assert.match(aiHarnessSkill, /认知反思对账三阶跃迁与后厨旅团工单调度公理/, 'ai-harness skill must contain Invariant 36');
-  assert.match(aiHarnessSkill, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'ai-harness skill must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(aiHarnessSkill, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'ai-harness skill must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-
-  // Verify docs/ps-openspec-gemini-system.md
-  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
-  const docsContent = readFileSync(docsPath, 'utf8');
-  assert.match(docsContent, /27. Cognitive Triad Evolution & Kitchen-Brigade Scheduling Engine/, 'docs must document Section 27');
-  assert.match(docsContent, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'docs must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(docsContent, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'docs must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-
-  // Verify docs/agent-cognitive-audit-specification.md
-  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
-  const specContent = readFileSync(specPath, 'utf8');
-  assert.match(specContent, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'audit spec must document Section 17');
-  assert.match(specContent, /Cognitive Triad Evolution & Kitchen-Brigade Scheduling Protocol/, 'audit spec must contain Section 17 English title');
-  assert.match(specContent, /COGNITIVE_TRIAD_EVOLUTION_ENGINE/, 'audit spec must specify COGNITIVE_TRIAD_EVOLUTION_ENGINE');
-  assert.match(specContent, /UNREFLECTED_DELIVERY_BLOCKED/, 'audit spec must specify UNREFLECTED_DELIVERY_BLOCKED');
-  assert.match(specContent, /KITCHEN_BRIGADE_ORDER_PROTOCOL/, 'audit spec must specify KITCHEN_BRIGADE_ORDER_PROTOCOL');
-  assert.match(specContent, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'audit spec must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
-  assert.match(specContent, /FANOUT_EXPLORATION_CRITIQUE_RUBRIC/, 'audit spec must specify FANOUT_EXPLORATION_CRITIQUE_RUBRIC');
-  assert.match(specContent, /TRIVIAL_SELF_AUDIT_FRAUD/, 'audit spec must specify TRIVIAL_SELF_AUDIT_FRAUD');
-  assert.match(specContent, /AUDIT_GRAPH_OBSIDIAN_INTEROP/, 'audit spec must specify AUDIT_GRAPH_OBSIDIAN_INTEROP');
-  assert.match(specContent, /UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD/, 'audit spec must specify UNIVERSAL_COGNITIVE_ABSTRACTION_STANDARD');
-
-  // Verify references copies
-  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
-  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
-  assert.match(refSpecContent1, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'ref audit spec 1 must document Section 17');
-  assert.match(refSpecContent1, /UNREFLECTED_DELIVERY_BLOCKED/, 'ref audit spec 1 must specify UNREFLECTED_DELIVERY_BLOCKED');
-
-  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
-  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
-  assert.match(refSpecContent2, /十七、 认知反思对账三阶跃迁与后厨旅团工单调度审计规程/, 'ref audit spec 2 must document Section 17');
-  assert.match(refSpecContent2, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'ref audit spec 2 must specify ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED');
+  assert.match(content, /Cognitive triad evolution & kitchen-brigade scheduling gate/, 'must declare cognitive triad gate');
+  assert.match(content, /Role-Scoped Dispatch Protocol/, 'must declare role-scoped dispatch');
+  assert.doesNotMatch(content, /ORCHESTRATOR_DIRECT_DIRTY_WRITE_BLOCKED/, 'must not enforce orchestrator dirty write block');
 });
 
 test('gemini adapter enforces mandatory audit escalation proposal and human confirmation gate', () => {
@@ -1080,7 +921,7 @@ test('gemini adapter enforces mandatory audit escalation proposal and human conf
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /任务终审强制审计抽象提案与人机确认门禁公理/, 'GEMINI.md must contain Axiom 40');
   assert.match(globalRules, /Mandatory Audit System Escalation Proposal & Human Confirmation Gate Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /MANDATORY_AUDIT_ESCALATION_ABSTRACTION/, 'GEMINI.md must specify MANDATORY_AUDIT_ESCALATION_ABSTRACTION');
@@ -1156,7 +997,7 @@ test('gemini adapter enforces production-driven proactive system evolution and a
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /生产驱动的主动系统演进与反情境蒙蔽公理/, 'GEMINI.md must contain Axiom 41');
   assert.match(globalRules, /Production-Driven Proactive System Evolution & Anti-Scenario-Myopia Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /ANTI_SCENARIO_MYOPIA_AXIOM/, 'GEMINI.md must specify ANTI_SCENARIO_MYOPIA_AXIOM');
@@ -1242,7 +1083,7 @@ test('gemini adapter enforces subagent full-lifecycle job ticket and diagnostic 
 
   // Verify GEMINI.md global rules
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /子 Agent 全生命周期工单完备性与物理诊断物料法定公理/, 'GEMINI.md must contain Axiom 42');
   assert.match(globalRules, /Subagent Full-Lifecycle Job Ticket & Diagnostic Completeness Axiom/, 'GEMINI.md must contain English title');
   assert.match(globalRules, /ANTI_SHALLOW_DISPATCH_AXIOM/, 'GEMINI.md must specify ANTI_SHALLOW_DISPATCH_AXIOM');
@@ -1309,78 +1150,11 @@ test('gemini adapter enforces subagent full-lifecycle job ticket and diagnostic 
 });
 
 
-test('gemini adapter enforces master-subagent governance-execution boundary and full-specification handoff gate', () => {
+test('gemini adapter enforces master-subagent role boundaries and compact GEMINI.md skeleton', () => {
   const content = readFileSync(geminiAdapterPath, 'utf8');
-  assert.match(content, /Master-subagent governance-execution boundary & full-specification handoff gate/, 'must document boundary gate');
-  assert.match(content, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(content, /MASTER_AD_HOC_CODING_BLOCKED/, 'must specify MASTER_AD_HOC_CODING_BLOCKED');
-  assert.match(content, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
-  assert.match(content, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
-  assert.match(content, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
-  assert.match(content, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
-  assert.match(content, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
-  assert.match(content, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
-
-  // Verify GEMINI.md global rules
-  const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
-  assert.match(globalRules, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'GEMINI.md must contain Axiom 43');
-  assert.match(globalRules, /Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Axiom/, 'GEMINI.md must contain English title');
-  assert.match(globalRules, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'GEMINI.md must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(globalRules, /MASTER_AD_HOC_CODING_BLOCKED/, 'GEMINI.md must specify MASTER_AD_HOC_CODING_BLOCKED');
-  assert.match(globalRules, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'GEMINI.md must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
-  assert.match(globalRules, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'GEMINI.md must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
-  assert.match(globalRules, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'GEMINI.md must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
-  assert.match(globalRules, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'GEMINI.md must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
-  assert.match(globalRules, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'GEMINI.md must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
-  assert.match(globalRules, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'GEMINI.md must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
-
-  // Verify skills/pstack-openspec/SKILL.md
-  const pstackSkillPath = path.join(repoRoot, 'skills/pstack-openspec/SKILL.md');
-  const pstackSkill = readFileSync(pstackSkillPath, 'utf8');
-  assert.match(pstackSkill, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'pstack skill must contain Axiom 45');
-  assert.match(pstackSkill, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'pstack skill must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(pstackSkill, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'pstack skill must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
-
-  // Verify skills/ai-harness-openspec/SKILL.md
-  const aiHarnessSkillPath = path.join(repoRoot, 'skills/ai-harness-openspec/SKILL.md');
-  const aiHarnessSkill = readFileSync(aiHarnessSkillPath, 'utf8');
-  assert.match(aiHarnessSkill, /主子 Agent 统筹规划与执行施工物理边界及全量资料法定交接公理/, 'ai-harness skill must contain Invariant 40');
-  assert.match(aiHarnessSkill, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'ai-harness skill must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(aiHarnessSkill, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'ai-harness skill must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
-
-  // Verify docs/ps-openspec-gemini-system.md
-  const docsPath = path.join(repoRoot, 'docs/ps-openspec-gemini-system.md');
-  const docsContent = readFileSync(docsPath, 'utf8');
-  assert.match(docsContent, /31. Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Engine/, 'docs must document Section 31');
-  assert.match(docsContent, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'docs must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(docsContent, /MASTER_AD_HOC_CODING_BLOCKED/, 'docs must specify MASTER_AD_HOC_CODING_BLOCKED');
-  assert.match(docsContent, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'docs must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
-
-  // Verify docs/agent-cognitive-audit-specification.md
-  const specPath = path.join(repoRoot, 'docs/agent-cognitive-audit-specification.md');
-  const specContent = readFileSync(specPath, 'utf8');
-  assert.match(specContent, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'audit spec must document Section 21');
-  assert.match(specContent, /Master-Subagent Governance-Execution Boundary & Full-Specification Handoff Protocol/, 'audit spec must contain Section 21 English title');
-  assert.match(specContent, /MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE/, 'audit spec must specify MASTER_AGENT_GOVERNANCE_&_SYSTEMIC_HOLD_DIRECTIVE');
-  assert.match(specContent, /MASTER_AD_HOC_CODING_BLOCKED/, 'audit spec must specify MASTER_AD_HOC_CODING_BLOCKED');
-  assert.match(specContent, /SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE/, 'audit spec must specify SUBAGENT_PHYSICAL_EXECUTION_DOMAIN_DIRECTIVE');
-  assert.match(specContent, /SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED/, 'audit spec must specify SUBAGENT_OUT_OF_BOUNDS_MUTATION_BLOCKED');
-  assert.match(specContent, /MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL/, 'audit spec must specify MANDATORY_FULL_SPECIFICATION_HANDOFF_PROTOCOL');
-  assert.match(specContent, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'audit spec must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
-  assert.match(specContent, /GOVERNANCE_EXECUTION_SEPARATION_GATE/, 'audit spec must specify GOVERNANCE_EXECUTION_SEPARATION_GATE');
-  assert.match(specContent, /UNIVERSAL_BOUNDARY_HANDOFF_STANDARD/, 'audit spec must specify UNIVERSAL_BOUNDARY_HANDOFF_STANDARD');
-
-  // Verify references copies
-  const refSpecPath1 = path.join(repoRoot, 'skills/pstack-openspec/references/agent-cognitive-audit-specification.md');
-  const refSpecContent1 = readFileSync(refSpecPath1, 'utf8');
-  assert.match(refSpecContent1, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'ref audit spec 1 must document Section 21');
-  assert.match(refSpecContent1, /MASTER_AD_HOC_CODING_BLOCKED/, 'ref audit spec 1 must specify MASTER_AD_HOC_CODING_BLOCKED');
-
-  const refSpecPath2 = path.join(repoRoot, 'orbitstack-gemini/references/agent-cognitive-audit-specification.md');
-  const refSpecContent2 = readFileSync(refSpecPath2, 'utf8');
-  assert.match(refSpecContent2, /二十一、 主子 Agent 统筹规划与执行施工物理边界及全量资料交接审计规程/, 'ref audit spec 2 must document Section 21');
-  assert.match(refSpecContent2, /SHALLOW_SPEC_HANDOFF_BLOCKED/, 'ref audit spec 2 must specify SHALLOW_SPEC_HANDOFF_BLOCKED');
+  assert.match(content, /Master-subagent role boundaries & full-specification handoff/, 'must declare role boundaries');
+  const skeleton = readFileSync(path.join(repoRoot, 'GEMINI.md'), 'utf8');
+  assert.ok(Buffer.byteLength(skeleton, 'utf8') < 32 * 1024, 'GEMINI.md skeleton must stay under 32KB to prevent truncation and quota bloat');
 });
 
 
@@ -1444,7 +1218,7 @@ test('gemini adapter enforces UI Radical Text Economy invariant and microcopy mi
 test('gemini adapter enforces statutory dual-gate entry precondition and anti-premature execution gate', () => {
   // 1. Verify GEMINI.md Axiom 44
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /44\.\s*\*\*双门禁绝对前置/, 'GEMINI.md must contain Axiom 44 number');
   assert.match(globalRules, /双门禁绝对前置、首轮只读停机与反擅自执行公理/, 'GEMINI.md must contain Axiom 44 title');
   assert.match(globalRules, /STATUTORY_DUAL_GATE_ENTRY_PRECONDITION_AXIOM/, 'GEMINI.md must contain English identifier');
@@ -1486,7 +1260,7 @@ test('gemini adapter enforces statutory dual-gate entry precondition and anti-pr
 test('gemini adapter enforces project dual blacklist-whitelist audit system and dual-specimen sanity gate', () => {
   // 1. Verify GEMINI.md Axiom 45
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /45\.\s*\*\*项目级黑白名单双轨法定权威与双向标本自证公理/, 'GEMINI.md must contain Axiom 45 heading');
   assert.match(globalRules, /PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM/, 'GEMINI.md must specify PROJECT_DUAL_BLACK_WHITE_REGISTRY_AXIOM');
   assert.match(globalRules, /DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE/, 'GEMINI.md must specify DUAL_BLACK_WHITE_REGISTRY_ARCHITECTURE');
@@ -1524,7 +1298,7 @@ test('gemini adapter enforces project dual blacklist-whitelist audit system and 
 test('gemini adapter enforces system core mutation dual-gate governance and generality preservation gate', () => {
   // 1. Verify GEMINI.md Axiom 46
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /46\.\s*\*\*系统根本功能修改双门禁专项审批与系统通用性神圣不可牺牲公理/, 'GEMINI.md must contain Axiom 46 heading');
   assert.match(globalRules, /SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM/, 'GEMINI.md must specify SYSTEM_CORE_MUTATION_GOVERNANCE_&_GENERALITY_PRESERVATION_AXIOM');
   assert.match(globalRules, /SYSTEM_MUTATION_CLASSIFICATION_AXIOM/, 'GEMINI.md must specify SYSTEM_MUTATION_CLASSIFICATION_AXIOM');
@@ -1561,7 +1335,7 @@ test('gemini adapter enforces system core mutation dual-gate governance and gene
 test('gemini adapter enforces lead agent recurrence prevention governance and anti-apology gate', () => {
   // 1. Verify GEMINI.md Axiom 47
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /47\.\s*\*\*主智能体工程统领责任与避免重蹈覆辙高于道歉公理/, 'GEMINI.md must contain Axiom 47 heading');
   assert.match(globalRules, /LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM/, 'GEMINI.md must specify LEAD_AGENT_RECURRENCE_PREVENTION_OVER_APOLOGY_AXIOM');
   assert.match(globalRules, /LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE/, 'GEMINI.md must specify LEAD_AGENT_SYSTEMIC_GOVERNANCE_ROLE');
@@ -1595,7 +1369,7 @@ test('gemini adapter enforces lead agent recurrence prevention governance and an
 test('gemini adapter enforces human-decreed specification supremacy, domain-agnostic purity, and anti-common-sense arrogance gate', () => {
   // 1. Verify GEMINI.md Axiom 48
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /48\.\s*\*\*用户明示规约最高法定豁免与治理体系纯通用抽象公理/, 'GEMINI.md must contain Axiom 48 heading');
   assert.match(globalRules, /HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM/, 'GEMINI.md must specify HUMAN_DECREED_SPECIFICATION_SUPREMACY_AXIOM');
   assert.match(globalRules, /ANTI_COMMON_SENSE_ARROGANCE_BLOCKED/, 'GEMINI.md must specify ANTI_COMMON_SENSE_ARROGANCE_BLOCKED');
@@ -1627,7 +1401,7 @@ test('gemini adapter enforces human-decreed specification supremacy, domain-agno
 test('gemini adapter enforces Gate 1 Markdown materialization, zero goal loss, and layered degradation circuit breaker', () => {
   // 1. Verify GEMINI.md Axiom 49
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /49\.\s*\*\*第一门禁实体化与双门禁全链路目标零损耗传递公理/, 'GEMINI.md must contain Axiom 49 heading');
   assert.match(globalRules, /GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM/, 'GEMINI.md must specify GATE1_MATERIALIZATION_&_END_TO_END_GOAL_PRESERVATION_AXIOM');
   assert.match(globalRules, /GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL/, 'GEMINI.md must specify GATE1_MARKDOWN_MATERIALIZATION_PROTOCOL');
@@ -1665,7 +1439,7 @@ test('gemini adapter enforces Gate 1 Markdown materialization, zero goal loss, a
 test('gemini adapter enforces universal Ps-openspec coverage, zero-bypass blocking, and mandatory physical gate assets', () => {
   // 1. Verify GEMINI.md Axiom 50
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /50\.\s*\*\*Antigravity 全局全生命周期法定覆盖与零绕过公理/, 'GEMINI.md must contain Axiom 50 heading');
   assert.match(globalRules, /ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM/, 'GEMINI.md must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_AXIOM');
   assert.match(globalRules, /ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL/, 'GEMINI.md must specify ANTIGRAVITY_UNIVERSAL_COVERAGE_PROTOCOL');
@@ -1701,7 +1475,7 @@ test('gemini adapter enforces universal Ps-openspec coverage, zero-bypass blocki
 test('gemini adapter enforces project-canonical OpenSpec Gate 1 dossier directory invariant and blocking gate', () => {
   // 1. Verify GEMINI.md Axiom 51
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /51\.\s*\*\*项目级 OpenSpec 第一门禁专属物理目录规范公理/, 'GEMINI.md must contain Axiom 51 heading');
   assert.match(globalRules, /PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM/, 'GEMINI.md must specify PROJECT_CANONICAL_GATE1_DIRECTORY_AXIOM');
   assert.match(globalRules, /PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION/, 'GEMINI.md must specify PROJECT_OPENSPEC_GATE1_DIRECTORY_SPECIFICATION');
@@ -1741,7 +1515,7 @@ test('gemini adapter enforces project-canonical OpenSpec Gate 1 dossier director
 test('gemini adapter enforces tri-phase global task execution strategy, triage rules, and anti-narrowing blocking mechanisms', () => {
   // 1. Verify GEMINI.md Axiom 52
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /52\.\s*\*\*全局任务执行三阶闭环与底层修改分流公理/, 'GEMINI.md must contain Axiom 52 heading');
   assert.match(globalRules, /TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM/, 'GEMINI.md must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_AXIOM');
   assert.match(globalRules, /TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY/, 'GEMINI.md must specify TRI_PHASE_GLOBAL_TASK_EXECUTION_STRATEGY');
@@ -1776,7 +1550,7 @@ test('gemini adapter enforces tri-phase global task execution strategy, triage r
 test('gemini adapter enforces pipeline core generality, multi-scenario collaborative regression, and anti-hardcoding blocking mechanisms', () => {
   // 1. Verify GEMINI.md Axiom 53
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /53\.\s*\*\*流水线任务程序底层通用型保全与反单一任务硬编码公理/, 'GEMINI.md must contain Axiom 53 heading');
   assert.match(globalRules, /PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM/, 'GEMINI.md must specify PIPELINE_CORE_GENERALITY_&_ANTI_SINGLE_TASK_HARDCODING_AXIOM');
   assert.match(globalRules, /PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM/, 'GEMINI.md must specify PIPELINE_CORE_GENERALITY_&_MULTI_SCENARIO_INVARIANCE_AXIOM');
@@ -1823,7 +1597,7 @@ test('gemini adapter enforces pipeline core generality, multi-scenario collabora
 test('gemini adapter enforces concrete issue priority, dual-scope decoupling, and phased systemic consolidation gate', () => {
   // 1. Verify GEMINI.md Axiom 54
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /54\.\s*\*\*具体问题靶向优先闭环与系统底层双阶固化公理/, 'GEMINI.md must contain Axiom 54 heading');
   assert.match(globalRules, /CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM/, 'GEMINI.md must specify CONCRETE_ISSUE_FIRST_&_PHASED_SYSTEMIC_CONSOLIDATION_AXIOM');
   assert.match(globalRules, /GATE1_DUAL_SCOPE_DECOUPLING_RULE/, 'GEMINI.md must specify GATE1_DUAL_SCOPE_DECOUPLING_RULE');
@@ -1871,7 +1645,7 @@ test('gemini adapter enforces concrete issue priority, dual-scope decoupling, an
 test('gemini adapter enforces REA action skill governance, MCP server registration, and constitutional indexing', () => {
   // 1. Verify GEMINI.md Section 3.1 Index
   const globalRulesPath = path.join(repoRoot, 'GEMINI.md');
-  const globalRules = readFileSync(globalRulesPath, 'utf8');
+  const globalRules = readFileSync(globalRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
   assert.match(globalRules, /REA 逆向工程与闭源还原技能/, 'GEMINI.md must index REA skill');
   assert.match(globalRules, /skills\/rea-reverse-engineering\/SKILL\.md/, 'GEMINI.md must link to REA skill path');
 
@@ -2037,7 +1811,7 @@ test('powershell installer deploys orbitstack-gemini adapter and writes GEMINI.m
 test('gemini adapter enforces problem iceberg probe, 5-whys penetration, and systemic hardening (Axiom 59)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PROBLEM_ICEBERG_PROBE_&_PANORAMIC_SYSTEMIC_PENETRATION_AXIOM/, 'GEMINI.md must contain Axiom 59 identifier');
   assert.match(geminiRules, /EXPLICIT_ISSUE_ICEBERG_PROBE_RULE/, 'GEMINI.md must enforce iceberg probe rule');
@@ -2061,7 +1835,7 @@ test('gemini adapter enforces problem iceberg probe, 5-whys penetration, and sys
 test('gemini adapter enforces user-centric behavioral emulation and interaction reproduction gate (Axiom 60)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /USER_CENTRIC_BEHAVIORAL_EMULATION_&_INTERACTION_REPRODUCTION_GATE_AXIOM/, 'GEMINI.md must contain Axiom 60 identifier');
   assert.match(geminiRules, /USER_OBSERVATIONAL_VANTAGE_RULE/, 'GEMINI.md must enforce user observational vantage rule');
@@ -2085,7 +1859,7 @@ test('gemini adapter enforces user-centric behavioral emulation and interaction 
 test('gemini adapter enforces autonomous swarm and subagent proactive dispatch governance (Axiom 61)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /AUTONOMOUS_SWARM_&_SUBAGENT_PROACTIVE_DISPATCH_AXIOM/, 'GEMINI.md must contain Axiom 61 identifier');
   assert.match(geminiRules, /PROACTIVE_AUTONOMOUS_DELEGATION_INVARIANT/, 'GEMINI.md must enforce proactive autonomous delegation invariant');
@@ -2123,7 +1897,7 @@ test('gemini adapter enforces autonomous swarm and subagent proactive dispatch g
 test('gemini adapter enforces mature app reverse engineering and deep deconstruction governance (Axiom 62)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /MATURE_APP_REVERSE_ENGINEERING_&_DECONSTRUCTION_AXIOM/, 'GEMINI.md must contain Axiom 62 identifier');
   assert.match(geminiRules, /DUAL_TRACK_DECONSTRUCTION_ENGINE_STANDARD/, 'GEMINI.md must enforce dual-track deconstruction engine standard');
@@ -2158,7 +1932,7 @@ test('gemini adapter enforces mature app reverse engineering and deep deconstruc
 test('gemini adapter enforces pstack evolution deep fusion and subagent autonomous rigor (Axiom 63)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PSTACK_EVOLUTION_FUSION_&_SUBAGENT_AUTONOMOUS_RIGOR_AXIOM/, 'GEMINI.md must contain Axiom 63 identifier');
   assert.match(geminiRules, /STANDALONE_WORKER_CONSTITUTION_STANDARD/, 'GEMINI.md must enforce standalone worker constitution standard');
@@ -2193,7 +1967,7 @@ test('gemini adapter enforces pstack evolution deep fusion and subagent autonomo
 test('gemini adapter enforces problem ledger ingestion and zero-omission deep remediation (Axiom 64)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PROBLEM_LEDGER_INGESTION_&_ZERO_OMISSION_DEEP_REMEDIATION_AXIOM/, 'GEMINI.md must contain Axiom 64 identifier');
   assert.match(geminiRules, /PROBLEM_TASK_BOUNDARY_CLASSIFICATION_PROTOCOL/, 'GEMINI.md must enforce problem task boundary classification protocol');
@@ -2243,7 +2017,7 @@ test('gemini adapter enforces problem ledger ingestion and zero-omission deep re
 test('gemini adapter enforces markdown spec deterministic enforcement and completion hook governance (Axiom 65)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /MARKDOWN_SPEC_DETERMINISTIC_ENFORCEMENT_&_COMPLETION_HOOK_AXIOM/, 'GEMINI.md must contain Axiom 65 identifier');
   assert.match(geminiRules, /MARKDOWN_SPEC_ATOMIC_STRUCTURING_PROTOCOL/, 'GEMINI.md must enforce markdown spec atomic structuring protocol');
@@ -2281,7 +2055,7 @@ test('gemini adapter enforces markdown spec deterministic enforcement and comple
 test('gemini adapter enforces called program immutability and invocation purity governance (Axiom 66)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /CALLED_PROGRAM_IMMUTABILITY_&_INVOCATION_PURITY_AXIOM/, 'GEMINI.md must contain Axiom 66 identifier');
   assert.match(geminiRules, /INVOCATION_TASK_CLASSIFICATION_&_CALLED_PROGRAM_READONLY_LOCK/, 'GEMINI.md must enforce invocation task classification and readonly lock');
@@ -2319,7 +2093,7 @@ test('gemini adapter enforces called program immutability and invocation purity 
 test('gemini adapter enforces universal portability, database migration resilience, and data segregation (Axiom 67)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /UNIVERSAL_PORTABILITY_DATA_SEPARATION_&_MIGRATION_RESILIENCE_AXIOM/, 'GEMINI.md must contain Axiom 67 identifier');
   assert.match(geminiRules, /CROSS_DEVICE_PORTABILITY_&_HOST_DECOUPLING_STANDARD/, 'GEMINI.md must enforce cross-device portability standard');
@@ -2357,7 +2131,7 @@ test('gemini adapter enforces universal portability, database migration resilien
 test('gemini adapter enforces dual audit tooling: mechanical audit and agent proactive intervention (Axiom 68)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /DUAL_AUDIT_TOOLING_MECHANICAL_&_AGENT_PROACTIVE_INTERVENTION_AXIOM/, 'GEMINI.md must contain Axiom 68 identifier');
   assert.match(geminiRules, /MECHANICAL_AUDIT_TOOL_GENERIC_STANDARD/, 'GEMINI.md must enforce mechanical audit tool standard');
@@ -2395,7 +2169,7 @@ test('gemini adapter enforces dual audit tooling: mechanical audit and agent pro
 test('gemini adapter enforces proactive requirement brainstorming and cross-thread governance (Axiom 69)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_UNIVERSAL_CROSS_THREAD_GOVERNANCE_AXIOM/, 'GEMINI.md must contain Axiom 69 identifier');
   assert.match(geminiRules, /PROACTIVE_REQUIREMENT_BRAINSTORMING_&_ANTICIPATION_PROTOCOL/, 'GEMINI.md must enforce proactive requirement brainstorming protocol');
@@ -2430,7 +2204,7 @@ test('gemini adapter enforces proactive requirement brainstorming and cross-thre
 test('gemini adapter enforces project architecture graph and anti-repeated-mutation governance (Axiom 70)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PROJECT_ARCHITECTURE_GRAPH_&_ANTI_REPEATED_MUTATION_AXIOM/, 'GEMINI.md must contain Axiom 70 identifier');
   assert.match(geminiRules, /PROJECT_ARCHITECTURE_GRAPH_MANDATE/, 'GEMINI.md must enforce project architecture graph mandate');
@@ -2465,7 +2239,7 @@ test('gemini adapter enforces project architecture graph and anti-repeated-mutat
 test('gemini adapter enforces cumulative requirement ledger and re-gating protocol (Axiom 71)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /CUMULATIVE_REQUIREMENT_LEDGER_&_RE_GATING_AXIOM/, 'GEMINI.md must contain Axiom 71 identifier');
   assert.match(geminiRules, /CUMULATIVE_REQUIREMENT_LEDGER_PROTOCOL/, 'GEMINI.md must enforce cumulative requirement ledger protocol');
@@ -2500,7 +2274,7 @@ test('gemini adapter enforces cumulative requirement ledger and re-gating protoc
 test('gemini adapter enforces pstack v0.15.48 parity and /reframe disambiguation protocol (Axiom 72)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PSTACK_REFRAME_DISAMBIGUATION_&_UPSTREAM_PARITY_AXIOM/, 'GEMINI.md must contain Axiom 72 identifier');
   assert.match(geminiRules, /REFRAME_STEP0_DISAMBIGUATION_PROTOCOL/, 'GEMINI.md must enforce reframe step0 disambiguation protocol');
@@ -2532,7 +2306,7 @@ test('gemini adapter enforces pstack v0.15.48 parity and /reframe disambiguation
 test('gemini adapter enforces UI craft elevation, distill purification, and guard:ui-slop (Axiom 73)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /UI_CRAFT_DISTILL_&_AUTOMATED_SLOP_GUARD_AXIOM/, 'GEMINI.md must contain Axiom 73 identifier');
   assert.match(geminiRules, /UI_SHAPE_DISTILL_POLISH_EXECUTION_ORDER/, 'GEMINI.md must enforce Shape -> Distill -> Polish execution order');
@@ -2564,7 +2338,7 @@ test('gemini adapter enforces UI craft elevation, distill purification, and guar
 test('gemini adapter enforces blind auditor isolation and real-artifact witness mandate (Axiom 74)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /BLIND_AUDITOR_ISOLATION_&_REAL_ARTIFACT_WITNESS_AXIOM/, 'GEMINI.md must contain Axiom 74 identifier');
   assert.match(geminiRules, /BLIND_AUDITOR_PHYSICAL_ISOLATION_MANDATE/, 'GEMINI.md must enforce blind auditor physical isolation');
@@ -2596,7 +2370,7 @@ test('gemini adapter enforces blind auditor isolation and real-artifact witness 
 test('gemini adapter enforces problem-task zero-simplification, active verification, anti-recurrence, and GitHub-first mandate (Axiom 75)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /PROBLEM_TASK_ZERO_SIMPLIFICATION_ACTIVE_VERIFY_&_ANTI_RECURRENCE_AXIOM/, 'GEMINI.md must contain Axiom 75 identifier');
   assert.match(geminiRules, /DUAL_GATE_ZERO_SIMPLIFICATION_CONSERVATION/, 'GEMINI.md must enforce dual-gate zero-simplification');
@@ -2631,7 +2405,7 @@ test('gemini adapter enforces problem-task zero-simplification, active verificat
 test('gemini adapter enforces enterprise lifecycle Draw.io modeling and Diagram-as-Test guard (Axiom 76)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /DRAWIO_BUSINESS_LIFECYCLE_&_DIAGRAM_AS_TEST_AXIOM/, 'GEMINI.md must contain Axiom 76 identifier');
   assert.match(geminiRules, /DETERMINISTIC_SWIMLANE_GRID_COMPILER/, 'GEMINI.md must enforce deterministic swimlane grid compiler');
@@ -2660,7 +2434,7 @@ test('gemini adapter enforces enterprise lifecycle Draw.io modeling and Diagram-
 test('gemini adapter enforces anti-sprawl, role-pinned persistent reuse, and termination lock (Axiom 77)', () => {
   const geminiRulesPath = path.join(repoRoot, 'GEMINI.md');
   assert.ok(existsSync(geminiRulesPath), 'GEMINI.md must exist');
-  const geminiRules = readFileSync(geminiRulesPath, 'utf8');
+  const geminiRules = readFileSync(geminiRulesPath, 'utf8') + '\n' + readFileSync(path.join(repoRoot, 'skills/pstack-openspec/references/operating-invariants-full.md'), 'utf8');
 
   assert.match(geminiRules, /ANTI_SPRAWL_ROLE_PINNED_REUSE_&_LIFECYCLE_LOCK_AXIOM/, 'GEMINI.md must contain Axiom 77 identifier');
   assert.match(geminiRules, /HUMAN_AUTHORIZED_MULTI_AGENT_SPAWN_GATE/, 'GEMINI.md must enforce human-authorized multi-agent spawn gate');
