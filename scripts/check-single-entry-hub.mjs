@@ -2,7 +2,7 @@
 /**
  * Single-Entry Hub & Toolbox Index Guard
  *
- * 1. Prevents GEMINI.md from bloating beyond 16KB (16384 bytes).
+ * 1. Prevents GEMINI.md from bloating beyond 8KB (8192 bytes).
  * 2. Validates docs/toolbox-index.json schema and verifies all referenced skill/guard paths exist.
  *
  * Exit code 0: All invariants satisfied.
@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const defaultRepoRoot = path.resolve(__dirname, '..');
 
-export const MAX_GEMINI_MD_BYTES = 16 * 1024;
+export const MAX_GEMINI_MD_BYTES = 8 * 1024;
 const PS_HUB_PREFIX = '~/.gemini/ps-hub/';
 const SKILL_PATH_FIELDS = ['path', 'references', 'hardRules', 'script'];
 
@@ -64,7 +64,7 @@ export function checkGeminiMdSize(geminiPath, maxBytes = MAX_GEMINI_MD_BYTES) {
       file: geminiPath,
       size,
       maxBytes,
-      message: `GEMINI.md size (${size} bytes) exceeds ${maxBytes} bytes (16KB) limit.`,
+      message: `GEMINI.md size (${size} bytes) exceeds ${maxBytes} bytes (8KB) limit.`,
     });
   }
 
@@ -200,7 +200,7 @@ function runCli() {
     process.exit(1);
   }
 
-  console.log('[PASS] GEMINI.md is within 16KB limit and all docs/toolbox-index.json paths are valid.');
+  console.log('[PASS] GEMINI.md is within 8KB limit and all docs/toolbox-index.json paths are valid.');
   process.exit(0);
 }
 
