@@ -4,6 +4,11 @@ import { fileURLToPath } from 'node:url';
 
 const SPECIAL_CASE_LITERAL_RE = /if\s*\([^)]*(?:===|!==|\.includes\()\s*['"](?:case[-_]|issue[-_]|ticket[-_]|sample[-_]|test[-_]?case[-_]|bug[-_])[^'"]+['"]/i;
 const ELSE_IF_LITERAL_RE = /else\s+if\s*\(\s*(?!typeof\b)[^)]*===\s*['"][^'"]+['"]\s*\)/g;
+const STATIC_STRING_ARRAY_RE = /\bconst\s+[A-Z0-9_]+\s*=\s*\[([\s\S]*?)\]/g;
+const STATIC_STRING_MAP_RE = /\bconst\s+[A-Z0-9_]+\s*=\s*\{([\s\S]*?)\}/g;
+const STRING_LITERAL_RE = /['"][^'"\r\n]{2,}['"]/g;
+const KV_LITERAL_PAIR_RE = /['"][^'"\r\n]+['"]\s*:\s*['"][^'"\r\n]+['"]/g;
+const FIXTURE_OR_SCHEMA_PATH_RE = /(?:^|[\\/])(?:tests?|fixtures?|schemas?|__tests__|mocks?)(?:[\\/]|$)/i;
 
 /**
  * Scans generic module source code for instance-specific special-case overfitting
@@ -71,9 +76,146 @@ export function validateGeneralizationEvidence(record) {
   };
 }
 
+/**
+ * Classifies whether a proposed modification is allowed in engine source code
+ * based on Problem Class (A/B/C/D) and System Content Category.
+ */
+export function classifyMutationBoundary({
+  problemClass,
+  targetCategory,
+  userApprovedEmbedding = false,
+} = {}) {
+  const cls = String(problemClass || '').toUpperCase();
+  const cat = String(targetCategory || '').toLowerCase();
+
+  if (cat === 'user_data' && !userApprovedEmbedding) {
+    return {
+      allowed: false,
+      zone: 'red',
+      code: 'UNAPPROVED_USER_DATA_EMBEDDING_BLOCKED',
+      reason: 'User/instance data must not be embedded in source code without explicit user approval.',
+    };
+  }
+  if (cat === 'protocol_invariant') {
+    return {
+      allowed: true,
+      zone: 'green',
+      code: 'PROTOCOL_INVARIANT_WHITELISTED',
+      reason: 'Protocol and standard invariants are whitelisted in source code.',
+    };
+  }
+  if ((cls === 'A' || cls === 'B') && (cat === 'pluggable_schema' || cat === 'sample_fixture')) {
+    return {
+      allowed: true,
+      zone: 'green',
+      code: 'EXTERNAL_SCHEMA_OR_FIXTURE_ALLOWED',
+      reason: 'Class A/B variations belong in external pluggable schemas or isolated sample fixtures.',
+    };
+  }
+  if (cls === 'A' && cat === 'engine_primitive') {
+    return {
+      allowed: false,
+      zone: 'red',
+      code: 'INSTANCE_DATA_IN_ENGINE_BLOCKED',
+      reason: 'Class A instance/template-specific issues must not modify generic engine source.',
+    };
+  }
+  if (cls === 'B' && cat === 'engine_primitive') {
+    return {
+      allowed: false,
+      zone: 'red',
+      code: 'POLICY_IN_ENGINE_BLOCKED',
+      reason: 'Class B policy/mapping differences must be injected via pluggable Schema, not engine source.',
+    };
+  }
+  if (cls === 'C' && cat === 'engine_primitive') {
+    return {
+      allowed: false,
+      zone: 'red',
+      code: 'ACL_BYPASS_TO_ENGINE_BLOCKED',
+      reason: 'Class C boundary noise must be normalized in the ACL layer, not core engine source.',
+    };
+  }
+  if (cls === 'C' && cat === 'acl') {
+    return {
+      allowed: true,
+      zone: 'yellow',
+      code: 'ACL_BOUNDARY_ADAPTATION_ALLOWED',
+      reason: 'Class C heterogeneous input normalization is permitted within the boundary ACL layer.',
+    };
+  }
+  if (cls === 'D' && cat === 'engine_primitive') {
+    return {
+      allowed: true,
+      zone: 'green',
+      code: 'UNIVERSAL_PRIMITIVE_EVOLUTION_ALLOWED',
+      reason: 'Class D generic primitive gaps may update engine source with zero-scenario-wording and cross-scenario invariance.',
+    };
+  }
+
+  return {
+    allowed: false,
+    zone: 'red',
+    code: 'UNCLASSIFIED_MUTATION_BLOCKED',
+    reason: `Unrecognized or mismatched boundary combination: class=${cls || 'unknown'}, category=${cat || 'unknown'}.`,
+  };
+}
+
+/**
+ * Scans non-fixture source files for large embedded static literal lists or
+ * key-value mapping tables that should be externalized into a pluggable Schema.
+ */
+export function scanForStaticDataEmbedding(
+  sourceCode,
+  filePath = 'module.mjs',
+  { threshold = 8 } = {}
+) {
+  const violations = [];
+  const code = String(sourceCode || '');
+
+  if (
+    FIXTURE_OR_SCHEMA_PATH_RE.test(filePath) ||
+    code.includes('@PROTOCOL_INVARIANT_ALLOWLIST')
+  ) {
+    return { valid: true, violations };
+  }
+
+  for (const match of code.matchAll(STATIC_STRING_ARRAY_RE)) {
+    const items = match[1].match(STRING_LITERAL_RE) || [];
+    if (items.length >= threshold) {
+      violations.push({
+        code: 'STATIC_DATA_EMBEDDING_DETECTED',
+        file: filePath,
+        message: `Detected static string array with ${items.length} literals (>= ${threshold}). Externalize instance lists into a pluggable Schema or mark protocol invariants.`,
+      });
+    }
+  }
+
+  for (const match of code.matchAll(STATIC_STRING_MAP_RE)) {
+    const pairs = match[1].match(KV_LITERAL_PAIR_RE) || [];
+    if (pairs.length >= threshold) {
+      violations.push({
+        code: 'STATIC_DATA_EMBEDDING_DETECTED',
+        file: filePath,
+        message: `Detected static string mapping table with ${pairs.length} entries (>= ${threshold}). Externalize mappings into a pluggable Schema.`,
+      });
+    }
+  }
+
+  return {
+    valid: violations.length === 0,
+    violations,
+  };
+}
+
 function runCli() {
   const repoRoot = process.cwd();
-  const scriptsDir = path.join(repoRoot, 'scripts');
+  const targetIdx = process.argv.indexOf('--target');
+  const targetRel =
+    targetIdx !== -1 && process.argv[targetIdx + 1]
+      ? process.argv[targetIdx + 1]
+      : 'scripts';
+  const scriptsDir = path.resolve(repoRoot, targetRel);
   const allViolations = [];
   let scanned = 0;
 

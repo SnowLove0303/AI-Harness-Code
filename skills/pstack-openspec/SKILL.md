@@ -128,7 +128,7 @@ description: "OrbitStack (轨道工程体系): Lauren Tan (@poteto) 的 Pstack �
    - 门禁 2 的唯一目的是**正式编写并呈报 Ps-openspec 体系下的 OpenSpec 增量规格与施工设计（How）**。绝对禁止在 OpenSpec 获批前动笔写任何业务代码！绝对禁止以口水聊天代替严谨规格资产！
    - 将 1:1 RTM 需求无损注入 `openspec/changes/<change-name>/proposal.md`；
    - 针对每个 `REQ-xx` 使用 ps-openspec 展开 RFC 2119 严密契约并在 `specs/` 落地；
-   - 在 `design.md` 中输出技术架构与因果拓扑设计；
+   - 在 `design.md` 中输出技术架构与因果拓扑设计；涉及数据解析、转换或拓扑构建的任务，须显式完成**三元分账**（`Engine Primitives` 通用引擎原语 / `Pluggable Schema` 外部可插拔配置 / `Sample Fixtures` 样本夹具）与**问题四分类（Class A–D）及源码修改红绿灯判定**，并约定“零核心源码改动（`git diff == 0`）替换 Schema 跑通异构变体”的盲测验收；
    - 在 `tasks.md` 中分解为细粒度原子任务，绑定具体实测验证命令与单焦点专注锁；
    - **问题与原子任务 1:1 双射法定公理与严禁任务打包门禁 (ISSUE_TO_TASK_BIJECTIVE_INVARIANT)**：在 `tasks.md` 编制中，每一个 `[ISSUE-xx]` 必须拥有专属独立的任务单元，任务组数量必须 $N_{\text{Task}} \ge K$；严禁将不同 Issue 混合打包为粗放任务（`BUNDLED_ISSUE_TASK_FORBIDDEN`）；每个 Issue 任务块内部闭环包含失败复现（RED）、源头根治（ROOT）、结构免疫（IMMUNITY）、单测通过（GREEN）与兄弟排查（SWEEP）；在门禁 2 拟变清单中强制自证 `[Root Source]` 源头修改，严禁仅改 `[Consumer Sink]` 兜底（`SINK_PATCHING_BLOCKED`）；
    - **Markdown 规范原子结构化与单焦点状态机任务映射 (WORKFLOW_STEP_SINGLE_FOCUS_STATECHART_STANDARD)**：在 `specs/` 中落实 RFC 2119 原子契约条目（`[SPEC-RULE-xx]` / `[AUDIT-CHECK-xx]`）；在 `tasks.md` 编制中，将原子规则映射为串行状态机任务，每一个规范检查点绑定专属实测退出码 0 验证命令；

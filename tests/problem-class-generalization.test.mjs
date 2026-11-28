@@ -3,7 +3,9 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
 import {
+  classifyMutationBoundary,
   scanCodeForSpecialCasing,
+  scanForStaticDataEmbedding,
   validateGeneralizationEvidence,
 } from '../scripts/check-anti-hardcoding.mjs';
 
@@ -85,7 +87,7 @@ test('validateGeneralizationEvidence enforces problemClass, analogousSitesChecke
   assert.equal(validRecord.violations.length, 0);
 });
 
-test('Axiom 78 parity across GEMINI.md, pstack-openspec, ai-harness-openspec, and worker.md', () => {
+test('Axiom 78 parity across operating-invariants-full, pstack-openspec, ai-harness-openspec, and worker.md', () => {
   const requiredTokens = [
     'UNIVERSAL_PROBLEM_CLASS_GENERALIZATION_AXIOM',
     'PROBLEM_CLASS_ABSTRACTION_MANDATE',
@@ -102,7 +104,7 @@ test('Axiom 78 parity across GEMINI.md, pstack-openspec, ai-harness-openspec, an
   ];
 
   const mirrorFiles = [
-    'GEMINI.md',
+    'skills/pstack-openspec/references/operating-invariants-full.md',
     'skills/pstack-openspec/SKILL.md',
     'skills/ai-harness-openspec/SKILL.md',
   ];
@@ -124,4 +126,69 @@ test('Axiom 78 parity across GEMINI.md, pstack-openspec, ai-harness-openspec, an
   ]) {
     assert.ok(workerContent.includes(token), `worker.md missing token: ${token}`);
   }
+});
+
+test('classifyMutationBoundary enforces Red-Light / Green-Light rules across Class A-D', () => {
+  const classAEngine = classifyMutationBoundary({
+    problemClass: 'A',
+    targetCategory: 'engine_primitive',
+  });
+  assert.equal(classAEngine.allowed, false);
+  assert.equal(classAEngine.zone, 'red');
+  assert.equal(classAEngine.code, 'INSTANCE_DATA_IN_ENGINE_BLOCKED');
+
+  const classBSchema = classifyMutationBoundary({
+    problemClass: 'B',
+    targetCategory: 'pluggable_schema',
+  });
+  assert.equal(classBSchema.allowed, true);
+  assert.equal(classBSchema.zone, 'green');
+
+  const classCAcl = classifyMutationBoundary({
+    problemClass: 'C',
+    targetCategory: 'acl',
+  });
+  assert.equal(classCAcl.allowed, true);
+  assert.equal(classCAcl.zone, 'yellow');
+
+  const classDEngine = classifyMutationBoundary({
+    problemClass: 'D',
+    targetCategory: 'engine_primitive',
+  });
+  assert.equal(classDEngine.allowed, true);
+  assert.equal(classDEngine.zone, 'green');
+
+  const protocolInvariant = classifyMutationBoundary({
+    problemClass: 'D',
+    targetCategory: 'protocol_invariant',
+  });
+  assert.equal(protocolInvariant.allowed, true);
+  assert.equal(protocolInvariant.code, 'PROTOCOL_INVARIANT_WHITELISTED');
+});
+
+test('scanForStaticDataEmbedding flags large embedded static maps while allowing schemas and protocol allowlists', () => {
+  const embeddedMap = `
+    const FIELD_MAP = {
+      'field_a': 'col_1',
+      'field_b': 'col_2',
+      'field_c': 'col_3',
+      'field_d': 'col_4',
+      'field_e': 'col_5',
+      'field_f': 'col_6',
+      'field_g': 'col_7',
+      'field_h': 'col_8'
+    };
+  `;
+  const dirtyRes = scanForStaticDataEmbedding(embeddedMap, 'src/parser.mjs');
+  assert.equal(dirtyRes.valid, false);
+  assert.equal(dirtyRes.violations[0].code, 'STATIC_DATA_EMBEDDING_DETECTED');
+
+  const schemaRes = scanForStaticDataEmbedding(embeddedMap, 'schemas/default-map.mjs');
+  assert.equal(schemaRes.valid, true);
+
+  const allowlistedRes = scanForStaticDataEmbedding(
+    `// @PROTOCOL_INVARIANT_ALLOWLIST\n${embeddedMap}`,
+    'src/protocol.mjs'
+  );
+  assert.equal(allowlistedRes.valid, true);
 });
