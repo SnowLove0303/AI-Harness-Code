@@ -916,6 +916,10 @@
     - **三镜像同构与自动化 L2 守卫标准 (`AXIOM_82_PARITY_&_LIFECYCLE_GUARD_STANDARD`)**：
       公理 82 由 `scripts/check-agent-lifecycle.mjs`（`npm run guard:agent-lifecycle`）提供 L2 自动化校验，并在 `GEMINI.md`、`skills/pstack-openspec/SKILL.md` 与 `skills/ai-harness-openspec/SKILL.md`（第 79 项）三处宪法镜像中以纯通用软件工程语言同构固化。
 
+83. **信息搜集优先与用户便利公理 (`DISCOVERY_FIRST_&_USER_CONVENIENCE_AXIOM` — "向内查实、向外追源、零摩擦便利")**：
+   - **信息搜集优先**：断言“不可用/做不到”或产生分歧前，必须先向内核查本机配置、工具箱索引、凭据与日志，并向外沿着用户提供的关键源头线索（官方仓库、一手文档、社区实证）立即检索核实，严禁凭主观印象盲目否认；
+   - **减少对抗、用户便利优先**：遇到环境或权限阻塞时，严禁反复解释拉扯；能由 Agent 前置铺平的步骤先行打通，确需人工配合的环节将用户操作压缩至最少（如直达链接或单次点击），并以实测连通收尾。
+
 ### 3.1 核心方法论原子技能库索引 (Action Skill Layer Index)
 系统已在 Ps-openspec 法定位置部署标准化前沿原子技能，供 Agent 在规划与施工阶段快速索引与调用：
 - **桌面 EXE 开发工程技能**：[`skills/desktop-exe-development/SKILL.md`](file:///D:/APP/AI%20app/Antigravity/AI-Harness-Code/skills/desktop-exe-development/SKILL.md) —— 基于 Tauri v2 (85k+ ⭐) 官方标准，提供轻量 WebView2 绑定、Rust/原生 IPC 桥接、Windows .exe 单文件打包与 NSIS 安装包流水线；

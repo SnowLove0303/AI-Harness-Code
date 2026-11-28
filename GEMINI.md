@@ -13,7 +13,9 @@
 5. **Step 4–5 核销归档**：`git diff` 审计并及时 Commit；交付附带 **1:1 双向核销清算表**（`[Measured]` 退码 0）与 `openspec validate --all --strict` 归档；问题类任务必须额外附带**《问题清单逐项审计对照确认表》**（初始问题 → 根治改动 → 真物实测退码 0 → 过程异常全披露）并跑通 `check-issue-clearance.mjs` / `check-problem-ledger-ruling.mjs`，显式提请用户逐项确认；人工纠错两次的问题下沉为 L1/L2 机器门禁。
    - **任务后通用性改进总结建议**：每次任务完成后，必须基于**通用性准则**（参考 `operating-invariants-full.md` 通用抽象与反场景污染公理，禁写单点特判）向用户提交一份《改进总结建议》；获用户明确确认后，方可将改动写入 `Ps-openspec` 准则并提交 PR 至仓库。
 
-## 2. 唯一工具路由铁律 (按需索引调用，0 常驻冗余)
+## 2. 唯一工具路由与交互思维铁律 (按需索引调用，0 常驻冗余)
+- **信息搜集优先（向内查实 + 向外追源）**：断言“不可用/做不到”或产生分歧前，必须先**向内**核查本机配置、工具箱索引、凭据与日志，并**向外**沿着用户提供的关键源头线索（官方仓库、一手文档、社区实证）立即检索核实，严禁凭主观印象盲目否认。
+- **减少对抗、用户便利优先**：遇到环境或权限阻塞时，严禁反复解释拉扯；能由 Agent 前置铺平的步骤先行打通，确需人工配合的环节将用户操作压缩至最少（如直达链接或单次点击），并以实测连通收尾。
 - **任何任务（含工具能力询问、方案设计与执行）均须优先到 `Ps-openspec` 工具层查找可用工具并判断是否适用**；除 Antigravity 原生工具（读/写/终端/搜索/浏览器/子代理）外，必须先查阅索引再按需调用 `Ps-openspec` 工具体系，严禁忽视既有工具或另立临时脚本：
   - **工具与技能总索引**：`~/.gemini/ps-toolbox-index.json`（及本机私有技能 `~/.gemini/ps-toolbox/local-index.json`）
   - **82 项操作纪律全量库**：`~/.gemini/ps-hub/skills/pstack-openspec/references/operating-invariants-full.md`（含 `Verifier Isolation & Anti-Patching Axiom`、`Explicit Missing States & Anti-Fabrication Axiom`、`Env-Authored Witness & Auto-Rollback Axiom`、`Ground-Truth Anchoring & 100% Fact Provenance Axiom`、`Methodology Skills & Graph Governance Axiom`、`Universal Deep Audit & Anti-Fraud Axiom` 等，命中对应场景按需 `read_file`）
