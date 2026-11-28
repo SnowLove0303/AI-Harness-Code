@@ -12,7 +12,8 @@
 | **`/ps-explore`** | Step 1（探查） | 只读底座感知、匹配 Playbook 与因果溯源 | 纯只读，溯源至 `[Root Source]` |
 | **`/ps-gate2`** | Step 2（门禁 2） | OpenSpec 立法、三元分账与双清单授权 | `design.md` 划分 Engine/Schema/Fixture，获批前禁改业务码 |
 | **`/ps-apply`** | Step 3（施工） | `[-]` 单焦点施工 + VS Code Diff 检阅 | 遵守 Class A–D 边界与 `--max-warnings=0` |
-| **`/ortho-audit`** | 专项正交审计 | **OrthoAudit** 六步代码正交与硬编码审计 | `--git-diff` 预筛 + 语义三问 + 异构探针 + 逐文件审计表 |
+| **`/mech-audit`** | **模式一：机械审计** | 0-Token 确定性脚本与 L2 守卫扫描 | 运行 `check-anti-hardcoding.mjs --git-diff` 等守卫，输出真实退出码 |
+| **`/ortho-audit`** | **模式二：Agent 审计** | **OrthoAudit** 纯 Agent 语义介入审计（不依赖脚本） | Agent 亲读 `git diff`，执行语义三问 + 异构探针 + 逐文件审计表 |
 | **`/ps-verify`** | Step 4–5（终审） | 两阶双轨终审、1:1 核销清算与归档 | `[Measured]` 退码 0 + `openspec validate --all --strict` |
 | **`/ps-guide`** | 帮助导航 | 快速展示全部 `/` 指令与场景选型 | 即时速查 |
 

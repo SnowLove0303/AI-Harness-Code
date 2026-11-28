@@ -8,7 +8,8 @@ description: "Ps-openspec 指令指南：查看全部 / 斜杠指令用法、触
 - `/ps-explore`：Step 1 只读探查与 Playbook 剧本锚定
 - `/ps-gate2`：Step 2 OpenSpec 立法、三元分账（Engine/Schema/Fixture）与双清单授权
 - `/ps-apply`：Step 3 `[-]` 单焦点施工 + VS Code Diff
-- `/ortho-audit`：**OrthoAudit** 六步代码正交与硬编码审计（变动文件 `--git-diff` + 语义三问 + 异构探针）
+- `/mech-audit`：**MechAudit** 纯机械脚本审计（0-Token 运行 `check-anti-hardcoding.mjs --git-diff` 等 L2 守卫）
+- `/ortho-audit`：**OrthoAudit** 纯 Agent 认知介入审计（Agent 亲读 `git diff`，执行语义三问 + 异构探针 + 审计表）
 - `/ps-verify`：Step 4–5 两阶双轨终审、1:1 核销清算与 `openspec` 归档
 - `/ps-guide`：查看本指令速查指南
 
